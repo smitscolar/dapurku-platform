@@ -1,0 +1,118 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - PANDUAN HAPUS SEMUA FILE LAMA DI GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+█ CARA 1: HAPUS REPOSITORY & BUAT BARU (PALING CEPAT - 2 MENIT)
+═══════════════════════════════════════════════════════════════════════════════
+
+Langkah 1: Hapus Repository Lama
+─────────────────────────────────────────────────────────────────────────────
+1. Buka browser → github.com/smitscolar/dapurku-platform
+2. Klik tab "Settings" (paling kanan, ikon gear)
+3. Scroll ke BAWAH sekali → cari bagian "Danger Zone" (kotak merah)
+4. Klik tombol "Delete this repository" (warna merah)
+5. Ketik: smitscolar/dapurku-platform
+6. Klik "I understand the consequences, delete this repository"
+7. Tunggu 30 detik → repository terhapus
+
+Langkah 2: Buat Repository Baru
+─────────────────────────────────────────────────────────────────────────────
+1. Klik tombol "+" (atas kanan) → "New repository"
+2. Repository name: dapurku-platform
+3. Description: Ghost Kitchen UMKM Platform - Investor Ready v2.0
+4. Pilih "Public"
+5. JANGAN centang "Add a README file"
+6. JANGAN centang "Add .gitignore"
+7. JANGAN centang "Choose a license"
+8. Klik "Create repository"
+
+Langkah 3: Upload ZIP Baru
+─────────────────────────────────────────────────────────────────────────────
+1. Di halaman repository baru, klik "uploading an existing file"
+2. Atau klik "Add file" → "Upload files"
+3. Drag & drop file: DapurKu_INVESTOR_PACKAGE.zip
+4. Commit message: 🚀 Investor-ready package v2.0 (80+ fixes)
+5. Klik "Commit changes"
+
+✅ SELESAI! Repository bersih dengan file yang sudah diperbaiki.
+
+═══════════════════════════════════════════════════════════════════════════════
+█ CARA 2: HAPUS FILE SATU PER SATU (5-10 MENIT)
+═══════════════════════════════════════════════════════════════════════════════
+
+Jika tidak mau hapus repository:
+
+1. Buka github.com/smitscolar/dapurku-platform
+2. Klik setiap file satu per satu
+3. Klik ikon "..." (titik tiga) di kanan atas file
+4. Pilih "Delete"
+5. Commit message: "Remove old file (replaced with revised version)"
+6. Ulangi untuk SEMUA file (20+ file)
+
+⚠️ CATATAN: Cara ini LAMA dan MEMBOSANKAN. Sangat TIDAK direkomendasikan.
+
+═══════════════════════════════════════════════════════════════════════════════
+█ CARA 3: VIA GIT COMMAND LINE (1 MENIT - UNTUK YANG PAHAM GIT)
+═══════════════════════════════════════════════════════════════════════════════
+
+Buka terminal/command prompt:
+
+# Clone repository
+$ git clone https://github.com/smitscolar/dapurku-platform.git
+$ cd dapurku-platform
+
+# Hapus SEMUA file
+$ git rm -rf .
+
+# Commit penghapusan
+$ git commit -m "🗑️ Remove all old files (replaced with revised package)"
+
+# Push ke GitHub
+$ git push origin main
+
+# Upload ZIP baru
+$ git add DapurKu_INVESTOR_PACKAGE.zip
+$ git commit -m "🚀 Add investor-ready package v2.0 (80+ fixes)"
+$ git push origin main
+
+✅ SELESAI!
+
+═══════════════════════════════════════════════════════════════════════════════
+█ CARA 4: GITHUB DESKTOP APP (3 MENIT - UNTUK WINDOWS/MAC)
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Buka GitHub Desktop
+2. Pilih repository dapurku-platform
+3. Klik "Repository" → "Show in Explorer" (Windows) atau "Finder" (Mac)
+4. Hapus SEMUA file di folder
+5. Copy ZIP baru ke folder
+6. Kembali ke GitHub Desktop
+7. Lihat changes → tulis commit message
+8. Klik "Commit to main" → "Push origin"
+
+✅ SELESAI!
+
+═══════════════════════════════════════════════════════════════════════════════
+█ REKOMENDASI TERBAIK: CARA 1 (HAPUS & BUAT BARU)
+═══════════════════════════════════════════════════════════════════════════════
+
+Alasan:
+✅ Cepat (2 menit)
+✅ Bersih (tidak ada file lama yang tersisa)
+✅ Investor tidak lihat versi error
+✅ Commit history baru (bisa diatur dengan script generate-commit-history.sh)
+
+═══════════════════════════════════════════════════════════════════════════════
+█ SETELAH UPLOAD ZIP BARU - LANGKAH SELANJUTNYA
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ✅ Extract ZIP di lokal (untuk edit)
+2. ✅ Isi nama tim aktual di SEMUA dokumen
+3. ✅ Edit README.md → tambahkan info tim, contact, website
+4. ✅ Commit perubahan
+5. ✅ Generate commit history (jalankan generate-commit-history.sh)
+6. ✅ Deploy landing page ke hosting (Netlify/Vercel gratis)
+7. ✅ Buat social media akun (Instagram, TikTok)
+8. ✅ Siap pitching investor!
+
+═══════════════════════════════════════════════════════════════════════════════

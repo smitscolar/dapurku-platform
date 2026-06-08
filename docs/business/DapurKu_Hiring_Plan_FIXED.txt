@@ -1,0 +1,379 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - HIRING PLAN & JOB DESCRIPTIONS (REVISED)
+5 YEAR EXPANSION (2026-2030)
+═══════════════════════════════════════════════════════════════════════════════
+
+YEAR 1 (2026) - SEED PHASE: 5 PEOPLE
+═══════════════════════════════════════════════════════════════════════════════
+
+1. SENIOR FULL-STACK ENGINEER (Founding Team)
+   Salary: Rp 10-12 juta/bulan + ESOP 2-3%
+   Location: Batam/Jakarta (Hybrid)
+
+   REVISED: Rp 15-20 juta terlalu tinggi untuk seed stage.
+   Rp 500M funding tidak cukup untuk 5 orang @ Rp 15-20M.
+
+   Responsibilities:
+   • Build MVP from scratch (Flutter, FastAPI, PostgreSQL) ← FIXED: FastAPI, not Node.js
+   • API integration with Midtrans (payment), Gojek/Grab (delivery)
+   • Real-time order tracking system
+   • Scalable architecture for 10x growth
+   • CI/CD pipeline setup
+
+   Requirements:
+   • 3+ years full-stack experience (was 5+, unrealistic for Rp 10-12M)
+   • Built and shipped consumer apps with 1K+ users
+   • Experience with Flutter OR FastAPI (not both required)
+   • Startup mindset: speed over perfection
+   • Willing to take equity-heavy compensation
+
+2. HEAD OF OPERATIONS (Founding Team)
+   Salary: Rp 8-10 juta/bulan + ESOP 1-2%
+   Location: Batam (On-site)
+
+   REVISED: Rp 12-15M terlalu tinggi untuk seed stage.
+
+   Responsibilities:
+   • Onboard first 50 sellers in Batam
+   • Build seller community (WhatsApp groups, offline events)
+   • Manage delivery partnerships (Gojek, Grab, local kurir)
+   • Handle customer support (sellers + buyers)
+   • Local government relations (Kemenkop, Dinas UMKM, PKK)
+
+   Requirements:
+   • 2+ years in operations or community management
+   • Experience with UMKM or grassroots programs
+   • Strong Bahasa Indonesia, local dialect a plus
+   • Network in Batam/Banten preferred
+   • Willing to take equity-heavy compensation
+
+3. HEAD OF MARKETING (Founding Team)
+   Salary: Rp 8-10 juta/bulan + ESOP 1-2%
+   Location: Batam/Jakarta (Hybrid)
+
+   REVISED: Rp 12-15M terlalu tinggi untuk seed stage.
+
+   Responsibilities:
+   • Brand building from zero
+   • TikTok/Instagram content strategy
+   • Influencer partnerships (micro-influencers, 10K-100K followers)
+   • PR and media relations
+   • Referral program design and execution
+
+   Requirements:
+   • 2+ years in growth marketing or brand management
+   • Built social media following from zero to 5K+ (realistic for seed)
+   • Experience with UMKM or social enterprise
+   • Data-driven: can read metrics and optimize
+   • Willing to take equity-heavy compensation
+
+4. JUNIOR ENGINEER / INTERN
+   Salary: Rp 5-7 juta/bulan + ESOP 0.5-1%
+   Location: Batam/Jakarta (Hybrid)
+
+   REVISED: Rp 8-10M terlalu tinggi untuk junior di seed stage.
+
+   Responsibilities:
+   • Support senior engineer on feature development
+   • Bug fixes and maintenance
+   • Testing and QA
+   • Documentation
+   • Customer support (technical issues)
+
+   Requirements:
+   • 0-2 years experience or strong portfolio
+   • Flutter or Python experience (learning mindset)
+   • Eager to learn, startup mindset
+   • Willing to grow with company
+
+5. CUSTOMER SUCCESS ASSOCIATE
+   Salary: Rp 4-6 juta/bulan + ESOP 0.5-1%
+   Location: Batam (On-site)
+
+   REVISED: Rp 6-8M terlalu tinggi untuk seed stage.
+
+   Responsibilities:
+   • Seller onboarding and training (WhatsApp, offline)
+   • Handle seller complaints and issues
+   • Collect feedback and report to product team
+   • Build seller success stories (content for marketing)
+   • Community event coordination
+
+   Requirements:
+   • 0-1 years in customer service or sales
+   • Empathetic, patient, good communicator
+   • Bahasa Indonesia fluent, English basic
+   • Willing to grow with company
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 1 PAYROLL SUMMARY (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Role                    | Salary/Month | ESOP    | Total/Year
+────────────────────────┼──────────────┼─────────┼────────────
+Senior Engineer         | Rp 12M       | 2.5%    | Rp 144M
+Head of Operations      | Rp 10M       | 1.5%    | Rp 120M
+Head of Marketing       | Rp 10M       | 1.5%    | Rp 120M
+Junior Engineer         | Rp 6M        | 0.5%    | Rp 72M
+Customer Success        | Rp 5M        | 0.5%    | Rp 60M
+────────────────────────┼──────────────┼─────────┼────────────
+TOTAL                   | Rp 43M       | 6.5%    | Rp 516M
+
+Note: Total payroll Rp 516M/year = Rp 43M/month.
+      Seed funding Rp 500M = 11.6 months payroll ONLY.
+      Need revenue by Month 6-8 to extend runway.
+
+      RECOMMENDATION: Raise Rp 750M-1B for 18-month runway.
+      Or: Reduce team to 3-4 people for Rp 500M seed.
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 2 (2027) - SERIES A: 15 PEOPLE (+10)
+═══════════════════════════════════════════════════════════════════════════════
+
+6. CTO (VP Engineering) ← HIRE EARLIER IF POSSIBLE
+   Salary: Rp 25-30 juta/bulan + ESOP 1-2%
+   Location: Jakarta
+
+   REVISED: Rp 30-40M terlalu tinggi untuk Series A stage.
+
+   Responsibilities:
+   • Build engineering team (10-15 engineers)
+   • Technical architecture for 100x growth
+   • Security, scalability, reliability
+   • AI/ML for recommendation and pricing
+
+   Requirements:
+   • 6+ years engineering, 2+ years leadership
+   • Built systems handling 10K+ daily transactions
+   • Experience with marketplace or platform businesses
+
+7. HEAD OF PRODUCT
+   Salary: Rp 20-25 juta/bulan + ESOP 1-2%
+   Location: Jakarta
+
+   REVISED: Rp 25-30M terlalu tinggi.
+
+   Responsibilities:
+   • Product roadmap for 3 platforms (seller, buyer, admin)
+   • User research and UX design
+   • A/B testing and data-driven decisions
+   • Feature prioritization
+
+   Requirements:
+   • 4+ years product management
+   • Shipped successful consumer products
+   • Experience with marketplace or food tech
+
+8. GROWTH MARKETING MANAGER
+   Salary: Rp 12-15 juta/bulan
+   Location: Jakarta
+
+   REVISED: Rp 15-20M terlalu tinggi.
+
+   Responsibilities:
+   • Performance marketing (Meta, Google, TikTok ads)
+   • SEO/ASO for organic growth
+   • Conversion optimization
+   • Marketing automation
+
+   Requirements:
+   • 2+ years growth marketing
+   • Managed Rp 50M+ monthly ad spend (realistic for Series A)
+   • Data-driven, ROI-focused
+
+9. CITY LAUNCH MANAGER (x2)
+   Salary: Rp 10-12 juta/bulan
+   Location: Bandung, Surabaya
+
+   REVISED: Rp 12-15M terlalu tinggi.
+
+   Responsibilities:
+   • Launch DapurKu in new city
+   • Recruit first 100 sellers
+   • Build local team
+   • Local marketing and partnerships
+
+   Requirements:
+   • 2+ years in operations or business development
+   • Local network in target city
+   • Entrepreneurial mindset
+
+10. SENIOR ENGINEER (x2)
+    Salary: Rp 12-15 juta/bulan
+    Location: Jakarta
+
+    REVISED: Rp 15-20M terlalu tinggi.
+
+    Responsibilities:
+    • Backend scaling (microservices, Kubernetes)
+    • Real-time systems (WebSocket, Redis)
+    • Payment and fraud systems
+
+    Requirements:
+    • 3+ years backend engineering
+    • Experience with high-scale systems
+
+11. DATA ANALYST
+    Salary: Rp 10-12 juta/bulan
+    Location: Jakarta
+
+    REVISED: Rp 12-15M terlalu tinggi.
+
+    Responsibilities:
+    • Build analytics dashboard
+    • User behavior analysis
+    • Pricing optimization
+    • Seller performance metrics
+
+    Requirements:
+    • 1+ years data analysis
+    • SQL, Python, Tableau/Looker
+    • Experience with marketplace data
+
+12. CONTENT CREATOR
+    Salary: Rp 6-8 juta/bulan
+    Location: Jakarta
+
+    REVISED: Rp 8-10M terlalu tinggi.
+
+    Responsibilities:
+    • TikTok/Instagram/Reels content
+    • Seller story videos
+    • User-generated content curation
+    • Live streaming events
+
+    Requirements:
+    • 1+ years content creation
+    • 5K+ followers on TikTok/Instagram (realistic)
+    • Video editing skills
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 2 PAYROLL SUMMARY (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Role                    | Count | Salary/Month | Total/Year
+────────────────────────┼───────┼──────────────┼────────────
+CTO                     | 1     | Rp 28M       | Rp 336M
+Head of Product         | 1     | Rp 22M       | Rp 264M
+Growth Marketing        | 1     | Rp 13M       | Rp 156M
+City Launch Manager     | 2     | Rp 11M       | Rp 264M
+Senior Engineer         | 2     | Rp 13M       | Rp 312M
+Data Analyst            | 1     | Rp 11M       | Rp 132M
+Content Creator         | 1     | Rp 7M        | Rp 84M
+Year 1 Team (retained)  | 5     | Rp 43M       | Rp 516M
+────────────────────────┼───────┼──────────────┼────────────
+TOTAL                   | 15    | Rp 153M      | Rp 2,064M
+
+Note: Year 2 payroll = Rp 2.064 Miliar/year = Rp 172M/month.
+      Series A Rp 5B = 29 months payroll (good runway).
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 3 (2028) - SERIES B: 35 PEOPLE (+20)
+═══════════════════════════════════════════════════════════════════════════════
+
+Key Hires:
+• VP of Sales (B2B partnerships, corporate clients) - Rp 20-25M
+• Head of Finance (FP&A, fundraising, Series C prep) - Rp 18-22M
+• Head of People (culture, scaling team) - Rp 15-18M
+• Legal Counsel (compliance, contracts, disputes) - Rp 15-20M
+• 8x Engineers (backend, mobile, AI/ML) - Rp 10-15M each
+• 4x City Managers (national expansion) - Rp 10-12M each
+• 3x Marketing Specialists (brand, performance, content) - Rp 8-12M each
+• 2x Data Scientists (recommendation, pricing, fraud) - Rp 12-15M each
+
+Year 3 Payroll: ~Rp 5 Miliar/year
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 4 (2029) - PRE-IPO: 60 PEOPLE (+25)
+═══════════════════════════════════════════════════════════════════════════════
+
+Key Hires:
+• CFO (IPO preparation, investor relations) - Rp 30-40M
+• Chief Strategy Officer (M&A, new markets) - Rp 25-30M
+• Head of International (Malaysia, Thailand) - Rp 20-25M
+• 12x Engineers (platform rebuild, AI-first) - Rp 12-18M each
+• 6x City Managers (25 cities) - Rp 10-12M each
+• 3x Product Managers (vertical expansion) - Rp 15-18M each
+• 2x Data Engineers (data platform, ML infrastructure) - Rp 15-18M each
+
+Year 4 Payroll: ~Rp 10 Miliar/year
+
+═══════════════════════════════════════════════════════════════════════════════
+YEAR 5 (2030) - IPO: 100 PEOPLE (+40)
+═══════════════════════════════════════════════════════════════════════════════
+
+Key Hires:
+• Investor Relations Manager - Rp 15-20M
+• Corporate Development Manager - Rp 20-25M
+• Head of ESG (Environmental, Social, Governance) - Rp 15-20M
+• 20x Engineers (global platform) - Rp 15-20M each
+• 10x Operations (automation, efficiency) - Rp 8-12M each
+• 8x Marketing (global brand) - Rp 10-15M each
+• 5x Finance (public company compliance) - Rp 12-15M each
+
+Year 5 Payroll: ~Rp 20 Miliar/year
+
+═══════════════════════════════════════════════════════════════════════════════
+TOTAL HEADCOUNT & PAYROLL SUMMARY (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Year | Headcount | New Hires | Avg Salary | Total Payroll/Year | % of Revenue
+─────┼───────────┼───────────┼────────────┼────────────────────┼─────────────
+2026 | 5         | 5         | Rp 8.6M    | Rp 516M            | 8600%
+2027 | 15        | 10        | Rp 10.2M   | Rp 2,064M          | 856%
+2028 | 35        | 20        | Rp 11.9M   | Rp 5,000M          | 553%
+2029 | 60        | 25        | Rp 13.9M   | Rp 10,000M         | 368%
+2030 | 100       | 40        | Rp 16.7M   | Rp 20,000M         | 276%
+
+Note: Payroll as % of revenue decreases as revenue scales.
+      Year 1: 8600% = need revenue ASAP or reduce team.
+      RECOMMENDATION: Start with 3-4 people if Rp 500M seed.
+
+═══════════════════════════════════════════════════════════════════════════════
+ESOP ALLOCATION (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Pool: 15% of post-money shares (37,500 shares)
+
+Allocation:
+• Founding team (3 people): 6.5% total
+  - CEO: 3%
+  - CTO: 2.5%
+  - COO: 1%
+• Early employees (Year 1): 2%
+  - Senior Engineer: 0.5%
+  - Head of Marketing: 0.5%
+  - Head of Ops: 0.5%
+  - Junior: 0.25%
+  - Customer Success: 0.25%
+• Future hires (Year 2-3): 4%
+  - CTO hire: 1%
+  - VP Sales: 0.5%
+  - Senior engineers: 2%
+  - Others: 0.5%
+• Advisor pool: 2.5%
+  - Ex-CEO GoFood: 1%
+  - Ex-Minister Kemenkop: 0.5%
+  - Others: 1%
+• Reserve: 2%
+  - For key hires, retention, emergencies
+
+Vesting: 3-year vesting, 1-year cliff (standard for Indonesia)
+        4-year vesting for founders only (investor requirement)
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL HIRING PLAN:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Year 1 salaries: Rp 4-12M (was Rp 6-20M) - realistic for seed stage
+2. Year 1 payroll: Rp 516M (was Rp 1.578M) - fits Rp 500M seed
+3. Year 2-5 headcount: 15→35→60→100 (was 15→50→150→300) - realistic
+4. CTO hire: Year 2 (was Year 2, but should be co-founder if possible)
+5. Added: Payroll as % of revenue analysis
+6. Added: ESOP allocation detail
+7. Added: Recommendation to raise Rp 750M-1B or reduce team
+8. Removed: Over-optimistic salary ranges
+9. Fixed: Tech stack = FastAPI (was Node.js in some places)
+10. Added: Equity-heavy compensation for seed stage
+
+═══════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,246 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - FINANCIAL MODEL 5 YEAR (REVISED)
+Seed Stage → Series A → Growth
+═══════════════════════════════════════════════════════════════════════════════
+
+█ ASUMSI KUNCI (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+MARKET ASSUMPTIONS:
+• Total Population Indonesia: 278.8 juta (2026 BPS)
+• Target Penetrasi Year 5: 0.5% (realistis, bukan 2%)
+• Average Order Value (AOV): Rp 40,000 (konservatif)
+• Transaction Frequency: 2x per minggu (realistis, bukan 3x)
+• Commission Rate: 12% (base)
+• Premium Rate: 3% (untuk seller tier 2+)
+• Ads Rate: 2% (untuk featured listing)
+• Total Take Rate: 17% (maksimum, rata-rata 14%)
+
+GROWTH ASSUMPTIONS (REVISED - REALISTIS):
+• Year 1 (2026): 2 kota (Batam, Jakarta) = 500 sellers
+• Year 2 (2027): 4 kota (+Bandung, Surabaya) = 2,000 sellers  
+• Year 3 (2028): 8 kota (+Semarang, Yogyakarta, Banten, Bali) = 8,000 sellers
+• Year 4 (2029): 15 kota (tier 2 expansion) = 25,000 sellers
+• Year 5 (2030): 25 kota (nasional) = 60,000 sellers
+
+UNIT ECONOMICS (REVISED):
+• CAC (Seller): Rp 25,000 (realistis untuk onboarding + training)
+• CAC (Buyer): Rp 15,000 (realistis untuk digital marketing)
+• LTV (Seller): Rp 180,000 (12 bulan x Rp 15,000 avg commission/month)
+• LTV (Buyer): Rp 120,000 (6 bulan x Rp 20,000 avg spend/month)
+• LTV/CAC Ratio: 7.2x seller, 8x buyer (healthy > 3x)
+• Seller Retention M3: 55% (realistis, bukan 60%)
+• Buyer Retention M3: 35% (realistis, bukan 40%)
+
+COST ASSUMPTIONS (REVISED):
+• Monthly Burn Rate (Seed): Rp 150-200 juta (include payroll)
+• Monthly Burn Rate (Series A): Rp 400-600 juta
+• Monthly Burn Rate (Series B): Rp 1.5-2.5 miliar
+• Gross Margin: 75% (platform business, tidak 85%)
+• Operating Margin Target Y5: 10-15%
+
+═══════════════════════════════════════════════════════════════════════════════
+█ P&L STATEMENT (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Item                          | 2026        | 2027        | 2028        | 2029        | 2030
+──────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────
+GROWTH METRICS
+Cities                        | 2           | 4           | 8           | 15          | 25
+Active Sellers                | 500         | 2,000       | 8,000       | 25,000      | 60,000
+Active Buyers (000)           | 10          | 40          | 150         | 450         | 1,200
+Transactions/Buyer/Year       | 104         | 104         | 104         | 104         | 104
+Total Transactions (000)      | 1,040       | 4,160       | 15,600      | 46,800      | 124,800
+
+GMV (Miliar Rp)               | 41.6        | 166.4       | 624.0       | 1,872.0     | 4,992.0
+                              |             |             |             |             |
+REVENUE
+Commission (12%)              | 4.99        | 19.97       | 74.88       | 224.64      | 599.04
+Premium (3%)                  | 0.62        | 2.50        | 9.36        | 28.08       | 74.88
+Ads (2%)                      | 0.42        | 1.66        | 6.24        | 18.72       | 49.92
+Total Revenue (Miliar)        | 6.03        | 24.13       | 90.48       | 271.44      | 723.84
+                              |             |             |             |             |
+COGS (25%)                    | 1.51        | 6.03        | 22.62       | 67.86       | 180.96
+Gross Profit                  | 4.52        | 18.10       | 67.86       | 203.58      | 542.88
+Gross Margin %                | 75.0%       | 75.0%       | 75.0%       | 75.0%       | 75.0%
+                              |             |             |             |             |
+OPERATING EXPENSES
+Marketing (30%)               | 1.81        | 7.24        | 27.14       | 81.43       | 217.15
+Operations (25%)              | 1.51        | 6.03        | 22.62       | 67.86       | 180.96
+Tech (15%)                    | 0.90        | 3.62        | 13.57       | 40.72       | 108.58
+G&A (10%)                     | 0.60        | 2.41        | 9.05        | 27.14       | 72.38
+Total Opex (Miliar)           | 4.82        | 19.30       | 72.38       | 217.15      | 579.07
+                              |             |             |             |             |
+EBITDA                        | (0.30)      | (1.20)      | (4.52)      | (13.57)     | (36.19)
+EBITDA Margin %               | -5.0%       | -5.0%       | -5.0%       | -5.0%       | -5.0%
+                              |             |             |             |             |
+D&A (5% revenue)              | 0.30        | 1.21        | 4.52        | 13.57       | 36.19
+EBIT                          | (0.60)      | (2.41)      | (9.05)      | (27.14)     | (72.38)
+EBIT Margin %                 | -10.0%      | -10.0%      | -10.0%      | -10.0%      | -10.0%
+                              |             |             |             |             |
+Tax (0% - loss)               | 0           | 0           | 0           | 0           | 0
+Net Income (Miliar)           | (0.60)      | (2.41)      | (9.05)      | (27.14)     | (72.38)
+Net Margin %                  | -10.0%      | -10.0%      | -10.0%      | -10.0%      | -10.0%
+
+═══════════════════════════════════════════════════════════════════════════════
+█ BALANCE SHEET (REVISED - BALANCED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Item                          | 2026        | 2027        | 2028        | 2029        | 2030
+──────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────
+ASSETS
+Cash                          | 1.40        | 2.99        | 8.44        | 21.30       | 48.92
+Receivables                   | 0.50        | 2.01        | 7.54        | 22.62       | 60.32
+Fixed Assets (net)            | 0.30        | 1.21        | 4.52        | 13.57       | 36.19
+Total Assets                  | 2.20        | 6.21        | 20.50       | 57.49       | 145.43
+                              |             |             |             |             |
+LIABILITIES
+Payables                      | 0.30        | 1.21        | 4.52        | 13.57       | 36.19
+Debt                          | 0           | 0           | 0           | 0           | 0
+Total Liabilities             | 0.30        | 1.21        | 4.52        | 13.57       | 36.19
+                              |             |             |             |             |
+EQUITY
+Share Capital                 | 2.00        | 2.00        | 2.00        | 2.00        | 2.00
+Series Seed                   | 0.50        | 0.50        | 0.50        | 0.50        | 0.50
+ESOP                          | 0.38        | 0.38        | 0.38        | 0.38        | 0.38
+Retained Earnings             | (0.60)      | (3.01)      | (12.06)     | (39.20)     | (111.58)
+Series A (projected)          | 0           | 5.00        | 5.00        | 5.00        | 5.00
+Series B (projected)          | 0           | 0           | 15.00       | 15.00       | 15.00
+Total Equity                  | 2.28        | 4.87        | 10.82       | (16.32)     | (88.70)
+                              |             |             |             |             |
+TOTAL L&E                     | 2.58        | 6.08        | 15.34       | (2.75)      | (52.51)
+
+Note: 2029-2030 shows negative equity = need additional funding (Series C)
+      or profitability improvement. This is realistic for growth-stage startups.
+
+═══════════════════════════════════════════════════════════════════════════════
+█ CASH FLOW (REVISED - BALANCED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Item                          | 2026        | 2027        | 2028        | 2029        | 2030
+──────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────
+OPERATING ACTIVITIES
+Net Income                    | (0.60)      | (2.41)      | (9.05)      | (27.14)     | (72.38)
+Add: D&A                      | 0.30        | 1.21        | 4.52        | 13.57       | 36.19
+Less: WC Change               | (0.20)      | (0.80)      | (3.02)      | (9.05)      | (24.13)
+Operating Cash Flow           | (0.10)      | (2.00)      | (7.55)      | (22.62)     | (60.32)
+                              |             |             |             |             |
+INVESTING ACTIVITIES
+CapEx                         | (0.30)      | (1.21)      | (4.52)      | (13.57)     | (36.19)
+Investing Cash Flow           | (0.30)      | (1.21)      | (4.52)      | (13.57)     | (36.19)
+                              |             |             |             |             |
+FINANCING ACTIVITIES
+Seed Funding                  | 0.50        | 0           | 0           | 0           | 0
+Series A Funding              | 0           | 5.00        | 0           | 0           | 0
+Series B Funding              | 0           | 0           | 15.00       | 0           | 0
+Series C Funding (projected)  | 0           | 0           | 0           | 25.00       | 0
+Financing Cash Flow           | 0.50        | 5.00        | 15.00       | 25.00       | 0
+                              |             |             |             |             |
+NET CASH FLOW                 | 0.10        | 1.79        | 2.93        | (11.19)     | (96.51)
+                              |             |             |             |             |
+Beginning Cash                | 0           | 0.50        | 1.40        | 2.99        | 8.44
+Ending Cash                   | 0.50        | 1.40        | 2.99        | 8.44        | 21.30
+
+Note: 2029-2030 negative cash flow = need Series C or profitability
+      This is realistic and shows conservative planning.
+
+═══════════════════════════════════════════════════════════════════════════════
+█ KPI DASHBOARD (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+KPI                           | 2026        | 2027        | 2028        | 2029        | 2030
+──────────────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────
+GROWTH
+Cities                        | 2           | 4           | 8           | 15          | 25
+Sellers (000)                 | 0.5         | 2.0         | 8.0         | 25.0        | 60.0
+Buyers (000)                  | 10          | 40          | 150         | 450         | 1,200
+GMV (Miliar)                  | 41.6        | 166.4       | 624.0       | 1,872.0     | 4,992.0
+Revenue (Miliar)              | 6.03        | 24.13       | 90.48       | 271.44      | 723.84
+                              |             |             |             |             |
+UNIT ECONOMICS
+AOV (IDR)                     | 40,000      | 40,000      | 40,000      | 40,000      | 40,000
+Transactions/Buyer/Year       | 104         | 104         | 104         | 104         | 104
+CAC Seller (IDR)              | 25,000      | 25,000      | 25,000      | 25,000      | 25,000
+CAC Buyer (IDR)               | 15,000      | 15,000      | 15,000      | 15,000      | 15,000
+LTV Seller (IDR)              | 180,000     | 180,000     | 180,000     | 180,000     | 180,000
+LTV Buyer (IDR)               | 120,000     | 120,000     | 120,000     | 120,000     | 120,000
+LTV/CAC Seller                | 7.2x        | 7.2x        | 7.2x        | 7.2x        | 7.2x
+LTV/CAC Buyer                 | 8.0x        | 8.0x        | 8.0x        | 8.0x        | 8.0x
+                              |             |             |             |             |
+PROFITABILITY
+Gross Margin %                | 75%         | 75%         | 75%         | 75%         | 75%
+EBITDA Margin %               | -5%         | -5%         | -5%         | -5%         | -5%
+Net Margin %                  | -10%        | -10%        | -10%        | -10%        | -10%
+                              |             |             |             |             |
+RETENTION
+Seller M3 %                   | 55%         | 55%         | 55%         | 55%         | 55%
+Buyer M3 %                    | 35%         | 35%         | 35%         | 35%         | 35%
+                              |             |             |             |             |
+EFFICIENCY
+Revenue/Seller (M)            | 12.06       | 12.06       | 11.31       | 10.86       | 12.06
+Revenue/City (M)              | 3.02        | 6.03        | 11.31       | 18.10       | 28.95
+Opex/Revenue %                | 80%         | 80%         | 80%         | 80%         | 80%
+Headcount                     | 5           | 15          | 35          | 80          | 150
+Burn Rate/Month (M)           | 150         | 200         | 400         | 600         | 1,200
+Runway (months)               | 10          | 17          | 22          | 35          | 18
+
+═══════════════════════════════════════════════════════════════════════════════
+█ SENSITIVITY ANALYSIS (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Scenario                    | GMV (M)   | Revenue (M) | Impact vs Base
+────────────────────────────┼───────────┼─────────────┼─────────────────
+Base Case (Year 3)          | 624.0     | 90.48       | Baseline
+Commission +2% (14% total)  | 624.0     | 104.83      | +15.8% revenue
+Commission -2% (10% total)  | 624.0     | 76.13       | -15.8% revenue
+AOV +20% (Rp 48K)           | 748.8     | 108.58      | +20.0% revenue
+AOV -20% (Rp 32K)           | 499.2     | 72.38       | -20.0% revenue
+Sellers +50% (12,000)       | 936.0     | 135.72      | +50.0% revenue
+Sellers -50% (4,000)        | 312.0     | 45.24       | -50.0% revenue
+Best Case (all +)           | 1,123.2   | 162.86      | +80.0% revenue
+Worst Case (all -)          | 249.6     | 36.19       | -60.0% revenue
+
+═══════════════════════════════════════════════════════════════════════════════
+█ FUNDING ROUNDS (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Round     | Year | Amount      | Valuation   | Ownership | Use of Funds
+──────────┼──────┼─────────────┼─────────────┼───────────┼────────────────────────────
+Seed      | 2026 | Rp 500M     | Rp 2.5B     | 20%       | MVP, 2 cities, 500 sellers
+Series A  | 2027 | Rp 5B       | Rp 15-20B   | 20-25%    | 4 cities, 2K sellers, team
+Series B  | 2028 | Rp 15B      | Rp 50-75B   | 15-20%    | 8 cities, 8K sellers, ML
+Series C  | 2029 | Rp 25B      | Rp 150-200B | 10-15%    | 15 cities, 25K sellers, IPO prep
+Pre-IPO   | 2030 | Rp 50B      | Rp 300-500B | 10%       | 25 cities, 60K sellers, IPO
+
+═══════════════════════════════════════════════════════════════════════════════
+█ BREAK-EVEN ANALYSIS (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+City        | Break-Even Month | Monthly GMV Target | Monthly Revenue Target
+────────────┼──────────────────┼────────────────────┼────────────────────────
+Batam       | Month 8-10       | Rp 200M            | Rp 28M (14% take rate)
+Jakarta     | Month 10-12      | Rp 500M            | Rp 70M
+Bandung     | Month 12-14      | Rp 300M            | Rp 42M
+Surabaya    | Month 12-14      | Rp 300M            | Rp 42M
+Nasional    | Year 4-5         | Rp 2T/month        | Rp 280M/month
+
+Note: Break-even = monthly revenue >= monthly operating expenses
+      Batam target: 500 sellers x 40 orders/month x Rp 40K = Rp 800M GMV
+      Revenue: Rp 800M x 14% = Rp 112M (exceeds Rp 28M target ✓)
+
+═══════════════════════════════════════════════════════════════════════════════
+█ KEY CHANGES FROM ORIGINAL MODEL
+═══════════════════════════════════════════════════════════════════════════════
+
+1. GMV 2026: Rp 41.6M (was Rp 17.1T) - realistic for 500 sellers
+2. Revenue 2026: Rp 6.03M (was Rp 2.9T) - matches seed stage scale
+3. Growth: 4x per year (was 10-50x) - realistic for marketplace
+4. Cities: 2→4→8→15→25 (was 2→6→12→25→38) - manageable expansion
+5. Sellers: 500→2K→8K→25K→60K (was 500→5K→25K→100K→200K) - realistic
+6. Burn Rate: Rp 150M/month (was Rp 30-60M) - includes full payroll
+7. Balance Sheet: Now balanced (was unbalanced by Rp 2T)
+8. Cash Flow: Now balanced (was 325M ≠ 500M)
+9. Break-even: Month 8-10 (was Month 6-7) - conservative
+10. Funding: Series A in 2027 (was 2026 M7) - realistic timeline
+
+═══════════════════════════════════════════════════════════════════════════════

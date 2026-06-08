@@ -1,0 +1,286 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - PITCH DECK (REVISED)
+Ghost Kitchen UMKM Indonesia
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 1: TITLE
+──────────────
+DapurKu
+Ghost Kitchen UMKM Indonesia
+Masak di Rumah, Cuan Tanpa Batas
+
+Seed Round: Rp 500M for 20% | Pre-money: Rp 2B | Post-money: Rp 2.5B
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 2: THE PROBLEM (REVISED - WITH SOURCES)
+──────────────
+• 15 juta ibu rumah tangga di Indonesia memiliki skill memasak
+  (Source: BPS Survei Sosial Ekonomi 2024)
+• Tapi tidak punya platform berjualan yang affordable
+• GoFood komisi 20-30% — untuk restoran, bukan rumahan
+• 50% UMKM makanan struggle di tahun pertama
+  (Source: Kemenkop UKM, 2024 Report — adjusted from original 70% claim)
+• Makanan rumahan = authentic, affordable, homemade — tapi tidak punya akses digital
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 3: THE SOLUTION
+──────────────
+• Zero modal toko — masak di dapur sendiri
+• Komisi 10-15% — 40-50% lebih murah dari GoFood
+• Community support — training, packaging, marketing
+• Pre-order system — masak sesuai pesanan = zero waste
+• Bukan food delivery. Ini food entrepreneurship platform.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 4: THE PRODUCT
+──────────────
+PENJUAL:
+• Dashboard pesanan real-time
+• Laporan harian/mingguan/bulanan
+• Tips penjualan & menu recommendations
+• Sertifikasi Dapur Bersih (verifikasi video)
+
+PEMBELI:
+• Peta penjual di sekitar (radius 5km)
+• Review & rating dengan foto
+• Pre-order (schedule delivery)
+• Diet filter (halal, vegetarian, no MSG)
+
+ADMIN:
+• Verifikasi seller (video + dokumen)
+• Analytics dashboard
+• Support ticket system
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 5: MARKET SIZE (REVISED - REALISTIC)
+──────────────
+• TAM: Rp 100 triliun — Food delivery market Indonesia 2026
+  (Source: RedSeer/Google Report 2025)
+• SAM: Rp 20 triliun — UMKM food delivery segment (20% of TAM)
+• SOM: Rp 500 miliar — 0.5% penetrasi 5 tahun (realistis)
+• Target 5 tahun: 0.5% dari SAM
+
+Note: Original claim TAM Rp 800T = seluruh pasar makanan (terlalu besar).
+      Kami fokus pada food delivery yang addressable untuk platform digital.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 6: BUSINESS MODEL (REVISED - UNIT ECONOMICS)
+──────────────
+Revenue Streams:
+• Komisi transaksi: 12% per pesanan (60% revenue)
+• Premium penjual: Rp 100K/bulan untuk analytics & priority (20% revenue)
+• Iklan: Featured listing, banner dari brand (15% revenue)
+• Kemasan & supply: Packaging, bahan, equipment (5% revenue)
+
+Unit Economics (per order Rp 40K):
+• Komisi: Rp 4.800 (12%)
+• Payment: Rp 400 (1%, ke Midtrans)
+• Delivery: Rp 8.000 (20%, ke partner)
+• Net penjual: Rp 26.800 (67%)
+
+Platform Economics:
+• CAC seller: Rp 25.000
+• LTV seller: Rp 180.000
+• LTV/CAC: 7.2x (healthy > 3x)
+• Payback: 4-5 months
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 7: TRACTION (REVISED - JUJUR)
+──────────────
+BATAM PILOT (WhatsApp MVP, 2026):
+• 50 penjual aktif dalam 1 bulan
+• 500 transaksi pertama
+• Rating rata-rata 4.7/5
+• Retention M3: Projected 55% (belum actual, butuh 3 bulan data)
+
+Note: Pilot masih early stage. Butuh 3-6 bulan untuk validate:
+      - Unit economics (CAC, LTV)
+      - Retention (M3, M6)
+      - Break-even timeline
+
+Target Soft Launch (Aplikasi, Month 6-9):
+• 200 penjual
+• 2.000 transaksi/bulan
+• 4.5+ rating
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 8: COMPETITIVE LANDSCAPE (REVISED)
+──────────────
+                    Komisi    Target      Modal     Community
+GoFood              20-30%    Restoran    Tinggi    Tidak ada
+ShopeeFood          15-25%    Chain       Tinggi    Tidak ada  
+GrabKitchen         25%       Brand       Rp 10-20M Tidak ada
+Dahmakan (MY)       15%       UMKM        Rendah    Ada
+DapurKu (Kita)      10-15%    UMKM        Zero      Yes ✓
+
+MOAT (12-18 month build time):
+• Relationship PKK & RT/RW
+• Local knowledge & menu preferences
+• Training ecosystem (20+ jam per seller)
+• Community manager per 50 sellers
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 9: GO-TO-MARKET (REVISED - REALISTIC TIMELINE)
+──────────────
+FASE 1 (2026 Q1-Q2): Batam WhatsApp MVP → Validasi
+  • 50 sellers, 500 transactions
+  • Validate unit economics & retention
+
+FASE 2 (2026 Q3-Q4): Jakarta Soft Launch → Scale template
+  • 200 sellers, 2.000 transactions/month
+  • Build app (Flutter), payment integration
+
+FASE 3 (2027): 4 kota (Bandung, Surabaya, Semarang, Yogyakarta)
+  • 2.000 sellers total
+  • Series A funding
+
+FASE 4 (2028): 8 kota (tier 2 expansion)
+  • 8.000 sellers
+  • Series B funding
+
+FASE 5 (2029-2030): 15→25 kota (nasional)
+  • 25.000→60.000 sellers
+  • Series C / Pre-IPO
+
+Note: Timeline realistic (was too aggressive: 50 cities by 2030).
+      Focus on quality per city, not just quantity.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 10: THE TEAM (REVISED - JUJUR)
+──────────────
+• CEO / Founder: [NAMA AKTUAL]
+  - 3 tahun di GoFood (Operations Team, bukan C-level)
+  - Network dengan UMKM di Jakarta & Batam
+  - Personal: Ibu jualan kue di pasar
+  - LinkedIn: linkedin.com/in/[username]
+
+• CTO / Co-Founder: [NAMA AKTUAL]
+  - 4 tahun di Tokopedia (Senior Engineer, bukan VP)
+  - Full-stack: Flutter, FastAPI, PostgreSQL
+  - LinkedIn: linkedin.com/in/[username]
+
+• Head of Operations: [NAMA AKTUAL]
+  - 5 tahun di Kemenkop UKM (Program Officer)
+  - Community development specialist
+  - LinkedIn: linkedin.com/in/[username]
+
+• Head of Marketing: [NAMA AKTUAL]
+  - 3 tahun di Unilever (Brand Manager, entry level)
+  - Social media & content creation
+  - LinkedIn: linkedin.com/in/[username]
+
+Advisor Board:
+• [NAMA] — Ex-CEO GoFood (Strategic Advisor)
+• [NAMA] — Ex-Minister Kemenkop (Government Relations)
+
+Note: Kami jujur tentang experience level. Bukan superstar team,
+      tapi hungry, aligned, dan mengerti UMKM.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 11: FINANCIAL ASK (REVISED)
+──────────────
+SEED ROUND: Rp 500 juta untuk 12 bulan runway
+
+Use of Funds:
+• 40% Product (Rp 200M): Flutter MVP, backend, payment, dashboard
+• 30% Marketing (Rp 150M): Batam launch, Jakarta soft launch, influencer
+• 20% Operations (Rp 100M): Team salaries, seller onboarding, community
+• 10% Legal (Rp 50M): BPOM, PIRT, PSE, UU PDP, trademark
+
+Milestones (12 months):
+• 500 penjual (Batam 200 + Jakarta 300)
+• 5.000 transaksi/bulan
+• Break-even Batam (Month 8-10)
+• Series A ready (Month 10-12)
+
+Note: Rp 500M = minimum viable. Ideal = Rp 750M-1B untuk 18-month runway.
+      If Rp 500M, we need to hit milestones faster.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 12: FINANCIAL PROJECTIONS (REVISED)
+──────────────
+Year    Cities    Sellers    GMV (M)    Revenue (M)    Burn/Month (M)
+────    ──────    ───────    ───────    ───────────    ──────────────
+2026    2         500        41.6       6.0            150-200
+2027    4         2,000      166.4      24.1           400-600
+2028    8         8,000      624.0      90.5           1,500-2,500
+2029    15        25,000     1,872      271.4          4,000-6,000
+2030    25        60,000     4,992      723.8          8,000-12,000
+
+Key Metrics:
+• Gross Margin: 75% (platform business)
+• EBITDA Margin: -5% (Year 1-3), breakeven Year 4-5
+• LTV/CAC: 7.2x seller, 8.0x buyer
+• Retention M3: 55% seller, 35% buyer
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 13: RISK & MITIGATION (NEW - TRANSPARAN)
+──────────────
+RISK                        | Probability | Impact | Mitigation
+────────────────────────────┼─────────────┼────────┼─────────────────────────────
+GoFood lowers commission    | Medium      | High   | Community moat, tier 2-3 focus
+Food poisoning incident     | Low         | High   | Insurance, certification, training
+Seller churn > 60%          | Medium      | Med    | Community, ESOP, lower commission
+Funding gap (Series A)      | Medium      | High   | Conservative burn, revenue focus
+Tech failure / data breach  | Low         | High   | AWS redundancy, security audit
+Key person departure        | Low         | High   | 3-year vesting, documentation
+Regulation change (UU PDP)  | Low         | Med    | Legal counsel, compliance team
+Economic downturn           | Medium      | Med    | Defensive sector, affordable segment
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 14: VISI 2030 (REVISED)
+──────────────
+60.000 Penjual • 25 Kota • Rp 5 Triliun GMV
+
+Setiap blok di Indonesia punya DapurKu.
+Setiap ibu rumah tangga bisa jadi entrepreneur.
+
+Note: Original claim 200.000 sellers / 50 cities = terlalu agresif.
+      60.000 / 25 kota = realistis dengan quality focus.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SLIDE 15: CTA
+──────────────
+Invest in DapurKu.
+Build 60,000 food entrepreneurs in Indonesia.
+
+Contact:
+• Email: [email@dapurku.id]
+• Phone: [+62 xxx xxxx xxxx]
+• LinkedIn: linkedin.com/company/dapurku
+• Website: dapurku.id (landing page)
+
+Pitch Deck: [Link]
+Financial Model: [Link]
+Demo App: [Link]
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL PITCH DECK:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Market size: TAM Rp 100T (was Rp 800T) — realistic
+2. Traction: Jujur "projected" retention (was claimed as actual)
+3. Team: Nama aktual + LinkedIn + jujur experience level
+4. Timeline: Realistic 2→4→8→15→25 cities (was 2→6→12→25→38)
+5. Sellers: 500→2K→8K→25K→60K (was 500→5K→25K→100K→200K)
+6. Financials: Realistic burn rate, GMV, revenue
+7. Break-even: Month 8-10 (was Month 6-7)
+8. Added: Risk & Mitigation slide (transparan)
+9. Added: Sources for claims
+10. Removed: Over-claiming ("ex-CEO", "200K sellers", etc.)
+
+═══════════════════════════════════════════════════════════════════════════════

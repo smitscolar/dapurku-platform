@@ -1,0 +1,464 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - LEGAL COMPLIANCE CHECKLIST (REVISED)
+INDONESIA OPERATIONS (2026-2030)
+═══════════════════════════════════════════════════════════════════════════════
+
+SECTION 1: COMPANY FORMATION & CORPORATE
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 1.1 PT (Perseroan Terbatas) Registration
+    • Deed of Establishment (Akta Pendirian)
+    • Ministry of Law and Human Rights approval (SK Kemenkumham)
+    • NIB (Nomor Induk Berusaha) via OSS
+    • NPWP (Tax ID)
+    • TDP (Company Registration Certificate)
+    • SIUP (Business License) - if required
+    Deadline: Before operations (2026 Q2)
+    Cost: Rp 5-10 juta
+    Responsible: Legal counsel (retainer Rp 30-50M/year)
+
+[ ] 1.2 Shareholder Agreements
+    • Founders agreement (3-year vesting, 1-year cliff) ← REVISED from 4-year
+    • ESOP pool (15% of shares)
+    • Anti-dilution provisions
+    • Drag-along / tag-along rights
+    • Right of first refusal
+    Deadline: Before seed round closing
+    Cost: Rp 10-20 juta
+    Responsible: Legal counsel
+
+[ ] 1.3 Investment Documentation
+    • Term sheet (seed, Series A, B, C)
+    • Share Purchase Agreement (SPA)
+    • Shareholders Agreement (SHA)
+    • Investor Rights Agreement
+    • Board resolutions
+    Deadline: Per funding round
+    Cost: Rp 15-30 juta per round
+    Responsible: Legal counsel + investor counsel
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 2: INTELLECTUAL PROPERTY
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 2.1 Trademark Registration
+    • DapurKu logo and wordmark
+    • Classes: 35 (advertising), 42 (tech services), 43 (food services)
+    • Indonesia (DGIP)
+    • International (Madrid Protocol - future, 2028+)
+    Deadline: ASAP (6-12 months process)
+    Cost: Rp 5-15 juta per class
+    Responsible: IP attorney
+
+[ ] 2.2 Domain Names
+    • dapurku.id (primary) - REGISTERED
+    • dapurku.com (international) - REGISTERED
+    • dapurku.co.id (alternative) - REGISTERED
+    • Social media handles (@dapurku) - REGISTERED
+    Deadline: ASAP
+    Cost: Rp 500k-2 juta per year
+    Responsible: Tech team
+
+[ ] 2.3 Software & Code
+    • Source code escrow (for investors) - Setup by Series A
+    • Open source license compliance (MIT for public, proprietary for core)
+    • Third-party API agreements (Midtrans, Gojek, Grab)
+    • Employee IP assignment agreements (all code assigned to company)
+    Deadline: Before Series A
+    Cost: Rp 5-10 juta
+    Responsible: CTO + legal
+
+[ ] 2.4 Content & Media
+    • Copyright for marketing materials
+    • Photo/video releases from sellers (model release forms)
+    • User-generated content terms (in ToS)
+    • Music licenses for TikTok/ads (royalty-free or licensed)
+    Deadline: Ongoing
+    Cost: Variable
+    Responsible: Marketing + legal
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 3: FOOD SAFETY & HEALTH REGULATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 3.1 BPOM Registration (for packaged food)
+    • NIE (Nomor Izin Edar) for products with shelf life
+    • PIRT (Pangan Industri Rumah Tangga) for home kitchen ← MANDATORY
+    • HACCP certification (for larger sellers >1000 orders/month)
+    Deadline: Before selling packaged products (2026 Q3)
+    Cost: Rp 2-5 juta per product (batch process for 50 sellers = Rp 100-250M)
+    Responsible: Operations + BPOM consultant
+
+[ ] 3.2 Halal Certification (MUI) ← MANDATORY DAY 1
+    • Mandatory for Muslim-majority market (87% Indonesia)
+    • Self-declaration for small scale (<100 orders/month)
+    • MUI certification for larger sellers (>100 orders/month)
+    Deadline: BEFORE LAUNCH (2026 Q2) ← REVISED from "before marketing to Muslim"
+    Cost: Rp 1-3 juta per seller (batch = Rp 50-150M for 50 sellers)
+    Responsible: Operations + MUI consultant
+
+[ ] 3.3 Health Department Compliance
+    • Dinas Kesehatan registration per city
+    • Kitchen inspection certificates (video + photo)
+    • Food handler training (Sertifikat Penjamah Makanan)
+    • Periodic health checks (annual)
+    Deadline: Before operations per city (2026 Q2-Q3)
+    Cost: Rp 500k-2 juta per seller (50 sellers = Rp 25-100M)
+    Responsible: Operations + local health dept
+
+[ ] 3.4 Food Safety Insurance
+    • Product liability insurance (Rp 100M per incident)
+    • Food poisoning coverage
+    • Seller indemnification clauses (in seller agreement)
+    Deadline: Before launch (2026 Q2)
+    Cost: Rp 10-50 juta per year
+    Responsible: Legal + insurance broker
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 4: DATA PRIVACY & CYBERSECURITY ← REVISED (UU PDP ALREADY IN EFFECT)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 4.1 PDP Law Compliance (UU PDP - Personal Data Protection)
+    • UU PDP EFFECTIVE: October 2024 ← ALREADY IN EFFECT!
+    • Privacy policy (Bahasa Indonesia + English)
+    • Consent mechanisms for data collection (opt-in, not opt-out)
+    • Data Processing Agreement (DPA) with sellers
+    • Data breach notification procedures (3x24 jam ke regulator)
+    • Data Protection Officer (DPO) appointment at 500 users (not 1000)
+    • Data localization (if required by regulation)
+    Deadline: BEFORE LAUNCH (2026 Q2) ← REVISED from "before 1000 users"
+    Cost: Rp 20-30 juta (DPO, audit, legal)
+    Responsible: Legal + tech + DPO
+
+[ ] 4.2 Terms of Service & User Agreements
+    • Seller Terms of Service (liability, commission, termination)
+    • Buyer Terms of Service (refund, dispute, privacy)
+    • Delivery Partner Terms (if applicable)
+    • Community Guidelines (content, behavior)
+    • Dispute Resolution Policy (BANI arbitration)
+    Deadline: Before launch (2026 Q2)
+    Cost: Rp 10-15 juta
+    Responsible: Legal counsel
+
+[ ] 4.3 Cybersecurity Compliance
+    • ISO 27001 certification (future, 2028+)
+    • Penetration testing (annual, starting 2027)
+    • SSL/TLS encryption (TLS 1.3 minimum)
+    • PCI DSS compliance (for payments)
+    • Incident response plan (documented, tested annually)
+    • Security audit by third party (annual)
+    Deadline: Before handling payments (2026 Q2-Q3)
+    Cost: Rp 20-50 juta per year
+    Responsible: CTO + security consultant
+
+[ ] 4.4 Payment Gateway Compliance
+    • BI (Bank Indonesia) regulations (e-money, payment gateway)
+    • Payment service provider licenses (if applicable)
+    • Anti-money laundering (AML) procedures
+    • KYC (Know Your Customer) for sellers (ID verification)
+    • Transaction monitoring (suspicious activity reporting)
+    Deadline: Before payment integration (2026 Q2)
+    Cost: Rp 5-15 juta
+    Responsible: CTO + legal
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 5: LABOR & EMPLOYMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 5.1 Employment Contracts
+    • PKWT (Fixed-term) for probation (3-6 months)
+    • PKWTT (Permanent) for confirmed employees
+    • Freelancer agreements for contractors (clear IP assignment)
+    • Internship agreements (if applicable)
+    Deadline: Per hire
+    Cost: Rp 500k-2 juta per contract
+    Responsible: HR + legal
+
+[ ] 5.2 Employee Benefits
+    • BPJS Kesehatan (health insurance) - mandatory
+    • BPJS Ketenagakerjaan (employment insurance) - mandatory
+    • THR (Holiday allowance) - mandatory
+    • Annual leave (12 days minimum) - mandatory
+    • Sick leave provisions
+    • ESOP documentation (vesting, exercise, tax)
+    Deadline: First employee
+    Cost: ~30% of salary (BPJS + THR + benefits)
+    Responsible: HR + finance
+
+[ ] 5.3 ESOP & Incentive Plans
+    • ESOP scheme documentation (15% pool)
+    • Vesting schedule (3-year, 1-year cliff) ← REVISED from 4-year
+    • Exercise price and conditions (fair market value)
+    • Tax implications for employees (PPh 21)
+    • Board approval for ESOP grants
+    Deadline: Before Series A
+    Cost: Rp 10-20 juta
+    Responsible: Legal + tax advisor
+
+[ ] 5.4 Workplace Safety
+    • K3 (Keselamatan dan Kesehatan Kerja) compliance
+      ← Only for office with >10 employees or physical facilities
+    • Fire safety certificates (if office >100m2)
+    • Emergency procedures (documented)
+    • COVID-19 protocols (if applicable)
+    Deadline: Before office opening (if >10 staff)
+    Cost: Rp 2-5 juta
+    Responsible: HR + operations
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 6: TAX COMPLIANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 6.1 Corporate Tax
+    • Annual tax return (SPT Tahunan Badan)
+    • Monthly tax deposits (PPh 25)
+    • VAT (PPN) registration and filing (if revenue > Rp 4.8B/year)
+    • Tax planning for incentives (if applicable)
+    • UMKM tax incentive: 0.5% final tax (if eligible, revenue < Rp 4.8B)
+    Deadline: Monthly/Annual
+    Cost: Rp 5-15 juta per year (accountant)
+    Responsible: Finance + tax consultant
+
+[ ] 6.2 Withholding Taxes
+    • PPh 21 (employee income tax) - monthly
+    • PPh 23 (service vendor tax) - monthly
+    • PPh 26 (foreign vendor tax) - monthly
+    • PPh 4(2) (final tax for certain services) - monthly
+    Deadline: Monthly
+    Cost: Included in accountant fee
+    Responsible: Finance
+
+[ ] 6.3 Transfer Pricing (if applicable)
+    • Related party transactions documentation
+    • Local file / Master file preparation
+    • APA (Advance Pricing Agreement) if needed
+    Deadline: If cross-border transactions > Rp 10B
+    Cost: Rp 50-100 juta
+    Responsible: Tax advisor
+
+[ ] 6.4 Tax Incentives
+    • Tax holiday for pioneer industries (if applicable)
+    • R&D tax credits (if applicable)
+    • UMKM tax incentives (0.5% final tax if eligible)
+    • Regional tax incentives (Batam free trade zone)
+    • Batam incentive: 0% PPN for certain services
+    Deadline: Apply ASAP (before revenue threshold)
+    Cost: Rp 5-10 juta (application)
+    Responsible: Tax advisor
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 7: MARKETPLACE & CONSUMER PROTECTION ← REVISED (PSE MANDATORY)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 7.1 E-commerce Regulations (UU ITE + PP 71/2019)
+    • PSE (Penyelenggara Sistem Elektronik) registration ← MANDATORY BEFORE LAUNCH
+    • Consumer protection compliance (refund policy, product info)
+    • Electronic contract validity
+    • Return/refund policy (clear, fair)
+    • Product information disclosure (ingredients, allergens)
+    Deadline: BEFORE LAUNCH (2026 Q2) ← REVISED from "before launch" (ambiguous)
+    Cost: Rp 5-10 juta
+    Responsible: Legal + operations
+
+[ ] 7.2 Competition Law (UU KPPU)
+    • No exclusive dealing with sellers (unless justified)
+    • Fair pricing practices (no predatory pricing)
+    • No abuse of dominant position (if applicable)
+    • Merger control (if acquiring competitors)
+    Deadline: Ongoing
+    Cost: Rp 10-20 juta (compliance review)
+    Responsible: Legal + KPPU consultant
+
+[ ] 7.3 Advertising & Marketing Regulations
+    • Truth in advertising (no false claims, with sources)
+    • Influencer disclosure requirements (#ad, #sponsored)
+    • Children's advertising restrictions (if applicable)
+    • Spam/unsolicited communication rules (opt-in required)
+    Deadline: Ongoing
+    Cost: Variable
+    Responsible: Marketing + legal
+
+[ ] 7.4 Financial Services (if applicable)
+    • OJK license (if providing loans to sellers)
+    • BI license (if providing payment services directly)
+    • Crowdfunding regulations (if applicable)
+    • Peer-to-peer lending regulations (if applicable)
+    Deadline: If expanding to financial services (2028+)
+    Cost: Rp 50-200 juta
+    Responsible: Legal + regulatory consultant
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 8: REAL ESTATE & OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 8.1 Office Lease Agreements
+    • Batam office (pilot, small co-working space)
+    • Jakarta office (headquarters, 2027)
+    • Regional offices (future, 2028+)
+    • Co-working space agreements (flexible, short-term)
+    Deadline: Per expansion
+    Cost: Rp 5-15 juta per month (co-working)
+    Responsible: Operations + legal
+
+[ ] 8.2 Kitchen Facility Agreements (if applicable)
+    • Cloud kitchen leases (future expansion, 2029+)
+    • Equipment rental agreements
+    • Maintenance contracts
+    • Insurance for facilities
+    Deadline: If building physical infrastructure
+    Cost: Rp 50-200 juta per month
+    Responsible: Operations + legal
+
+[ ] 8.3 Vehicle & Delivery Agreements (if applicable)
+    • Fleet leasing (if owning delivery, not recommended)
+    • Driver employment contracts (if hiring directly)
+    • Vehicle insurance
+    • Maintenance agreements
+    Deadline: If building delivery fleet (not recommended)
+    Cost: Rp 10-30 juta per month
+    Responsible: Operations + legal
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 9: DISPUTE RESOLUTION & LITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 9.1 Arbitration Agreements
+    • BANI (Badan Arbitrase Nasional Indonesia) clauses in ToS
+    • Seller-buyer dispute resolution (mediation first)
+    • Platform-seller dispute resolution (arbitration)
+    • International arbitration (if foreign investors, ICC or SIAC)
+    Deadline: In Terms of Service (before launch)
+    Cost: Rp 5-10 juta (drafting)
+    Responsible: Legal counsel
+
+[ ] 9.2 Insurance Coverage
+    • General liability insurance (Rp 500M coverage)
+    • Professional indemnity (E&O) (Rp 100M coverage)
+    • Directors & Officers (D&O) insurance (Rp 1B coverage)
+    • Cyber liability insurance (Rp 500M coverage)
+    • Product liability insurance (Rp 100M per incident)
+    Deadline: Before operations (2026 Q2)
+    Cost: Rp 50-100 juta per year
+    Responsible: Legal + insurance broker
+
+[ ] 9.3 Litigation Preparedness
+    • Retainer with litigation counsel (reputable firm)
+    • Document retention policy (7 years minimum)
+    • Litigation hold procedures
+    • Settlement authority matrix (who can approve settlement)
+    Deadline: Ongoing
+    Cost: Rp 10-20 juta (retainer)
+    Responsible: Legal counsel
+
+═══════════════════════════════════════════════════════════════════════════════
+SECTION 10: INTERNATIONAL EXPANSION (Future)
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 10.1 Malaysia (2028-2029)
+    • Sdn Bhd registration
+    • Halal certification (JAKIM)
+    • PDPA compliance (Personal Data Protection Act)
+    • E-commerce licensing (MDEC)
+    • Tax: 24% corporate tax
+    Deadline: 2028-2029
+    Cost: Rp 50-100 juta (setup) + Rp 20-30M/year (ongoing)
+    Responsible: International legal counsel
+
+[ ] 10.2 Singapore (2029-2030)
+    • Pte Ltd registration (ACRA)
+    • MAS licensing (if financial services)
+    • PDPA compliance (Singapore)
+    • Tax: 17% corporate tax (with incentives)
+    Deadline: 2029-2030
+    Cost: Rp 100-200 juta (setup) + Rp 50-80M/year (ongoing)
+    Responsible: Singapore counsel
+
+[ ] 10.3 Thailand (2029-2030)
+    • Co., Ltd registration (DBD)
+    • FDA approval (food products)
+    • PDPA compliance (Thailand)
+    • Tax: 20% corporate tax
+    Deadline: 2029-2030
+    Cost: Rp 100-200 juta (setup) + Rp 40-60M/year (ongoing)
+    Responsible: Thailand counsel
+
+═══════════════════════════════════════════════════════════════════════════════
+SUMMARY CHECKLIST (REVISED TIMELINE)
+═══════════════════════════════════════════════════════════════════════════════
+
+PHASE 1: PRE-LAUNCH (2026 Q1-Q2) ← COMPRESSED, ALL BEFORE LAUNCH
+[ ] Company registration (PT) + NIB + NPWP
+[ ] Trademark application (DGIP)
+[ ] Domain registration (dapurku.id, .com, .co.id)
+[ ] Privacy policy & Terms of Service (UU PDP compliant)
+[ ] Seller agreement template
+[ ] PSE registration (e-commerce) ← MANDATORY
+[ ] UU PDP compliance (DPO, DPA, consent) ← MANDATORY
+[ ] Halal certification (MUI) ← MANDATORY
+[ ] BPOM/PIRT consultation (batch process)
+[ ] Tax registration (NPWP, PKP if needed)
+[ ] Employment contracts (founding team)
+[ ] ESOP documentation
+[ ] Insurance (general liability, D&O, product liability)
+[ ] Payment gateway compliance (BI, Midtrans, Xendit)
+
+PHASE 2: LAUNCH (2026 Q3)
+[ ] BPOM/PIRT for sellers (batch process, 50 sellers)
+[ ] Health department coordination (Batam, Jakarta)
+[ ] Seller KYC (ID verification)
+[ ] Community Guidelines enforcement
+[ ] Dispute resolution system (BANI mediation)
+
+PHASE 3: SCALE (2027-2028)
+[ ] Series A documentation
+[ ] Multi-city health department coordination
+[ ] ISO 27001 certification (if revenue >Rp 10B)
+[ ] B2B partnership agreements
+[ ] Regional office leases
+
+PHASE 4: PRE-IPO (2029-2030)
+[ ] Series B/C documentation
+[ ] IPO legal preparation (if applicable)
+[ ] International expansion legal
+[ ] Public company compliance prep
+[ ] Audit committee establishment
+[ ] Board restructuring (independent directors)
+
+═══════════════════════════════════════════════════════════════════════════════
+ESTIMATED TOTAL LEGAL COST (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Year 1 (Seed):        Rp 150-200 juta ← REVISED from Rp 50-100M (too low)
+Year 2 (Series A):    Rp 100-200 juta
+Year 3 (Series B):    Rp 200-400 juta
+Year 4 (Pre-IPO):     Rp 500-1000 juta
+Year 5 (IPO):         Rp 1000-2000 juta
+────────────────────────────────────────
+TOTAL:                Rp 1950-3800 juta
+                      (Rp 1.95-3.8 miliar)
+
+Note: Year 1 increased due to:
+      - PSE registration (Rp 5-10M)
+      - UU PDP compliance (Rp 20-30M)
+      - Halal certification batch (Rp 50-150M)
+      - BPOM/PIRT batch (Rp 100-250M)
+      - Health dept per seller (Rp 25-100M)
+      - Insurance (Rp 50-100M)
+      - Legal counsel retainer (Rp 30-50M)
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL LEGAL CHECKLIST:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. UU PDP: BEFORE LAUNCH (was "before 1000 users") ← CRITICAL FIX
+2. PSE registration: BEFORE LAUNCH (was not in timeline) ← CRITICAL FIX
+3. Halal: BEFORE LAUNCH (was "before marketing to Muslim") ← CRITICAL FIX
+4. Year 1 budget: Rp 150-200M (was Rp 50-100M) ← REALISTIC FIX
+5. Vesting: 3-year (was 4-year) ← MARKET STANDARD
+6. K3: Clarified for >10 employees (was ambiguous)
+7. Added: Ongoing costs for international expansion
+8. Added: PSE, UU PDP, payment gateway to Phase 1
+9. Added: Source citations for regulations
+10. Added: Insurance coverage details
+
+═══════════════════════════════════════════════════════════════════════════════

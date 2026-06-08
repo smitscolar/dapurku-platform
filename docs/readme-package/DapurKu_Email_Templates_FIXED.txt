@@ -1,0 +1,297 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - EMAIL TEMPLATES FOR INVESTOR OUTREACH (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 1: COLD EMAIL TO ANGEL INVESTOR (REVISED - LESS AGGRESSIVE)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: Seed Round Open - Ghost Kitchen UMKM Platform | Rp 500M for 20%
+
+Dear [Investor Name],
+
+I hope this email finds you well. My name is [Your Name], founder of DapurKu,
+a ghost kitchen platform empowering home cooks in Indonesia to become food
+entrepreneurs.
+
+WHY NOW:
+• 15 juta ibu rumah tangga di Indonesia memiliki skill memasak
+  (Source: BPS Survei Sosial Ekonomi 2024)
+• 50% UMKM makanan struggle di tahun pertama (Source: Kemenkop UKM, 2024)
+• GoFood komisi 20-30% — untuk restoran, bukan rumahan
+• Tidak ada platform yang fokus UMKM rumahan dengan community approach
+
+WHAT WE BUILT:
+DapurKu is a zero-capital platform for UMKM food sellers:
+• 10-15% commission (vs 20-30% industry)
+• Community support: training, packaging, marketing
+• Pre-order system: zero waste
+• Verified kitchen certification
+
+TRACTION (Batam Pilot, Month 1):
+• 50 active sellers
+• 500 transactions
+• 4.7/5 average rating
+• Projected 55% retention M3 (validation ongoing)
+
+Note: Pilot masih early. Butuh 3-6 bulan untuk validate unit economics.
+      Kami jujur tentang stage kami.
+
+THE ASK:
+Seed round: Rp 500 million for 20% equity (post-money)
+Pre-money: Rp 2 billion | Post-money: Rp 2.5 billion
+Use of funds: 40% product, 30% marketing, 20% ops, 10% legal
+Runway: 12 months (with revenue growth)
+
+MARKET:
+• TAM: Rp 100 trillion (food delivery Indonesia 2026)
+• SAM: Rp 20 trillion (UMKM food delivery segment)
+• SOM: Rp 500 billion (0.5% penetrasi 5 tahun)
+• 5-year target: Rp 5T GMV, 60K sellers, 25 cities
+
+TEAM (Jujur):
+• CEO: 3 tahun GoFood (Ops Team), bukan C-level. Network UMKM.
+• CTO: 4 tahun Tokopedia (Senior Engineer). Full-stack.
+• Head of Ops: 5 tahun Kemenkop UKM (Program Officer).
+• Head of Marketing: 3 tahun Unilever (Brand Manager).
+• Advisor: Ex-CEO GoFood, Ex-Minister Kemenkop.
+
+Kami tidak claim "best team in Indonesia". Kami claim "team yang paling
+mengerti UMKM dan paling hungry untuk execute".
+
+I've attached our pitch deck and financial model for your review.
+Would you be available for a 30-minute call next week to discuss?
+
+Best regards,
+[Your Name]
+Founder & CEO, DapurKu
+📱 [Phone] | 📧 [Email] | 🌐 dapurku.id
+LinkedIn: linkedin.com/in/[username]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 2: FOLLOW-UP EMAIL (After No Response)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: Re: Seed Round Open - DapurKu | Quick Update
+
+Dear [Investor Name],
+
+I hope you're doing well. I wanted to follow up on my email from [date]
+regarding DapurKu's seed round.
+
+QUICK UPDATE:
+Since my last email, we've achieved:
+• [X] new sellers onboarded (total: [Y])
+• [X] transactions completed (total: [Y])
+• [X] rating maintained/improved
+
+NEW DEVELOPMENT:
+[Specific update: partnership, feature launch, media coverage, etc.]
+
+I understand you're busy. Would a 15-minute call work better for your
+schedule? I'm flexible on timing.
+
+Alternatively, if this isn't the right fit for your portfolio at this stage,
+I'd greatly appreciate any introductions to other investors who might be
+interested in the UMKM/food tech space.
+
+Thank you for your time.
+
+Best,
+[Your Name]
+DapurKu
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 3: WARM INTRODUCTION (Via Mutual Connection)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: Introduction: [Your Name] (DapurKu) <> [Investor Name]
+
+Dear [Investor Name],
+
+I hope you're well. [Mutual Connection] suggested I reach out to you
+regarding DapurKu, our ghost kitchen platform for UMKM food sellers.
+
+[Mutual Connection] mentioned your interest in [specific sector/stage],
+and I believe DapurKu aligns well with your investment thesis.
+
+ONE SENTENCE PITCH:
+DapurKu is the Shopify for home cooks — zero capital, 10-15% commission,
+community support, helping home cooks become entrepreneurs.
+
+KEY METRICS:
+• 50 sellers, 500 transactions, 4.7 rating (Batam pilot, Month 1)
+• Rp 500M seed for 20% | Rp 2.5B post-money
+• TAM Rp 100T, 5-year target Rp 5T GMV
+• Team: ex-GoFood (ops), ex-Tokopedia (tech), ex-Kemenkop (community)
+
+I'd love to share our pitch deck and explore if this fits your portfolio.
+Would you have 30 minutes next week?
+
+Best,
+[Your Name]
+
+CC: [Mutual Connection]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 4: POST-MEETING THANK YOU
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: Thank you - DapurKu Seed Round Discussion
+
+Dear [Investor Name],
+
+Thank you for taking the time to meet with me today. I greatly appreciated
+your insights on [specific topic discussed].
+
+PER OUR DISCUSSION:
+• Next steps: [specific action items]
+• Timeline: [agreed timeline]
+• Additional materials: [what you'll send]
+
+I will follow up with [specific document/data] by [date].
+
+Please don't hesitate to reach out if you have any questions in the meantime.
+
+Best regards,
+[Your Name]
+DapurKu
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 5: TERM SHEET NEGOTIATION (REVISED - LESS CONFRONTATIONAL)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: DapurKu Term Sheet - Discussion Points
+
+Dear [Investor Name],
+
+Thank you for sending over the term sheet. We're excited about the
+potential partnership.
+
+After reviewing with our legal counsel and board, we'd like to explore
+a few points that we believe would create a stronger foundation for
+both parties:
+
+1. VALUATION:
+   Your offer: Rp 2B pre-money
+   We'd like to explore: Rp 2.5B pre-money
+   Rationale: Recent traction update (X sellers, Y transactions), 
+              competitive interest from [investor name], 
+              market comparables (Dahmakan seed $2M for Malaysia market).
+
+2. LIQUIDATION PREFERENCE:
+   Your ask: 1x participating preferred
+   We'd like to explore: 1x non-participating preferred
+   Rationale: Founder-friendly, standard for seed stage in Indonesia.
+              Participating preferred = excessive dilution for founders.
+
+3. BOARD SEAT:
+   Your ask: Board seat + observer
+   We'd like to explore: Observer seat only (until Series A)
+   Rationale: Early stage, founder control. Board seat at Series A
+              when metrics justify governance oversight.
+
+4. VESTING:
+   Your ask: 4-year vesting, 1-year cliff
+   We'd like to explore: 3-year vesting, 1-year cliff
+   Rationale: Indonesia market standard. 4-year = excessive for
+              early-stage founders.
+
+We're open to finding a middle ground that works for both parties.
+Would you be available for a call to discuss?
+
+Best,
+[Your Name]
+DapurKu
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 6: REJECTION RESPONSE (REVISED - LESS DEFENSIVE)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: Thank you - Keeping the door open
+
+Dear [Investor Name],
+
+Thank you for your candid feedback and for taking the time to evaluate
+DapurKu. While I understand this isn't the right fit for your portfolio
+at this stage, I genuinely appreciate your insights.
+
+YOUR FEEDBACK:
+• [Point 1]: We've noted this and will address it by [action].
+• [Point 2]: This will be our focus for the next [timeframe].
+• [Point 3]: We'd love to revisit this conversation in [timeframe].
+
+If anything changes in your investment thesis or if you'd like to see
+our progress, I'd be happy to reconnect.
+
+Additionally, if you know any investors who might be interested in the
+UMKM/food tech space, I'd greatly appreciate an introduction.
+
+Thank you again for your time and consideration.
+
+Best regards,
+[Your Name]
+DapurKu
+
+═══════════════════════════════════════════════════════════════════════════════
+
+TEMPLATE 7: QUARTERLY INVESTOR UPDATE (REVISED - SEED STAGE)
+═══════════════════════════════════════════════════════════════════════════════
+
+Subject: DapurKu Quarterly Update - Q[X] 2026
+
+Dear [Investor Name],
+
+Here's our quarterly update for Q[X] 2026.
+
+🎯 KEY METRICS:
+• GMV: Rp [X] (vs Rp [Y] last quarter, +[Z]%)
+• Active Sellers: [X] (+[Y]%)
+• Active Buyers: [X] (+[Y]%)
+• Transactions: [X] (+[Y]%)
+• AOV: Rp [X] (stable/growing)
+• Seller Retention (M3): [X]% (target: 55%)
+• Buyer Retention (M3): [X]% (target: 35%)
+
+💰 FINANCIAL:
+• Revenue: Rp [X]
+• Burn Rate: Rp [X]/month (target: <Rp 200M)
+• Runway: [X] months
+• Cash: Rp [X]
+
+📈 WINS:
+• [Specific win 1: e.g., "Launched Jakarta, 100 sellers in first month"]
+• [Specific win 2: e.g., "Partnership with Gojek for delivery"]
+• [Specific win 3: e.g., "Featured in DailySocial.id"]
+
+⚠️ CHALLENGES:
+• [Challenge 1] → [Mitigation]
+• [Challenge 2] → [Mitigation]
+
+🔜 NEXT QUARTER:
+• [Goal 1]
+• [Goal 2]
+• [Goal 3]
+
+As always, please don't hesitate to reach out with questions or feedback.
+
+Best,
+[Your Name]
+DapurKu
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL EMAIL TEMPLATES:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Cold email: Jujur tentang stage, team, traction
+2. Term sheet negotiation: "Explore" bukan "Counter" (less confrontational)
+3. Rejection response: Less defensive, more gracious
+4. Monthly update → Quarterly update (realistic untuk seed stage)
+5. Added: Source citations, LinkedIn, website
+6. Removed: Over-claiming, aggressive tone
+
+═══════════════════════════════════════════════════════════════════════════════

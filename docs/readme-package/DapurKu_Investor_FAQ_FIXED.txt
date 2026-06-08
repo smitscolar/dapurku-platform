@@ -1,0 +1,361 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - INVESTOR FAQ (REVISED)
+25 PERTANYAAN PALING SERING + JAWABAN YANG JUJUR & DATA-DRIVEN
+═══════════════════════════════════════════════════════════════════════════════
+
+Q1: "Kenapa ibu rumah tangga mau pakai DapurKu, bukan GoFood?"
+A: Tiga alasan utama:
+   • Komisi: GoFood 20-30% untuk restoran. DapurKu 10-15% untuk rumahan.
+     Dari Rp 40.000 pesanan: GoFood ambil Rp 8.000-12.000, DapurKu ambil Rp 4.800-6.000.
+     Penjual dapat Rp 10.000-15.000 lebih banyak per pesanan.
+   • Training & Support: GoFood tidak ada onboarding. DapurKu ada training
+     gratis, packaging guidance, dan community manager di setiap kota.
+   • Modal: GoFood butuh toko fisik. DapurKu zero modal — pakai dapur rumah.
+
+   Source: Internal survey 50 sellers Batam pilot, 2026.
+
+Q2: "Bagaimana kalau GoFood turun komisi jadi 15%?"
+A: Moat kita bukan cuma harga. Tiga moat sustainable:
+   • Community: Relationship dengan PKK, RT/RW, kelompok arisan.
+     GoFood tidak punya community manager di kelurahan. Kita punya 1 per 50 sellers.
+     Build time: 12-18 bulan. Replication cost: Rp 500M-1B per kota.
+   • Local Knowledge: Menu lokal, bahan musiman, harga pasar.
+     AI recommendation kita trained on local preferences.
+   • Training Ecosystem: Bukan cuma platform, tapi entrepreneurship school.
+     Sellers yang training 3x lebih likely survive year 1.
+
+   Risk: Jika GoFood turun komisi + build community, threat level medium.
+     Mitigation: Focus on tier 2-3 cities where GoFood less present.
+
+Q3: "Bagaimana dengan food safety?"
+A: Multi-layer protection:
+   • Sertifikasi Dapur Bersih: Verifikasi video + random audit (30% sellers/month).
+   • Insurance: Product liability Rp 100M per incident. Premium Rp 50jt/tahun.
+   • Training: Hygiene gratis untuk semua sellers. Completion rate 85%.
+   • BPOM/PIRT: Wajib untuk sellers dengan >100 orders/month.
+     Kita bantu proses (biaya Rp 500K-2M per seller).
+   • Buyer Protection: Refund full jika food poisoning terbukti.
+     Incident rate target: <0.1% dari total orders.
+
+   Legal: BPOM consultation on retainer. Health dept coordination per kota.
+
+Q4: "Siapa yang antar makanan?"
+A: Multi-partner strategy (asset-light):
+   • Instant (30 min): Gojek/Grab integration untuk kota besar.
+     Cost: Rp 8.000-12.000 per order (ke driver).
+   • Scheduled (same day): Kurir komunitas (ibu-ibu yang punya motor).
+     Cost: Rp 5.000-8.000 per order. Lower cost, community employment.
+   • Pickup (zero cost): Buyer pickup di rumah seller.
+     40% orders di Batam pilot = pickup (karena komunitas padat).
+   • Kita tidak own fleet = zero capex delivery.
+     Margin delivery: 0% (pass-through ke partner).
+
+Q5: "Bagaimana penjual tidak kabur ke platform lain?"
+A: Switching cost yang tinggi:
+   • Data: History penjual, customer review, loyalty points.
+     Rebuild di platform baru = 6-12 bulan.
+   • Community: Seller group WhatsApp, offline events, mentorship.
+     Emotional bond = "DapurKu adalah keluarga saya."
+   • Financial: Weekly payment (bukan monthly seperti GoFood).
+     Cash flow lebih baik = less incentive to switch.
+   • Training Investment: 20+ jam training di DapurKu.
+     Sunk cost = psychological barrier to switch.
+
+   Data: Batam pilot M3 retention = 55% (industry average for food delivery = 40%).
+
+Q6: "Unit economics-nya bagaimana?"
+A: Dari Rp 40.000 pesanan (AOV):
+   • Komisi DapurKu: Rp 4.800 (12%)
+   • Payment gateway: Rp 400 (1%, ke Midtrans/Xendit)
+   • Delivery partner: Rp 8.000 (20%, ke Gojek/Grab/kurir)
+   • Net untuk penjual: Rp 26.800 (67%)
+
+   Platform Economics:
+   • Revenue per order: Rp 4.800 (commission) + Rp 1.200 (avg premium/ads) = Rp 6.000
+   • CAC seller: Rp 25.000 (onboarding + training + first order subsidy)
+   • CAC buyer: Rp 15.000 (digital ads + referral program)
+   • LTV seller: Rp 180.000 (12 months x Rp 15.000 avg/month)
+   • LTV buyer: Rp 120.000 (6 months x Rp 20.000 avg/month)
+   • LTV/CAC: 7.2x seller, 8.0x buyer (healthy > 3x threshold)
+   • Payback period: 4-5 months (conservative)
+
+   Note: Unit economics based on Batam pilot (500 transactions, 50 sellers).
+         Will improve with scale (lower CAC via word-of-mouth, higher LTV via retention).
+
+Q7: "Break-even kapan?"
+A: Conservative estimate:
+   • Batam: Month 8-10 (target: 500 sellers, Rp 200M monthly GMV)
+   • Jakarta: Month 10-12 (target: 1,000 sellers, Rp 500M monthly GMV)
+   • Kota ke-3/4: Month 12-14 (template replication)
+   • Nasional break-even: Year 4-5 (25 cities, 60,000 sellers)
+
+   Assumptions:
+   • Monthly burn rate: Rp 150-200M (seed phase)
+   • Monthly revenue target: Rp 200M+ (Batam), Rp 500M+ (Jakarta)
+   • Revenue = 14% take rate x GMV
+
+   Risk: Break-even could extend 2-3 months if CAC higher than projected.
+   Mitigation: Conservative burn rate, milestone-based spending.
+
+Q8: "Burn rate berapa per bulan?"
+A: Milestone-based burn rate:
+   • Seed phase (2026, 5 orang): Rp 150-200 juta/bulan
+     - Payroll: Rp 80-100M (5 orang, avg Rp 16-20M/person)
+     - Marketing: Rp 30-50M (Batam + Jakarta launch)
+     - Ops: Rp 20-30M (seller onboarding, community events)
+     - Tech: Rp 15-20M (AWS, tools, contractor)
+     - Legal: Rp 5-10M (compliance, contracts)
+   • Series A (2027, 15 orang): Rp 400-600 juta/bulan
+   • Series B (2028, 35 orang): Rp 1.5-2.5 miliar/bulan
+
+   Runway: Seed Rp 500M / Rp 175M avg = 2.9 months? 
+   NO — Seed Rp 500M adalah untuk 12 months TAPI dengan revenue growing.
+   Actual: Month 1-6 burn Rp 200M, Month 7-12 burn Rp 150M (revenue growing).
+   Average: Rp 175M/month. Runway with revenue: 8-10 months.
+   Need Series A by Month 8-10.
+
+Q9: "Use of funds seed round?"
+A: Rp 500 juta allocation:
+   • 40% Product (Rp 200M): Flutter MVP, backend API, payment integration,
+     seller dashboard, buyer app, admin panel.
+   • 30% Marketing (Rp 150M): Batam launch (Rp 50M), Jakarta soft launch (Rp 80M),
+     influencer partnerships (Rp 20M).
+   • 20% Operations (Rp 100M): Team salaries (founding team), seller onboarding
+     events, community building.
+   • 10% Legal (Rp 50M): BPOM/PIRT batch processing, PSE registration, UU PDP
+     compliance, trademark, contracts.
+
+   Note: Rp 500M is MINIMUM viable seed. Ideal: Rp 750M-1B for 18-month runway.
+   If we raise Rp 500M, we need to hit Series A milestones by Month 8-10.
+
+Q10: "Siapa kompetitor terdekat?"
+A: Direct competitors: None in Indonesia.
+   Indirect competitors:
+   • GoFood: 20-30% commission, target restoran/chain. Not for home cooks.
+     Market share: 40% food delivery. Threat: High if they lower commission.
+   • ShopeeFood: 15-25% commission, ecosystem play. Target chain restaurants.
+     Market share: 25%. Threat: Medium (different segment).
+   • GrabKitchen: 25% commission, cloud kitchen. Need Rp 10-20M setup.
+     Market share: 15%. Threat: Low (different model).
+   • Dahmakan (Malaysia): 15% commission, home kitchen. Not in Indonesia.
+     Comparable model. Threat: Low (geographic).
+
+   DapurKu differentiation: UMKM rumahan + community + zero capital.
+   No direct competitor in Indonesia for this segment.
+
+Q11: "Bagaimana skalabilitas ke kota kecil?"
+A: Tier strategy (proven model):
+   • Tier 1 (kota besar): Jakarta, Surabaya, Bandung. Digital adoption >80%.
+     Strategy: Direct sales, digital marketing, Gojek/Grab integration.
+   • Tier 2 (kota menengah): Semarang, Yogyakarta, Makassar. Digital 60-80%.
+     Strategy: Hybrid (digital + community), local agent model.
+   • Tier 3 (kota kecil): Agent model. 1 agent = 10-20 sellers.
+     Pickup point di warung/toko. Scheduled delivery, not instant.
+     Lower expectation, lower cost. Higher margin (less delivery subsidy).
+
+   Expansion timeline: 2→4→8→15→25 cities over 5 years.
+   Not all cities same strategy. Adapt per local condition.
+
+Q12: "Regulasi bagaimana?"
+A: Compliance roadmap:
+   • Pre-launch (2026 Q2): PT registration, PSE (e-commerce), UU PDP,
+     trademark, domain, BPOM/PIRT consultation.
+   • Launch (2026 Q3): Halal certification (MUI), health dept coordination,
+     seller KYC, payment gateway compliance (BI).
+   • Scale (2027-2028): Multi-city health dept, ISO 27001, B2B partnerships.
+   • Pre-IPO (2029-2030): Public company compliance, audit committee.
+
+   Legal budget: Year 1 = Rp 150-200M (was Rp 50-100M, too low).
+   Legal counsel: Retainer with reputable firm (Rp 30-50M/year).
+   Government relations: Kemenkop, Dinas UMKM, BPOM.
+
+Q13: "Bagaimana dengan delivery di daerah terpencil?"
+A: Agent model for tier 3:
+   • 1 agent = 10-20 sellers. Pickup point di warung/toko.
+   • Scheduled delivery (2x per day), not instant.
+   • Buyer pickup option (40% orders in Batam = pickup).
+   • Lower cost: Rp 3.000-5.000 per order (vs Rp 8.000-12.000 instant).
+   • Higher margin for platform: less delivery subsidy.
+
+   Trade-off: Lower convenience = lower buyer expectation.
+   But: Lower cost = higher seller margin = more sellers.
+
+Q14: "Data privacy bagaimana?"
+A: UU PDP compliant (Indonesia Personal Data Protection Law, Oct 2024):
+   • Privacy policy: Bahasa Indonesia + English. Clear consent mechanism.
+   • Data Processing Agreement (DPA) with sellers.
+   • Data breach notification: 3x24 jam ke regulator + affected users.
+   • Data Protection Officer (DPO): Required if >1000 users. We appoint at 500.
+   • Encryption: AES-256 for data at rest, TLS 1.3 for data in transit.
+   • No data selling. Aggregated data only for market intelligence.
+   • Annual security audit by third party.
+
+   Cost: Rp 20-30M/year (DPO, audit, legal).
+
+Q15: "Exit strategy apa?"
+A: Multiple exit paths, ranked by probability:
+   • Strategic Acquisition (60% probability): GoTo/Grab/Shopee acquire
+     for UMKM vertical. Valuation: 3-5x revenue. Timeline: Year 4-6.
+   • Strategic Partnership (25%): BUMN (Pegadaian, Pos Indonesia) untuk
+     UMKM empowerment. Partial sale + continued operation.
+   • IPO (15%): IDX listing. Butuh revenue >Rp 1T, profit 2+ years.
+     Timeline: Year 7-10 (not 2030 as originally claimed).
+     Realistic: IPO 2032-2035 if growth continues.
+
+   Note: We focus on building sustainable business, not exit-driven.
+        Exit will be natural consequence of success.
+
+Q16: "Kenapa investor harus invest sekarang, bukan nanti?"
+A: Three reasons:
+   • First Mover: 12-18 month head start in UMKM ghost kitchen.
+     No direct competitor in Indonesia.
+   • Lower Valuation: Seed Rp 2.5B post-money. Series A = 3-5x higher.
+     Early = higher upside.
+   • Community Moat: Community building takes 12-18 months.
+     Cannot be replicated with money alone.
+
+   Risk: If we don't raise now, competitor could enter.
+   But: Community moat protects against fast followers.
+
+Q17: "Bagaimana kalau ekonomi turun?"
+A: Defensive sector, but not recession-proof:
+   • Positive: Home cooking = cheaper than restaurant. UMKM = more resilient.
+     Orang mungkin order lebih dari home cooks saat ekonomi lesu.
+   • Negative: Disposable income turun = less delivery orders.
+     Premium features (ads, bundling) might decline.
+   • Neutral: Core commission (12%) remains. Volume might increase (cheaper option).
+
+   Historical data: Food delivery grew 15-20% during 2020-2021 recession
+   (pandemic-driven, but shows resilience).
+
+   Mitigation: Focus on affordable segment (Rp 20-40K AOV).
+   Less exposure to premium dining.
+
+Q18: "Tim kurang experienced. Bagaimana?"
+A: Jujur: Tim masih early-stage. Tapi:
+   • CEO: 3 tahun di GoFood (ops team, bukan C-level). Network di UMKM.
+   • CTO: 4 tahun di Tokopedia (senior engineer, bukan VP). Full-stack.
+   • Advisor: Ex-CEO GoFood (advisor, bukan team). Ex-Minister Kemenkop (advisor).
+   • ESOP: 15% pool untuk attract talent Series A+.
+   • Hiring plan: Series A = CTO (VP level), Series B = C-level.
+
+   Note: Kami tidak claim "ex-CEO GoFood" sebagai team. 
+         Advisor = advisory, bukan execution.
+         Jujur tentang experience level = builds trust.
+
+Q19: "Bagaimana teknologi stack?"
+A: KONSISTEN (fixed from previous inconsistency):
+   • Mobile: Flutter (Android + iOS, single codebase).
+   • Backend: FastAPI (Python 3.11). Async, modern, performant.
+   • Database: PostgreSQL 15 (relational), Redis 7 (cache/sessions).
+   • ML: scikit-learn (recommendation, pricing). TensorFlow untuk Phase 2.
+   • Cloud: AWS (ECS, RDS, S3, CloudFront). Cost-effective untuk Indonesia.
+   • Payment: Midtrans (primary), Xendit (backup).
+   • DevOps: Docker, GitHub Actions, Sentry, Datadog.
+
+   Why FastAPI (not Node.js): Python ecosystem stronger for ML/data.
+   Flutter: Proven in Indonesia (Tokopedia, Gojek use Flutter).
+   AWS: Most mature cloud provider in Indonesia.
+
+Q20: "Kenapa Batam untuk pilot?"
+A: Empat alasan:
+   • Kota industri: 100rb+ pekerja pabrik butuh makan praktis.
+     Target market: jelas, padat, repeat order.
+   • Digital adoption tinggi: Dekat Singapura, exposure tech.
+     70%+ smartphone penetration.
+   • Komunitas UMKM aktif: Dinas UMKM Batam supportive.
+     PKK aktif, arisan banyak.
+   • Bukan Jakarta: Less noise, more focus. Lower cost.
+     Perfect sandbox untuk validate model.
+
+   Data: Batam pilot = 50 sellers, 500 transactions, 4.7/5 rating (Month 1).
+   Note: Pilot masih early. Butuh 3-6 bulan untuk validate retention & unit economics.
+
+═══════════════════════════════════════════════════════════════════════════════
+BONUS: 5 PERTANYAAN TRICKY (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+Q21: "Ini bukan cuma marketplace biasa?"
+A: Bukan. Tiga layer:
+   • Layer 1 (Marketplace): Transaction = komisi 12%.
+     Sama seperti GoFood/ShopeeFood.
+   • Layer 2 (SaaS): Seller dashboard, analytics, inventory management.
+     Premium = Rp 100K/bulan. Recurring revenue.
+   • Layer 3 (Ecosystem): Training, financing, packaging supply.
+     Community = emotional lock-in.
+
+   Analogi: Amazon jual barang. Shopify bantu orang jualan.
+   DapurKu = Shopify untuk makanan rumahan.
+   Revenue mix: 60% commission, 20% premium, 15% ads, 5% supply.
+
+Q22: "Bagaimana penjual tidak curang?"
+A: Multi-layer protection (realistis, bukan over-confident):
+   • Review system: Buyer rating + photo proof.
+     Sellers with <3.5 rating = suspended.
+   • Random audit: 10% orders per month = photo verification.
+     Cost: Rp 5M/month untuk audit team.
+   • Reputation score: Historical data, completion rate, complaint rate.
+     Public = community pressure.
+   • Insurance: Rp 100M coverage per incident.
+     But: Fraud rate target <2% (realistis, bukan 0%).
+   • Payment hold: 48-hour hold untuk new sellers (<100 orders).
+     After 100 orders = instant payout.
+
+   Note: Kita tidak claim "100% no fraud". Realistis: <2% fraud rate.
+
+Q23: "Kenapa tidak cloud kitchen seperti GrabKitchen?"
+A: Different model, different segment:
+   • Cloud kitchen: Capex Rp 10-20M per kitchen. Butuh modal.
+     Target: Brand besar, chain restaurants.
+   • DapurKu: Zero capex. Pakai dapur rumah.
+     Target: UMKM, home cooks, ibu rumah tangga.
+   • Cloud kitchen = real estate play. DapurKu = platform play.
+   • Cloud kitchen margin: 15-20%. DapurKu margin: 75% (platform).
+
+   Future: Kita MUNGKIN build cloud kitchen untuk sellers yang scale up.
+   But: Core model remains zero-capex for 90% of sellers.
+
+Q24: "Bagaimana dengan margin tipis?"
+A: Volume game + multiple revenue streams:
+   • Micro-margin, macro-volume: 12% dari Rp 100T = Rp 12T.
+     Walmart (2.4% margin), Amazon (2.4% margin), Gojek (5% margin).
+   • Data monetization: Aggregated market intelligence.
+     B2B: Food brands, FMCG companies. Rp 50-100M/year potential.
+   • Premium services: Analytics, priority listing, financing.
+     Higher margin (80%+) services.
+   • Ads: Featured listing, banner. 80%+ margin.
+
+   Long-term: Commission 60%, Premium 20%, Ads 15%, Data 5%.
+   Blended margin: 75% gross, 10-15% net (Year 5).
+
+Q25: "Kenapa Anda yang bisa execute ini?"
+A: Jujur + personal:
+   • Personal connection: Dibesarkan oleh ibu yang jualan kue di pasar.
+     Pain point = personal. Mission = meaningful.
+   • Network: 3 tahun di GoFood (ops team). Relationship dengan UMKM.
+     Bukan C-level, tapi hands-on dengan sellers.
+   • Team: Complementary skills. CEO (ops), CTO (tech), COO (community).
+     Bukan superstar, tapi hungry + aligned.
+   • Advisor: Ex-CEO GoFood (strategic), Ex-Minister Kemenkop (government).
+   • Burnout-resistant: Karena meaningful. Bukan cuma bisnis, tapi impact.
+
+   Note: Kami tidak claim "best team in Indonesia". 
+         Kami claim "team yang paling mengerti UMKM + paling hungry".
+         Jujur = builds trust dengan investor.
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL FAQ:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Tech stack: Konsisten FastAPI (fixed dari Node.js inconsistency)
+2. Unit economics: Realistis, dengan asumsi yang jelas
+3. Break-even: Month 8-10 (was Month 6-7) - conservative
+4. Burn rate: Rp 150-200M/month (was Rp 30-60M) - includes payroll
+5. Exit: IPO 2032-2035 (was 2030) - realistic
+6. Team: Jujur tentang experience level (was over-claiming)
+7. Moat: 12-18 months (was 2 years) - realistic
+8. Fraud: <2% rate (was "100% no fraud") - realistic
+9. Recession: Defensive, not recession-proof (was "recession resilient")
+10. Source citations: Added where possible
+
+═══════════════════════════════════════════════════════════════════════════════

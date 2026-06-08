@@ -1,0 +1,154 @@
+═══════════════════════════════════════════════════════════════════════════════
+DAPURKU - VIDEO PITCH SCRIPT (3 MENIT) (REVISED)
+═══════════════════════════════════════════════════════════════════════════════
+
+[0:00-0:15] OPENING - HOOK
+-----------------------------------
+Visual: Ibu rumah tangga masak di dapur sederhana, anak main di belakang
+Audio: Suara kompor, irama musik hangat
+
+Script:
+"Di Indonesia, ada 15 juta ibu seperti Siti. Bisa masak enak. Bisa bikin
+rendang yang orang desa sebelah datang cuma untuk beli. Tapi tidak punya
+toko. Tidak punya modal. Dan tidak punya platform yang affordable."
+
+(Source: BPS Survei Sosial Ekonomi 2024)
+
+[0:15-0:30] PROBLEM - PAIN
+-----------------------------------
+Visual: Infographic angka, GoFood app dengan harga mahal, UMKM struggle
+Audio: Musik sedikit tension
+
+Script:
+"GoFood? Komisi 20-30 persen. Untuk restoran yang sudah punya modal.
+Bukan untuk Siti yang cuma punya dapur dan impian. 50 persen UMKM makanan
+struggle di tahun pertama. Bukan karena tidak bisa masak. Tapi karena
+tidak punya akses ke pasar yang affordable."
+
+(Source: Kemenkop UKM, 2024 Report)
+
+[0:30-0:50] SOLUTION - HOPE
+-----------------------------------
+Visual: Siti buka aplikasi DapurKu, upload menu, dapat pesanan
+Audio: Musik naik, optimis
+
+Script:
+"DapurKu. Platform ghost kitchen untuk UMKM rumahan. Zero modal toko.
+Komisi 10-15 persen. Siti masak di dapur sendiri. Upload menu. Pesanan
+masuk. Kurir jemput. Uang masuk rekening."
+
+[0:50-1:10] PRODUCT - SHOW
+-----------------------------------
+Visual: Screen recording app, dashboard, pre-order, sertifikasi
+Audio: Musik upbeat
+
+Script:
+"Untuk penjual: dashboard pesanan, laporan harian, tips penjualan.
+Untuk pembeli: peta penjual di sekitar, review, pre-order, pilihan diet.
+Fitur unggulan: Sertifikasi Dapur Bersih. Bundling Mingguan. Pre-order
+untuk zero waste."
+
+[1:10-1:25] MARKET - SIZE
+-----------------------------------
+Visual: Grafik TAM/SAM/SOM, peta Indonesia dengan titik kota
+Audio: Musik confident
+
+Script:
+"Pasar food delivery Indonesia: 100 triliun rupiah per tahun.
+Target kita: 0.5 persen dari UMKM segment. Itu 500 miliar rupiah.
+Dan kita mulai dari Batam. Kota industri. Padat. Digital. Perfect pilot."
+
+Note: TAM = Rp 100T (food delivery), SAM = Rp 20T (UMKM), SOM = Rp 500M (0.5%)
+
+[1:25-1:40] TRACTION - PROOF
+-----------------------------------
+Visual: Chart traction, foto penjual bahagia, testimoni
+Audio: Musik inspiratif
+
+Script:
+"Bulan pertama di Batam: 50 penjual. 500 transaksi. Rating 4.7 dari 5.
+Bukan cuma angka. Ini adalah 50 ibu yang sekarang punya penghasilan.
+50 keluarga yang lebih baik."
+
+Note: Retention M3 masih projected. Butuh 3-6 bulan untuk validate.
+
+[1:40-1:55] COMPETITOR - MOAT
+-----------------------------------
+Visual: 2x2 matrix, logo kompetitor, arrow ke DapurKu
+Audio: Musik competitive
+
+Script:
+"GoFood untuk restoran. ShopeeFood untuk chain. GrabKitchen untuk yang
+punya modal. DapurKu untuk Siti. Untuk ibu rumah tangga. Untuk UMKM.
+Moat kita: relationship dengan PKK. Local knowledge. Training ecosystem.
+Butuh 12-18 bulan untuk build. Tidak bisa ditiru dengan uang saja."
+
+Note: Moat build time = 12-18 months (realistic, was 2 years)
+
+[1:55-2:10] TEAM - TRUST
+-----------------------------------
+Visual: Foto tim, background perusahaan
+Audio: Musik professional
+
+Script:
+"Tim kami: ex-GoFood (ops team), ex-Tokopedia (senior engineer),
+ex-Kemenkop (program officer), ex-Unilever (brand manager).
+Kami mengerti UMKM. Kami mengerti tech. Kami mengerti skala.
+Dan yang paling penting: kami jujur tentang stage kami."
+
+Note: Jujur experience level = builds trust
+
+[2:10-2:25] ASK - CLOSE
+-----------------------------------
+Visual: Waterfall chart, milestone, timeline
+Audio: Musik climax
+
+Script:
+"Kami cari 500 juta rupiah seed round. Untuk 12 bulan runway.
+Milestone: 500 penjual. 5.000 transaksi per bulan. Break-even Batam
+bulan 8-10. Dana untuk product, marketing, operations, legal."
+
+Note: Break-even = Month 8-10 (realistic, was Month 6-7)
+
+[2:25-2:45] VISION - DREAM
+-----------------------------------
+Visual: Montage: 60.000 penjual, 25 kota, peta Indonesia penuh titik
+Audio: Musik epic, emotional
+
+Script:
+"Visi 2030: 60.000 penjual. 25 kota. 5 triliun rupiah GMV.
+Setiap blok di Indonesia punya DapurKu. Setiap ibu rumah tangga
+bisa jadi entrepreneur. Siti bisa. 15 juta ibu lain bisa."
+
+Note: 60K sellers / 25 cities (realistic, was 200K / 50 cities)
+
+[2:45-3:00] CTA - ACTION
+-----------------------------------
+Visual: Logo DapurKu, contact info, website
+Audio: Musik fade out
+
+Script:
+"DapurKu. Masak di Rumah, Cuan Tanpa Batas. Join kita. Invest di kita.
+Bangun 60.000 entrepreneur makanan di Indonesia. Terima kasih."
+
+═══════════════════════════════════════════════════════════════════════════════
+TECHNICAL NOTES:
+- Total durasi: 2 menit 55 detik (buffer 5 detik)
+- Music: Royalty-free Indonesian ethnic + modern beat
+- Voiceover: Warm, female, Bahasa Indonesia dengan sedikit logat lokal
+- Subtitle: Bahasa Indonesia + English
+- Call-to-action: Email, website, LinkedIn founder
+═══════════════════════════════════════════════════════════════════════════════
+KEY CHANGES FROM ORIGINAL VIDEO SCRIPT:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Market size: Rp 100T TAM (was Rp 800T)
+2. Moat build time: 12-18 months (was 2 years)
+3. Break-even: Month 8-10 (was Month 6-7)
+4. Vision: 60K/25 cities (was 200K/50 cities)
+5. Team: Jujur experience level
+6. Added: Source citations
+7. Added: Notes about projected vs actual data
+8. Removed: Over-claiming
+
+═══════════════════════════════════════════════════════════════════════════════

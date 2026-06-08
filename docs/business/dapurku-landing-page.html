@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DapurKu - Ghost Kitchen UMKM Indonesia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%); color: white; padding: 60px 0; text-align: center; }
+        header h1 { font-size: 3em; margin-bottom: 10px; }
+        header p { font-size: 1.3em; margin-bottom: 30px; }
+        .cta-button { display: inline-block; background: #F1C40F; color: #333; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em; transition: transform 0.3s; }
+        .cta-button:hover { transform: scale(1.05); }
+
+        /* Stats */
+        .stats { background: #f8f9fa; padding: 40px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        .stat-item h3 { font-size: 2.5em; color: #E74C3C; margin-bottom: 5px; }
+        .stat-item p { color: #666; }
+
+        /* Features */
+        .features { padding: 60px 0; }
+        .features h2 { text-align: center; font-size: 2.2em; margin-bottom: 40px; color: #2C3E50; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .feature-card h3 { color: #E74C3C; margin-bottom: 15px; font-size: 1.3em; }
+        .feature-card p { color: #666; }
+
+        /* How it works */
+        .how-it-works { background: #f8f9fa; padding: 60px 0; }
+        .how-it-works h2 { text-align: center; font-size: 2.2em; margin-bottom: 40px; color: #2C3E50; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .step { text-align: center; padding: 20px; }
+        .step-number { width: 60px; height: 60px; background: #E74C3C; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: bold; margin: 0 auto 20px; }
+        .step h3 { margin-bottom: 10px; color: #2C3E50; }
+
+        /* Testimonials */
+        .testimonials { padding: 60px 0; }
+        .testimonials h2 { text-align: center; font-size: 2.2em; margin-bottom: 40px; color: #2C3E50; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 4px solid #E74C3C; }
+        .testimonial p { font-style: italic; margin-bottom: 15px; color: #555; }
+        .testimonial-author { font-weight: bold; color: #2C3E50; }
+        .testimonial-location { color: #666; font-size: 0.9em; }
+
+        /* CTA Section */
+        .cta-section { background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%); color: white; padding: 60px 0; text-align: center; }
+        .cta-section h2 { font-size: 2.2em; margin-bottom: 20px; }
+        .cta-section p { font-size: 1.2em; margin-bottom: 30px; }
+        .email-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; }
+        .email-form input { flex: 1; padding: 15px; border: none; border-radius: 50px; font-size: 1em; }
+        .email-form button { padding: 15px 30px; background: #F1C40F; color: #333; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; }
+
+        /* Footer */
+        footer { background: #2C3E50; color: white; padding: 40px 0; text-align: center; }
+        .social-links { margin: 20px 0; }
+        .social-links a { color: white; margin: 0 15px; text-decoration: none; font-size: 1.2em; }
+        .footer-links { margin: 20px 0; }
+        .footer-links a { color: #bdc3c7; margin: 0 15px; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .email-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>🍳 DapurKu</h1>
+            <p>Ghost Kitchen UMKM Indonesia — Masak di Rumah, Cuan Tanpa Batas</p>
+            <a href="#join" class="cta-button">Gabung Sekarang</a>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Penjual Aktif</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Transaksi</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.7</h3>
+                    <p>Rating Pembeli</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10-15%</h3>
+                    <p>Komisi (vs 20-30%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Kenapa DapurKu?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🚀 Zero Modal</h3>
+                    <p>Mulai berjualan tanpa modal toko. Gunakan dapur rumah Anda. Tidak perlu sewa tempat atau beli peralatan mahal.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💰 Komisi Rendah</h3>
+                    <p>Hanya 10-15% komisi vs 20-30% di platform lain. Lebih banyak untung untuk penjual UMKM.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👥 Community Support</h3>
+                    <p>Training gratis, packaging guidance, dan marketing assistance. Anda tidak sendiri!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📅 Pre-order System</h3>
+                    <p>Masak sesuai pesanan = zero waste. Tidak ada makanan terbuang. Lebih efisien dan ramah lingkungan.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✅ Dapur Bersih</h3>
+                    <p>Sertifikasi kebersihan kitchen untuk membangun kepercayaan pembeli. Verifikasi video dan audit berkala.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 Weekly Bundling</h3>
+                    <p>Model subscription untuk pembeli setia. Pendapatan recurring yang stabil untuk penjual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Cara Kerja</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Daftar</h3>
+                    <p>Buat akun penjual gratis. Upload foto dapur dan menu makanan.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Verifikasi</h3>
+                    <p>Tim kami verifikasi kitchen Anda via video call. Dapat sertifikasi Dapur Bersih.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Terima Pesanan</h3>
+                    <p>Pembeli pesan via app. Anda terima notifikasi real-time.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Masak & Antar</h3>
+                    <p>Masak sesuai pesanan. Kurir jemput atau pembeli pickup.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Dapat Uang</h3>
+                    <p>Uang masuk rekening Anda. Komisi hanya 10-15%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Apa Kata Mereka?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Saya bisa jualan tanpa modal toko! DapurKu memudahkan saya jualan rendang online. Pendapatan naik 3x lipat."</p>
+                    <div class="testimonial-author">Ibu Siti</div>
+                    <div class="testimonial-location">Penjual Rendang, Batam</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Komisi 12% sangat masuk akal. Di platform lain saya bayar 25%. Sekarang untung saya lebih besar."</p>
+                    <div class="testimonial-author">Pak Budi</div>
+                    <div class="testimonial-location">Penjual Nasi Goreng, Batam</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Training gratis sangat membantu. Saya belajar foto makanan, packaging, dan marketing. Community DapurKu sangat supportive."</p>
+                    <div class="testimonial-author">Ibu Rina</div>
+                    <div class="testimonial-location">Penjual Kue, Batam</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <h2>Siap Jadi Entrepreneur Makanan?</h2>
+            <p>Gabung 50+ penjual DapurKu. Daftar gratis, mulai berjualan hari ini.</p>
+            <form class="email-form" onsubmit="event.preventDefault(); alert('Terima kasih! Kami akan menghubungi Anda segera.');">
+                <input type="email" placeholder="Masukkan email Anda" required>
+                <button type="submit">Daftar Sekarang</button>
+            </form>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #bdc3c7;">
+                Atau hubungi kami: <a href="mailto:hello@dapurku.id" style="color: #F1C40F;">hello@dapurku.id</a> | 
+                <a href="tel:+6281234567890" style="color: #F1C40F;">+62 812 3456 7890</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>DapurKu</h3>
+            <p>Ghost Kitchen UMKM Indonesia</p>
+            <div class="social-links">
+                <a href="https://instagram.com/dapurku" target="_blank">Instagram</a>
+                <a href="https://tiktok.com/@dapurku" target="_blank">TikTok</a>
+                <a href="https://linkedin.com/company/dapurku" target="_blank">LinkedIn</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Tentang Kami</a>
+                <a href="#">Cara Kerja</a>
+                <a href="#">FAQ</a>
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+            </div>
+            <p style="margin-top: 20px; color: #7f8c8d; font-size: 0.9em;">
+                © 2026 DapurKu. All rights reserved. | Batam, Indonesia
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

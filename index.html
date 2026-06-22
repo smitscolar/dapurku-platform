@@ -2840,40 +2840,49 @@ function handleFiles(files) {
 }
 
 function renderGallery() {
-  var gallery  = document.getElementById('photoGallery');
-  var empty    = document.getElementById('emptyGallery');
-  var countEl  = document.getElementById('photoCount');
-  var photos   = photoData[currentPhotoTab];
+  var gallery = document.getElementById('photoGallery');
+  var countEl = document.getElementById('photoCount');
+  var photos  = photoData[currentPhotoTab];
 
   countEl.textContent = photos.length + ' foto tersimpan';
 
   if (photos.length === 0) {
-    gallery.innerHTML = '<div style="text-align:center;padding:30px;color:var(--mid2);grid-column:1/-1"><div style="font-size:36px;margin-bottom:8px">🖼️</div><div style="font-size:13px">Belum ada foto diupload</div><div style="font-size:11.5px;margin-top:4px">Klik area upload di atas untuk mulai</div></div>';
+    gallery.innerHTML = '<div style="text-align:center;padding:30px;color:var(--mid2);grid-column:1/-1"><div style="font-size:36px;margin-bottom:8px">\uD83D\uDDBC\uFE0F</div><div style="font-size:13px">Belum ada foto diupload</div><div style="font-size:11.5px;margin-top:4px">Klik area upload di atas untuk mulai</div></div>';
     return;
   }
 
-  var menus  = ['(Pilih Menu)', 'Ayam Geprek Spesial', 'Nasi Uduk Komplit', 'Mie Goreng Jawa', 'Es Teh Manis', 'Ayam Bakar Madu', 'Pisang Goreng Crispy', 'Bakso Malang', 'Pecel Sayur'];
-  var dapurs = ['(Pilih Dapur)', 'Geprek Bu Sari', 'Nasi Uduk Mbak Ani', 'Dapur Pak Budi', 'Minuman Pak Eko', 'BBQ Bu Tini'];
-  var assignOpts = currentPhotoTab === 'menu' ? menus : currentPhotoTab === 'dapur' || currentPhotoTab === 'profil' ? dapurs : ['(Pilih Posisi)', 'Banner Utama', 'Flash Sale', 'Group Buy', 'Promo Spesial'];
+  var menus  = ['(Pilih Menu)','Ayam Geprek Spesial','Nasi Uduk Komplit','Mie Goreng Jawa','Es Teh Manis','Ayam Bakar Madu','Pisang Goreng Crispy','Bakso Malang','Pecel Sayur'];
+  var dapurs = ['(Pilih Dapur)','Geprek Bu Sari','Nasi Uduk Mbak Ani','Dapur Pak Budi','Minuman Pak Eko','BBQ Bu Tini'];
+  var banners = ['(Pilih Posisi)','Banner Utama','Flash Sale','Group Buy','Promo Spesial'];
+  var assignOpts = currentPhotoTab === 'menu' ? menus : (currentPhotoTab === 'dapur' || currentPhotoTab === 'profil') ? dapurs : banners;
 
-  gallery.innerHTML = photos.map(function(p, i) {
-    return '<div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:var(--sh1)">' +
-      '<div style="position:relative">' +
-        '<img src="' + p.src + '" style="width:100%;height:120px;object-fit:cover;display:block">' +
-        '<button onclick="deletePhoto('' + p.id + '')" style="position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>' +
-        '<div style="position:absolute;bottom:5px;left:5px;background:rgba(249,115,22,.9);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px">' + p.tab.toUpperCase() + '</div>' +
-      '</div>' +
-      '<div style="padding:9px">' +
-        '<div style="font-size:11.5px;font-weight:600;color:var(--dark);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + p.name + '</div>' +
-        '<div style="font-size:10px;color:var(--mid2);margin-bottom:6px">' + (p.size/1024).toFixed(0) + ' KB · ' + p.uploadedAt + '</div>' +
-        '<select onchange="assignPhoto('' + p.id + '',this.value)" style="width:100%;font-size:10.5px;padding:4px 7px;border:1.5px solid var(--border);border-radius:7px;background:#fff;font-family:inherit;color:var(--dark)">' +
-          assignOpts.map(function(o) { return '<option value="' + o + '"' + (p.assigned === o ? ' selected' : '') + '>' + o + '</option>'; }).join('') +
-        '</select>' +
-      '</div>' +
-    '</div>';
-  }).join('');
+  var html = '';
+  photos.forEach(function(p) {
+    var opts = assignOpts.map(function(o) {
+      return '<option value="' + o.replace(/"/g,'&quot;') + '"' + (p.assigned === o ? ' selected' : '') + '>' + o + '</option>';
+    }).join('');
+    html += '<div style="border-radius:12px;overflow:hidden;border:1px solid #F0E6D3;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08)">';
+    html += '<div style="position:relative">';
+    html += '<img src="' + p.src + '" style="width:100%;height:120px;object-fit:cover;display:block" loading="lazy">';
+    html += '<button data-photoid="' + p.id + '" class="photo-del-btn" style="position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:14px;line-height:1;font-weight:700">✕</button>';
+    html += '<div style="position:absolute;bottom:5px;left:5px;background:rgba(249,115,22,.9);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px">' + p.tab.toUpperCase() + '</div>';
+    html += '</div>';
+    html += '<div style="padding:9px">';
+    html += '<div style="font-size:11.5px;font-weight:600;color:#1C1917;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + p.name + '</div>';
+    html += '<div style="font-size:10px;color:#9CA3AF;margin-bottom:6px">' + (p.size/1024).toFixed(0) + ' KB</div>';
+    html += '<select data-photoid="' + p.id + '" class="photo-assign-sel" style="width:100%;font-size:11px;padding:5px 7px;border:1.5px solid #F0E6D3;border-radius:7px;background:#fff;color:#1C1917">' + opts + '</select>';
+    html += '</div></div>';
+  });
+  gallery.innerHTML = html;
+
+  // Event delegation — tidak perlu inline onclick
+  gallery.querySelectorAll('.photo-del-btn').forEach(function(btn) {
+    btn.onclick = function() { deletePhoto(this.getAttribute('data-photoid')); };
+  });
+  gallery.querySelectorAll('.photo-assign-sel').forEach(function(sel) {
+    sel.onchange = function() { assignPhoto(this.getAttribute('data-photoid'), this.value); };
+  });
 }
-
 function deletePhoto(id) {
   Object.keys(photoData).forEach(function(tab) {
     photoData[tab] = photoData[tab].filter(function(p) { return p.id !== id; });

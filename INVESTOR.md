@@ -10,7 +10,7 @@
 | Platform | URL |
 |----------|-----|
 | 🟠 **Vercel (Production)** | **https://dapurku-platform.vercel.app** |
-| 🔵 Netlify (Demo) | https://ghostkitchenumkm.netlify.app |
+| 🔵 Netlify (Demo) | https://dapurku-platform.vercel.app |
 
 > Ini bukan mockup. Aplikasi nyata dengan 29 halaman dan 84 fitur — bisa dicoba sekarang juga.
 

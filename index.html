@@ -1871,8 +1871,8 @@ function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
   return `<div class="fc" onclick="openRD(${f.rId})">
-    <div class="fc-img" style="background:${f.bg}">
-      ${f.e}
+    <div class="fc-img" style="background:${f.bg};${f.foto?`background-image:url(${f.foto});background-size:cover;background-position:center`:``}">
+      ${f.foto?'':f.e}
       ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
       <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
     </div>
@@ -2229,6 +2229,56 @@ function advO(id,nx){
 
 // ── MENU MGR ──
 function rMM(){mmRender();}
+// ── MENU FOTO MANAGER ──
+function mmClickFoto(id, el){
+  // Buat hidden input untuk upload
+  var inp = document.getElementById('mmFotoHidden');
+  if(!inp){
+    inp = document.createElement('input');
+    inp.type = 'file';
+    inp.id = 'mmFotoHidden';
+    inp.accept = 'image/*';
+    inp.style.display = 'none';
+    document.body.appendChild(inp);
+  }
+  inp.onchange = function(){
+    if(!inp.files||!inp.files[0]) return;
+    var file = inp.files[0];
+    if(file.size > 10*1024*1024){ toast('Foto maks 10MB!','te'); return; }
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      var img2 = new Image();
+      img2.onload = function(){
+        var canvas = document.createElement('canvas');
+        var MAX = 900, w = img2.width, h = img2.height;
+        if(w>MAX||h>MAX){ if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;} }
+        canvas.width=w; canvas.height=h;
+        canvas.getContext('2d').drawImage(img2,0,0,w,h);
+        var src = canvas.toDataURL('image/jpeg',0.82);
+        // Simpan ke MYMENU
+        var m = MYMENU.find(function(x){return x.id===id;});
+        if(m){
+          m.foto = src;
+          toast('✅ Foto '+m.n+' berhasil diupdate!','ts');
+          mmRender();
+          // Sync ke F[]
+          var fItem = F.find(function(f){return f.id===id;});
+          if(fItem) fItem.foto = src;
+        }
+        inp.value='';
+      };
+      img2.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+}
+
+function mmRemoveFoto(id){
+  var m = MYMENU.find(function(x){return x.id===id;});
+  if(m){ m.foto=''; toast('Foto '+m.n+' dihapus, kembali ke emoji','ti'); mmRender(); }
+}
+
 function mmRender(){
   var grid=document.getElementById('mmGrid');
   if(!grid)return;
@@ -2253,9 +2303,12 @@ function mmRender(){
     var margin=m.modal?Math.round((m.p-m.modal)/m.p*100):0;
     var sc=m.st==='Aktif'?'#16A34A':m.st==='Habis'?'#F59E0B':'#DC2626';
     var sbg=m.st==='Aktif'?'#DCFCE7':m.st==='Habis'?'#FEF3C7':'#FEE2E2';
-    var imgH=m.foto?'<img src="'+m.foto+'" style="width:100%;height:100%;object-fit:cover">':'<div style="font-size:44px;line-height:1">'+m.e+'</div>';
-    html+='<div style="background:#fff;border-radius:16px;border:1px solid #F0E6D3;overflow:hidden;box-shadow:0 2px 8px rgba(249,115,22,.07)">';
-    html+='<div style="height:130px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">'+imgH;
+    var imgH=m.foto
+      ?'<img src="'+m.foto+'" style="width:100%;height:100%;object-fit:cover;display:block">'
+      :'<div style="font-size:48px;line-height:1;transition:transform .2s">'+m.e+'</div>';
+    html+='<div style="background:#fff;border-radius:16px;border:1px solid #F0E6D3;overflow:hidden;box-shadow:0 2px 8px rgba(249,115,22,.07);transition:transform .2s" onmouseenter="this.style.transform=\'translateY(-3px)\'" onmouseleave="this.style.transform=\'\'">'; 
+    html+='<div style="height:130px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer" title="Klik untuk ganti foto" onclick="mmClickFoto('+m.id+',this)">'+imgH;
+    html+='<div class="mm-foto-hint" style="position:absolute;inset:0;background:rgba(249,115,22,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;pointer-events:none"><div style="font-size:26px">📸</div><div style="font-size:11px;color:#fff;font-weight:700;margin-top:4px">Ganti Foto</div></div>';
     html+='<div style="position:absolute;top:8px;left:8px;background:'+sbg+';color:'+sc+';font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px">'+m.st+'</div>';
     if(disc)html+='<div style="position:absolute;top:8px;right:8px;background:#DC2626;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px">-'+disc+'%</div>';
     html+='</div><div style="padding:13px">';
@@ -2265,7 +2318,8 @@ function mmRender(){
     html+='<div style="display:flex;justify-content:space-between;font-size:11.5px;color:#9CA3AF;margin-bottom:10px"><span>⭐ '+m.rt+' · '+m.s+' terjual</span>'+(m.modal?'<span style="color:'+(margin>=30?'#16A34A':margin>=20?'#F59E0B':'#DC2626')+';font-weight:600">Margin '+margin+'%</span>':'')+'</div>';
     html+='<div style="display:flex;gap:7px">';
     html+='<button data-mmid="'+m.id+'" class="mmtogbtn" style="flex:1;padding:8px;border-radius:9px;border:1.5px solid '+(m.st==='Aktif'?'#FCA5A5':'#6EE7B7')+';background:'+(m.st==='Aktif'?'#FEF2F2':'#F0FFF4')+';color:'+(m.st==='Aktif'?'#DC2626':'#16A34A')+';font-size:11.5px;font-weight:600;cursor:pointer">'+(m.st==='Aktif'?'🔴 Nonaktif':'🟢 Aktifkan')+'</button>';
-    html+='<button data-mmid="'+m.id+'" class="mmeditbtn" style="padding:8px 11px;border-radius:9px;border:1.5px solid #F0E6D3;background:#FFF7ED;color:#F97316;font-size:13px;cursor:pointer;font-weight:600">✏️</button>';
+    html+='<button data-mmid="'+m.id+'" class="mmeditbtn" style="padding:8px 11px;border-radius:9px;border:1.5px solid #F0E6D3;background:#FFF7ED;color:#F97316;font-size:13px;cursor:pointer;font-weight:600" title="Edit detail menu">✏️</button>';
+    html+='<button onclick="mmClickFoto('+m.id+',this)" style="padding:8px 11px;border-radius:9px;border:1.5px solid #DBEAFE;background:#EFF6FF;color:#2563EB;font-size:13px;cursor:pointer;font-weight:600" title="Ganti foto menu">📸</button>';
     html+='<button data-mmid="'+m.id+'" class="mmdelbtn" style="padding:8px 11px;border-radius:9px;border:1.5px solid #FEE2E2;background:#FEF2F2;color:#DC2626;font-size:13px;cursor:pointer;font-weight:600">🗑️</button>';
     html+='</div></div></div>';
   });
@@ -3068,6 +3122,16 @@ function pmApplyAll(){
 }
 function pmResetAll(){pmData={menu:[],dapur:[],banner:[],profil:[]};pmRender();pmStats();toast('Semua foto direset','ti');}
 function rPhotomgr(){pmSwitch(pmTab);pmStats();}
+
+
+function mmSyncFotos(){
+  MYMENU.forEach(function(m){
+    if(m.foto){
+      var f=F.find(function(x){return x.id===m.id;});
+      if(f)f.foto=m.foto;
+    }
+  });
+}
 
 // ── INIT ──
 rHome();pb();

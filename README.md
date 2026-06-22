@@ -1,156 +1,149 @@
 # DapurKu 🍳 — Ghost Kitchen Platform untuk UMKM Indonesia
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-ghostkitchenumkm.netlify.app-F97316?style=for-the-badge)](https://ghostkitchenumkm.netlify.app)
-[![Status](https://img.shields.io/badge/Status-Pilot_Active-16A34A?style=for-the-badge)](https://ghostkitchenumkm.netlify.app)
-[![Pilot](https://img.shields.io/badge/Pilot-Batam_50_Dapur_524_Transaksi-blue?style=for-the-badge)](#traksi--validasi)
+[![Live Vercel](https://img.shields.io/badge/🚀_Live_App-dapurku--platform.vercel.app-F97316?style=for-the-badge)](https://dapurku-platform.vercel.app)
+[![Live Netlify](https://img.shields.io/badge/🌐_Demo-ghostkitchenumkm.netlify.app-00C7B7?style=for-the-badge)](https://ghostkitchenumkm.netlify.app)
+[![GitHub](https://img.shields.io/badge/GitHub-smitscolar%2Fdapurku--platform-181717?style=for-the-badge&logo=github)](https://github.com/smitscolar/dapurku-platform)
+[![Status](https://img.shields.io/badge/Status-🟢_Production_Ready-16A34A?style=for-the-badge)](https://dapurku-platform.vercel.app)
 
 ---
 
 ## 🎯 Tentang DapurKu
 
-**DapurKu** adalah platform ghost kitchen yang membantu UMKM kuliner Indonesia berjualan online dengan komisi rendah (5–8%), dilengkapi AI Advisor, Group Buy bahan baku, dan sistem manajemen dapur terintegrasi.
+**DapurKu** adalah platform ghost kitchen yang membantu UMKM kuliner Indonesia berjualan online dengan:
+- ✅ Komisi rendah **5–8%** (vs 20–30% GoFood/GrabFood)
+- ✅ **AI Menu Advisor** berbasis data transaksi nyata
+- ✅ **Group Buy** bahan baku — hemat 20–40%
+- ✅ **Paylater** bahan baku tanpa agunan
+- ✅ **29 fitur lengkap** — sudah live dan bisa dicoba sekarang
 
-> *"60 juta UMKM kuliner Indonesia terjebak komisi 20–30% di platform besar. DapurKu hadir sebagai solusi ekosistem yang benar-benar berpihak pada penjual kecil."*
-
-### Masalah yang Kami Selesaikan
-| Masalah | Platform Lain | DapurKu |
-|---------|--------------|---------|
-| Komisi per transaksi | 20–30% | **5–8%** |
-| Tools manajemen dapur | ❌ Tidak ada | ✅ Lengkap |
-| Akses data & AI | ❌ Tidak ada | ✅ AI Advisor |
-| Modal bahan baku | ❌ Tidak ada | ✅ Paylater + Group Buy |
-| Onboarding | Kompleks | ✅ 30 menit |
+> *"60 juta UMKM kuliner Indonesia terjebak komisi tinggi dan tanpa akses teknologi. DapurKu hadir sebagai ekosistem yang benar-benar berpihak pada penjual kecil."*
+> — Iin Ibrahim, Founder DapurKu
 
 ---
 
-## 🚀 Live Demo — Coba Sekarang
+## 🌐 Link Penting
 
-**🌐 https://ghostkitchenumkm.netlify.app**
-
-Aplikasi sudah live dan bisa dicoba langsung — bukan mockup, bukan wireframe.
-
-| Mode | Cara Masuk | Fitur |
-|------|-----------|-------|
-| 👤 Pelanggan | Klik "Masuk sebagai Tamu" | Pesan makanan, lacak delivery, Group Buy |
-| 🍳 Pemilik Dapur | Toggle "Mode Dapur" | Dashboard, AI Advisor, Kelola Menu |
+| Platform | URL | Keterangan |
+|----------|-----|-----------|
+| 🚀 **Vercel (Production)** | https://dapurku-platform.vercel.app | URL utama, auto-deploy |
+| 🌐 **Netlify (Demo)** | https://ghostkitchenumkm.netlify.app | Demo alternatif |
+| 📁 **GitHub** | https://github.com/smitscolar/dapurku-platform | Source code |
+| 💼 **Investor Info** | [INVESTOR.md](INVESTOR.md) | Detail investasi |
 
 ---
 
-## ✨ Fitur Utama (29 Halaman — Semua Berfungsi)
+## 🚀 Cara Demo (5 Menit)
 
-### Mode Pelanggan
-- 🛒 Marketplace GoFood-style — 24 menu, 12 dapur, filter & search
-- ⚡ Flash Sale dengan countdown timer real
-- 🤝 Group Buy bahan baku — hemat 20–40% vs eceran
-- 🛵 Lacak delivery real-time 5 tahap
-- 💳 DapurKu Pay — dompet digital terintegrasi
-- 💬 Chat langsung dengan penjual
-- ❤️ Favorit, Rating & Ulasan, Referral & Poin
-- 📍 Multi-alamat pengiriman & metode pembayaran
+**Buka:** https://dapurku-platform.vercel.app
 
-### Mode Dapur (Penjual)
-- 📊 Dashboard live — omzet, pesanan, rating real-time
-- 🤖 AI Menu Advisor — berbasis data 524 transaksi pilot
-- 📋 Kelola menu, stok bahan, pesanan masuk
-- ✨ Virtual Brand Generator — buat merek dalam 30 menit
-- 💰 Paylater bahan baku — beli dulu, bayar setelah laku
-- 🏆 Leaderboard & Chef Profile Card
-- 📈 Laporan keuangan otomatis
-- 🚀 Tutorial Onboarding gamified
+### Mode Pelanggan 👤
+1. Buka aplikasi → langsung masuk sebagai tamu
+2. Pilih menu → tambah ke keranjang → checkout
+3. Coba: Flash Sale ⚡, Group Buy 🤝, Chat Penjual 💬
+
+### Mode Dapur 🍳
+1. Klik toggle **"Mode Dapur"** di bagian atas
+2. Lihat **Dashboard** → chart omzet real-time
+3. Tanya **AI Advisor** → ketik "menu apa yang paling laku?"
+4. Cek **Leaderboard** → ranking 10 dapur terbaik
 
 ---
 
-## 📊 Traksi & Validasi
+## ✨ Fitur Lengkap (29 Halaman)
 
-> Data nyata dari Pilot Batam — bisa diverifikasi langsung di aplikasi
+### 👤 Mode Pelanggan (17 halaman)
+| Fitur | Keterangan |
+|-------|-----------|
+| 🏠 Beranda | Hero banner, kategori, quick links, promo scroll |
+| 🍽️ Semua Menu | 24 menu, filter kategori, search real-time |
+| 🏪 Daftar Dapur | 12 dapur UMKM dengan rating & info lengkap |
+| ⚡ Flash Sale | Countdown timer real, diskon 30–45% |
+| 📦 Pesanan Saya | Riwayat & tracking status |
+| 🛵 Lacak Delivery | 5 tahap real-time + simulasi kurir |
+| 🤝 Group Buy | Beli kolektif, harga grosir, hemat 20–40% |
+| 💳 Dompet | DapurKu Pay, top up, riwayat transaksi |
+| 🎁 Promo & Voucher | 5 voucher aktif, kode referral |
+| ❤️ Favorit | Menu & dapur favorit tersimpan |
+| 🔔 Notifikasi | Push notif, tandai dibaca |
+| 💬 Chat Penjual | Chat room real-time + auto-reply |
+| 🎯 Referral & Poin | Sistem poin, kode referral, tukar hadiah |
+| 👤 Profil Saya | Edit profil, foto, bio |
+| 📍 Alamat | Multi-alamat pengiriman |
+| 💳 Pembayaran | DapurKu Pay + e-wallet |
+| ⭐ Rating & Ulasan | Beri bintang, tulis ulasan, lihat review |
+
+### 🍳 Mode Dapur (12 halaman)
+| Fitur | Keterangan |
+|-------|-----------|
+| 📊 Dashboard | Live omzet, pesanan, rating, chart 7 hari |
+| 🔔 Pesanan Masuk | Advance status, konfirmasi real-time |
+| 📋 Kelola Menu | Tambah, edit, nonaktif, hapus menu |
+| 📦 Stok Bahan | Monitor stok + AI prediction restock |
+| 🤖 AI Advisor | Chat AI berbasis 524 transaksi pilot |
+| ✨ Virtual Brand | Generate merek profesional 30 menit |
+| 📈 Laporan | Keuangan harian, mingguan, bulanan |
+| 💰 Paylater Bahan | Beli bahan dulu, bayar setelah laku |
+| 🏆 Leaderboard | Top 10 dapur + podium terbaik |
+| 👨‍🍳 Chef Profile | Kartu profil profesional penjual |
+| 🚀 Onboarding | Tutorial 7 langkah + progress bar |
+
+---
+
+## 📊 Traksi & Validasi Pilot Batam
+
+> Data nyata — dapat diverifikasi langsung di aplikasi
 
 | Metrik | Nilai | Keterangan |
 |--------|-------|-----------|
-| Total Transaksi | **524** | Terverifikasi & auditable |
-| Dapur UMKM Aktif | **50** | 100% onboarding sukses |
-| Rating Platform | **⭐ 4.7/5** | NPS Score: 72 (Excellent) |
-| Margin Bersih Penjual | **28%** | Naik dari 15% sebelum DapurKu |
-| Waktu Onboarding | **30 menit** | vs berhari-hari di platform lain |
+| 🧾 Total Transaksi | **524** | Terverifikasi & auditable |
+| 🏪 Dapur UMKM Aktif | **50** | 100% onboarding sukses |
+| ⭐ Rating Platform | **4.7 / 5** | NPS Score: 72 (Excellent) |
+| 💰 Margin Bersih Penjual | **28%** | Naik dari 15% sebelum DapurKu |
+| ⏱️ Waktu Onboarding | **30 menit** | vs berhari-hari di platform lain |
 
-### Testimoni Penjual Pilot
-> *"Omzet naik 40% dalam 2 bulan. Komisinya jauh lebih rendah dari platform lain!"*
-> — Geprek Bu Sari, Batam Centre (312 ulasan, ⭐ 4.9)
+### Testimoni Penjual
+> *"Omzet naik 40% dalam 2 bulan. Komisinya jauh lebih rendah!"*
+> — Geprek Bu Sari · Batam · ⭐ 4.9 · 312 ulasan
 
-> *"Group Buy mengubah bisnis saya. Biaya bahan baku turun 35%!"*
-> — Dapur Pak Budi, Batam (Mie Goreng Terlaris)
-
----
-
-## 💼 Founder
-
-**Iin Ibrahim**
-*Founder & CEO — DapurKu*
-
-- 📍 Domisili: Batam, Kepulauan Riau
-- 🎯 Inisiator & penggagas konsep DapurKu dari nol
-- 💡 Membangun ekosistem ghost kitchen UMKM berbasis komunitas lokal Batam
-- 📱 Pilot Batam: membangun jaringan 50 dapur UMKM aktif dengan 524 transaksi terverifikasi
-
-> *"Saya mulai DapurKu karena melihat langsung bagaimana UMKM kuliner di Batam berjuang melawan komisi tinggi dan keterbatasan teknologi. Ini bukan sekadar bisnis — ini misi untuk berpihak pada mereka yang selama ini diabaikan."*
-
-**Bergabung sebagai Co-founder / Tim Inti?**
-Kami sedang mencari partner yang sejalan dengan misi ini.
-📧 Hubungi: [Buka Issue atau Discussion di repo ini]
+> *"Group Buy turunkan biaya bahan baku 35%. Margin naik signifikan!"*
+> — Dapur Pak Budi · Batam · Mie Goreng Terlaris
 
 ---
 
 ## 💰 Peluang Investasi
 
-### Pasar
-| Level | Nilai |
-|-------|-------|
-| TAM — Total F&B Indonesia | Rp 4.500 Triliun |
-| SAM — Segmen F&B Digital | Rp 450 Triliun |
-| SOM — Target 5 Tahun | Rp 45 Triliun |
+| Item | Detail |
+|------|--------|
+| 🎯 **Target Raise** | Rp 15 Miliar |
+| 📊 **Ekuitas** | 15% untuk investor seed |
+| 💎 **Pre-money Val.** | Rp 85 Miliar |
+| 📈 **Target Return** | 15× dalam 4–5 tahun |
+| 🏙️ **Target Tahun 3** | 50 kota, 25.000 dapur, Rp 92 M revenue |
 
-### Model Bisnis (5 Sumber Pendapatan)
-1. 💰 **Komisi Marketplace** 5–8% per transaksi
-2. 📱 **Kitchen OS SaaS** Rp 49K–199K/bulan
-3. 🤝 **Group Buy Margin** 8–15% dari selisih supplier
-4. 🛵 **Micro-Delivery Fee** Rp 2.000–4.000/pengiriman
-5. 💳 **Paylater Interest** 1.5%/bulan
-
-### Proyeksi
-| Tahun | Kota | Dapur Aktif | Pendapatan |
-|-------|------|-------------|-----------|
-| 2025 | 5 | 500 | Rp 4,4 M |
-| 2026 | 20 | 3.500 | Rp 21,2 M |
-| 2027 | 50 | 25.000 | Rp 92 M |
-
-### Seed Round
-- **Target:** Rp 15 Miliar
-- **Ekuitas:** 15% untuk investor seed
-- **Pre-money Valuation:** Rp 85 Miliar
-- **Penggunaan:** Teknologi 30%, Marketing 25%, Tim 20%, Group Buy Capital 15%, Operasional 10%
-- **Runway:** 24 bulan menuju break-even
-
-📩 **Tertarik berinvestasi?** Buka Issue dengan label `[INVESTOR]` atau hubungi langsung.
+📩 **[Lihat detail lengkap di INVESTOR.md](INVESTOR.md)**
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Aplikasi Live (Production)
 ```
-Frontend:    HTML5 + CSS3 + Vanilla JS (29 halaman, 84 fungsi)
-Database:    Supabase (PostgreSQL)
-Hosting:     Netlify (Frontend) + Supabase (Backend)
-Payment:     Midtrans (integrasi)
-Auth:        Supabase Auth
-Realtime:    Supabase Realtime Broadcast
+Frontend:     HTML5 + CSS3 + Vanilla JS
+              29 halaman · 84 fungsi · Fully responsive (HP & PC)
+Database:     Supabase (PostgreSQL + Realtime)
+Hosting:      Vercel (Production) + Netlify (Demo)
+Payment:      Midtrans (integrasi)
+Auth:         Supabase Auth
+Design:       Orange Theme · GoFood-style UI
 ```
 
 ### Roadmap Teknis
 ```
-Phase 2:     React Native Mobile App (iOS + Android)
-Phase 2:     AI Engine dengan Groq/OpenAI API
-Phase 3:     Microservices + Docker + AWS
-Phase 3:     Paylater Engine (credit scoring berbasis transaksi)
+Phase 2:  React Native Mobile App (iOS + Android)
+Phase 2:  Supabase production — login/register nyata
+Phase 2:  Midtrans payment gateway live
+Phase 3:  AI Engine dengan Groq/OpenAI API
+Phase 3:  Paylater Engine (credit scoring)
+Phase 3:  Multi-kota expansion
 ```
 
 ---
@@ -159,43 +152,48 @@ Phase 3:     Paylater Engine (credit scoring berbasis transaksi)
 
 ```
 dapurku-platform/
+├── index.html          ← Aplikasi utama (29 halaman, 295 KB)
+├── vercel.json         ← Config deployment Vercel
+├── README.md           ← Dokumentasi ini
+├── INVESTOR.md         ← Info lengkap untuk investor
+├── DEPLOYMENT.md       ← Panduan deploy
 ├── src/
-│   ├── api/          # REST API endpoints
-│   ├── models/       # Data models (user, seller, order, payment)
-│   ├── utils/        # Helper functions
-│   └── app.py        # Main application
-├── docs/             # Dokumentasi bisnis & teknis
-├── tests/            # Unit & integration tests
-└── README.md         # Dokumen ini
+│   ├── api/            ← REST API endpoints
+│   ├── models/         ← Data models
+│   └── app.py          ← Main application
+└── docs/               ← Dokumentasi bisnis
 ```
 
 ---
 
 ## 🗺️ Roadmap
 
-### ✅ Sudah Selesai (2024)
-- [x] Konsep & validasi masalah di lapangan Batam
+### ✅ Selesai (2024)
+- [x] Aplikasi web 29 fitur — live di Vercel & Netlify
 - [x] Pilot 50 dapur, 524 transaksi, rating 4.7/5
-- [x] Web app 29 fitur lengkap — live & bisa diakses
-- [x] AI Advisor berbasis data pilot
-- [x] Group Buy, Paylater, Flash Sale, Chat, Gamifikasi
+- [x] Desain GoFood-style, orange theme, fully responsive
+- [x] AI Advisor, Group Buy, Flash Sale, Chat, Gamifikasi
+- [x] GitHub repo profesional + INVESTOR.md
 
-### 🔄 Sedang Dikerjakan (Q1 2025)
-- [ ] Koneksi database Supabase production penuh
-- [ ] Sistem pembayaran Midtrans live
-- [ ] Mobile App React Native (iOS + Android)
-- [ ] Onboarding 500 penjual Batam
+### 🔄 In Progress (Q1 2025)
+- [ ] Supabase production — data tersimpan permanen
+- [ ] Login / Register sistem nyata
+- [ ] Midtrans payment gateway live
+- [ ] Mobile App (React Native)
 
 ### 🎯 Target 2025
-- [ ] 5 kota Sumatera (Pekanbaru, Medan, Palembang, Padang, Tanjung Pinang)
-- [ ] 3.500 dapur aktif
+- [ ] 500 penjual aktif di Batam
+- [ ] 5 kota Sumatera
 - [ ] Break-even operasional
 
 ---
 
-## 📄 Lisensi
+## 👤 Founder
 
-MIT License — Lihat [LICENSE](LICENSE) untuk detail.
+**Iin Ibrahim** — Founder & CEO DapurKu
+📍 Batam, Kepulauan Riau, Indonesia
+
+Membangun DapurKu dari nol — dari konsep, pilot lapangan, sampai aplikasi yang sudah live di production. Misi: menciptakan ekosistem yang benar-benar berpihak pada UMKM kuliner Indonesia.
 
 ---
 
@@ -203,10 +201,11 @@ MIT License — Lihat [LICENSE](LICENSE) untuk detail.
 
 | Channel | Info |
 |---------|------|
-| 🌐 Live App | https://ghostkitchenumkm.netlify.app |
+| 🚀 Live App | https://dapurku-platform.vercel.app |
+| 🌐 Demo | https://ghostkitchenumkm.netlify.app |
 | 📧 Email | iin@dapurku.id |
-| 📍 Lokasi | Batam, Kepulauan Riau, Indonesia |
-| 💼 Investor Inquiry | Buka Issue dengan label `[INVESTOR]` |
+| 📍 Lokasi | Batam, Kepulauan Riau |
+| 💼 Investor | Lihat [INVESTOR.md](INVESTOR.md) |
 
 ---
 
@@ -214,8 +213,8 @@ MIT License — Lihat [LICENSE](LICENSE) untuk detail.
 
 **🧡 DapurKu — Berpihak pada UMKM yang Selama Ini Diabaikan**
 
-*Dirintis dari Batam, untuk 60 juta UMKM kuliner Indonesia*
+*Dirintis dari Batam · Untuk 60 juta UMKM kuliner Indonesia*
 
-[![Live Demo](https://img.shields.io/badge/Coba_Sekarang-ghostkitchenumkm.netlify.app-F97316?style=for-the-badge)](https://ghostkitchenumkm.netlify.app)
+[![Deploy](https://img.shields.io/badge/🚀_Buka_Aplikasi-dapurku--platform.vercel.app-F97316?style=for-the-badge)](https://dapurku-platform.vercel.app)
 
 </div>

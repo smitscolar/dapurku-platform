@@ -1282,6 +1282,106 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 </div>
 
 <!-- ══ PAGE: FAVORITE ══ -->
+
+<div class="pg" id="pg-stock">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Stok Bahan Baku</div>
+    <div class="card" style="overflow:hidden;margin-bottom:14px"><table class="tbl" id="stockTbl"></table></div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:5px;color:var(--dark)">⚠️ Perlu Restock (AI Prediction)</div>
+      <div style="font-size:12px;color:var(--mid);margin-bottom:13px">Prediksi 3 hari ke depan</div>
+      <div id="restockList"></div>
+      <button class="btn btn-p btn-sm" style="margin-top:13px" onclick="toast('Permintaan Group Buy dikirim!','ts')">🤝 Beli via Group Buy</button>
+    </div>
+  </div>
+</div>
+
+<div class="pg" id="pg-ai">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">AI Menu Advisor</div>
+    <div class="g2" style="margin-bottom:14px">
+      <div class="card" style="background:linear-gradient(135deg,#F97316,#EA6C0A);border:none;box-shadow:var(--sh-orange)">
+        <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:8px">💡 REKOMENDASI HARI INI</div>
+        <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:7px">Tambah stok Ayam Geprek 30 porsi extra</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.65">Data pilot 30 hari: Jumat sore +2.4×. Cuaca panas → es teh +45%. Prediksi malam: Rp 650.000</div>
+        <div style="display:flex;gap:5px;margin-top:13px;flex-wrap:wrap">
+          <span style="background:rgba(249,168,37,.2);color:var(--gold);font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px">📈 Jumat Puncak</span>
+          <span style="background:rgba(255,255,255,.12);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px">☀️ Cuaca Panas</span>
+        </div>
+      </div>
+      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">📊 Insight Minggu Ini</div><div id="aiIns"></div></div>
+    </div>
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:4px;color:var(--dark)">💬 Tanya AI Advisor</div>
+      <div style="font-size:12px;color:var(--mid);margin-bottom:13px">Berbasis data nyata 524 transaksi pilot Batam</div>
+      <div class="acw" id="aiChat"></div>
+      <div class="arow">
+        <input class="ainp" id="aiInp" placeholder="Tanya apapun tentang bisnis dapurmu..." onkeydown="if(event.key==='Enter')sendAI()">
+        <button class="btn btn-p btn-sm" onclick="sendAI()">Kirim ✈️</button>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn btn-o btn-sm" onclick="qai('Menu paling laku minggu ini?')">Menu terlaris</button>
+        <button class="btn btn-o btn-sm" onclick="qai('Kapan waktu terbaik promosi?')">Waktu promo</button>
+        <button class="btn btn-o btn-sm" onclick="qai('Bahan apa yang perlu restock?')">Restock bahan</button>
+        <button class="btn btn-o btn-sm" onclick="qai('Target omzet bulan depan?')">Target omzet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pg" id="pg-vbrand">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Virtual Brand Generator</div>
+    <div class="g2">
+      <div class="card">
+        <div style="font-weight:700;margin-bottom:15px;color:var(--dark)">🎨 Buat Brand dalam 30 Menit</div>
+        <div style="margin-bottom:12px"><label class="fl2">Nama Pemilik / Dapur</label><input class="fi2" id="bOwn" placeholder="cth: Bu Sari" oninput="pb()"></div>
+        <div style="margin-bottom:12px"><label class="fl2">Jenis Masakan</label><select class="fsel" id="bTyp" onchange="pb()"><option value="ayam">🍗 Ayam & Bebek</option><option value="nasi">🍚 Nasi & Lauk</option><option value="mie">🍜 Mie & Pasta</option><option value="bakar">🔥 Masakan Bakar</option><option value="sehat">🥗 Makanan Sehat</option><option value="camilan">🍟 Camilan</option></select></div>
+        <div style="margin-bottom:16px"><label class="fl2">Karakter Brand</label><select class="fsel" id="bChr" onchange="pb()"><option value="pedas">🌶️ Pedas & Berani</option><option value="homemade">🏠 Homemade & Hangat</option><option value="premium">👑 Premium & Elegan</option><option value="tradisional">🌿 Tradisional & Otentik</option></select></div>
+        <button class="btn btn-p btn-full" onclick="gb2()">✨ Generate Brand!</button>
+      </div>
+      <div>
+        <div class="bprev"><div style="font-size:54px;margin-bottom:11px" id="blogo">🍗</div><div style="font-size:21px;font-weight:700;color:var(--gold)" id="bname">GEPREK BU SARI</div><div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-top:4px" id="btag">"Pedas Nikmat, Harga Sahabat"</div></div>
+        <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">📋 Detail Brand</div><div style="margin-bottom:8px"><span class="tag">Nama</span><div style="font-weight:600;margin-top:4px;color:var(--dark)" id="bdN">Geprek Bu Sari</div></div><div style="margin-bottom:8px"><span class="tag">Tagline</span><div style="font-size:12.5px;color:var(--mid);margin-top:4px" id="bdT">"Pedas Nikmat, Harga Sahabat"</div></div><div style="margin-bottom:15px"><span class="tag">Target</span><div style="font-size:12.5px;color:var(--mid);margin-top:4px" id="bdM">Mahasiswa & karyawan 18–35</div></div><button class="btn btn-g btn-full" onclick="toast('Brand aktif di platform DapurKu!','ts')">🚀 Aktifkan di Platform</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pg" id="pg-laporan">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Laporan Keuangan · Data Pilot Batam</div>
+    <div class="g3" style="margin-bottom:16px">
+      <div class="sc hl"><div class="sc-l">Total Omzet Bulan Ini</div><div class="sc-v">Rp 36,4 Jt</div><div class="sc-t">↑ 22% vs bulan lalu</div></div>
+      <div class="sc"><div class="sc-i">💰</div><div class="sc-l">Keuntungan Bersih</div><div class="sc-v" style="color:var(--green2)">Rp 10,2 Jt</div><div class="sc-t">Margin 28%</div></div>
+      <div class="sc"><div class="sc-i">📦</div><div class="sc-l">Total Transaksi</div><div class="sc-v" style="color:var(--blue)">524</div><div class="sc-t">Data aktual pilot</div></div>
+    </div>
+    <div class="g2" style="margin-bottom:14px">
+      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">Pendapatan per Sumber</div><div id="lapChart"></div></div>
+      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">Pengeluaran Operasional</div><div id="penList"></div></div>
+    </div>
+    <div class="card" style="overflow:hidden"><div style="font-weight:700;margin-bottom:15px;color:var(--dark)">Riwayat Transaksi</div><table class="tbl" id="lapTbl"></table></div>
+  </div>
+</div>
+
+<div class="pg" id="pg-paylater">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Paylater Bahan Baku</div>
+    <div style="background:linear-gradient(135deg,#F97316,#FB923C);border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;margin-bottom:18px;box-shadow:var(--sh-orange)">
+      <div style="position:absolute;right:-25px;top:-25px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
+      <div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-bottom:4px;position:relative;z-index:1">Limit Paylater Aktif</div>
+      <div style="font-size:32px;font-weight:700;margin-bottom:4px;position:relative;z-index:1">Rp 2.000.000</div>
+      <div style="font-size:11.5px;color:var(--gold);position:relative;z-index:1">✓ Disetujui · Berdasarkan histori transaksi DapurKu</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;position:relative;z-index:1">
+        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Terpakai</div><div style="font-weight:700;font-size:16px;margin-top:3px">Rp 450K</div></div>
+        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Tersedia</div><div style="font-weight:700;font-size:16px;margin-top:3px;color:var(--gold)">Rp 1,55 Jt</div></div>
+        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Jatuh Tempo</div><div style="font-weight:700;font-size:16px;margin-top:3px">21 Jun</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:14px"><div style="font-weight:700;margin-bottom:14px;color:var(--dark)">🛒 Beli Bahan via Paylater</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:11px" id="plItems"></div></div>
+    <div class="card"><div style="font-weight:700;margin-bottom:14px;color:var(--dark)">📋 Tagihan Aktif</div><div id="plBills"></div></div>
+  </div>
+</div>
 <div class="pg" id="pg-favorite">
   <div class="pc">
     <div style="font-size:16px;font-weight:700;margin-bottom:4px;color:var(--dark)">❤️ Favorit Saya</div>

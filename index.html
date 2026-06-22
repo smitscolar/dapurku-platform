@@ -1514,6 +1514,119 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   </div>
 </div>
 
+
+<!-- ══ PAGE: PHOTO MANAGER ══ -->
+<div class="pg" id="pg-photomgr">
+  <div class="pc">
+    <div style="font-size:16px;font-weight:700;margin-bottom:4px;color:var(--dark)">📸 Upload & Kelola Foto</div>
+    <div style="font-size:12px;color:var(--mid);margin-bottom:18px">Upload foto menu, dapur, profil penjual — semua tersimpan lokal & langsung tampil di aplikasi</div>
+
+    <!-- TABS FOTO -->
+    <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap" id="photoTabRow">
+      <button class="btn btn-p btn-sm" onclick="switchPhotoTab('menu')">🍽️ Foto Menu</button>
+      <button class="btn btn-o btn-sm" onclick="switchPhotoTab('dapur')">🏪 Foto Dapur</button>
+      <button class="btn btn-o btn-sm" onclick="switchPhotoTab('banner')">🖼️ Banner Promo</button>
+      <button class="btn btn-o btn-sm" onclick="switchPhotoTab('profil')">👤 Foto Profil Penjual</button>
+    </div>
+
+    <!-- UPLOAD AREA -->
+    <div class="card" style="margin-bottom:16px">
+      <div style="font-weight:700;margin-bottom:4px;color:var(--dark)" id="photoTabTitle">📂 Upload Foto Menu</div>
+      <div style="font-size:12px;color:var(--mid);margin-bottom:14px" id="photoTabDesc">Pilih foto untuk menu makanan — format JPG/PNG/WebP, maks 5MB per foto</div>
+
+      <!-- DROP ZONE -->
+      <div id="dropZone"
+        style="border:2.5px dashed #F97316;border-radius:16px;padding:36px 20px;text-align:center;background:#FFF7ED;cursor:pointer;transition:all .2s;margin-bottom:14px"
+        onclick="document.getElementById('fileInput').click()"
+        ondragover="event.preventDefault();this.style.background='#FED7AA'"
+        ondragleave="this.style.background='#FFF7ED'"
+        ondrop="handleDrop(event)">
+        <div style="font-size:48px;margin-bottom:10px">📸</div>
+        <div style="font-size:14px;font-weight:700;color:#F97316;margin-bottom:5px">Klik atau Drag & Drop Foto di Sini</div>
+        <div style="font-size:12px;color:var(--mid)">JPG · PNG · WebP · GIF · Maks 5MB per file</div>
+        <div style="font-size:11px;color:var(--mid2);margin-top:6px">Bisa pilih banyak foto sekaligus</div>
+      </div>
+      <input type="file" id="fileInput" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+
+      <!-- PROGRESS -->
+      <div id="uploadProgress" style="display:none;margin-bottom:12px">
+        <div style="font-size:12.5px;font-weight:600;color:var(--dark);margin-bottom:6px" id="uploadStatus">Memproses foto...</div>
+        <div class="pt"><div class="pf" id="uploadBar" style="width:0%;background:#F97316;transition:width .3s"></div></div>
+      </div>
+
+      <!-- QUICK INFO -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px">
+        <div style="background:#FFF7ED;border-radius:10px;padding:11px;text-align:center;border:1px solid #FED7AA">
+          <div style="font-size:20px;margin-bottom:4px">🎯</div>
+          <div style="font-size:11px;font-weight:600;color:#F97316">Ukuran Ideal</div>
+          <div style="font-size:11px;color:var(--mid)">800×600px<br>atau 1:1 square</div>
+        </div>
+        <div style="background:#FFF7ED;border-radius:10px;padding:11px;text-align:center;border:1px solid #FED7AA">
+          <div style="font-size:20px;margin-bottom:4px">📦</div>
+          <div style="font-size:11px;font-weight:600;color:#F97316">Format Diterima</div>
+          <div style="font-size:11px;color:var(--mid)">JPG · PNG<br>WebP · GIF</div>
+        </div>
+        <div style="background:#FFF7ED;border-radius:10px;padding:11px;text-align:center;border:1px solid #FED7AA">
+          <div style="font-size:20px;margin-bottom:4px">⚡</div>
+          <div style="font-size:11px;font-weight:600;color:#F97316">Tersimpan Di</div>
+          <div style="font-size:11px;color:var(--mid)">Browser lokal<br>Langsung tampil</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW FOTO TERUPLOAD -->
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div>
+          <div style="font-weight:700;color:var(--dark)" id="photoGalleryTitle">Galeri Foto Menu</div>
+          <div style="font-size:12px;color:var(--mid);margin-top:2px" id="photoCount">0 foto tersimpan</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-o btn-sm" onclick="clearAllPhotos()" style="color:var(--red)">🗑️ Hapus Semua</button>
+          <button class="btn btn-p btn-sm" onclick="applyPhotos()">✓ Terapkan ke Aplikasi</button>
+        </div>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div id="photoGallery" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px">
+        <div style="text-align:center;padding:30px;color:var(--mid2);grid-column:1/-1" id="emptyGallery">
+          <div style="font-size:36px;margin-bottom:8px">🖼️</div>
+          <div style="font-size:13px">Belum ada foto diupload</div>
+          <div style="font-size:11.5px;margin-top:4px">Klik area upload di atas untuk mulai</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PETUNJUK PENGGUNAAN -->
+    <div class="card" style="margin-top:14px;background:#FFF7ED;border:1px solid #FED7AA">
+      <div style="font-weight:700;color:#92400E;margin-bottom:12px">📋 Petunjuk Penggunaan Foto</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#6B7280">
+          <span style="font-size:16px;flex-shrink:0">1️⃣</span>
+          <div><b style="color:#1C1917">Pilih kategori</b> foto di tab atas (Menu, Dapur, Banner, atau Profil Penjual)</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#6B7280">
+          <span style="font-size:16px;flex-shrink:0">2️⃣</span>
+          <div><b style="color:#1C1917">Upload foto</b> dengan klik area orange atau drag & drop — bisa banyak sekaligus</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#6B7280">
+          <span style="font-size:16px;flex-shrink:0">3️⃣</span>
+          <div><b style="color:#1C1917">Beri nama & assign</b> ke menu/dapur yang sesuai dari galeri bawah</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#6B7280">
+          <span style="font-size:16px;flex-shrink:0">4️⃣</span>
+          <div><b style="color:#1C1917">Klik "Terapkan ke Aplikasi"</b> — foto langsung tampil di seluruh halaman</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#6B7280">
+          <span style="font-size:16px;flex-shrink:0">5️⃣</span>
+          <div><b style="color:#1C1917">Hapus foto</b> kapanpun dengan klik ✕ di sudut foto — data hilang dari browser</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
     </div><!-- /pgArea -->
 
     <!-- CART PANEL (desktop) -->
@@ -2616,6 +2729,7 @@ Object.assign(PGTT, {
   onboarding:"Tutorial Onboarding 🚀",
   flashsale:"Flash Sale ⚡",
   rating:"Rating & Ulasan ⭐",
+  photomgr:"📸 Upload & Kelola Foto",
 });
 
 // Update RD di gp()
@@ -2624,7 +2738,7 @@ gp = function(id){
   _origGp(id);
   // Extra renders for new pages
   const EXTRA={
-    favorite:rFavorite,notif:rNotif,chat:rChat,
+    favorite:rFavorite,notif:rNotif,chat:rChat,photomgr:rPhotomgr,
     referral:rReferral,profile:rProfile,address:rAddress,
     payment:rPayment,leaderboard:rLeaderboard,chefprofile:rChefprofile,
     onboarding:rOnboarding,flashsale:rFlashsale,rating:rRating,
@@ -2632,6 +2746,195 @@ gp = function(id){
   if(EXTRA[id])EXTRA[id]();
 };
 
+
+
+// ════════════════════════════════════════
+// PHOTO MANAGER — Upload & Kelola Foto
+// ════════════════════════════════════════
+var currentPhotoTab = 'menu';
+var photoData = {
+  menu: [],
+  dapur: [],
+  banner: [],
+  profil: []
+};
+
+var photoTabConfig = {
+  menu:   { title: '📂 Upload Foto Menu',           desc: 'Foto untuk menu makanan — tampil di kartu menu & detail dapur',     gallery: 'Galeri Foto Menu' },
+  dapur:  { title: '📂 Upload Foto Dapur',          desc: 'Foto tampak depan dapur, suasana, dan fasilitas penjual',          gallery: 'Galeri Foto Dapur' },
+  banner: { title: '📂 Upload Banner Promo',        desc: 'Banner untuk promo, flash sale, dan hero section beranda',         gallery: 'Galeri Banner Promo' },
+  profil: { title: '📂 Upload Foto Profil Penjual', desc: 'Foto profil chef/pemilik dapur untuk Chef Profile Card',          gallery: 'Galeri Foto Profil' }
+};
+
+function switchPhotoTab(tab) {
+  currentPhotoTab = tab;
+  var cfg = photoTabConfig[tab];
+  document.getElementById('photoTabTitle').textContent = cfg.title;
+  document.getElementById('photoTabDesc').textContent = cfg.desc;
+  document.getElementById('photoGalleryTitle').textContent = cfg.gallery;
+
+  // Update active button
+  var btns = document.getElementById('photoTabRow').querySelectorAll('button');
+  btns.forEach(function(b,i) {
+    var tabs = ['menu','dapur','banner','profil'];
+    b.className = 'btn btn-sm ' + (tabs[i] === tab ? 'btn-p' : 'btn-o');
+  });
+
+  renderGallery();
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').style.background = '#FFF7ED';
+  var files = e.dataTransfer.files;
+  handleFiles(files);
+}
+
+function handleFiles(files) {
+  if (!files || files.length === 0) return;
+  var arr = Array.from(files);
+  var valid = arr.filter(function(f) { return f.type.startsWith('image/') && f.size <= 5*1024*1024; });
+
+  if (valid.length === 0) {
+    toast('File harus gambar (JPG/PNG/WebP) dan maks 5MB!', 'te');
+    return;
+  }
+  if (arr.length > valid.length) {
+    toast('Beberapa file dilewati (bukan gambar atau > 5MB)', 'ti');
+  }
+
+  var prog = document.getElementById('uploadProgress');
+  var bar  = document.getElementById('uploadBar');
+  var stat = document.getElementById('uploadStatus');
+  prog.style.display = 'block';
+
+  var done = 0;
+  valid.forEach(function(file, idx) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var dataUrl = e.target.result;
+      var photoObj = {
+        id: 'photo_' + Date.now() + '_' + idx,
+        name: file.name.replace(/\.[^.]+$/, ''),
+        src: dataUrl,
+        size: file.size,
+        type: file.type,
+        tab: currentPhotoTab,
+        assigned: '',
+        uploadedAt: new Date().toLocaleTimeString('id-ID')
+      };
+      photoData[currentPhotoTab].push(photoObj);
+      done++;
+      var pct = Math.round(done / valid.length * 100);
+      bar.style.width = pct + '%';
+      stat.textContent = 'Memproses ' + done + ' dari ' + valid.length + ' foto...';
+      if (done === valid.length) {
+        stat.textContent = '✅ ' + done + ' foto berhasil diupload!';
+        setTimeout(function() { prog.style.display = 'none'; bar.style.width = '0%'; }, 2500);
+        renderGallery();
+        toast('✅ ' + done + ' foto berhasil diupload ke ' + currentPhotoTab, 'ts');
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderGallery() {
+  var gallery  = document.getElementById('photoGallery');
+  var empty    = document.getElementById('emptyGallery');
+  var countEl  = document.getElementById('photoCount');
+  var photos   = photoData[currentPhotoTab];
+
+  countEl.textContent = photos.length + ' foto tersimpan';
+
+  if (photos.length === 0) {
+    gallery.innerHTML = '<div style="text-align:center;padding:30px;color:var(--mid2);grid-column:1/-1"><div style="font-size:36px;margin-bottom:8px">🖼️</div><div style="font-size:13px">Belum ada foto diupload</div><div style="font-size:11.5px;margin-top:4px">Klik area upload di atas untuk mulai</div></div>';
+    return;
+  }
+
+  var menus  = ['(Pilih Menu)', 'Ayam Geprek Spesial', 'Nasi Uduk Komplit', 'Mie Goreng Jawa', 'Es Teh Manis', 'Ayam Bakar Madu', 'Pisang Goreng Crispy', 'Bakso Malang', 'Pecel Sayur'];
+  var dapurs = ['(Pilih Dapur)', 'Geprek Bu Sari', 'Nasi Uduk Mbak Ani', 'Dapur Pak Budi', 'Minuman Pak Eko', 'BBQ Bu Tini'];
+  var assignOpts = currentPhotoTab === 'menu' ? menus : currentPhotoTab === 'dapur' || currentPhotoTab === 'profil' ? dapurs : ['(Pilih Posisi)', 'Banner Utama', 'Flash Sale', 'Group Buy', 'Promo Spesial'];
+
+  gallery.innerHTML = photos.map(function(p, i) {
+    return '<div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:var(--sh1)">' +
+      '<div style="position:relative">' +
+        '<img src="' + p.src + '" style="width:100%;height:120px;object-fit:cover;display:block">' +
+        '<button onclick="deletePhoto('' + p.id + '')" style="position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>' +
+        '<div style="position:absolute;bottom:5px;left:5px;background:rgba(249,115,22,.9);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px">' + p.tab.toUpperCase() + '</div>' +
+      '</div>' +
+      '<div style="padding:9px">' +
+        '<div style="font-size:11.5px;font-weight:600;color:var(--dark);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + p.name + '</div>' +
+        '<div style="font-size:10px;color:var(--mid2);margin-bottom:6px">' + (p.size/1024).toFixed(0) + ' KB · ' + p.uploadedAt + '</div>' +
+        '<select onchange="assignPhoto('' + p.id + '',this.value)" style="width:100%;font-size:10.5px;padding:4px 7px;border:1.5px solid var(--border);border-radius:7px;background:#fff;font-family:inherit;color:var(--dark)">' +
+          assignOpts.map(function(o) { return '<option value="' + o + '"' + (p.assigned === o ? ' selected' : '') + '>' + o + '</option>'; }).join('') +
+        '</select>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function deletePhoto(id) {
+  Object.keys(photoData).forEach(function(tab) {
+    photoData[tab] = photoData[tab].filter(function(p) { return p.id !== id; });
+  });
+  renderGallery();
+  toast('Foto dihapus', 'ti');
+}
+
+function clearAllPhotos() {
+  if (!confirm('Hapus semua foto di kategori ' + currentPhotoTab + '?')) return;
+  photoData[currentPhotoTab] = [];
+  renderGallery();
+  toast('Semua foto ' + currentPhotoTab + ' dihapus', 'te');
+}
+
+function assignPhoto(id, val) {
+  Object.keys(photoData).forEach(function(tab) {
+    var p = photoData[tab].find(function(x) { return x.id === id; });
+    if (p) p.assigned = val;
+  });
+}
+
+function applyPhotos() {
+  var total = Object.values(photoData).reduce(function(s,arr) { return s + arr.length; }, 0);
+  if (total === 0) { toast('Belum ada foto yang diupload!', 'te'); return; }
+
+  // Terapkan foto menu ke food cards
+  var menuPhotos = photoData['menu'].filter(function(p) { return p.assigned && p.assigned !== '(Pilih Menu)'; });
+  menuPhotos.forEach(function(p) {
+    // Ganti emoji di food card dengan gambar jika ada nama yang cocok
+    var foodCards = document.querySelectorAll('.fc-img');
+    foodCards.forEach(function(card) {
+      var nameEl = card.nextElementSibling && card.nextElementSibling.querySelector('.fc-name');
+      if (nameEl && nameEl.textContent.includes(p.assigned.split(' ')[0])) {
+        card.style.backgroundImage = 'url(' + p.src + ')';
+        card.style.backgroundSize = 'cover';
+        card.style.backgroundPosition = 'center';
+      }
+    });
+  });
+
+  // Terapkan banner
+  var bannerPhotos = photoData['banner'].filter(function(p) { return p.assigned && p.assigned !== '(Pilih Posisi)'; });
+  bannerPhotos.forEach(function(p) {
+    if (p.assigned === 'Banner Utama') {
+      var hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.backgroundImage = 'url(' + p.src + ')';
+        hero.style.backgroundSize = 'cover';
+        hero.style.backgroundPosition = 'center';
+      }
+    }
+  });
+
+  toast('✅ ' + total + ' foto berhasil diterapkan ke aplikasi!', 'ts');
+  setTimeout(function() { toast('💡 Foto tersimpan di browser sesi ini', 'ti'); }, 1500);
+}
+
+function rPhotomgr() {
+  renderGallery();
+}
 
 // ── INIT ──
 rHome();pb();

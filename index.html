@@ -1912,7 +1912,7 @@ var mmFilter = "Semua";
 
 INC.forEach(o=>inSt[o.id]=o.st);
 
-const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰"};
+const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",flashsale:"Flash Sale ⚡",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰",favorite:"Favorit ❤️",notif:"Notifikasi 🔔",chat:"Chat Penjual 💬",referral:"Referral & Poin 🎯",profile:"Profil Saya 👤",address:"Alamat Pengiriman 📍",payment:"Metode Pembayaran 💳",leaderboard:"Leaderboard 🏆",chefprofile:"Chef Profile 👨‍🍳",onboarding:"Tutorial 🚀",rating:"Rating & Ulasan ⭐",photomgr:"Upload Foto 📸"};
 
 // ── NAV ──
 function gp(id){
@@ -1937,8 +1937,18 @@ function gp(id){
   const pa=document.getElementById('pgArea');if(pa)pa.scrollTop=0;
   closeSB();
   // Render page
-  const RD={home:rHome,market:rm,restos:rRestos,myorders:()=>rOrd('Semua'),groupbuy:rGB,wallet:rWallet,promo:rPromo,dashboard:rDash,incoming:()=>rIn('Semua'),menumgr:rMM,stock:rSt,ai:rAI,vbrand:pb,laporan:rLap,paylater:rPL};
-  if(RD[id])RD[id]();
+  const RD={
+    home:rHome, market:rm, restos:rRestos, restoDetail:function(){},
+    myorders:function(){rOrd('Semua');}, track:function(){rTrack&&rTrack();},
+    groupbuy:rGB, wallet:rWallet, promo:rPromo, flashsale:rFlashsale,
+    dashboard:rDash, incoming:function(){rIn('Semua');},
+    menumgr:rMM, stock:rSt, ai:rAI, vbrand:pb, laporan:rLap, paylater:rPL,
+    favorite:rFavorite, notif:rNotif, chat:rChat, referral:rReferral,
+    profile:rProfile, address:rAddress, payment:rPayment,
+    leaderboard:rLeaderboard, chefprofile:rChefprofile,
+    onboarding:rOnboarding, rating:rRating, photomgr:rPhotomgr
+  };
+  if(RD[id] && typeof RD[id]==='function') RD[id]();
 }
 
 function sv(v){
@@ -3108,21 +3118,7 @@ rHome = function(){
 };
 
 // Update PGTT untuk halaman baru
-Object.assign(PGTT, {
-  favorite:"Favorit Saya ❤️",
-  notif:"Notifikasi 🔔",
-  chat:"Chat Penjual 💬",
-  referral:"Referral & Poin 🎯",
-  profile:"Profil Saya 👤",
-  address:"Alamat Pengiriman 📍",
-  payment:"Metode Pembayaran 💳",
-  leaderboard:"Leaderboard Dapur 🏆",
-  chefprofile:"Chef Profile 👨‍🍳",
-  onboarding:"Tutorial Onboarding 🚀",
-  flashsale:"Flash Sale ⚡",
-  rating:"Rating & Ulasan ⭐",
-  photomgr:"📸 Upload & Kelola Foto",
-});
+// PGTT sudah lengkap di atas
 
 // Update RD di gp()
 const _origGp = gp;

@@ -1,31 +1,26 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.venv/
-venv/
-env/
+# Dependencies
+node_modules/
+.npm
 
-# Local environment / secrets
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+
+# Environment
 .env
-.env.*
-!.env.example
-*.pem
-*.key
+.env.local
+.env.*.local
 
-# Local database/runtime
-*.db
-*.sqlite
-*.sqlite3
+# Vercel
+.vercel
 
-# Test/cache
-.pytest_cache/
-.mypy_cache/
-.coverage
-htmlcov/
-
-# OS/editor
+# OS
 .DS_Store
+Thumbs.db
+
+# IDE
 .vscode/
 .idea/
+*.swp

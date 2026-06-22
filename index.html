@@ -1118,119 +1118,168 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 <!-- ══ MENU MGR ══ -->
 <div class="pg" id="pg-menumgr">
   <div class="pc">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div style="font-size:16px;font-weight:700;color:var(--dark)">Kelola Menu</div><div style="font-size:12px;color:var(--mid)">Menu aktif dapurmu</div></div>
-      <button class="btn btn-p btn-sm" onclick="openModal('mAdd')">+ Tambah Menu</button>
+
+    <!-- HEADER -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
+      <div>
+        <div style="font-size:18px;font-weight:700;color:var(--dark)">📋 Kelola Menu Saya</div>
+        <div style="font-size:12px;color:var(--mid);margin-top:2px">Setting manual menu yang dijual — tambah, edit, atur harga & status</div>
+      </div>
+      <button class="btn btn-p" onclick="mmOpenAdd()" style="display:flex;align-items:center;gap:7px;font-size:13px">
+        <span style="font-size:18px;line-height:1">+</span> Tambah Menu Baru
+      </button>
     </div>
-    <div class="card" style="overflow:hidden"><table class="tbl" id="menuTbl"></table></div>
+
+    <!-- STATS 4 KOTAK -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px">
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #F0E6D3;text-align:center;box-shadow:0 1px 3px rgba(249,115,22,.07)">
+        <div style="font-size:26px;font-weight:800;color:#F97316" id="mmSTotal">24</div>
+        <div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Total Menu</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #DCFCE7;text-align:center;box-shadow:0 1px 3px rgba(22,163,74,.07)">
+        <div style="font-size:26px;font-weight:800;color:#16A34A" id="mmSAktif">20</div>
+        <div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Aktif Dijual</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #FEE2E2;text-align:center;box-shadow:0 1px 3px rgba(220,38,38,.07)">
+        <div style="font-size:26px;font-weight:800;color:#DC2626" id="mmSNon">4</div>
+        <div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Nonaktif</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #EDE9FE;text-align:center;box-shadow:0 1px 3px rgba(124,58,237,.07)">
+        <div style="font-size:26px;font-weight:800;color:#7C3AED" id="mmSTerjual">1.284</div>
+        <div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Total Terjual</div>
+      </div>
+    </div>
+
+    <!-- FILTER + SEARCH -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+      <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #F0E6D3;border-radius:10px;padding:8px 13px;flex:1;min-width:180px">
+        <span style="font-size:15px;color:var(--mid2)">🔍</span>
+        <input id="mmSrch" placeholder="Cari nama menu..." style="border:none;outline:none;font-size:13px;color:var(--dark);background:transparent;flex:1;min-width:0" oninput="mmRender()">
+      </div>
+      <select id="mmFCat" onchange="mmRender()" style="padding:9px 12px;border:1.5px solid #F0E6D3;border-radius:10px;font-size:12.5px;background:#fff;color:var(--dark)">
+        <option value="">Semua Kategori</option>
+        <option>Ayam</option><option>Nasi</option><option>Mie</option><option>Minuman</option><option>Snack</option>
+      </select>
+      <div style="display:flex;gap:6px">
+        <button id="mmfBtn-Semua" class="btn btn-p btn-sm" onclick="mmSetFilter('Semua')">Semua</button>
+        <button id="mmfBtn-Aktif" class="btn btn-o btn-sm" onclick="mmSetFilter('Aktif')">🟢 Aktif</button>
+        <button id="mmfBtn-Nonaktif" class="btn btn-o btn-sm" onclick="mmSetFilter('Nonaktif')">🔴 Nonaktif</button>
+        <button id="mmfBtn-Habis" class="btn btn-o btn-sm" onclick="mmSetFilter('Habis')">🟡 Habis</button>
+      </div>
+    </div>
+
+    <!-- MENU CARDS GRID -->
+    <div id="mmGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px"></div>
+
   </div>
 </div>
 
-<!-- ══ STOCK ══ -->
-<div class="pg" id="pg-stock">
-  <div class="pc">
-    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Stok Bahan Baku</div>
-    <div class="card" style="overflow:hidden;margin-bottom:14px"><table class="tbl" id="stockTbl"></table></div>
-    <div class="card">
-      <div style="font-weight:700;margin-bottom:5px;color:var(--dark)">⚠️ Perlu Restock (AI Prediction)</div>
-      <div style="font-size:12px;color:var(--mid);margin-bottom:13px">Prediksi 3 hari ke depan</div>
-      <div id="restockList"></div>
-      <button class="btn btn-p btn-sm" style="margin-top:13px" onclick="toast('Permintaan Group Buy dikirim!','ts')">🤝 Beli via Group Buy</button>
+<!-- MODAL TAMBAH/EDIT MENU -->
+<div class="mover" id="mMenuForm" style="display:none">
+  <div class="mbox" style="max-width:500px;max-height:90vh;overflow-y:auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div style="font-size:16px;font-weight:700;color:var(--dark)" id="mmFormTitle">➕ Tambah Menu Baru</div>
+      <button onclick="closeModal('mMenuForm');mmResetForm()" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid2);padding:0">✕</button>
     </div>
-  </div>
-</div>
 
-<!-- ══ AI ══ -->
-<div class="pg" id="pg-ai">
-  <div class="pc">
-    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">AI Menu Advisor</div>
-    <div class="g2" style="margin-bottom:14px">
-      <div class="card" style="background:linear-gradient(135deg,#F97316,#EA6C0A);border:none;box-shadow:var(--sh-orange)">
-        <div style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:8px">💡 REKOMENDASI HARI INI</div>
-        <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:7px">Tambah stok Ayam Geprek 30 porsi extra</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.65">Data pilot 30 hari: Jumat sore +2.4×. Cuaca panas → es teh +45%. Prediksi malam: Rp 650.000</div>
-        <div style="display:flex;gap:5px;margin-top:13px;flex-wrap:wrap">
-          <span style="background:rgba(249,168,37,.2);color:var(--gold);font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px">📈 Jumat Puncak</span>
-          <span style="background:rgba(255,255,255,.12);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:99px">☀️ Cuaca Panas</span>
+    <!-- FOTO -->
+    <div style="margin-bottom:16px">
+      <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:8px">📸 Foto Menu</div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div id="mmFotoBox" onclick="document.getElementById('mmFotoInp').click()"
+          style="width:88px;height:88px;border-radius:14px;background:#FFF7ED;border:2.5px dashed #F97316;display:flex;align-items:center;justify-content:center;font-size:38px;cursor:pointer;overflow:hidden;flex-shrink:0;transition:all .2s">
+          🍽️
+        </div>
+        <div style="flex:1">
+          <button class="btn btn-o btn-sm" onclick="document.getElementById('mmFotoInp').click()">📸 Pilih Foto</button>
+          <div style="font-size:11px;color:var(--mid);margin-top:6px;line-height:1.5">JPG · PNG · WebP<br>Maks 5MB · Tampil di kartu menu</div>
+          <input type="file" id="mmFotoInp" accept="image/*" style="display:none" onchange="mmPreviewFoto(this)">
         </div>
       </div>
-      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">📊 Insight Minggu Ini</div><div id="aiIns"></div></div>
     </div>
-    <div class="card">
-      <div style="font-weight:700;margin-bottom:4px;color:var(--dark)">💬 Tanya AI Advisor</div>
-      <div style="font-size:12px;color:var(--mid);margin-bottom:13px">Berbasis data nyata 524 transaksi pilot Batam</div>
-      <div class="acw" id="aiChat"></div>
-      <div class="arow">
-        <input class="ainp" id="aiInp" placeholder="Tanya apapun tentang bisnis dapurmu..." onkeydown="if(event.key==='Enter')sendAI()">
-        <button class="btn btn-p btn-sm" onclick="sendAI()">Kirim ✈️</button>
-      </div>
-      <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
-        <button class="btn btn-o btn-sm" onclick="qai('Menu paling laku minggu ini?')">Menu terlaris</button>
-        <button class="btn btn-o btn-sm" onclick="qai('Kapan waktu terbaik promosi?')">Waktu promo</button>
-        <button class="btn btn-o btn-sm" onclick="qai('Bahan apa yang perlu restock?')">Restock bahan</button>
-        <button class="btn btn-o btn-sm" onclick="qai('Target omzet bulan depan?')">Target omzet</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ══ VBRAND ══ -->
-<div class="pg" id="pg-vbrand">
-  <div class="pc">
-    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Virtual Brand Generator</div>
-    <div class="g2">
-      <div class="card">
-        <div style="font-weight:700;margin-bottom:15px;color:var(--dark)">🎨 Buat Brand dalam 30 Menit</div>
-        <div style="margin-bottom:12px"><label class="fl2">Nama Pemilik / Dapur</label><input class="fi2" id="bOwn" placeholder="cth: Bu Sari" oninput="pb()"></div>
-        <div style="margin-bottom:12px"><label class="fl2">Jenis Masakan</label><select class="fsel" id="bTyp" onchange="pb()"><option value="ayam">🍗 Ayam & Bebek</option><option value="nasi">🍚 Nasi & Lauk</option><option value="mie">🍜 Mie & Pasta</option><option value="bakar">🔥 Masakan Bakar</option><option value="sehat">🥗 Makanan Sehat</option><option value="camilan">🍟 Camilan</option></select></div>
-        <div style="margin-bottom:16px"><label class="fl2">Karakter Brand</label><select class="fsel" id="bChr" onchange="pb()"><option value="pedas">🌶️ Pedas & Berani</option><option value="homemade">🏠 Homemade & Hangat</option><option value="premium">👑 Premium & Elegan</option><option value="tradisional">🌿 Tradisional & Otentik</option></select></div>
-        <button class="btn btn-p btn-full" onclick="gb2()">✨ Generate Brand!</button>
+    <!-- NAMA & EMOJI -->
+    <div style="margin-bottom:12px">
+      <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Nama Menu *</label>
+      <div style="display:flex;gap:8px">
+        <input id="mmFE" style="width:52px;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px;font-size:22px;text-align:center;background:#fff" placeholder="🍽️" maxlength="2">
+        <input id="mmFN" style="flex:1;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13.5px;color:var(--dark);background:#fff" placeholder="cth: Ayam Geprek Level 5">
+      </div>
+    </div>
+
+    <!-- HARGA -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Harga Jual (Rp) *</label>
+        <input id="mmFP" type="number" placeholder="25000" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;color:var(--dark);background:#fff" oninput="mmCalcM()">
       </div>
       <div>
-        <div class="bprev"><div style="font-size:54px;margin-bottom:11px" id="blogo">🍗</div><div style="font-size:21px;font-weight:700;color:var(--gold)" id="bname">GEPREK BU SARI</div><div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-top:4px" id="btag">"Pedas Nikmat, Harga Sahabat"</div></div>
-        <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">📋 Detail Brand</div><div style="margin-bottom:8px"><span class="tag">Nama</span><div style="font-weight:600;margin-top:4px;color:var(--dark)" id="bdN">Geprek Bu Sari</div></div><div style="margin-bottom:8px"><span class="tag">Tagline</span><div style="font-size:12.5px;color:var(--mid);margin-top:4px" id="bdT">"Pedas Nikmat, Harga Sahabat"</div></div><div style="margin-bottom:15px"><span class="tag">Target</span><div style="font-size:12.5px;color:var(--mid);margin-top:4px" id="bdM">Mahasiswa & karyawan 18–35</div></div><button class="btn btn-g btn-full" onclick="toast('Brand aktif di platform DapurKu!','ts')">🚀 Aktifkan di Platform</button></div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Harga Modal (Rp)</label>
+        <input id="mmFC" type="number" placeholder="12000" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;color:var(--dark);background:#fff" oninput="mmCalcM()">
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Harga Coret (Rp)</label>
+        <input id="mmFOg" type="number" placeholder="30000 (opsional)" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;color:var(--dark);background:#fff">
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Stok Harian</label>
+        <input id="mmFStk" type="number" placeholder="50" value="50" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;color:var(--dark);background:#fff">
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ══ LAPORAN ══ -->
-<div class="pg" id="pg-laporan">
-  <div class="pc">
-    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Laporan Keuangan · Data Pilot Batam</div>
-    <div class="g3" style="margin-bottom:16px">
-      <div class="sc hl"><div class="sc-l">Total Omzet Bulan Ini</div><div class="sc-v">Rp 36,4 Jt</div><div class="sc-t">↑ 22% vs bulan lalu</div></div>
-      <div class="sc"><div class="sc-i">💰</div><div class="sc-l">Keuntungan Bersih</div><div class="sc-v" style="color:var(--green2)">Rp 10,2 Jt</div><div class="sc-t">Margin 28%</div></div>
-      <div class="sc"><div class="sc-i">📦</div><div class="sc-l">Total Transaksi</div><div class="sc-v" style="color:var(--blue)">524</div><div class="sc-t">Data aktual pilot</div></div>
+    <!-- MARGIN INDICATOR -->
+    <div id="mmMarginBox" style="display:none;background:#D1FAE5;border:1px solid #6EE7B7;border-radius:10px;padding:11px 14px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:12.5px;color:#065F46;font-weight:600">💰 Estimasi Margin:</div>
+        <div style="font-size:17px;font-weight:800;color:#065F46" id="mmMarginVal">0%</div>
+      </div>
+      <div style="font-size:11.5px;color:#059669;margin-top:3px" id="mmMarginTxt"></div>
     </div>
-    <div class="g2" style="margin-bottom:14px">
-      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">Pendapatan per Sumber</div><div id="lapChart"></div></div>
-      <div class="card"><div style="font-weight:700;margin-bottom:13px;color:var(--dark)">Pengeluaran Operasional</div><div id="penList"></div></div>
-    </div>
-    <div class="card" style="overflow:hidden"><div style="font-weight:700;margin-bottom:15px;color:var(--dark)">Riwayat Transaksi</div><table class="tbl" id="lapTbl"></table></div>
-  </div>
-</div>
 
-<!-- ══ PAYLATER ══ -->
-<div class="pg" id="pg-paylater">
-  <div class="pc">
-    <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Paylater Bahan Baku</div>
-    <div style="background:linear-gradient(135deg,#F97316,#FB923C);border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;margin-bottom:18px;box-shadow:var(--sh-orange)">
-      <div style="position:absolute;right:-25px;top:-25px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
-      <div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-bottom:4px;position:relative;z-index:1">Limit Paylater Aktif</div>
-      <div style="font-size:32px;font-weight:700;margin-bottom:4px;position:relative;z-index:1">Rp 2.000.000</div>
-      <div style="font-size:11.5px;color:var(--gold);position:relative;z-index:1">✓ Disetujui · Berdasarkan histori transaksi DapurKu</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;position:relative;z-index:1">
-        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Terpakai</div><div style="font-weight:700;font-size:16px;margin-top:3px">Rp 450K</div></div>
-        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Tersedia</div><div style="font-weight:700;font-size:16px;margin-top:3px;color:var(--gold)">Rp 1,55 Jt</div></div>
-        <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center"><div style="font-size:10.5px;color:rgba(255,255,255,.55)">Jatuh Tempo</div><div style="font-weight:700;font-size:16px;margin-top:3px">21 Jun</div></div>
+    <!-- KATEGORI + STATUS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Kategori *</label>
+        <select id="mmFCat2" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;background:#fff;color:var(--dark)">
+          <option>Ayam</option><option>Nasi</option><option>Mie</option><option>Minuman</option><option>Snack</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Status</label>
+        <select id="mmFStat" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;background:#fff;color:var(--dark)">
+          <option value="Aktif">🟢 Aktif (Dijual)</option>
+          <option value="Nonaktif">🔴 Nonaktif</option>
+          <option value="Habis">🟡 Stok Habis</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Waktu Masak</label>
+        <select id="mmFTime" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;background:#fff;color:var(--dark)">
+          <option>10–15 menit</option><option>15–20 menit</option><option>20–30 menit</option><option>30–45 menit</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Tampil di Beranda</label>
+        <select id="mmFHome" style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;background:#fff;color:var(--dark)">
+          <option value="1">✅ Ya, tampilkan</option>
+          <option value="0">❌ Tidak</option>
+        </select>
       </div>
     </div>
-    <div class="card" style="margin-bottom:14px"><div style="font-weight:700;margin-bottom:14px;color:var(--dark)">🛒 Beli Bahan via Paylater</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:11px" id="plItems"></div></div>
-    <div class="card"><div style="font-weight:700;margin-bottom:14px;color:var(--dark)">📋 Tagihan Aktif</div><div id="plBills"></div></div>
+
+    <!-- DESKRIPSI -->
+    <div style="margin-bottom:16px">
+      <label style="font-size:12px;font-weight:600;color:var(--dark);display:block;margin-bottom:5px">Deskripsi Menu</label>
+      <textarea id="mmFDesc" rows="2" placeholder="Ceritakan keunikan menu ini..." style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:9px 12px;font-size:13px;color:var(--dark);background:#fff;resize:none;font-family:inherit;box-sizing:border-box"></textarea>
+    </div>
+
+    <!-- BUTTONS -->
+    <div style="display:flex;gap:9px">
+      <button class="btn btn-p" onclick="mmSave()" style="flex:1;justify-content:center;font-size:14px;padding:12px" id="mmSaveBtn">✓ Simpan Menu</button>
+      <button class="btn btn-o" onclick="closeModal('mMenuForm');mmResetForm()" style="padding:12px 18px">Batal</button>
+    </div>
   </div>
 </div>
-
 
 <!-- ══ PAGE: FAVORITE ══ -->
 <div class="pg" id="pg-favorite">
@@ -1731,11 +1780,36 @@ const TGT={pedas:"Pecinta kuliner pedas usia 18–30",homemade:"Keluarga & profe
 // ── STATE ──
 let cart=[],cv='P',cp='home',mktC='Semua',walBal=85000;
 let inSt={},ds=3,aiH=[],aiOk=false;
-let MYMENU=[{id:1,n:"Ayam Geprek Spesial",cat:"Ayam & Bebek",p:22000,e:"🍗",st:"Aktif",s:127},
-{id:2,n:"Ayam Bakar Madu",cat:"Ayam & Bebek",p:28000,e:"🍖",st:"Aktif",s:76},
-{id:3,n:"Nasi Uduk Komplit",cat:"Nasi & Lauk",p:18000,e:"🍚",st:"Aktif",s:98},
-{id:4,n:"Es Teh Manis",cat:"Minuman",p:7000,e:"🧋",st:"Aktif",s:201},
-{id:5,n:"Jus Alpukat",cat:"Minuman",p:15000,e:"🥑",st:"Nonaktif",s:55}];
+let MYMENU=[
+  {id:1,n:"Ayam Geprek Spesial",e:"🍗",cat:"Ayam",p:22000,modal:10000,og:null,s:127,stk:50,st:"Aktif",time:"10–15 menit",desc:"Ayam geprek renyah dengan sambal level 1-10",home:1,foto:""},
+  {id:2,n:"Ayam Geprek Double",e:"🍗",cat:"Ayam",p:35000,modal:16000,og:40000,s:84,stk:50,st:"Aktif",time:"10–15 menit",desc:"Double portion ayam geprek dengan nasi ekstra",home:1,foto:""},
+  {id:3,n:"Ayam Geprek Keju",e:"🍗",cat:"Ayam",p:26000,modal:13000,og:null,s:71,stk:30,st:"Aktif",time:"15–20 menit",desc:"Geprek spesial dengan lelehan keju mozarella",home:0,foto:""},
+  {id:4,n:"Nasi Uduk Komplit",e:"🍚",cat:"Nasi",p:18000,modal:8000,og:null,s:98,stk:40,st:"Aktif",time:"5–10 menit",desc:"Nasi uduk gurih lengkap dengan lauk pilihan",home:1,foto:""},
+  {id:5,n:"Nasi Uduk Jumbo",e:"🍚",cat:"Nasi",p:25000,modal:11000,og:28000,s:54,stk:30,st:"Aktif",time:"5–10 menit",desc:"Porsi jumbo nasi uduk untuk yang lapar besar",home:0,foto:""},
+  {id:6,n:"Mie Goreng Jawa",e:"🍜",cat:"Mie",p:15000,modal:6000,og:null,s:143,stk:60,st:"Aktif",time:"10–15 menit",desc:"Mie goreng bumbu Jawa tradisional autentik",home:1,foto:""},
+  {id:7,n:"Mie Goreng Seafood",e:"🍜",cat:"Mie",p:22000,modal:10000,og:null,s:89,stk:40,st:"Aktif",time:"15–20 menit",desc:"Mie goreng dengan udang, cumi, dan sayuran segar",home:0,foto:""},
+  {id:8,n:"Es Teh Manis Jumbo",e:"🧋",cat:"Minuman",p:7000,modal:2500,og:null,s:201,stk:100,st:"Aktif",time:"3–5 menit",desc:"Es teh segar ukuran jumbo 600ml",home:1,foto:""},
+  {id:9,n:"Jus Alpukat Kental",e:"🥑",cat:"Minuman",p:15000,modal:7000,og:18000,s:76,stk:30,st:"Aktif",time:"5–10 menit",desc:"Jus alpukat super kental dengan susu full cream",home:0,foto:""},
+  {id:10,n:"Boba Taro Susu",e:"🧋",cat:"Minuman",p:18000,modal:8000,og:null,s:67,stk:40,st:"Aktif",time:"5–10 menit",desc:"Minuman boba taro dengan pearl kenyal",home:0,foto:""},
+  {id:11,n:"Ayam Bakar Madu",e:"🍖",cat:"Ayam",p:28000,modal:14000,og:null,s:76,stk:25,st:"Aktif",time:"20–30 menit",desc:"Ayam bakar marinasi madu dan rempah pilihan",home:1,foto:""},
+  {id:12,n:"Ikan Bakar Bumbu Bali",e:"🐟",cat:"Nasi",p:32000,modal:18000,og:null,s:45,stk:20,st:"Aktif",time:"20–30 menit",desc:"Ikan bakar segar bumbu Bali autentik",home:0,foto:""},
+  {id:13,n:"Tahu Crispy Keju",e:"🧀",cat:"Snack",p:10000,modal:4000,og:null,s:177,stk:80,st:"Aktif",time:"10–15 menit",desc:"Tahu crispy golden brown dengan topping keju leleh",home:1,foto:""},
+  {id:14,n:"Pisang Goreng Crispy",e:"🍌",cat:"Snack",p:8000,modal:3000,og:null,s:156,stk:60,st:"Aktif",time:"10–15 menit",desc:"Pisang goreng renyah crispy dengan aneka topping",home:1,foto:""},
+  {id:15,n:"Keripik Tempe Balado",e:"🌶️",cat:"Snack",p:12000,modal:5000,og:15000,s:203,stk:100,st:"Aktif",time:"5–10 menit",desc:"Keripik tempe renyah dengan bumbu balado pedas",home:1,foto:""},
+  {id:16,n:"Bakso Malang Komplit",e:"🍢",cat:"Nasi",p:18000,modal:8000,og:null,s:112,stk:50,st:"Aktif",time:"10–15 menit",desc:"Bakso sapi kenyal komplit dengan mie dan bihun",home:0,foto:""},
+  {id:17,n:"Pecel Sayur Komplit",e:"🥗",cat:"Nasi",p:12000,modal:5000,og:null,s:88,stk:40,st:"Aktif",time:"5–10 menit",desc:"Pecel sayur segar dengan sambal kacang khas",home:0,foto:""},
+  {id:18,n:"Soto Ayam Lamongan",e:"🍲",cat:"Nasi",p:16000,modal:7000,og:null,s:67,stk:30,st:"Aktif",time:"10–15 menit",desc:"Soto ayam bening khas Lamongan dengan lauk lengkap",home:0,foto:""},
+  {id:19,n:"Nasi Goreng Kambing",e:"🍳",cat:"Nasi",p:25000,modal:12000,og:null,s:54,stk:20,st:"Nonaktif",time:"15–20 menit",desc:"Nasi goreng daging kambing rempah istimewa",home:0,foto:""},
+  {id:20,n:"Sate Ayam 10 Tusuk",e:"🍢",cat:"Ayam",p:20000,modal:9000,og:null,s:43,stk:30,st:"Aktif",time:"15–20 menit",desc:"Sate ayam bumbu kacang 10 tusuk dengan lontong",home:0,foto:""},
+  {id:21,n:"Es Krim Alpukat",e:"🍦",cat:"Snack",p:12000,modal:5000,og:null,s:38,stk:25,st:"Aktif",time:"3–5 menit",desc:"Es krim creamy rasa alpukat segar",home:0,foto:""},
+  {id:22,n:"Es Krim Coklat Premium",e:"🍫",cat:"Snack",p:15000,modal:7000,og:18000,s:29,stk:20,st:"Nonaktif",time:"3–5 menit",desc:"Es krim coklat premium Belgian chocolate",home:0,foto:""},
+  {id:23,n:"Indomie Goreng Spesial",e:"🍜",cat:"Mie",p:12000,modal:4500,og:null,s:134,stk:80,st:"Aktif",time:"10–15 menit",desc:"Indomie goreng dengan topping telur, keju, dan sosis",home:0,foto:""},
+  {id:24,n:"Siomay Ayam",e:"🥟",cat:"Snack",p:15000,modal:6000,og:null,s:56,stk:40,st:"Nonaktif",time:"15–20 menit",desc:"Siomay ayam kukus dengan saus kacang pedas manis",home:0,foto:""}
+];
+var mmEditId = null;
+var mmFotoData = "";
+var mmFilter = "Semua";
+
 INC.forEach(o=>inSt[o.id]=o.st);
 
 const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰"};
@@ -2156,10 +2230,241 @@ function advO(id,nx){
 }
 
 // ── MENU MGR ──
-function rMM(){
-  document.getElementById('menuTbl').innerHTML=`<thead><tr><th>Nama Menu</th><th>Kategori</th><th>Harga</th><th>Terjual</th><th>Status</th><th>Aksi</th></tr></thead><tbody>`+
-  MYMENU.map(m=>`<tr><td><b>${m.e} ${m.n}</b></td><td><span class="tag">${m.cat}</span></td><td>Rp ${m.p.toLocaleString('id')}</td><td>${m.s} porsi</td><td><span class="bdg ${m.st==='Aktif'?'bdg-gn':'bdg-mid'}">${m.st}</span></td><td><div style="display:flex;gap:5px"><button class="btn btn-o btn-sm" onclick="tglM(${m.id})">${m.st==='Aktif'?'Nonaktif':'Aktifkan'}</button><button class="btn btn-o btn-sm" style="color:#DC2626" onclick="delM(${m.id})">Hapus</button></div></td></tr>`).join('')+'</tbody>';
+function rMM(){mmRender();}
+
+// ════ MENU MANAGER PREMIUM ════
+function mmRender(){
+  var grid = document.getElementById('mmGrid');
+  if(!grid) return;
+
+  var srch = (document.getElementById('mmSrch')||{}).value||'';
+  var fcat = (document.getElementById('mmFCat')||{}).value||'';
+  srch = srch.toLowerCase();
+
+  var filtered = MYMENU.filter(function(m){
+    var matchSrch = !srch || m.n.toLowerCase().includes(srch);
+    var matchCat  = !fcat || m.cat === fcat;
+    var matchStat = mmFilter==='Semua' || m.st===mmFilter;
+    return matchSrch && matchCat && matchStat;
+  });
+
+  // Update stats
+  var el=function(id){return document.getElementById(id);};
+  if(el('mmSTotal')) el('mmSTotal').textContent=MYMENU.length;
+  if(el('mmSAktif')) el('mmSAktif').textContent=MYMENU.filter(function(m){return m.st==='Aktif';}).length;
+  if(el('mmSNon'))   el('mmSNon').textContent=MYMENU.filter(function(m){return m.st!=='Aktif';}).length;
+  if(el('mmSTerjual')) el('mmSTerjual').textContent=MYMENU.reduce(function(s,m){return s+m.s;},0).toLocaleString('id');
+
+  if(!filtered.length){
+    grid.innerHTML='<div style="text-align:center;padding:40px;color:var(--mid2);grid-column:1/-1"><div style="font-size:44px;margin-bottom:10px">🍽️</div><div style="font-size:14px;font-weight:600">Tidak ada menu ditemukan</div></div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(m){
+    var disc  = m.og ? Math.round((1-m.p/m.og)*100) : 0;
+    var margin= m.modal ? Math.round((m.p-m.modal)/m.p*100) : 0;
+    var statColor = m.st==='Aktif'?'#16A34A': m.st==='Habis'?'#F59E0B':'#DC2626';
+    var statBg    = m.st==='Aktif'?'#DCFCE7': m.st==='Habis'?'#FEF3C7':'#FEE2E2';
+    var imgContent= m.foto
+      ? '<img src="'+m.foto+'" style="width:100%;height:100%;object-fit:cover">'
+      : '<div style="font-size:44px;line-height:1">'+m.e+'</div>';
+
+    return '<div style="background:#fff;border-radius:16px;border:1px solid #F0E6D3;overflow:hidden;box-shadow:0 2px 8px rgba(249,115,22,.07);transition:transform .2s" onmouseenter="this.style.transform='translateY(-3px)'" onmouseleave="this.style.transform=''">'
+      +'<div style="height:140px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">'
+        + imgContent
+        +'<div style="position:absolute;top:9px;left:9px;background:'+statBg+';color:'+statColor+';font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid '+statColor+'22">'+m.st+'</div>'
+        +(disc?'<div style="position:absolute;top:9px;right:9px;background:#DC2626;color:#fff;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px">-'+disc+'%</div>':'')
+      +'</div>'
+      +'<div style="padding:13px">'
+        +'<div style="font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+m.n+'</div>'
+        +'<div style="display:flex;align-items:center;gap:5px;margin-bottom:8px">'
+          +'<span style="background:#FFF7ED;color:#F97316;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;border:1px solid #FED7AA">'+m.cat+'</span>'
+          +(m.home?'<span style="background:#DCFCE7;color:#16A34A;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px;border:1px solid #6EE7B7">🏠 Beranda</span>':'')
+        +'</div>'
+        +'<div style="display:flex;align-items:baseline;gap:7px;margin-bottom:6px">'
+          +'<span style="font-size:17px;font-weight:800;color:#F97316">Rp '+m.p.toLocaleString('id')+'</span>'
+          +(m.og?'<span style="font-size:12px;color:var(--mid2);text-decoration:line-through">Rp '+m.og.toLocaleString('id')+'</span>':'')
+        +'</div>'
+        +'<div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--mid);margin-bottom:10px">'
+          +'<span>⭐ '+m.rt+' · '+m.s+' terjual</span>'
+          +(m.modal?'<span style="color:'+(margin>=30?'#16A34A':margin>=20?'#F59E0B':'#DC2626')+';font-weight:600">Margin '+margin+'%</span>':'')
+        +'</div>'
+        +'<div style="display:flex;gap:7px">'
+          +'<button onclick="mmToggle('+m.id+')" style="flex:1;padding:8px;border-radius:9px;border:1.5px solid '+(m.st==='Aktif'?'#FCA5A5':'#6EE7B7')+';background:'+(m.st==='Aktif'?'#FEF2F2':'#F0FFF4')+';color:'+(m.st==='Aktif'?'#DC2626':'#16A34A')+';font-size:11.5px;font-weight:600;cursor:pointer">'+(m.st==='Aktif'?'🔴 Nonaktifkan':'🟢 Aktifkan')+'</button>'
+          +'<button onclick="mmOpenEdit('+m.id+')" style="padding:8px 11px;border-radius:9px;border:1.5px solid #F0E6D3;background:#FFF7ED;color:#F97316;font-size:13px;cursor:pointer;font-weight:600">✏️</button>'
+          +'<button onclick="mmDel('+m.id+')" style="padding:8px 11px;border-radius:9px;border:1.5px solid #FEE2E2;background:#FEF2F2;color:#DC2626;font-size:13px;cursor:pointer;font-weight:600">🗑️</button>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }).join('');
 }
+
+function mmSetFilter(f){
+  mmFilter=f;
+  ['Semua','Aktif','Nonaktif','Habis'].forEach(function(x){
+    var b=document.getElementById('mmfBtn-'+x);
+    if(b){b.className='btn btn-sm '+(x===f?'btn-p':'btn-o');}
+  });
+  mmRender();
+}
+
+function mmOpenAdd(){
+  mmEditId=null; mmFotoData='';
+  mmResetForm();
+  var el=document.getElementById;
+  document.getElementById('mmFormTitle').textContent='➕ Tambah Menu Baru';
+  document.getElementById('mmSaveBtn').textContent='✓ Simpan Menu Baru';
+  document.getElementById('mmFotoBox').innerHTML='🍽️';
+  document.getElementById('mmFotoBox').style.backgroundImage='';
+  openModal('mMenuForm');
+}
+
+function mmOpenEdit(id){
+  var m=MYMENU.find(function(x){return x.id===id;});
+  if(!m)return;
+  mmEditId=id; mmFotoData=m.foto||'';
+  document.getElementById('mmFormTitle').textContent='✏️ Edit Menu: '+m.n;
+  document.getElementById('mmSaveBtn').textContent='✓ Update Menu';
+  document.getElementById('mmFN').value=m.n;
+  document.getElementById('mmFE').value=m.e;
+  document.getElementById('mmFP').value=m.p;
+  document.getElementById('mmFC').value=m.modal||'';
+  document.getElementById('mmFOg').value=m.og||'';
+  document.getElementById('mmFStk').value=m.stk||50;
+  document.getElementById('mmFCat2').value=m.cat;
+  document.getElementById('mmFStat').value=m.st;
+  document.getElementById('mmFTime').value=m.time||'10–15 menit';
+  document.getElementById('mmFDesc').value=m.desc||'';
+  document.getElementById('mmFHome').value=m.home?'1':'0';
+  var fotoBox=document.getElementById('mmFotoBox');
+  if(m.foto){
+    fotoBox.innerHTML='<img src="'+m.foto+'" style="width:100%;height:100%;object-fit:cover">';
+  } else {
+    fotoBox.innerHTML=m.e||'🍽️';
+  }
+  mmCalcM();
+  openModal('mMenuForm');
+}
+
+function mmPreviewFoto(inp){
+  if(!inp.files||!inp.files[0])return;
+  var file=inp.files[0];
+  if(file.size>5*1024*1024){toast('Foto maks 5MB!','te');return;}
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    mmFotoData=ev.target.result;
+    var box=document.getElementById('mmFotoBox');
+    box.innerHTML='<img src="'+mmFotoData+'" style="width:100%;height:100%;object-fit:cover">';
+  };
+  reader.readAsDataURL(file);
+}
+
+function mmCalcM(){
+  var p=parseFloat(document.getElementById('mmFP').value)||0;
+  var c=parseFloat(document.getElementById('mmFC').value)||0;
+  var box=document.getElementById('mmMarginBox');
+  if(p>0&&c>0&&box){
+    var margin=Math.round((p-c)/p*100);
+    var profit=p-c;
+    document.getElementById('mmMarginVal').textContent=margin+'%';
+    document.getElementById('mmMarginTxt').textContent='Untung Rp '+profit.toLocaleString('id')+' per porsi · '+(margin>=30?'Margin sehat!':margin>=20?'Margin cukup':'Margin tipis, perhatikan modal');
+    box.style.display='block';
+    box.style.background=margin>=30?'#D1FAE5':margin>=20?'#FEF3C7':'#FEE2E2';
+    box.style.borderColor=margin>=30?'#6EE7B7':margin>=20?'#FCD34D':'#FCA5A5';
+    var txt=document.getElementById('mmMarginTxt');
+    if(txt)txt.style.color=margin>=30?'#059669':margin>=20?'#92400E':'#991B1B';
+    var val=document.getElementById('mmMarginVal');
+    if(val)val.style.color=margin>=30?'#065F46':margin>=20?'#78350F':'#991B1B';
+  } else if(box){
+    box.style.display='none';
+  }
+}
+
+function mmSave(){
+  var n=(document.getElementById('mmFN').value||'').trim();
+  var p=parseFloat(document.getElementById('mmFP').value)||0;
+  var cat=document.getElementById('mmFCat2').value;
+  if(!n){toast('Nama menu wajib diisi!','te');document.getElementById('mmFN').focus();return;}
+  if(!p){toast('Harga jual wajib diisi!','te');document.getElementById('mmFP').focus();return;}
+
+  var menuData={
+    n:n,
+    e:(document.getElementById('mmFE').value||'🍽️'),
+    cat:cat,
+    p:p,
+    modal:parseFloat(document.getElementById('mmFC').value)||0,
+    og:parseFloat(document.getElementById('mmFOg').value)||null,
+    stk:parseInt(document.getElementById('mmFStk').value)||50,
+    st:document.getElementById('mmFStat').value,
+    time:document.getElementById('mmFTime').value,
+    desc:document.getElementById('mmFDesc').value,
+    home:document.getElementById('mmFHome').value==='1'?1:0,
+    foto:mmFotoData,
+    rt:4.5,
+    s:0
+  };
+
+  if(mmEditId){
+    var idx=MYMENU.findIndex(function(x){return x.id===mmEditId;});
+    if(idx>=0){
+      menuData.id=mmEditId;
+      menuData.s=MYMENU[idx].s;
+      menuData.rt=MYMENU[idx].rt;
+      MYMENU[idx]=menuData;
+      toast('✅ Menu berhasil diupdate!','ts');
+    }
+  } else {
+    menuData.id=Date.now();
+    MYMENU.push(menuData);
+    toast('✅ Menu baru berhasil ditambahkan!','ts');
+  }
+
+  // Sync ke F[] supaya tampil di halaman Semua Menu
+  mmSyncToF();
+  closeModal('mMenuForm');
+  mmResetForm();
+  mmRender();
+}
+
+function mmSyncToF(){
+  // Update F[] dari MYMENU supaya perubahan tampil di marketplace
+  MYMENU.forEach(function(m){
+    var existing=F.find(function(f){return f.id===m.id;});
+    var cats={'Ayam':'Ayam','Nasi':'Nasi','Mie':'Mie','Minuman':'Minuman','Snack':'Snack'};
+    if(existing){
+      existing.n=m.n; existing.p=m.p; existing.og=m.og;
+      existing.e=m.e; existing.cat=cats[m.cat]||m.cat;
+      if(m.foto){existing.foto=m.foto;}
+    }
+  });
+}
+
+function mmToggle(id){
+  var m=MYMENU.find(function(x){return x.id===id;});
+  if(!m)return;
+  m.st=m.st==='Aktif'?'Nonaktif':'Aktif';
+  toast((m.st==='Aktif'?'🟢 Menu diaktifkan: ':'🔴 Menu dinonaktifkan: ')+m.n,'ts');
+  mmRender();
+}
+
+function mmDel(id){
+  var m=MYMENU.find(function(x){return x.id===id;});
+  if(!m)return;
+  MYMENU=MYMENU.filter(function(x){return x.id!==id;});
+  toast('🗑️ Menu dihapus: '+m.n,'te');
+  mmRender();
+}
+
+function mmResetForm(){
+  mmEditId=null; mmFotoData='';
+  var ids=['mmFN','mmFE','mmFP','mmFC','mmFOg','mmFDesc'];
+  ids.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  var stk=document.getElementById('mmFStk');if(stk)stk.value='50';
+  var fe=document.getElementById('mmFE');if(fe)fe.value='🍽️';
+  var box=document.getElementById('mmMarginBox');if(box)box.style.display='none';
+  var fotoBox=document.getElementById('mmFotoBox');if(fotoBox)fotoBox.innerHTML='🍽️';
+}
+
 function tglM(id){const m=MYMENU.find(x=>x.id===id);if(!m)return;m.st=m.st==='Aktif'?'Nonaktif':'Aktif';toast(`${m.n}: ${m.st}`,'ts');rMM();}
 function delM(id){MYMENU=MYMENU.filter(x=>x.id!==id);toast('Menu dihapus','te');rMM();}
 function doAddMenu(){

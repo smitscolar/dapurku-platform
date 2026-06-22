@@ -1118,11 +1118,31 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 <!-- ══ MENU MGR ══ -->
 <div class="pg" id="pg-menumgr">
   <div class="pc">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-      <div><div style="font-size:16px;font-weight:700;color:var(--dark)">Kelola Menu</div><div style="font-size:12px;color:var(--mid)">Menu aktif dapurmu</div></div>
-      <button class="btn btn-p btn-sm" onclick="openModal('mAdd')">+ Tambah Menu</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
+      <div><div style="font-size:18px;font-weight:700;color:var(--dark)">Kelola Menu Saya</div><div style="font-size:12px;color:var(--mid);margin-top:2px">Tambah, edit, atur harga dan status menu yang dijual</div></div>
+      <button class="btn btn-p" onclick="mmOpenAdd()" style="display:flex;align-items:center;gap:7px">+ Tambah Menu Baru</button>
     </div>
-    <div class="card" style="overflow:hidden"><table class="tbl" id="menuTbl"></table></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px">
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #F0E6D3;text-align:center"><div style="font-size:26px;font-weight:800;color:#F97316" id="mmSTotal">24</div><div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Total Menu</div></div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #DCFCE7;text-align:center"><div style="font-size:26px;font-weight:800;color:#16A34A" id="mmSAktif">21</div><div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Aktif Dijual</div></div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #FEE2E2;text-align:center"><div style="font-size:26px;font-weight:800;color:#DC2626" id="mmSNon">3</div><div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Nonaktif</div></div>
+      <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #EDE9FE;text-align:center"><div style="font-size:26px;font-weight:800;color:#7C3AED" id="mmSTerjual">1284</div><div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Total Terjual</div></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+      <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #F0E6D3;border-radius:10px;padding:8px 13px;flex:1;min-width:160px">
+        <span style="font-size:15px;color:var(--mid2)">&#128269;</span>
+        <input id="mmSrch" placeholder="Cari menu..." style="border:none;outline:none;font-size:13px;color:var(--dark);background:transparent;flex:1;min-width:0" oninput="mmRender()">
+      </div>
+      <select id="mmFCat" onchange="mmRender()" style="padding:9px 12px;border:1.5px solid #F0E6D3;border-radius:10px;font-size:12.5px;background:#fff;color:var(--dark)">
+        <option value="">Semua Kategori</option><option>Ayam</option><option>Nasi</option><option>Mie</option><option>Minuman</option><option>Snack</option>
+      </select>
+      <div style="display:flex;gap:6px">
+        <button id="mmfBtn-Semua" class="btn btn-p btn-sm" onclick="mmSetFilter('Semua')">Semua</button>
+        <button id="mmfBtn-Aktif" class="btn btn-o btn-sm" onclick="mmSetFilter('Aktif')">Aktif</button>
+        <button id="mmfBtn-Nonaktif" class="btn btn-o btn-sm" onclick="mmSetFilter('Nonaktif')">Nonaktif</button>
+      </div>
+    </div>
+    <div id="mmGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px"></div>
   </div>
 </div>
 

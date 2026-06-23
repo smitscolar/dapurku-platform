@@ -1726,18 +1726,21 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 <button class="cfab" id="cFab" onclick="toggleCart()">🛒 Keranjang <span class="cfab-c" id="cFabC">0</span></button>
 
 <script>
-const R=[{id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam",rt:4.9,rv:312,tm:"15–25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Spesialis ayam geprek sambal rahasia level 1–5. Best seller pilot Batam dengan 312 ulasan positif."},
-{id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#E8F5E9",cat:"Nasi",rt:4.8,rv:198,tm:"10–20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:null,op:true,ds:"Nasi uduk legendaris lauk pilihan. 500+ transaksi pilot Batam."},
-{id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#DBEAFE",cat:"Mie",rt:4.7,rv:156,tm:"15–25",mo:13000,d:"1.4 km",b:null,pr:"Gratis es teh",op:true,ds:"Mie goreng bumbu Jawa autentik, bumbu turun-temurun."},
-{id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#D1FAE5",cat:"Minuman",rt:4.9,rv:423,tm:"5–15",mo:7000,d:"0.6 km",b:"Tercepat",pr:null,op:true,ds:"Es teh jumbo & jus buah segar. Margin tertinggi platform 65%."},
-{id:5,n:"BBQ Bu Tini",e:"🍖",bg:"#FEF3C7",cat:"Ayam",rt:4.8,rv:134,tm:"20–35",mo:25000,d:"1.8 km",b:null,pr:"Beli 2 gratis 1",op:true,ds:"Ayam & ikan bakar bumbu khas. Dine-in & delivery."},
-{id:6,n:"Warung Pak Sabar",e:"🍲",bg:"#FFFDE7",cat:"Nasi",rt:4.7,rv:89,tm:"10–20",mo:15000,d:"2.1 km",b:null,pr:null,op:false,ds:"Soto ayam & nasi goreng sederhana."},
-{id:7,n:"Dapur Kak Rina",e:"🍳",bg:"#F3E8FF",cat:"Mie",rt:4.6,rv:67,tm:"15–20",mo:10000,d:"1.3 km",b:"Baru",pr:null,op:true,ds:"Mie goreng kreatif topping unik."},
-{id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFDE7",cat:"Snack",rt:4.5,rv:201,tm:"10–15",mo:8000,d:"0.9 km",b:null,pr:"Diskon 10%",op:true,ds:"Gorengan & snack tradisional renyah."},
-{id:9,n:"Bakso Pak Herman",e:"🍥",bg:"#DBEAFE",cat:"Nasi",rt:4.8,rv:287,tm:"10–20",mo:15000,d:"1.6 km",b:"Favorit",pr:null,op:true,ds:"Bakso malang kuah segar. Best seller pilot 2024."},
-{id:10,n:"Sate Mas Oji",e:"🍢",bg:"#FEF3C7",cat:"Ayam",rt:4.6,rv:113,tm:"20–30",mo:20000,d:"2.3 km",b:null,pr:null,op:true,ds:"Sate ayam & kambing bumbu kacang."},
-{id:11,n:"Pecel Bu Lastri",e:"🥗",bg:"#D1FAE5",cat:"Nasi",rt:4.9,rv:178,tm:"10–15",mo:12000,d:"1.0 km",b:"Terlaris",pr:null,op:true,ds:"Pecel sayur sambal kacang. Sehat & lezat."},
-{id:12,n:"Es Krim Mas Ferdi",e:"🍦",bg:"#F3E8FF",cat:"Minuman",rt:4.7,rv:95,tm:"5–10",mo:8000,d:"1.2 km",b:"Baru",pr:"Gratis topping",op:true,ds:"Es krim homemade berbagai rasa."}];
+const R=[
+  {id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Spesialis ayam geprek sambal rahasia level 1-5. Best seller pilot Batam dengan 312 ulasan positif.",foto:"",foto2:"",foto3:"",owner:"Bu Sari",phone:"08123456789"},
+  {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#E8F5E9",cat:"Nasi",rt:4.8,rv:198,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"",op:true,ds:"Nasi uduk khas Betawi dengan lauk komplit. Buka dari jam 5 pagi untuk sarapan.",foto:"",foto2:"",foto3:"",owner:"Mbak Ani",phone:"08234567890"},
+  {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#E3F2FD",cat:"Mie",rt:4.7,rv:156,tm:"15-25",mo:13000,d:"1.4 km",b:"",pr:"Gratis es teh",op:true,ds:"Mie goreng dan rebus khas Jawa. Rahasia bumbu turun temurun 3 generasi.",foto:"",foto2:"",foto3:"",owner:"Pak Budi",phone:"08345678901"},
+  {id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F3E5F5",cat:"Minuman",rt:4.9,rv:423,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"",op:true,ds:"Minuman segar boba, jus, dan es krim. Proses cepat dan bahan segar setiap hari.",foto:"",foto2:"",foto3:"",owner:"Pak Eko",phone:"08456789012"},
+  {id:5,n:"BBQ Bu Tini",e:"🍖",bg:"#FFF3E0",cat:"Ayam",rt:4.8,rv:134,tm:"20-35",mo:25000,d:"1.8 km",b:"",pr:"Beli 2 gratis 1",op:true,ds:"Ayam dan ikan bakar bumbu khas Melayu. Dibakar fresh setiap pesanan.",foto:"",foto2:"",foto3:"",owner:"Bu Tini",phone:"08567890123"},
+  {id:6,n:"Warung Pak Sabar",e:"🍛",bg:"#607D8B",cat:"Nasi",rt:4.7,rv:89,tm:"10-20",mo:15000,d:"2.1 km",b:"",pr:"",op:false,ds:"Warung nasi campur dengan lauk pilihan. Sementara tutup renovasi.",foto:"",foto2:"",foto3:"",owner:"Pak Sabar",phone:"08678901234"},
+  {id:7,n:"Dapur Kak Rina",e:"🔍",bg:"#E0E0E0",cat:"Snack",rt:4.6,rv:67,tm:"15-20",mo:10000,d:"1.3 km",b:"Baru",pr:"",op:true,ds:"Aneka snack dan gorengan crispy. Baru buka bulan ini dengan resep spesial.",foto:"",foto2:"",foto3:"",owner:"Kak Rina",phone:"08789012345"},
+  {id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFF9C4",cat:"Snack",rt:4.5,rv:201,tm:"10-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 10%",op:true,ds:"Keripik, gorengan, dan snack ringan aneka rasa. Cocok untuk cemilan harian.",foto:"",foto2:"",foto3:"",owner:"Bu Dewi",phone:"08890123456"},
+  {id:9,n:"Bakso Pak Herman",e:"🍢",bg:"#FFEBEE",cat:"Nasi",rt:4.8,rv:287,tm:"10-20",mo:15000,d:"1.6 km",b:"Favorit",pr:"",op:true,ds:"Bakso sapi asli dengan kuah kaldu kaya rasa. Langganan ratusan pelanggan setia.",foto:"",foto2:"",foto3:"",owner:"Pak Herman",phone:"08901234567"},
+  {id:10,n:"Sate Mas Oji",e:"🍢",bg:"#F1F8E9",cat:"Ayam",rt:4.6,rv:113,tm:"20-30",mo:20000,d:"2.3 km",b:"Terlaris",pr:"",op:true,ds:"Sate ayam dan kambing dengan bumbu kacang istimewa. Minimal order 10 tusuk.",foto:"",foto2:"",foto3:"",owner:"Mas Oji",phone:"09012345678"},
+  {id:11,n:"Pecel Bu Lastri",e:"🥗",bg:"#E8F5E9",cat:"Nasi",rt:4.9,rv:178,tm:"10-15",mo:12000,d:"1.0 km",b:"",pr:"",op:true,ds:"Pecel sayur segar dengan sambal kacang khas Jawa. Disajikan dengan nasi hangat.",foto:"",foto2:"",foto3:"",owner:"Bu Lastri",phone:"09123456789"},
+  {id:12,n:"Es Krim Mas Ferdi",e:"🍦",bg:"#E3F2FD",cat:"Minuman",rt:4.7,rv:95,tm:"5-10",mo:8000,d:"1.2 km",b:"Baru",pr:"Gratis topping",op:true,ds:"Es krim artisan dengan 15 rasa unik. Topping gratis untuk setiap pembelian.",foto:"",foto2:"",foto3:"",owner:"Mas Ferdi",phone:"09234567890"}
+];
+
 
 const F=[{id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2"},
 {id:2,n:"Ayam Geprek Double",rId:1,p:35000,og:40000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2"},
@@ -1927,18 +1930,22 @@ function fC(f){
 
 // ── RESTO CARD ──
 function rC(r){
-  return `<div class="rc" onclick="openRD(${r.id})">
-    <div class="rc-img" style="background:${r.bg}">
-      ${r.e}
-      ${r.b?`<span class="rc-badge ${r.b==='Terlaris'||r.b==='Favorit'?'rc-b-gn':'rc-b-or'}">${r.b}</span>`:''}
-      ${r.pr?`<span class="rc-promo">🎁 ${r.pr}</span>`:''}
-      ${!r.op?`<div class="rc-closed"><div class="rc-closed-pill">Tutup</div></div>`:''}
-    </div>
-    <div class="rc-body">
-      <div class="rc-name">${r.n}</div>
-      <div class="rc-meta">⭐ ${r.rt}<span class="rdot"></span>${r.tm}m<span class="rdot"></span>${r.d}</div>
-    </div>
-  </div>`;
+  var imgStyle = r.foto
+    ? 'background:'+r.bg+';background-image:url('+r.foto+');background-size:cover;background-position:center'
+    : 'background:'+r.bg;
+  var badgeHtml = r.b ? '<span class="rc-badge '+(r.b==="Terlaris"||r.b==="Favorit"?"rc-b-gn":"rc-b-or")+'">'+r.b+'</span>' : '';
+  var promoHtml = r.pr ? '<span class="rc-promo">🎁 '+r.pr+'</span>' : '';
+  var closedHtml = !r.op ? '<div class="rc-closed"><div class="rc-closed-pill">Tutup</div></div>' : '';
+  var emojiHtml  = r.foto ? '' : r.e;
+  return '<div class="rc" onclick="openRD('+r.id+')">' +
+    '<div class="rc-img" style="'+imgStyle+'">' +
+      emojiHtml + badgeHtml + promoHtml + closedHtml +
+    '</div>' +
+    '<div class="rc-body">' +
+      '<div class="rc-name">'+r.n+'</div>' +
+      '<div class="rc-meta">⭐ '+r.rt+'<span class="rdot"></span>'+r.tm+'m<span class="rdot"></span>'+r.d+'</div>' +
+    '</div>' +
+  '</div>';;
 }
 
 // ── HOME ──
@@ -3232,29 +3239,113 @@ function pmFiles(files){
   });
 }
 function pmRender(){
-  var g=document.getElementById('pmGallery');var cnt=document.getElementById('pmGCount');
-  if(!g)return;
-  var photos=pmData[pmTab];
-  if(cnt)cnt.textContent=photos.length+' foto';
-  if(!photos.length){
-    g.innerHTML='<div style="text-align:center;padding:36px;color:var(--mid2);grid-column:1/-1"><div style="font-size:40px;margin-bottom:8px">🖼️</div><div style="font-size:13px;font-weight:600">Belum ada foto</div></div>';
+  var g = document.getElementById('pmGallery');
+  var cnt = document.getElementById('pmGCount');
+  if(!g) return;
+
+  // Untuk tab dapur - tampilkan foto dari R[] bukan pmData
+  if(pmTab === 'dapur'){
+    var dapurWithFoto = R.filter(function(r){ return r.foto || r.foto2 || r.foto3; });
+    if(cnt) cnt.textContent = dapurWithFoto.length + ' dapur punya foto';
+
+    var html = '';
+    R.forEach(function(r){
+      html += '<div style="border-radius:12px;overflow:hidden;border:1px solid #F0E6D3;background:#fff">';
+      html += '<div style="padding:10px 12px;border-bottom:1px solid #F0E6D3">';
+      html += '<div style="font-size:13px;font-weight:700;color:var(--dark)">' + r.e + ' ' + r.n + '</div>';
+      html += '<div style="font-size:11px;color:var(--mid);margin-top:2px">' + r.owner + '</div>';
+      html += '</div>';
+      html += '<div style="padding:10px 12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+      // Foto 1 - Tampak Depan
+      html += '<div>';
+      html += '<div style="font-size:10px;color:var(--mid);margin-bottom:4px;font-weight:600">Tampak Depan</div>';
+      if(r.foto){
+        html += '<div style="position:relative;height:70px;border-radius:8px;overflow:hidden">';
+        html += '<img src="'+r.foto+'" style="width:100%;height:100%;object-fit:cover">';
+        html += '<button data-rid="'+r.id+'" data-slot="1" class="rd-del-btn" style="position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:11px;font-weight:700;line-height:1">x</button>';
+        html += '</div>';
+      } else {
+        html += '<div data-rid="'+r.id+'" data-slot="1" class="rd-upload-btn" style="height:70px;border-radius:8px;border:2px dashed #F97316;background:#FFF7ED;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">';
+        html += '<div style="font-size:20px">📸</div>';
+        html += '<div style="font-size:9px;color:#F97316;font-weight:600;margin-top:2px">Upload</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+      // Foto 2 - Suasana
+      html += '<div>';
+      html += '<div style="font-size:10px;color:var(--mid);margin-bottom:4px;font-weight:600">Suasana</div>';
+      if(r.foto2){
+        html += '<div style="position:relative;height:70px;border-radius:8px;overflow:hidden">';
+        html += '<img src="'+r.foto2+'" style="width:100%;height:100%;object-fit:cover">';
+        html += '<button data-rid="'+r.id+'" data-slot="2" class="rd-del-btn" style="position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:11px;font-weight:700;line-height:1">x</button>';
+        html += '</div>';
+      } else {
+        html += '<div data-rid="'+r.id+'" data-slot="2" class="rd-upload-btn" style="height:70px;border-radius:8px;border:2px dashed #F97316;background:#FFF7ED;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">';
+        html += '<div style="font-size:20px">📸</div>';
+        html += '<div style="font-size:9px;color:#F97316;font-weight:600;margin-top:2px">Upload</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+      // Foto 3 - Produk
+      html += '<div>';
+      html += '<div style="font-size:10px;color:var(--mid);margin-bottom:4px;font-weight:600">Produk</div>';
+      if(r.foto3){
+        html += '<div style="position:relative;height:70px;border-radius:8px;overflow:hidden">';
+        html += '<img src="'+r.foto3+'" style="width:100%;height:100%;object-fit:cover">';
+        html += '<button data-rid="'+r.id+'" data-slot="3" class="rd-del-btn" style="position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:11px;font-weight:700;line-height:1">x</button>';
+        html += '</div>';
+      } else {
+        html += '<div data-rid="'+r.id+'" data-slot="3" class="rd-upload-btn" style="height:70px;border-radius:8px;border:2px dashed #F97316;background:#FFF7ED;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer">';
+        html += '<div style="font-size:20px">📸</div>';
+        html += '<div style="font-size:9px;color:#F97316;font-weight:600;margin-top:2px">Upload</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+      html += '</div></div>';
+    });
+
+    g.innerHTML = html;
+
+    // Event listeners
+    g.querySelectorAll('.rd-upload-btn').forEach(function(btn){
+      btn.onclick = function(){
+        rdClickFoto(parseInt(this.getAttribute('data-rid')), parseInt(this.getAttribute('data-slot')));
+      };
+    });
+    g.querySelectorAll('.rd-del-btn').forEach(function(btn){
+      btn.onclick = function(){
+        rdRemoveFoto(parseInt(this.getAttribute('data-rid')), parseInt(this.getAttribute('data-slot')));
+        pmRender();
+      };
+    });
     return;
   }
-  var opts=pmOpts[pmTab]||[];
-  var html='';
+
+  // Tab lain (menu, banner, profil) - pakai pmData seperti biasa
+  var photos = pmData[pmTab];
+  if(cnt) cnt.textContent = photos.length + ' foto';
+  if(!photos.length){
+    g.innerHTML = '<div style="text-align:center;padding:36px;color:var(--mid2);grid-column:1/-1"><div style="font-size:40px;margin-bottom:8px">🖼️</div><div style="font-size:13px;font-weight:600">Belum ada foto</div></div>';
+    return;
+  }
+  var opts = pmOpts[pmTab]||[];
+  var html = '';
   photos.forEach(function(p){
-    var selOpts=opts.map(function(o){return'<option value="'+o.replace(/"/g,'&quot;')+'"'+(p.assigned===o?' selected':'')+'>'+o+'</option>';}).join('');
-    html+='<div style="border-radius:12px;overflow:hidden;border:1px solid #F0E6D3;background:#fff">';
-    html+='<div style="position:relative;height:120px;overflow:hidden"><img src="'+p.src+'" style="width:100%;height:100%;object-fit:cover" loading="lazy">';
-    html+='<button data-pmid="'+p.id+'" class="pmdel" style="position:absolute;top:5px;right:5px;width:26px;height:26px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;line-height:1">✕</button>';
-    html+='</div><div style="padding:9px"><div style="font-size:11px;color:var(--mid);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+p.name+'</div>';
-    html+='<select data-pmid="'+p.id+'" class="pmasgn" style="width:100%;font-size:11px;padding:5px;border:1.5px solid #F0E6D3;border-radius:7px;background:#fff;color:var(--dark)">'+selOpts+'</select>';
-    html+='</div></div>';
+    var selOpts = opts.map(function(o){
+      return '<option value="'+o.replace(/"/g,'&quot;')+'"'+(p.assigned===o?' selected':'')+'>'+o+'</option>';
+    }).join('');
+    html += '<div style="border-radius:12px;overflow:hidden;border:1px solid #F0E6D3;background:#fff">';
+    html += '<div style="position:relative;height:120px;overflow:hidden"><img src="'+p.src+'" style="width:100%;height:100%;object-fit:cover" loading="lazy">';
+    html += '<button data-pmid="'+p.id+'" class="pmdel" style="position:absolute;top:5px;right:5px;width:26px;height:26px;border-radius:50%;background:rgba(220,38,38,.9);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;line-height:1">x</button>';
+    html += '</div><div style="padding:9px"><div style="font-size:11px;color:var(--mid);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+p.name+'</div>';
+    html += '<select data-pmid="'+p.id+'" class="pmasgn" style="width:100%;font-size:11px;padding:5px;border:1.5px solid #F0E6D3;border-radius:7px;background:#fff;color:var(--dark)">'+selOpts+'</select>';
+    html += '</div></div>';
   });
-  g.innerHTML=html;
-  g.querySelectorAll('.pmdel').forEach(function(b){b.onclick=function(){pmDel(this.getAttribute('data-pmid'));};});
-  g.querySelectorAll('.pmasgn').forEach(function(s){s.onchange=function(){pmAssign(this.getAttribute('data-pmid'),this.value);};});
+  g.innerHTML = html;
+  g.querySelectorAll('.pmdel').forEach(function(b){ b.onclick = function(){ pmDel(this.getAttribute('data-pmid')); }; });
+  g.querySelectorAll('.pmasgn').forEach(function(s){ s.onchange = function(){ pmAssign(this.getAttribute('data-pmid'),this.value); }; });
 }
+
 function pmDel(id){Object.keys(pmData).forEach(function(t){pmData[t]=pmData[t].filter(function(p){return p.id!==id;});});pmRender();pmStats();toast('Foto dihapus','ti');}
 function pmAssign(id,val){Object.keys(pmData).forEach(function(t){var p=pmData[t].find(function(x){return x.id===id;});if(p)p.assigned=val;});}
 function pmClear(){pmData[pmTab]=[];pmRender();pmStats();toast('Foto '+pmTab+' dihapus','te');}
@@ -3534,11 +3625,101 @@ function mmEmbedFotosToHTML(){
   }).catch(function(){});
 }
 
+
+// ════ FOTO DAPUR UMKM — Upload & Simpan Permanen ════
+var DAPUR_STORE_KEY = 'dapurku_dapur_foto_v1';
+
+function rdLoadFromStorage(){
+  try {
+    var saved = localStorage.getItem(DAPUR_STORE_KEY);
+    if(saved){
+      var parsed = JSON.parse(saved);
+      Object.keys(parsed).forEach(function(id){
+        var r = R.find(function(x){ return x.id === parseInt(id); });
+        if(r && parsed[id]){
+          r.foto  = parsed[id].foto  || r.foto;
+          r.foto2 = parsed[id].foto2 || r.foto2;
+          r.foto3 = parsed[id].foto3 || r.foto3;
+        }
+      });
+    }
+  } catch(e){}
+}
+
+function rdSaveToStorage(){
+  try {
+    var data = {};
+    R.forEach(function(r){
+      if(r.foto || r.foto2 || r.foto3){
+        data[r.id] = {foto:r.foto||'', foto2:r.foto2||'', foto3:r.foto3||''};
+      }
+    });
+    localStorage.setItem(DAPUR_STORE_KEY, JSON.stringify(data));
+  } catch(e){ console.log('Dapur storage error:', e); }
+}
+
+function rdClickFoto(id, slot){
+  // slot: 1=foto utama, 2=foto2, 3=foto3
+  var inp = document.getElementById('rdFotoHidden');
+  if(!inp){
+    inp = document.createElement('input');
+    inp.type = 'file'; inp.id = 'rdFotoHidden';
+    inp.accept = 'image/*'; inp.style.display = 'none';
+    document.body.appendChild(inp);
+  }
+  inp.onchange = function(){
+    if(!inp.files||!inp.files[0]) return;
+    var file = inp.files[0];
+    if(file.size > 8*1024*1024){ toast('Foto maks 8MB!','te'); return; }
+    toast('Memproses foto dapur...','ti');
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      var img2 = new Image();
+      img2.onload = function(){
+        var canvas = document.createElement('canvas');
+        var MAX = 900, w = img2.width, h = img2.height;
+        if(w>MAX||h>MAX){ if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;} }
+        canvas.width=w; canvas.height=h;
+        canvas.getContext('2d').drawImage(img2,0,0,w,h);
+        var src = canvas.toDataURL('image/jpeg',0.78);
+        var r = R.find(function(x){ return x.id===id; });
+        if(r){
+          if(slot===1) r.foto  = src;
+          if(slot===2) r.foto2 = src;
+          if(slot===3) r.foto3 = src;
+          rdSaveToStorage();
+          toast('✅ Foto dapur '+r.n+' tersimpan!','ts');
+          // Refresh halaman yang relevan
+          if(document.getElementById('restoCards')) rRestos();
+          if(document.getElementById('rdC') && document.getElementById('rdC').innerHTML) openRD(id);
+          if(document.getElementById('pmGallery')) pmSwitch(pmTab);
+        }
+        inp.value = '';
+      };
+      img2.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+}
+
+function rdRemoveFoto(id, slot){
+  var r = R.find(function(x){ return x.id===id; });
+  if(!r) return;
+  if(slot===1) r.foto  = '';
+  if(slot===2) r.foto2 = '';
+  if(slot===3) r.foto3 = '';
+  rdSaveToStorage();
+  toast('Foto dapur dihapus','ti');
+  if(document.getElementById('restoCards')) rRestos();
+}
+
+
 // ── INIT ──
 mmLoadFromStorage();
+rdLoadFromStorage();
 rHome();
 pb();
-// Load foto permanen dari GitHub
 setTimeout(mmEmbedFotosToHTML, 1500);
 setTimeout(()=>toast('🔔 Pesanan baru: Ayam Geprek ×2 dari Budi S.','ti'),6000);
 setTimeout(()=>updNotifBadge(),1000);

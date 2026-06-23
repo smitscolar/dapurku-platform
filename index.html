@@ -1909,17 +1909,15 @@ function closeSB(){
 function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
-  var imgHtml='';
-  if(f.foto){
-    imgHtml='<img src="'+f.foto+'" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.onerror=null;this.parentNode.innerHTML=\'<div style=\\\"font-size:38px\\\">'+f.e+'</div>\'" />';
-  } else {
-    imgHtml='<div style="font-size:38px;line-height:1">'+f.e+'</div>';
-  }
+  var bgStyle=f.foto
+    ?'background:'+f.bg+';background-image:url('+f.foto+');background-size:cover;background-position:center'
+    :'background:'+f.bg;
+  var emojiHtml=f.foto?'':'<div style="font-size:60px;line-height:1">'+f.e+'</div>';
   return `<div class="fc" onclick="openRD(${f.rId})">
-    <div class="fc-img" style="background:${f.bg};overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative">
-      ${imgHtml}
-      ${disc?`<span class="fc-disc" style="position:absolute;top:8px;left:8px">-${disc}%</span>`:''}
-      <button class="fc-fav" style="position:absolute;top:8px;right:8px" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
+    <div class="fc-img" style="${bgStyle}">
+      ${emojiHtml}
+      ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
+      <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
     </div>
     <div class="fc-body">
       <div class="fc-name">${f.n}</div>

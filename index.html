@@ -1928,8 +1928,8 @@ function rm(){
     const tm=!q||f.n.toLowerCase().includes(q)||(R.find(r=>r.id===f.rId)?.n||'').toLowerCase().includes(q);
     return cm&&tm;
   });
-  document.getElementById('mktFoods').innerHTML=fl.length?fl.map(fC).join(''):'<div class="empty"><div style="font-size:48px;
-  setTimeout(applyFoodPhotos, 50);margin-bottom:10px">🔍</div><div style="font-size:14px">Tidak ada menu yang cocok</div></div>';
+  document.getElementById('mktFoods').innerHTML=fl.length?fl.map(fC).join(''):'<div class="empty"><div style="font-size:48px;margin-bottom:10px">🔍</div><div style="font-size:14px">Tidak ada menu yang cocok</div></div>';
+  setTimeout(applyFoodPhotos, 50);
 }
 function setMC(c){
   mktC=c;

@@ -674,15 +674,9 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ MOBILE CART FAB ══ */
 .cfab{
-  display:none;position:fixed;
-  bottom:calc(var(--mob-bot) + 10px);right:16px;
-  background:var(--orange);color:#fff;
-  border-radius:99px;padding:12px 20px;
-  align-items:center;gap:8px;cursor:pointer;
-  box-shadow:0 6px 28px rgba(230,81,0,.48);
-  font-size:13.5px;font-weight:700;border:none;
-  z-index:300;transition:transform .2s,box-shadow .2s;
+  display:none!important;
 }
+
 .cfab:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(230,81,0,.55)}
 .cfab-c{
   background:rgba(255,255,255,.25);
@@ -2043,7 +2037,7 @@ function updC(){
   const tot=cart.reduce((s,c)=>s+c.qty,0);
   const fab=document.getElementById('cFab');
   document.getElementById('cFabC').textContent=tot;
-  fab.style.display=tot>0&&cv==='P'?'flex':'none';
+  fab.style.display='none';
   const mcc=document.getElementById('mCC');
   if(mcc){mcc.textContent=tot;mcc.style.display=tot>0?'block':'none';}
 }

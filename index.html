@@ -1865,7 +1865,7 @@ function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
   return `<div class="fc" onclick="openRD(${f.rId})">
-    <div class="fc-img" style="background:${f.bg};${f.foto?`background-image:url(${f.foto});background-size:cover;background-position:center`:``}">
+    <div class="fc-img" style="background:${f.bg}" data-foto="${f.foto||''}">
       ${f.foto?'':f.e}
       ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
       <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
@@ -1910,6 +1910,7 @@ function rHome(){
     </div>`).join('');
   const top=[...F].sort((a,b)=>b.s-a.s).slice(0,6);
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
+  setTimeout(applyFoodPhotos, 50);
   document.getElementById('hRestos').innerHTML=R.slice(0,6).map(rC).join('');
   document.getElementById('totM').textContent=F.length;
 }
@@ -1925,7 +1926,8 @@ function rm(){
     const tm=!q||f.n.toLowerCase().includes(q)||(R.find(r=>r.id===f.rId)?.n||'').toLowerCase().includes(q);
     return cm&&tm;
   });
-  document.getElementById('mktFoods').innerHTML=fl.length?fl.map(fC).join(''):'<div class="empty"><div style="font-size:48px;margin-bottom:10px">🔍</div><div style="font-size:14px">Tidak ada menu yang cocok</div></div>';
+  document.getElementById('mktFoods').innerHTML=fl.length?fl.map(fC).join(''):'<div class="empty"><div style="font-size:48px;
+  setTimeout(applyFoodPhotos, 50);margin-bottom:10px">🔍</div><div style="font-size:14px">Tidak ada menu yang cocok</div></div>';
 }
 function setMC(c){
   mktC=c;
@@ -3242,6 +3244,21 @@ function mmSyncFotos(){
     if(m.foto){
       var f=F.find(function(x){return x.id===m.id;});
       if(f)f.foto=m.foto;
+    }
+  });
+}
+
+
+function applyFoodPhotos(){
+  document.querySelectorAll('.fc-img[data-foto]').forEach(function(el){
+    var foto = el.getAttribute('data-foto');
+    if(foto && foto.length > 10){
+      el.style.backgroundImage = 'url(' + foto + ')';
+      el.style.backgroundSize  = 'cover';
+      el.style.backgroundPosition = 'center';
+      // Sembunyikan emoji kalau ada foto
+      var emoji = el.childNodes[0];
+      if(emoji && emoji.nodeType === 3) emoji.textContent = '';
     }
   });
 }

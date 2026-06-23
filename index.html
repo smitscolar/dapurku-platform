@@ -2017,9 +2017,10 @@ function openRD(rid){
   document.getElementById('rdC').innerHTML=`
     <button class="backbtn" onclick="gp('restos')">← Kembali ke Daftar Dapur</button>
     <div style="background:#fff;border-bottom:1px solid #E5E7EB;margin-bottom:18px">
-      <div id="rdBanner-${r.id}" style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:${r.bg};${r.foto?'background-image:url('+r.foto+');background-size:cover;background-position:center;':''}position:relative;overflow:hidden">
-        ${r.foto?'':'<span>'+r.e+'</span>'}
-        <button onclick="event.stopPropagation();rdUploadFoto(${r.id})" style="position:absolute;bottom:10px;right:10px;background:rgba(249,115,22,0.92);color:#fff;border:none;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;display:${cv==='D'?'flex':'none'};align-items:center;gap:4px">📸 ${r.foto?'Ganti Foto':'Upload Foto Dapur'}</button>
+      <div id="rdBanner-${r.id}" style="width:100%;height:200px;background:${r.bg};${r.foto?'background-image:url('+r.foto+');background-size:cover;background-position:center top;':'display:flex;align-items:center;justify-content:center;font-size:80px;'}position:relative;overflow:hidden;flex-shrink:0">
+        ${r.foto?'':'<span style=\'font-size:80px\'>'+r.e+'</span>'}
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,0.35) 100%)"></div>
+        <button onclick="event.stopPropagation();rdUploadFoto(${r.id})" style="position:absolute;bottom:12px;right:12px;background:rgba(249,115,22,0.93);color:#fff;border:none;border-radius:20px;padding:7px 15px;font-size:11px;font-weight:700;cursor:pointer;display:${cv==='D'?'flex':'none'};align-items:center;gap:5px;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:2">📸 ${r.foto?'Ganti Foto':'Upload Foto Dapur'}</button>
       </div>
       <div style="padding:16px 22px">
         <div style="font-size:22px;font-weight:700;margin-bottom:5px;color:#111827">${r.n}</div>

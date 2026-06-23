@@ -3437,6 +3437,103 @@ function mmCopyEmbed(){
   toast('✅ Kode sudah di-copy! Kirim ke Claude untuk embed permanen.','ts');
 }
 
+
+// ════ CLOUD SAVE SYSTEM ════
+function mmGenerateCloudPatch(){
+  var fotoItems = MYMENU.filter(function(m){ return m.foto && m.foto.length > 50; });
+  if(fotoItems.length === 0){ toast('Belum ada foto yang diupload!','te'); return; }
+
+  var patch = {
+    v:2, ts:new Date().toISOString(), total:fotoItems.length,
+    items: fotoItems.map(function(m){ return {id:m.id, n:m.n, foto:m.foto}; })
+  };
+  var patchStr = JSON.stringify(patch);
+  var patchB64 = btoa(unescape(encodeURIComponent(patchStr)));
+  var code = 'DAPURKU_FOTO_PATCH:' + patchB64;
+
+  // Copy ke clipboard
+  try {
+    navigator.clipboard.writeText(code).then(function(){
+      toast('✅ Kode foto di-copy! Paste ke Claude: "Tolong embed foto ini ke DapurKu"','ts');
+    }).catch(function(){
+      mmShowPatchDialog(code, fotoItems.length, Math.round(patchStr.length/1024));
+    });
+  } catch(e) {
+    mmShowPatchDialog(code, fotoItems.length, Math.round(patchStr.length/1024));
+  }
+}
+
+function mmShowPatchDialog(code, total, sizeKb){
+  var existing = document.getElementById('mCloudSave');
+  if(existing) existing.remove();
+
+  var overlay = document.createElement('div');
+  overlay.id = 'mCloudSave';
+  overlay.className = 'mover';
+  overlay.style.display = 'flex';
+
+  var box = document.createElement('div');
+  box.className = 'mbox';
+  box.style.maxWidth = '500px';
+  box.innerHTML =
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">' +
+      '<div style="font-size:16px;font-weight:700;color:var(--dark)">Simpan Foto ke Cloud</div>' +
+      '<button id="cloudCloseBtn" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid2)">X</button>' +
+    '</div>' +
+    '<div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:14px;margin-bottom:14px">' +
+      '<div style="font-size:13px;font-weight:600;color:#92400E;margin-bottom:8px">Cara Simpan Permanen</div>' +
+      '<div style="font-size:12px;color:#6B7280;line-height:1.7">' +
+        '1. Klik Copy Kode di bawah<br>' +
+        '2. Buka chat Claude<br>' +
+        '3. Paste + ketik: Tolong embed foto ini ke DapurKu<br>' +
+        '4. Foto akan tampil permanen di semua device!' +
+      '</div>' +
+    '</div>' +
+    '<div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px">' + total + ' foto siap sync (' + sizeKb + ' KB)</div>' +
+    '<textarea id="cloudPatchBox" rows="4" readonly style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:10px;font-size:11px;font-family:monospace;color:var(--dark);background:#F9FAFB;resize:none;box-sizing:border-box;margin-bottom:12px"></textarea>' +
+    '<div style="display:flex;gap:9px">' +
+      '<button id="cloudCopyBtn" class="btn btn-p" style="flex:1;justify-content:center">Copy Kode</button>' +
+      '<button id="cloudCloseBtn2" class="btn btn-o" style="padding:11px 18px">Tutup</button>' +
+    '</div>';
+
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+
+  var tb = document.getElementById('cloudPatchBox');
+  if(tb) tb.value = code;
+
+  document.getElementById('cloudCloseBtn').onclick = function(){ overlay.remove(); };
+  document.getElementById('cloudCloseBtn2').onclick = function(){ overlay.remove(); };
+  document.getElementById('cloudCopyBtn').onclick = function(){
+    var b = document.getElementById('cloudPatchBox');
+    if(b){ b.select(); document.execCommand('copy'); }
+    toast('Kode di-copy! Paste ke Claude.','ts');
+  };
+}
+
+function mmCopyCloudPatch(){
+  var box = document.getElementById('cloudPatchBox');
+  if(box){ box.select(); document.execCommand('copy'); toast('Kode di-copy!','ts'); }
+}
+
+function mmEmbedFotosToHTML(){
+  fetch('https://raw.githubusercontent.com/smitscolar/dapurku-platform/main/foto-menu.json?t=' + Date.now())
+  .then(function(r){ return r.ok ? r.json() : null; })
+  .then(function(data){
+    if(!data) return;
+    var updated = 0;
+    Object.values(data).forEach(function(item){
+      if(!item||!item.foto||!item.id) return;
+      var m = MYMENU.find(function(x){ return x.id===item.id; });
+      if(m && item.foto.length > 50){ m.foto=item.foto; updated++; }
+    });
+    if(updated > 0){
+      mmSyncFotosToF(); mmSaveToStorage();
+      if(document.getElementById('mmGrid') && document.getElementById('mmGrid').children.length > 0) mmRender();
+    }
+  }).catch(function(){});
+}
+
 // ── INIT ──
 mmLoadFromStorage();
 rHome();
@@ -3451,120 +3548,3 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
 </script>
 </body>
 </html>
-
-// ════ SIMPAN FOTO PERMANEN KE CLOUD (via Claude) ════
-function mmGenerateCloudPatch(){
-  // Kumpulkan semua foto yang ada
-  var fotoItems = MYMENU.filter(function(m){ return m.foto && m.foto.length > 50; });
-  
-  if(fotoItems.length === 0){
-    toast('Belum ada foto yang diupload!','te');
-    return;
-  }
-  
-  // Generate patch data (compact - hanya id dan foto)
-  var patch = {
-    v: 2,
-    ts: new Date().toISOString(),
-    total: fotoItems.length,
-    items: fotoItems.map(function(m){
-      return { id: m.id, n: m.n, foto: m.foto };
-    })
-  };
-  
-  // Kompres menjadi JSON string
-  var patchStr = JSON.stringify(patch);
-  var patchB64 = btoa(unescape(encodeURIComponent(patchStr)));
-  
-  // Tampilkan dialog
-  var modal = document.getElementById('mCloudSave');
-  if(!modal){
-    modal = document.createElement('div');
-    modal.id = 'mCloudSave';
-    modal.className = 'mover';
-    modal.innerHTML = '<div class="mbox" style="max-width:540px">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">' +
-        '<div style="font-size:16px;font-weight:700;color:var(--dark)">☁️ Simpan Foto ke Cloud</div>' +
-        '<button onclick="closeModal('mCloudSave')" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid2)">✕</button>' +
-      '</div>' +
-      '<div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:14px;margin-bottom:14px">' +
-        '<div style="font-size:13px;font-weight:600;color:#92400E;margin-bottom:8px">📋 Cara Simpan Permanen:</div>' +
-        '<div style="font-size:12px;color:#6B7280;line-height:1.7">' +
-          '1. Klik tombol "Copy Kode" di bawah<br>' +
-          '2. Buka chat Claude di tab baru<br>' +
-          '3. Paste kode + ketik: <b style="color:#1C1917">"Tolong embed foto ini ke DapurKu"</b><br>' +
-          '4. Claude akan update dan push ke GitHub otomatis<br>' +
-          '5. Semua device (HP & laptop) akan lihat foto yang sama!' +
-        '</div>' +
-      '</div>' +
-      '<div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:6px" id="cloudPatchInfo"></div>' +
-      '<textarea id="cloudPatchBox" rows="5" readonly style="width:100%;border:1.5px solid #F0E6D3;border-radius:9px;padding:10px;font-size:11px;font-family:monospace;color:var(--dark);background:#F9FAFB;resize:none;box-sizing:border-box;margin-bottom:12px"></textarea>' +
-      '<div style="display:flex;gap:9px">' +
-        '<button class="btn btn-p" onclick="mmCopyCloudPatch()" style="flex:1;justify-content:center">📋 Copy Kode</button>' +
-        '<button class="btn btn-o" onclick="closeModal('mCloudSave')" style="padding:11px 18px">Tutup</button>' +
-      '</div>' +
-    '</div>';
-    document.body.appendChild(modal);
-  }
-  
-  var box = document.getElementById('cloudPatchBox');
-  var info = document.getElementById('cloudPatchInfo');
-  if(box) box.value = 'DAPURKU_FOTO_PATCH:' + patchB64;
-  if(info) info.textContent = fotoItems.length + ' foto menu siap di-sync (' + Math.round(patchStr.length/1024) + ' KB)';
-  
-  openModal('mCloudSave');
-}
-
-function mmCopyCloudPatch(){
-  var box = document.getElementById('cloudPatchBox');
-  if(!box) return;
-  box.select();
-  try {
-    navigator.clipboard.writeText(box.value).then(function(){
-      toast('✅ Kode berhasil di-copy! Paste ke Claude.','ts');
-    }).catch(function(){
-      document.execCommand('copy');
-      toast('✅ Kode di-copy! Paste ke Claude.','ts');
-    });
-  } catch(e) {
-    document.execCommand('copy');
-    toast('Kode di-copy! Paste ke Claude.','ts');
-  }
-}
-
-// Load foto dari foto-menu.json saat startup
-function mmEmbedFotosToHTML(){
-  fetch('https://raw.githubusercontent.com/smitscolar/dapurku-platform/main/foto-menu.json?t=' + Date.now())
-  .then(function(r){ 
-    if(!r.ok) return null;
-    return r.json(); 
-  })
-  .then(function(data){
-    if(!data) return;
-    var updated = 0;
-    Object.values(data).forEach(function(item){
-      if(!item || !item.foto || !item.id) return;
-      var m = MYMENU.find(function(x){ return x.id === item.id; });
-      if(m && item.foto && item.foto.length > 50){
-        m.foto = item.foto;
-        updated++;
-      }
-    });
-    if(updated > 0){
-      mmSyncFotosToF();
-      mmSaveToStorage();
-      // Refresh tampilan jika di halaman menumgr
-      if(document.getElementById('mmGrid') && document.getElementById('mmGrid').innerHTML){
-        mmRender();
-      }
-      // Refresh home jika perlu
-      if(document.getElementById('hFoods') && document.getElementById('hFoods').innerHTML){
-        rHome();
-      }
-    }
-  })
-  .catch(function(){
-    // foto-menu.json belum ada atau error - tidak apa-apa
-  });
-}
-

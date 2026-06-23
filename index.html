@@ -1117,7 +1117,10 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div class="pc">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
       <div><div style="font-size:18px;font-weight:700;color:var(--dark)">Kelola Menu Saya</div><div style="font-size:12px;color:var(--mid);margin-top:2px">Tambah, edit, atur harga dan status menu yang dijual</div></div>
-      <button class="btn btn-p" onclick="mmOpenAdd()" style="display:flex;align-items:center;gap:7px">+ Tambah Menu Baru</button>
+      <div style="display:flex;gap:7px">
+        <button class="btn btn-o btn-sm" onclick="mmShowSync()" title="Sinkronkan foto antar device">🔄 Sync</button>
+        <button class="btn btn-p" onclick="mmOpenAdd()" style="display:flex;align-items:center;gap:7px">+ Tambah Menu</button>
+      </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px">
       <div style="background:#fff;border-radius:12px;padding:13px;border:1px solid #F0E6D3;text-align:center"><div style="font-size:26px;font-weight:800;color:#F97316" id="mmSTotal">24</div><div style="font-size:10.5px;color:var(--mid);font-weight:600;margin-top:2px">Total Menu</div></div>
@@ -1209,6 +1212,40 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <div id="restockList"></div>
       <button class="btn btn-p btn-sm" style="margin-top:13px" onclick="toast('Permintaan Group Buy dikirim!','ts')">🤝 Beli via Group Buy</button>
     </div>
+  </div>
+</div>
+
+<!-- MODAL SYNC DATA MENU -->
+<div class="mover" id="mMenuSync" style="display:none">
+  <div class="mbox" style="max-width:520px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div style="font-size:16px;font-weight:700;color:var(--dark)">🔄 Sinkronkan Foto Antar Device</div>
+      <button onclick="closeModal('mMenuSync')" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--mid2)">✕</button>
+    </div>
+
+    <!-- EXPORT -->
+    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:14px;padding:18px;margin-bottom:14px">
+      <div style="font-weight:700;color:#92400E;margin-bottom:6px">📤 Export dari Device Ini (HP)</div>
+      <div style="font-size:12.5px;color:#6B7280;margin-bottom:12px;line-height:1.6">Klik Export → Copy kode yang muncul → Kirim ke WhatsApp/Email ke diri sendiri → Buka di laptop → Import</div>
+      <button class="btn btn-p btn-sm" onclick="mmExportData()" style="width:100%;justify-content:center">📤 Export Data Menu + Foto</button>
+    </div>
+
+    <!-- IMPORT -->
+    <div style="background:#D1FAE5;border:1px solid #6EE7B7;border-radius:14px;padding:18px;margin-bottom:14px">
+      <div style="font-weight:700;color:#065F46;margin-bottom:6px">📥 Import ke Device Ini (Laptop)</div>
+      <div style="font-size:12.5px;color:#6B7280;margin-bottom:10px;line-height:1.6">Paste kode yang di-export dari HP, lalu klik Import</div>
+      <textarea id="mmImportBox" rows="4" placeholder="Paste kode export di sini..." style="width:100%;border:1.5px solid #6EE7B7;border-radius:9px;padding:10px;font-size:12px;color:var(--dark);background:#fff;resize:vertical;font-family:monospace;box-sizing:border-box;margin-bottom:10px"></textarea>
+      <button class="btn btn-sm" onclick="mmImportData()" style="width:100%;justify-content:center;background:#16A34A;color:#fff">📥 Import & Terapkan</button>
+    </div>
+
+    <!-- EMBED KE GITHUB -->
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:14px;padding:18px">
+      <div style="font-weight:700;color:#1E40AF;margin-bottom:6px">🌐 Embed Permanen (Semua Device)</div>
+      <div style="font-size:12.5px;color:#6B7280;margin-bottom:10px;line-height:1.6">Salin kode di bawah dan kirimkan ke Claude — foto akan di-embed langsung ke aplikasi sehingga tampil di semua HP dan laptop tanpa perlu sync!</div>
+      <button class="btn btn-sm" onclick="mmCopyEmbed()" style="width:100%;justify-content:center;background:#2563EB;color:#fff">📋 Salin Kode untuk Claude</button>
+      <div style="font-size:11px;color:#6B7280;margin-top:8px;text-align:center">Setelah copy, kirim ke Claude dengan pesan: "Tolong embed foto ini ke aplikasi"</div>
+    </div>
+
   </div>
 </div>
 
@@ -3263,6 +3300,124 @@ function applyFoodPhotos(){
       if(emoji && emoji.nodeType === 3) emoji.textContent = '';
     }
   });
+}
+
+
+// ════ MENU SYNC SYSTEM ════
+function mmShowSync(){
+  openModal('mMenuSync');
+}
+
+function mmExportData(){
+  // Export MYMENU ke JSON string (termasuk foto base64)
+  var exportData = {
+    v: 1,
+    ts: new Date().toISOString(),
+    device: navigator.userAgent.includes('Mobile') ? 'HP' : 'Laptop',
+    menu: MYMENU.map(function(m){
+      return {
+        id:m.id, n:m.n, e:m.e, cat:m.cat, p:m.p, modal:m.modal,
+        og:m.og, stk:m.stk, st:m.st, time:m.time, desc:m.desc,
+        home:m.home, foto:m.foto||'', rt:m.rt, s:m.s, deleted:m.deleted||false
+      };
+    })
+  };
+  var jsonStr = JSON.stringify(exportData);
+  var encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+
+  // Tampilkan di textarea atau copy
+  var box = document.getElementById('mmImportBox');
+  if(box) box.value = encoded;
+
+  // Copy ke clipboard
+  try {
+    navigator.clipboard.writeText(encoded).then(function(){
+      toast('✅ Data export berhasil di-copy! Paste di device lain.','ts');
+    }).catch(function(){
+      toast('Data export siap di kotak Import. Copy manual ya!','ti');
+    });
+  } catch(e) {
+    toast('Data export siap di kotak Import. Copy manual ya!','ti');
+  }
+}
+
+function mmImportData(){
+  var box = document.getElementById('mmImportBox');
+  if(!box || !box.value.trim()){
+    toast('Paste kode export dulu!','te');
+    return;
+  }
+  try {
+    var jsonStr = decodeURIComponent(escape(atob(box.value.trim())));
+    var data = JSON.parse(jsonStr);
+
+    if(!data.menu || !Array.isArray(data.menu)){
+      toast('Format kode tidak valid!','te');
+      return;
+    }
+
+    // Merge data: update foto dan perubahan dari device lain
+    var imported = 0;
+    data.menu.forEach(function(imp){
+      var existing = MYMENU.find(function(m){ return m.id === imp.id; });
+      if(existing){
+        // Update foto jika ada
+        if(imp.foto && imp.foto.length > 10){
+          existing.foto = imp.foto;
+          imported++;
+        }
+        // Update data lain
+        existing.n    = imp.n    || existing.n;
+        existing.e    = imp.e    || existing.e;
+        existing.p    = imp.p    || existing.p;
+        existing.modal= imp.modal!==undefined ? imp.modal : existing.modal;
+        existing.og   = imp.og   !== undefined ? imp.og   : existing.og;
+        existing.st   = imp.st   || existing.st;
+        existing.desc = imp.desc !== undefined ? imp.desc : existing.desc;
+        existing.home = imp.home !== undefined ? imp.home : existing.home;
+      } else if(!imp.deleted){
+        // Menu baru yang tidak ada di device ini
+        MYMENU.push(imp);
+        imported++;
+      }
+    });
+
+    // Hapus yang di-delete di device lain
+    var deletedIds = data.menu.filter(function(x){ return x.deleted; }).map(function(x){ return x.id; });
+    if(deletedIds.length > 0){
+      MYMENU = MYMENU.filter(function(m){ return deletedIds.indexOf(m.id) < 0; });
+    }
+
+    mmSaveToStorage();
+    mmSyncFotosToF();
+    mmRender();
+    closeModal('mMenuSync');
+    toast('✅ Import berhasil! ' + imported + ' item disinkronkan.','ts');
+    box.value = '';
+  } catch(e) {
+    toast('Error import: ' + e.message,'te');
+  }
+}
+
+function mmCopyEmbed(){
+  // Buat ringkasan foto untuk dikirim ke Claude
+  var fotoMenu = MYMENU.filter(function(m){ return m.foto && m.foto.length > 10; });
+  if(fotoMenu.length === 0){
+    toast('Belum ada foto yang diupload!','te');
+    return;
+  }
+
+  var summary = 'EMBED FOTO DAPURKU:\n';
+  summary += 'Total foto: ' + fotoMenu.length + '\n\n';
+  fotoMenu.forEach(function(m){
+    summary += 'Menu: ' + m.n + ' (id:' + m.id + ')\n';
+    summary += 'Foto: [' + Math.round(m.foto.length/1024) + 'KB base64]\n\n';
+  });
+  summary += '\n[Data lengkap ada di Export]';
+
+  // Export full data
+  mmExportData();
+  toast('✅ Kode sudah di-copy! Kirim ke Claude untuk embed permanen.','ts');
 }
 
 // ── INIT ──

@@ -1636,6 +1636,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
       <div>
         <div style="font-size:18px;font-weight:700;color:var(--dark)">📸 Pengaturan Upload Foto</div>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px">Upload & kelola foto menu semua dapur UMKM</div>
         <div style="font-size:12px;color:var(--mid);margin-top:2px">Upload dan terapkan foto ke aplikasi DapurKu</div>
       </div>
       <div style="display:flex;gap:8px">
@@ -1654,6 +1655,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <div onclick="pmSwitch('dapur')" id="pmTab-dapur" style="background:#fff;border:2px solid #F0E6D3;border-radius:12px;padding:14px;text-align:center;cursor:pointer"><div style="font-size:24px;margin-bottom:5px">🏪</div><div style="font-size:12px;font-weight:700;color:var(--mid)">Foto Dapur</div></div>
       <div onclick="pmSwitch('banner')" id="pmTab-banner" style="background:#fff;border:2px solid #F0E6D3;border-radius:12px;padding:14px;text-align:center;cursor:pointer"><div style="font-size:24px;margin-bottom:5px">🖼️</div><div style="font-size:12px;font-weight:700;color:var(--mid)">Banner</div></div>
       <div onclick="pmSwitch('profil')" id="pmTab-profil" style="background:#fff;border:2px solid #F0E6D3;border-radius:12px;padding:14px;text-align:center;cursor:pointer"><div style="font-size:24px;margin-bottom:5px">👨‍🍳</div><div style="font-size:12px;font-weight:700;color:var(--mid)">Profil</div></div>
+      <div onclick="pmSwitch('manual')" id="pmTab-manual" style="background:#fff;border:2px solid #F0E6D3;border-radius:12px;padding:14px;text-align:center;cursor:pointer"><div style="font-size:24px;margin-bottom:5px">⚙️</div><div style="font-size:12px;font-weight:700;color:var(--mid)">Setting Manual</div></div>
     </div>
     <div style="background:#fff;border-radius:16px;border:1px solid #F0E6D3;padding:20px;margin-bottom:14px">
       <div style="font-weight:700;color:var(--dark);margin-bottom:3px" id="pmUpTitle">Upload Foto Menu</div>
@@ -1907,11 +1909,17 @@ function closeSB(){
 function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
+  var imgHtml='';
+  if(f.foto){
+    imgHtml='<img src="'+f.foto+'" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.onerror=null;this.parentNode.innerHTML=\'<div style=\\\"font-size:38px\\\">'+f.e+'</div>\'" />';
+  } else {
+    imgHtml='<div style="font-size:38px;line-height:1">'+f.e+'</div>';
+  }
   return `<div class="fc" onclick="openRD(${f.rId})">
-    <div class="fc-img" style="background:${f.bg}" data-foto="${f.foto||''}">
-      ${f.foto?'':f.e}
-      ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
-      <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
+    <div class="fc-img" style="background:${f.bg};overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative">
+      ${imgHtml}
+      ${disc?`<span class="fc-disc" style="position:absolute;top:8px;left:8px">-${disc}%</span>`:''}
+      <button class="fc-fav" style="position:absolute;top:8px;right:8px" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
     </div>
     <div class="fc-body">
       <div class="fc-name">${f.n}</div>
@@ -2343,12 +2351,17 @@ function mmSyncFotosToF(){
   MYMENU.forEach(function(m){
     var fItem = F.find(function(f){ return f.id === m.id; });
     if(fItem){
-      if(m.foto) fItem.foto = m.foto;
+      fItem.foto = m.foto || fItem.foto || '';
       fItem.n = m.n;
       fItem.p = m.p;
       fItem.og = m.og;
     }
   });
+}
+// Juga sync saat halaman load
+function mmInitFotos(){
+  // Set foto awal dari MYMENU ke F[] saat startup
+  mmSyncFotosToF();
 }
 
 // ── Upload foto menu — PERMANEN ke GitHub ──
@@ -3187,9 +3200,116 @@ gp = function(id){
 // ── PHOTO MANAGER ──
 var pmTab='menu',pmData={menu:[],dapur:[],banner:[],profil:[]};
 var pmOpts={menu:['(Pilih Menu)','Ayam Geprek Spesial','Ayam Geprek Double','Nasi Uduk Komplit','Mie Goreng Jawa','Es Teh Manis Jumbo','Ayam Bakar Madu','Tahu Crispy Keju','Pisang Goreng Crispy','Keripik Tempe Balado','Bakso Malang Komplit'],dapur:['(Pilih Dapur)','Geprek Bu Sari','Nasi Uduk Mbak Ani','Dapur Pak Budi','Minuman Pak Eko','BBQ Bu Tini'],banner:['(Pilih)','Banner Utama','Banner Flash Sale','Banner Group Buy'],profil:['(Pilih)','Bu Sari','Mbak Ani','Pak Budi','Pak Eko','Bu Tini']};
-var pmCfg={menu:{t:'Upload Foto Menu',d:'Tampil di kartu menu',g:'Galeri Menu',c:'#F97316'},dapur:{t:'Upload Foto Dapur',d:'Tampak depan dapur',g:'Galeri Dapur',c:'#2563EB'},banner:{t:'Upload Banner',d:'Hero beranda & promo',g:'Galeri Banner',c:'#16A34A'},profil:{t:'Upload Profil Penjual',d:'Foto chef/pemilik',g:'Galeri Profil',c:'#7C3AED'}};
+var pmCfg={menu:{t:'Upload Foto Menu',d:'Tampil di kartu menu',g:'Galeri Menu',c:'#F97316'},dapur:{t:'Upload Foto Dapur',d:'Tampak depan dapur',g:'Galeri Dapur',c:'#2563EB'},banner:{t:'Upload Banner',d:'Hero beranda & promo',g:'Galeri Banner',c:'#16A34A'},profil:{t:'Upload Profil Penjual',d:'Foto chef/pemilik',g:'Galeri Profil',c:'#7C3AED'},manual:{t:'Setting Foto Manual per Menu',d:'Upload & kelola foto untuk setiap menu UMKM',g:'',c:'#0EA5E9'}};
+
+// ── SETTING MANUAL: render grid semua menu untuk upload foto ──
+function pmRenderManual(){
+  var el=document.getElementById('pmUploadArea');
+  if(!el)return;
+  var html='<div style="margin-bottom:14px">';
+  html+='<div style="font-size:14px;font-weight:700;color:#0EA5E9;margin-bottom:6px">⚙️ Setting Foto Manual per Menu</div>';
+  html+='<div style="font-size:12px;color:#6B7280;margin-bottom:14px">Klik gambar/area untuk upload foto per menu. Foto tersimpan otomatis.</div>';
+  // Group by dapur (rId)
+  var dapurIds=[...new Set(F.map(function(f){return f.rId;}))];
+  dapurIds.forEach(function(rid){
+    var dapur=R.find(function(r){return r.id===rid;});
+    var items=MYMENU.filter(function(m){
+      var fItem=F.find(function(f){return f.id===m.id&&f.rId===rid;});
+      return !!fItem;
+    });
+    if(!items.length){
+      // Fallback: tampilkan F[] items untuk dapur ini
+      items=F.filter(function(f){return f.rId===rid;}).map(function(f){
+        return MYMENU.find(function(m){return m.id===f.id;})||f;
+      }).filter(Boolean);
+    }
+    if(!dapur||!items.length)return;
+    html+='<div style="margin-bottom:20px">';
+    html+='<div style="font-size:13px;font-weight:700;color:#1C1917;margin-bottom:10px;padding:8px 12px;background:#F9FAFB;border-radius:8px;border-left:3px solid #0EA5E9">'+dapur.e+' '+dapur.n+'</div>';
+    html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;">';
+    items.forEach(function(m){
+      var hasFoto=m.foto&&m.foto.length>0;
+      var imgOrEmoji=hasFoto
+        ?'<img src="'+m.foto+'" style="width:100%;height:100%;object-fit:cover;border-radius:10px 10px 0 0" onerror="this.onerror=null;this.style.display=\'none\'">'
+        :'<div style="font-size:32px;line-height:1">'+m.e+'</div>';
+      html+='<div style="background:#fff;border-radius:10px;border:1.5px solid #E5E7EB;overflow:hidden;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06)" onclick="pmManualUpload('+m.id+')" title="Klik untuk upload foto '+m.n+'">';
+      html+='<div style="height:90px;background:#F9FAFB;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">'+imgOrEmoji;
+      html+='<div style="position:absolute;inset:0;background:rgba(14,165,233,.75);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:.2s;border-radius:10px 10px 0 0" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0"><div style="font-size:20px">📸</div><div style="font-size:9px;color:#fff;font-weight:700">Upload</div></div>';
+      html+='</div>';
+      html+='<div style="padding:6px 8px">';
+      html+='<div style="font-size:10px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+m.n+'</div>';
+      html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px">';
+      html+='<span style="font-size:9px;color:#F97316;font-weight:600">Rp '+m.p.toLocaleString('id')+'</span>';
+      if(hasFoto){
+        html+='<button onclick="event.stopPropagation();pmManualRemove('+m.id+')" style="font-size:9px;color:#DC2626;background:none;border:none;cursor:pointer;padding:0">✕ Hapus</button>';
+      } else {
+        html+='<span style="font-size:9px;color:#9CA3AF">Belum ada foto</span>';
+      }
+      html+='</div></div></div>';
+    });
+    html+='</div></div>';
+  });
+  html+='</div>';
+  el.innerHTML=html;
+}
+
+function pmManualUpload(menuId){
+  var inp=document.createElement('input');
+  inp.type='file';inp.accept='image/*';
+  inp.onchange=function(){
+    if(!inp.files||!inp.files[0])return;
+    var file=inp.files[0];
+    if(file.size>8*1024*1024){toast('Foto maks 8MB!','te');return;}
+    toast('📸 Memproses foto...','ti');
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var img2=new Image();
+      img2.onload=function(){
+        var canvas=document.createElement('canvas');
+        var MAX=700,w=img2.width,h=img2.height;
+        if(w>MAX||h>MAX){if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;}}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img2,0,0,w,h);
+        var src=canvas.toDataURL('image/jpeg',0.75);
+        // Simpan ke MYMENU
+        var m=MYMENU.find(function(x){return x.id===menuId;});
+        if(m){m.foto=src;mmSaveToStorage();}
+        // Sync ke F[]
+        var fItem=F.find(function(x){return x.id===menuId;});
+        if(fItem)fItem.foto=src;
+        toast('✅ Foto '+( m?m.n:'menu')+' tersimpan!','ts');
+        pmRenderManual();
+      };
+      img2.src=ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+}
+
+function pmManualRemove(menuId){
+  var m=MYMENU.find(function(x){return x.id===menuId;});
+  if(m){m.foto='';mmSaveToStorage();}
+  var fItem=F.find(function(x){return x.id===menuId;});
+  if(fItem)fItem.foto='';
+  toast('Foto dihapus','ti');
+  pmRenderManual();
+}
 function pmSwitch(t){
   pmTab=t;var cfg=pmCfg[t];
+  // Handle tab manual khusus
+  if(t==='manual'){
+    ['menu','dapur','banner','profil','manual'].forEach(function(x){
+      var tab=document.getElementById('pmTab-'+x);
+      if(tab) tab.style.background=x===t?'#EFF6FF':'#fff';
+      if(tab) tab.style.borderColor=x===t?'#0EA5E9':'#F0E6D3';
+      var txt=tab&&tab.querySelector('div:last-child');
+      if(txt) txt.style.color=x===t?'#0EA5E9':'var(--mid)';
+    });
+    if(document.getElementById('pmUploadArea')) pmRenderManual();
+    if(document.getElementById('pmUpTitle')) document.getElementById('pmUpTitle').textContent='Setting Foto Manual per Menu';
+    return;
+  }
   var el=function(id){return document.getElementById(id);};
   if(el('pmUpTitle'))el('pmUpTitle').textContent=cfg.t;
   if(el('pmUpDesc'))el('pmUpDesc').textContent=cfg.d;
@@ -3717,6 +3837,7 @@ function rdRemoveFoto(id, slot){
 
 // ── INIT ──
 mmLoadFromStorage();
+mmInitFotos();
 rdLoadFromStorage();
 rHome();
 pb();

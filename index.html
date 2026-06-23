@@ -2017,7 +2017,10 @@ function openRD(rid){
   document.getElementById('rdC').innerHTML=`
     <button class="backbtn" onclick="gp('restos')">← Kembali ke Daftar Dapur</button>
     <div style="background:#fff;border-bottom:1px solid #E5E7EB;margin-bottom:18px">
-      <div style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:${r.bg}">${r.e}</div>
+      <div id="rdBanner-${r.id}" style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:${r.bg};${r.foto?'background-image:url('+r.foto+');background-size:cover;background-position:center;':''}position:relative;overflow:hidden">
+        ${r.foto?'':'<span>'+r.e+'</span>'}
+        <button onclick="event.stopPropagation();rdUploadFoto(${r.id})" style="position:absolute;bottom:10px;right:10px;background:rgba(249,115,22,0.92);color:#fff;border:none;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;display:${cv==='D'?'flex':'none'};align-items:center;gap:4px">📸 ${r.foto?'Ganti Foto':'Upload Foto Dapur'}</button>
+      </div>
       <div style="padding:16px 22px">
         <div style="font-size:22px;font-weight:700;margin-bottom:5px;color:#111827">${r.n}</div>
         <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px">
@@ -3205,6 +3208,24 @@ function pmRenderManual(){
   var el=document.getElementById('pmUploadArea');
   if(!el)return;
   var html='<div style="margin-bottom:14px">';
+  // Section 1: Foto Dapur Banner
+  html+='<div style="background:#EFF6FF;border-radius:12px;padding:12px 14px;margin-bottom:18px">';
+  html+='<div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">🏪 Upload Foto Banner Dapur UMKM</div>';
+  html+='<div style="font-size:11px;color:#6B7280;margin-bottom:10px">Klik dapur untuk upload foto banner (tampil di header Detail Dapur)</div>';
+  html+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px">';
+  R.forEach(function(r){
+    var hasFoto=r.foto&&r.foto.length>10;
+    html+='<div style="background:#fff;border-radius:10px;border:2px solid '+(hasFoto?'#2563EB':'#E5E7EB')+';overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.06)" onclick="rdUploadFoto('+r.id+');setTimeout(function(){pmRenderManual();},1000)" title="Upload foto '+r.n+'">';
+    html+='<div style="height:72px;'+(hasFoto?'background-image:url('+r.foto+');background-size:cover;background-position:center':'background:'+r.bg+';display:flex;align-items:center;justify-content:center;font-size:26px')+'">';
+    if(!hasFoto)html+='<span>'+r.e+'</span>';
+    html+='</div>';
+    html+='<div style="padding:5px 7px">';
+    html+='<div style="font-size:9.5px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+r.n+'</div>';
+    html+='<div style="font-size:9px;color:'+(hasFoto?'#2563EB':'#9CA3AF')+';margin-top:1px">'+(hasFoto?'✅ Ada foto':'📸 Klik upload')+'</div>';
+    html+='</div></div>';
+  });
+  html+='</div></div>';
+  // Section 2: Foto per Menu
   html+='<div style="font-size:14px;font-weight:700;color:#0EA5E9;margin-bottom:6px">⚙️ Setting Foto Manual per Menu</div>';
   html+='<div style="font-size:12px;color:#6B7280;margin-bottom:14px">Klik gambar/area untuk upload foto per menu. Foto tersimpan otomatis.</div>';
   // Group by dapur (rId)
@@ -3776,6 +3797,66 @@ function rdSaveToStorage(){
   } catch(e){ console.log('Dapur storage error:', e); }
 }
 
+function rdUploadFoto(rid){
+  var inp=document.createElement('input');
+  inp.type='file';inp.accept='image/*';
+  inp.onchange=function(){
+    if(!inp.files||!inp.files[0])return;
+    var file=inp.files[0];
+    if(file.size>8*1024*1024){toast('Foto maks 8MB!','te');return;}
+    toast('📸 Upload foto dapur...','ti');
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var img2=new Image();
+      img2.onload=function(){
+        var canvas=document.createElement('canvas');
+        var MAX=900,w=img2.width,h=img2.height;
+        if(w>MAX||h>MAX){if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;}}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img2,0,0,w,h);
+        var src=canvas.toDataURL('image/jpeg',0.8);
+        var r=R.find(function(x){return x.id===rid;});
+        if(r){
+          r.foto=src;
+          // Simpan ke localStorage
+          try{
+            var stored=JSON.parse(localStorage.getItem('dapurku_dapur_fotos')||'{}');
+            stored[rid]=src;
+            localStorage.setItem('dapurku_dapur_fotos',JSON.stringify(stored));
+          }catch(e){}
+          // Update banner langsung
+          var banner=document.getElementById('rdBanner-'+rid);
+          if(banner){
+            banner.style.backgroundImage='url('+src+')';
+            banner.style.backgroundSize='cover';
+            banner.style.backgroundPosition='center';
+            var span=banner.querySelector('span');
+            if(span)span.style.display='none';
+            var btn=banner.querySelector('button');
+            if(btn)btn.textContent='📸 Ganti Foto';
+          }
+          // Update dapur card di Daftar Dapur juga
+          if(typeof rC==='function')rRestos();
+          toast('✅ Foto dapur '+r.n+' tersimpan!','ts');
+        }
+      };
+      img2.src=ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  inp.click();
+}
+
+function rdLoadDapurFotos(){
+  try{
+    var stored=JSON.parse(localStorage.getItem('dapurku_dapur_fotos')||'{}');
+    Object.keys(stored).forEach(function(rid){
+      var r=R.find(function(x){return x.id===parseInt(rid);});
+      if(r&&stored[rid])r.foto=stored[rid];
+    });
+  }catch(e){}
+}
+
 function rdClickFoto(id, slot){
   // slot: 1=foto utama, 2=foto2, 3=foto3
   var inp = document.getElementById('rdFotoHidden');
@@ -3836,6 +3917,7 @@ function rdRemoveFoto(id, slot){
 // ── INIT ──
 mmLoadFromStorage();
 mmInitFotos();
+rdLoadDapurFotos();
 rdLoadFromStorage();
 rHome();
 pb();

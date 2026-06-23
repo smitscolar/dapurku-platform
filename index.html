@@ -2229,43 +2229,124 @@ function advO(id,nx){
 
 // ── MENU MGR ──
 function rMM(){mmRender();}
-// ── MENU FOTO MANAGER ──
-function mmClickFoto(id, el){
-  // Buat hidden input untuk upload
+// ════ MENU STORAGE SYSTEM — Simpan Permanen di Browser ════
+var DAPURKU_STORE_KEY = 'dapurku_menu_data_v1';
+
+// ── Load MYMENU dari localStorage saat startup ──
+function mmLoadFromStorage(){
+  try {
+    var saved = localStorage.getItem(DAPURKU_STORE_KEY);
+    if(saved){
+      var parsed = JSON.parse(saved);
+      if(parsed && Array.isArray(parsed) && parsed.length > 0){
+        // Merge: update data yang ada dengan yang tersimpan
+        parsed.forEach(function(saved_item){
+          var idx = MYMENU.findIndex(function(m){ return m.id === saved_item.id; });
+          if(idx >= 0){
+            // Update semua field yang bisa diubah user
+            MYMENU[idx].foto  = saved_item.foto  || MYMENU[idx].foto;
+            MYMENU[idx].n     = saved_item.n     || MYMENU[idx].n;
+            MYMENU[idx].e     = saved_item.e     || MYMENU[idx].e;
+            MYMENU[idx].p     = saved_item.p     || MYMENU[idx].p;
+            MYMENU[idx].modal = saved_item.modal !== undefined ? saved_item.modal : MYMENU[idx].modal;
+            MYMENU[idx].og    = saved_item.og    !== undefined ? saved_item.og   : MYMENU[idx].og;
+            MYMENU[idx].stk   = saved_item.stk   || MYMENU[idx].stk;
+            MYMENU[idx].st    = saved_item.st    || MYMENU[idx].st;
+            MYMENU[idx].desc  = saved_item.desc  !== undefined ? saved_item.desc : MYMENU[idx].desc;
+            MYMENU[idx].home  = saved_item.home  !== undefined ? saved_item.home : MYMENU[idx].home;
+            MYMENU[idx].cat   = saved_item.cat   || MYMENU[idx].cat;
+            MYMENU[idx].time  = saved_item.time  || MYMENU[idx].time;
+          } else {
+            // Menu baru yang ditambahkan user
+            MYMENU.push(saved_item);
+          }
+        });
+        // Hapus menu yang sudah dihapus user (ada di MYMENU default tapi tidak di storage)
+        // Hanya hapus yang memang pernah di-delete (tandai dengan deleted:true)
+        var deletedIds = parsed.filter(function(x){ return x.deleted; }).map(function(x){ return x.id; });
+        if(deletedIds.length > 0){
+          MYMENU = MYMENU.filter(function(m){ return deletedIds.indexOf(m.id) < 0; });
+        }
+        console.log('[DapurKu] Menu loaded from storage:', MYMENU.length, 'items');
+      }
+    }
+  } catch(e){ console.log('[DapurKu] Storage load error:', e); }
+  // Sync foto ke F[]
+  mmSyncFotosToF();
+}
+
+// ── Simpan MYMENU ke localStorage ──
+function mmSaveToStorage(){
+  try {
+    localStorage.setItem(DAPURKU_STORE_KEY, JSON.stringify(MYMENU));
+  } catch(e){
+    // Storage penuh (foto terlalu banyak) — kompres lebih dulu
+    console.log('[DapurKu] Storage full, trying compression...');
+    try {
+      var lite = MYMENU.map(function(m){
+        return {
+          id:m.id, n:m.n, e:m.e, p:m.p, modal:m.modal, og:m.og,
+          stk:m.stk, st:m.st, cat:m.cat, desc:m.desc, home:m.home,
+          time:m.time, foto:m.foto||'', deleted:m.deleted||false, rt:m.rt, s:m.s
+        };
+      });
+      localStorage.setItem(DAPURKU_STORE_KEY, JSON.stringify(lite));
+    } catch(e2){ toast('Storage penuh! Hapus beberapa foto menu dulu.','te'); }
+  }
+}
+
+// ── Sync foto dari MYMENU ke F[] (halaman marketplace) ──
+function mmSyncFotosToF(){
+  MYMENU.forEach(function(m){
+    var fItem = F.find(function(f){ return f.id === m.id; });
+    if(fItem){
+      if(m.foto) fItem.foto = m.foto;
+      fItem.n = m.n;
+      fItem.p = m.p;
+      fItem.og = m.og;
+    }
+  });
+}
+
+// ── Upload foto menu — klik tombol 📸 ──
+function mmClickFoto(id){
   var inp = document.getElementById('mmFotoHidden');
   if(!inp){
     inp = document.createElement('input');
-    inp.type = 'file';
-    inp.id = 'mmFotoHidden';
-    inp.accept = 'image/*';
-    inp.style.display = 'none';
+    inp.type = 'file'; inp.id = 'mmFotoHidden';
+    inp.accept = 'image/*'; inp.style.display = 'none';
     document.body.appendChild(inp);
   }
   inp.onchange = function(){
     if(!inp.files||!inp.files[0]) return;
     var file = inp.files[0];
-    if(file.size > 10*1024*1024){ toast('Foto maks 10MB!','te'); return; }
+    if(file.size > 8*1024*1024){ toast('Foto maks 8MB!','te'); return; }
+    toast('📸 Memproses foto...','ti');
     var reader = new FileReader();
     reader.onload = function(ev){
       var img2 = new Image();
       img2.onload = function(){
+        // Kompres foto
         var canvas = document.createElement('canvas');
-        var MAX = 900, w = img2.width, h = img2.height;
-        if(w>MAX||h>MAX){ if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;} }
-        canvas.width=w; canvas.height=h;
-        canvas.getContext('2d').drawImage(img2,0,0,w,h);
-        var src = canvas.toDataURL('image/jpeg',0.82);
+        var MAX = 800, w = img2.width, h = img2.height;
+        if(w > MAX || h > MAX){
+          if(w > h){ h = Math.round(h*MAX/w); w = MAX; }
+          else { w = Math.round(w*MAX/h); h = MAX; }
+        }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img2, 0, 0, w, h);
+        var src = canvas.toDataURL('image/jpeg', 0.78);
+
         // Simpan ke MYMENU
-        var m = MYMENU.find(function(x){return x.id===id;});
+        var m = MYMENU.find(function(x){ return x.id === id; });
         if(m){
           m.foto = src;
-          toast('✅ Foto '+m.n+' berhasil diupdate!','ts');
-          mmRender();
-          // Sync ke F[]
-          var fItem = F.find(function(f){return f.id===id;});
-          if(fItem) fItem.foto = src;
+          mmSaveToStorage();     // Simpan permanen!
+          mmSyncFotosToF();      // Sync ke marketplace
+          mmRender();            // Refresh tampilan
+          toast('✅ Foto ' + m.n + ' tersimpan permanen!', 'ts');
         }
-        inp.value='';
+        inp.value = '';
       };
       img2.src = ev.target.result;
     };
@@ -2274,10 +2355,48 @@ function mmClickFoto(id, el){
   inp.click();
 }
 
+// ── Hapus foto menu (kembali ke emoji) ──
 function mmRemoveFoto(id){
-  var m = MYMENU.find(function(x){return x.id===id;});
-  if(m){ m.foto=''; toast('Foto '+m.n+' dihapus, kembali ke emoji','ti'); mmRender(); }
+  var m = MYMENU.find(function(x){ return x.id === id; });
+  if(!m) return;
+  m.foto = '';
+  mmSaveToStorage();
+  mmSyncFotosToF();
+  mmRender();
+  toast('Foto ' + m.n + ' dihapus, kembali ke emoji', 'ti');
 }
+
+// ── Override mmSave agar simpan ke storage ──
+var _origMmSave = mmSave;
+mmSave = function(){
+  _origMmSave();
+  mmSaveToStorage();
+  mmSyncFotosToF();
+};
+
+// ── Override mmToggle agar simpan ke storage ──
+var _origMmToggle = mmToggle;
+mmToggle = function(id){
+  _origMmToggle(id);
+  mmSaveToStorage();
+};
+
+// ── Override mmDel agar tandai deleted dan simpan ──
+var _origMmDel = mmDel;
+mmDel = function(id){
+  var m = MYMENU.find(function(x){ return x.id === id; });
+  if(!m) return;
+  // Tandai sebagai deleted sebelum dihapus dari array
+  var deletedItem = JSON.parse(JSON.stringify(m));
+  deletedItem.deleted = true;
+  _origMmDel(id);
+  // Tambahkan ke storage dengan flag deleted
+  MYMENU.push(deletedItem); // temp
+  mmSaveToStorage();
+  MYMENU = MYMENU.filter(function(x){ return !x.deleted; }); // remove from active
+};
+
+function mmSyncFotos(){ mmSyncFotosToF(); }
 
 function mmRender(){
   var grid=document.getElementById('mmGrid');
@@ -3134,7 +3253,7 @@ function mmSyncFotos(){
 }
 
 // ── INIT ──
-rHome();pb();
+mmLoadFromStorage();rHome();pb();
 setTimeout(()=>toast('🔔 Pesanan baru: Ayam Geprek ×2 dari Budi S.','ti'),6000);
 setTimeout(()=>updNotifBadge(),1000);
 setTimeout(()=>toast('💰 Omzet hari ini sudah Rp 1,2 juta! 🎉','ts'),14000);

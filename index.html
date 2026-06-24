@@ -343,11 +343,27 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ CATEGORIES ══ */
 .cat-scrl{
-  display:flex;gap:7px;padding:6px 14px 10px;
+  display:flex;gap:8px;padding:8px 14px 12px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+  scrollbar-width:none;flex-wrap:nowrap;
 }
 .cat-scrl::-webkit-scrollbar{display:none}
+/* GoFood-style scroll sections */
+.swipe-row{
+  display:flex;gap:8px;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:4px;
+  flex-wrap:nowrap;
+}
+.swipe-row::-webkit-scrollbar{display:none}
+.swipe-pill{
+  flex:0 0 auto;white-space:nowrap;
+  background:#fff;border:1.5px solid #E5E7EB;
+  border-radius:20px;padding:7px 14px;
+  font-size:12px;font-weight:600;color:#374151;
+  cursor:pointer;display:flex;align-items:center;gap:5px;
+}
+.swipe-pill.active{background:#F97316;border-color:#F97316;color:#fff}
 .ci{
   display:flex;flex-direction:column;align-items:center;
   gap:5px;flex-shrink:0;cursor:pointer;
@@ -974,7 +990,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     </div>
   </div>
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
-  <div class="cat-scrl" id="hCats"></div>
+  <div class="cat-scrl swipe-row" id="hCats" style="padding:8px 14px 12px"></div>
   <!-- DAPAY WALLET CARD FINAL -->
   <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
     <p style="margin:0 0 3px;font-size:9px;font-weight:700;opacity:.85">💳 DAPAY · Saldo Aktif</p>
@@ -1046,7 +1062,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       </div>
       <button class="btn btn-o btn-sm">🔧 Filter</button>
     </div>
-    <div id="mktCats" style="display:flex;gap:7px;overflow-x:auto;padding:6px 14px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap"></div>
+    <div class="swipe-row" id="mktCats" style="padding:8px 14px 12px"></div>
     <div class="fg" id="mktFoods"></div>
   </div>
 </div>
@@ -2034,7 +2050,7 @@ function rC(r){
 
 // ── HOME ──
 function rHome(){
-  document.getElementById('hCats').innerHTML=CATS.map(c=>`<div onclick="setCat('${c.l}')" style="flex-shrink:0;background:${c.l===mktC?'#F97316':'#fff'};color:${c.l===mktC?'#fff':'#555'};border:1.5px solid ${c.l===mktC?'#F97316':'#ddd'};border-radius:20px;padding:6px 13px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap">${c.l}</div>`).join('');
+  document.getElementById('hCats').innerHTML=CATS.map(c=>`<div onclick="setCat('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}">${c.l}</div>`).join('');
   const top=[...F].sort((a,b)=>b.s-a.s).slice(0,6);
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   setTimeout(applyFoodPhotos, 50);
@@ -2046,7 +2062,7 @@ function setCat(c){mktC=c;gp('market');}
 // ── MARKET ──
 function rm(){
   const mc=document.getElementById('mktCats');
-  mc.innerHTML=CATS.map(c=>`<div onclick="setMC('${c.l}')" style="flex-shrink:0;background:${c.l===mktC?'#F97316':'#fff'};color:${c.l===mktC?'#fff':'#555'};border:1.5px solid ${c.l===mktC?'#F97316':'#ddd'};border-radius:20px;padding:6px 13px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap">${c.l}</div>`).join('');
+  mc.innerHTML=CATS.map(c=>`<div onclick="setMC('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}"> ${c.l}</div>`).join('');
   const q=(document.getElementById('mktS')?.value||'').toLowerCase();
   const fl=F.filter(f=>{
     const cm=mktC==='Semua'||f.cat===mktC;

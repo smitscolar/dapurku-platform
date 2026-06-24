@@ -350,18 +350,19 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 .cat-scrl::-webkit-scrollbar{display:none}
 /* GoFood-style scroll sections */
 .swipe-row{
-  display:flex;gap:8px;overflow-x:auto;
+  display:flex;gap:7px;overflow-x:auto;
   -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;padding-bottom:4px;
+  scrollbar-width:none;
   flex-wrap:nowrap;
+  width:100%;box-sizing:border-box;
 }
 .swipe-row::-webkit-scrollbar{display:none}
 .swipe-pill{
   flex:0 0 auto;white-space:nowrap;
-  background:#fff;border:1.5px solid #E5E7EB;
-  border-radius:20px;padding:7px 14px;
-  font-size:12px;font-weight:600;color:#374151;
-  cursor:pointer;display:flex;align-items:center;gap:5px;
+  background:#fff;border:1.5px solid #E0E0E0;
+  border-radius:20px;padding:5px 11px;
+  font-size:11px;font-weight:600;color:#444;
+  cursor:pointer;
 }
 .swipe-pill.active{background:#F97316;border-color:#F97316;color:#fff}
 .ci{
@@ -990,7 +991,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     </div>
   </div>
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
-  <div class="cat-scrl swipe-row" id="hCats" style="padding:8px 14px 12px"></div>
+  <div class="cat-scrl swipe-row" id="hCats" style="padding:6px 12px 10px"></div>
   <!-- DAPAY WALLET CARD FINAL -->
   <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
     <p style="margin:0 0 3px;font-size:9px;font-weight:700;opacity:.85">💳 DAPAY · Saldo Aktif</p>
@@ -1062,7 +1063,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       </div>
       <button class="btn btn-o btn-sm">🔧 Filter</button>
     </div>
-    <div class="swipe-row" id="mktCats" style="padding:8px 14px 12px"></div>
+    <div class="swipe-row" id="mktCats" style="padding:6px 12px 10px"></div>
     <div class="fg" id="mktFoods"></div>
   </div>
 </div>

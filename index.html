@@ -948,40 +948,38 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   </div>
   <div class="shr"><div class="st">Kategori</div></div>
   <div class="cat-scrl" id="hCats"></div>
-  <!-- DAPAY WALLET CARD FIXED -->
-  <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316 0%,#EA580C 100%);border-radius:18px;padding:14px 14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-      <div style="font-size:10px;font-weight:700;opacity:.9;letter-spacing:.3px">💳 DAPAY · Saldo Aktif</div>
-      <div style="background:rgba(255,255,255,.22);border-radius:8px;padding:5px 11px;font-size:10px;font-weight:700;border:1.5px solid rgba(255,255,255,.4)">Top Up ›</div>
-    </div>
-    <div style="font-size:24px;font-weight:900;letter-spacing:-.5px;line-height:1.1">Rp 85.000</div>
+  <!-- DAPAY WALLET CARD V3 -->
+  <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px 14px 14px 14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3);position:relative;min-height:80px">
+    <div style="font-size:10px;font-weight:700;opacity:.9;letter-spacing:.3px;margin-bottom:6px">💳 DAPAY · Saldo Aktif</div>
+    <div style="font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.1;padding-right:80px">Rp 85.000</div>
     <div style="font-size:9px;opacity:.75;margin-top:3px">Digital payment DapurKu</div>
+    <div style="position:absolute;top:50%;right:14px;transform:translateY(-50%);background:rgba(255,255,255,.22);border-radius:10px;padding:8px 12px;font-size:10px;font-weight:700;border:1.5px solid rgba(255,255,255,.4);text-align:center;white-space:nowrap">Top Up<br>›</div>
   </div>
-  <!-- STATS 4-COL TABLE FIXED -->
-  <table style="width:calc(100% - 24px);margin:0 12px 12px;table-layout:fixed;border-collapse:collapse">
-    <tr>
-      <td onclick="gp('market')" style="background:#FFF7ED;border-radius:14px;padding:10px 1px;text-align:center;cursor:pointer;border-top:3px solid #F97316;vertical-align:top;padding-right:4px">
-        <div style="font-size:18px;line-height:1.2">🍽️</div>
-        <div style="font-size:14px;font-weight:800;color:#EA580C" id="totM">24</div>
-        <div style="font-size:9px;color:#9A3412;font-weight:700">Menu</div>
-      </td>
-      <td onclick="gp('restos')" style="background:#EFF6FF;border-radius:14px;padding:10px 1px;text-align:center;cursor:pointer;border-top:3px solid #2563EB;vertical-align:top;padding-left:4px;padding-right:4px">
-        <div style="font-size:18px;line-height:1.2">🏪</div>
-        <div style="font-size:14px;font-weight:800;color:#1D4ED8">12</div>
-        <div style="font-size:9px;color:#1E3A8A;font-weight:700">Dapur</div>
-      </td>
-      <td onclick="gp('track')" style="background:#F0FDF4;border-radius:14px;padding:10px 1px;text-align:center;cursor:pointer;border-top:3px solid #16A34A;vertical-align:top;padding-left:4px;padding-right:4px">
-        <div style="font-size:18px;line-height:1.2">🛵</div>
-        <div style="font-size:14px;font-weight:800;color:#15803D">1</div>
-        <div style="font-size:9px;color:#14532D;font-weight:700">Aktif</div>
-      </td>
-      <td onclick="gp('wallet')" style="background:#FAF5FF;border-radius:14px;padding:10px 1px;text-align:center;cursor:pointer;border-top:3px solid #7C3AED;vertical-align:top;padding-left:4px">
-        <div style="font-size:18px;line-height:1.2">💳</div>
-        <div style="font-size:14px;font-weight:800;color:#7C3AED" id="wBal">85K</div>
-        <div style="font-size:9px;color:#5B21B6;font-weight:700">Saldo</div>
-      </td>
-    </tr>
-  </table>
+  <!-- STATS 4-COL V3 -->
+  <div style="margin:0 12px 12px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px">
+      <div onclick="gp('market')" style="background:#FFF7ED;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #F97316">
+        <div style="font-size:18px">🍽️</div>
+        <div style="font-size:13px;font-weight:800;color:#EA580C" id="totM">24</div>
+        <div style="font-size:8px;color:#9A3412;font-weight:700">Menu</div>
+      </div>
+      <div onclick="gp('restos')" style="background:#EFF6FF;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #2563EB">
+        <div style="font-size:18px">🏪</div>
+        <div style="font-size:13px;font-weight:800;color:#1D4ED8">12</div>
+        <div style="font-size:8px;color:#1E3A8A;font-weight:700">Dapur</div>
+      </div>
+      <div onclick="gp('track')" style="background:#F0FDF4;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #16A34A">
+        <div style="font-size:18px">🛵</div>
+        <div style="font-size:13px;font-weight:800;color:#15803D">1</div>
+        <div style="font-size:8px;color:#14532D;font-weight:700">Aktif</div>
+      </div>
+      <div onclick="gp('wallet')" style="background:#FAF5FF;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #7C3AED">
+        <div style="font-size:18px">💳</div>
+        <div style="font-size:13px;font-weight:800;color:#7C3AED" id="wBal">85K</div>
+        <div style="font-size:8px;color:#5B21B6;font-weight:700">Saldo</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Quick Feature Links -->
   <div style="display:flex;gap:9px;padding:0 22px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch">

@@ -1046,7 +1046,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       </div>
       <button class="btn btn-o btn-sm">🔧 Filter</button>
     </div>
-    <div class="cat-scrl" id="mktCats" style="padding:0 0 14px"></div>
+    <div id="mktCats" style="display:flex;gap:7px;overflow-x:auto;padding:6px 14px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap"></div>
     <div class="fg" id="mktFoods"></div>
   </div>
 </div>
@@ -2046,7 +2046,7 @@ function setCat(c){mktC=c;gp('market');}
 // ── MARKET ──
 function rm(){
   const mc=document.getElementById('mktCats');
-  mc.innerHTML=CATS.map(c=>`<div class="ci${c.l===mktC?' on':''}" onclick="setMC('${c.l}')"><div class="ci-box" style="background:${c.bg}">${c.e}</div><div class="ci-lbl">${c.l}</div></div>`).join('');
+  mc.innerHTML=CATS.map(c=>`<div onclick="setMC('${c.l}')" style="flex-shrink:0;background:${c.l===mktC?'#F97316':'#fff'};color:${c.l===mktC?'#fff':'#555'};border:1.5px solid ${c.l===mktC?'#F97316':'#ddd'};border-radius:20px;padding:6px 13px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap">${c.l}</div>`).join('');
   const q=(document.getElementById('mktS')?.value||'').toLowerCase();
   const fl=F.filter(f=>{
     const cm=mktC==='Semua'||f.cat===mktC;

@@ -975,14 +975,12 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   </div>
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
   <div class="cat-scrl" id="hCats"></div>
-  <!-- DAPAY WALLET CARD V7 -->
+  <!-- DAPAY WALLET CARD V8 -->
   <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
     <div style="font-size:9px;font-weight:700;opacity:.85;margin-bottom:4px">💳 DAPAY · Saldo Aktif</div>
-    <div style="font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.1;margin-bottom:2px">Rp 85.000</div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
-      <div style="font-size:9px;opacity:.75">Digital payment DapurKu</div>
-      <div style="background:#fff;color:#F97316;border-radius:20px;padding:4px 14px;font-size:10px;font-weight:800;border:none">Top Up ›</div>
-    </div>
+    <div style="font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.1;margin-bottom:8px">Rp 85.000</div>
+    <div style="font-size:9px;opacity:.75;margin-bottom:8px">Digital payment DapurKu</div>
+    <div onclick="event.stopPropagation();gp('wallet')" style="display:block;background:#fff;color:#F97316;border-radius:8px;padding:7px 0;font-size:11px;font-weight:800;text-align:center;width:100%">💳 Top Up Saldo →</div>
   </div>
   <!-- STATS 4-COL VW -->
   <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;flex-wrap:nowrap;gap:5px;padding:0 12px;margin-bottom:12px">
@@ -1010,25 +1008,25 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
   <!-- Quick Feature Links -->
   <div style="display:flex;gap:8px;padding:0 14px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none">
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('flashsale')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('flashsale')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">⚡</div><div style="font-size:10.5px;font-weight:600;color:#DC2626">Flash Sale</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('groupbuy')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('groupbuy')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">🤝</div><div style="font-size:10.5px;font-weight:600;color:#F97316">Group Buy</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('referral')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('referral')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">🎯</div><div style="font-size:10.5px;font-weight:600;color:#7C3AED">Referral</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('leaderboard')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('leaderboard')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">🏆</div><div style="font-size:10.5px;font-weight:600;color:var(--green2)">Top Dapur</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('chat')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('chat')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">💬</div><div style="font-size:10.5px;font-weight:600;color:var(--blue)">Chat</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('favorite')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('favorite')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">❤️</div><div style="font-size:10.5px;font-weight:600;color:#EC4899">Favorit</div>
     </div>
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;text-align:center;min-width:80px;box-shadow:var(--sh1);transition:transform .18s" onclick="gp('promo')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
+    <div style="flex:0 0 84px;background:#fff;border-radius:12px;padding:12px 8px;border:1px solid var(--border);cursor:pointer;text-align:center;box-shadow:var(--sh1)" onclick="gp('promo')" onmouseenter="this.style.transform='translateY(-2px)'" onmouseleave="this.style.transform=''">
       <div style="font-size:22px;margin-bottom:4px">🎁</div><div style="font-size:10.5px;font-weight:600;color:#F97316">Voucher</div>
     </div>
   </div>

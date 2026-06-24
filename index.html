@@ -939,12 +939,42 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
     </div>
   </div>
-  <div class="pscrl">
-    <div class="pcard" style="background:linear-gradient(135deg,#EA580C,#F97316)" onclick="toast('Diskon 25% diaktifkan!','ts')"><div class="pe">🍗</div><div class="ptag">Promo Spesial</div><div class="ptit">Diskon 25% Ayam</div><div class="psub">Min. Rp 30.000 · Hari ini</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#004D40,#00695C)" onclick="toast('Gratis ongkir aktif!','ts')"><div class="pe">🛵</div><div class="ptag">Free Delivery</div><div class="ptit">Gratis Ongkir Seharian</div><div class="psub">Khusus member DapurKu</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#4A148C,#1A237E)" onclick="toast('Cashback 15% berlaku!','ts')"><div class="pe">💳</div><div class="ptag">Cashback</div><div class="ptit">Cashback 15% Dompet</div><div class="psub">Bayar pakai DapurKu Pay</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#C2410C,#EA580C)" onclick="gp('groupbuy')"><div class="pe">🤝</div><div class="ptag">Group Buy</div><div class="ptit">Hemat 35% Bahan Baku</div><div class="psub">Beli bareng, harga grosir</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#1B3A6B,#283593)" onclick="gp('promo')"><div class="pe">🎁</div><div class="ptag">Voucher</div><div class="ptit">5 Voucher Menunggumu</div><div class="psub">Kode BATAMPILOT · 50% off</div></div>
+  <!-- PROMO 2-COL GRID + SCROLL -->
+  <div style="padding:0 14px;margin-bottom:4px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+      <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;min-height:85px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-10px;right:-10px;font-size:36px;opacity:.3">🍗</div>
+        <div style="font-size:8px;font-weight:700;opacity:.85;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px">Promo Spesial</div>
+        <div style="font-size:14px;font-weight:800;line-height:1.2;margin-bottom:2px">Diskon 25% Ayam</div>
+        <div style="font-size:9px;opacity:.85">Min. Rp 30.000 · Hari ini</div>
+      </div>
+      <div onclick="toast('Gratis ongkir aktif!','ts')" style="background:linear-gradient(135deg,#004D40,#00695C);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;min-height:85px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-10px;right:-10px;font-size:36px;opacity:.3">🛵</div>
+        <div style="font-size:8px;font-weight:700;opacity:.85;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px">Free Delivery</div>
+        <div style="font-size:14px;font-weight:800;line-height:1.2;margin-bottom:2px">Gratis Ongkir Seharian</div>
+        <div style="font-size:9px;opacity:.85">Khusus member DapurKu</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+      <div onclick="toast('Cashback 15% berlaku!','ts')" style="background:linear-gradient(135deg,#4A148C,#1A237E);border-radius:14px;padding:10px 12px;color:#fff;cursor:pointer;flex-shrink:0;width:160px">
+        <div style="font-size:18px;margin-bottom:3px">💳</div>
+        <div style="font-size:8px;opacity:.8;letter-spacing:.5px;text-transform:uppercase">Cashback</div>
+        <div style="font-size:12px;font-weight:800">Cashback 15% Dompet</div>
+        <div style="font-size:9px;opacity:.8">Bayar pakai DapurKu Pay</div>
+      </div>
+      <div onclick="gp('groupbuy')" style="background:linear-gradient(135deg,#C2410C,#EA580C);border-radius:14px;padding:10px 12px;color:#fff;cursor:pointer;flex-shrink:0;width:160px">
+        <div style="font-size:18px;margin-bottom:3px">🤝</div>
+        <div style="font-size:8px;opacity:.8;letter-spacing:.5px;text-transform:uppercase">Group Buy</div>
+        <div style="font-size:12px;font-weight:800">Hemat 35% Bahan Baku</div>
+        <div style="font-size:9px;opacity:.8">Beli bareng, harga grosir</div>
+      </div>
+      <div onclick="gp('promo')" style="background:linear-gradient(135deg,#1B3A6B,#283593);border-radius:14px;padding:10px 12px;color:#fff;cursor:pointer;flex-shrink:0;width:160px">
+        <div style="font-size:18px;margin-bottom:3px">🎁</div>
+        <div style="font-size:8px;opacity:.8;letter-spacing:.5px;text-transform:uppercase">Voucher</div>
+        <div style="font-size:12px;font-weight:800">5 Voucher Menunggumu</div>
+        <div style="font-size:9px;opacity:.8">Kode BATAMPILOT · 50% off</div>
+      </div>
+    </div>
   </div>
   <div class="shr"><div class="st">Kategori</div></div>
   <div class="cat-scrl" id="hCats"></div>
@@ -955,31 +985,52 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="font-size:9px;opacity:.75;margin-top:3px">Digital payment DapurKu</div>
     <div style="position:absolute;top:50%;right:14px;transform:translateY(-50%);background:rgba(255,255,255,.22);border-radius:10px;padding:8px 12px;font-size:10px;font-weight:700;border:1.5px solid rgba(255,255,255,.4);text-align:center;white-space:nowrap">Top Up<br>›</div>
   </div>
-  <!-- STATS 4-COL V3 -->
-  <div style="margin:0 12px 12px">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px">
-      <div onclick="gp('market')" style="background:#FFF7ED;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #F97316">
-        <div style="font-size:18px">🍽️</div>
-        <div style="font-size:13px;font-weight:800;color:#EA580C" id="totM">24</div>
-        <div style="font-size:8px;color:#9A3412;font-weight:700">Menu</div>
-      </div>
-      <div onclick="gp('restos')" style="background:#EFF6FF;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #2563EB">
-        <div style="font-size:18px">🏪</div>
-        <div style="font-size:13px;font-weight:800;color:#1D4ED8">12</div>
-        <div style="font-size:8px;color:#1E3A8A;font-weight:700">Dapur</div>
-      </div>
-      <div onclick="gp('track')" style="background:#F0FDF4;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #16A34A">
-        <div style="font-size:18px">🛵</div>
-        <div style="font-size:13px;font-weight:800;color:#15803D">1</div>
-        <div style="font-size:8px;color:#14532D;font-weight:700">Aktif</div>
-      </div>
-      <div onclick="gp('wallet')" style="background:#FAF5FF;border-radius:12px;padding:10px 2px;text-align:center;cursor:pointer;border-top:3px solid #7C3AED">
-        <div style="font-size:18px">💳</div>
-        <div style="font-size:13px;font-weight:800;color:#7C3AED" id="wBal">85K</div>
-        <div style="font-size:8px;color:#5B21B6;font-weight:700">Saldo</div>
-      </div>
+  <!-- STATS 4-COL FINAL -->
+  <div id="statsRow" style="display:flex;flex-direction:row;flex-wrap:nowrap;padding:0 12px;margin-bottom:12px;gap:0">
+    <div onclick="gp('market')" style="flex:1;background:#FFF7ED;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #F97316;margin-right:5px;overflow:hidden">
+      <div style="font-size:18px;line-height:1.2">🍽️</div>
+      <div style="font-size:13px;font-weight:800;color:#EA580C" id="totM">24</div>
+      <div style="font-size:8px;color:#9A3412;font-weight:700">Menu</div>
+    </div>
+    <div onclick="gp('restos')" style="flex:1;background:#EFF6FF;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #2563EB;margin-right:5px;overflow:hidden">
+      <div style="font-size:18px;line-height:1.2">🏪</div>
+      <div style="font-size:13px;font-weight:800;color:#1D4ED8">12</div>
+      <div style="font-size:8px;color:#1E3A8A;font-weight:700">Dapur</div>
+    </div>
+    <div onclick="gp('track')" style="flex:1;background:#F0FDF4;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #16A34A;margin-right:5px;overflow:hidden">
+      <div style="font-size:18px;line-height:1.2">🛵</div>
+      <div style="font-size:13px;font-weight:800;color:#15803D">1</div>
+      <div style="font-size:8px;color:#14532D;font-weight:700">Aktif</div>
+    </div>
+    <div onclick="gp('wallet')" style="flex:1;background:#FAF5FF;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #7C3AED;overflow:hidden">
+      <div style="font-size:18px;line-height:1.2">💳</div>
+      <div style="font-size:13px;font-weight:800;color:#7C3AED" id="wBal">85K</div>
+      <div style="font-size:8px;color:#5B21B6;font-weight:700">Saldo</div>
     </div>
   </div>
+  <script>
+  // Force 4-col layout via JS setelah DOM ready
+  (function(){
+    function fixStats(){
+      var row=document.getElementById('statsRow');
+      if(!row)return;
+      var pw=row.parentElement?row.parentElement.offsetWidth:window.innerWidth;
+      var gap=5,pad=24,n=4;
+      var cw=Math.floor((pw-pad-gap*(n-1))/n);
+      Array.from(row.children).forEach(function(c,i){
+        c.style.flex='0 0 '+cw+'px';
+        c.style.width=cw+'px';
+        c.style.maxWidth=cw+'px';
+      });
+    }
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',fixStats);
+    } else { fixStats(); }
+    window.addEventListener('resize',fixStats);
+    setTimeout(fixStats,100);
+    setTimeout(fixStats,500);
+  })();
+  </script>
 
   <!-- Quick Feature Links -->
   <div style="display:flex;gap:9px;padding:0 22px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch">

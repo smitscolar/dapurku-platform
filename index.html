@@ -2,46 +2,47 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <meta name="theme-color" content="#D94833">
   <title>DapurKu — Ghost Kitchen UMKM</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html, body { width:100%; height:100%; overflow:hidden; background:#D94833; }
-    #loader {
-      position:fixed; inset:0; background:#D94833;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      z-index:999; color:#fff;
-      transition:opacity .5s;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:linear-gradient(160deg,#D94833 0%,#B83022 55%,#8B1A0E 100%);
+      min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;color:#fff;
     }
-    #loader .logo { font-size:48px; margin-bottom:12px; animation:pulse 1.5s infinite; }
-    #loader h1 { font-size:24px; font-weight:900; letter-spacing:-.5px; margin-bottom:4px; font-family:-apple-system,sans-serif; }
-    #loader p { font-size:12px; opacity:.8; font-family:-apple-system,sans-serif; }
-    #loader .bar { width:200px; height:4px; background:rgba(255,255,255,.2); border-radius:2px; margin-top:20px; overflow:hidden; }
-    #loader .bar-fill { height:100%; background:#fff; border-radius:2px; animation:loading 1.5s ease-in-out forwards; }
-    @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
-    @keyframes loading { from{width:0} to{width:100%} }
-    iframe {
-      width:100%; height:100%;
-      border:none; display:block;
-      position:fixed; inset:0;
+    .logo{font-size:60px;animation:pulse 1.5s infinite;margin-bottom:16px}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}},
+    h1{font-size:28px;font-weight:900;letter-spacing:-.5px;margin-bottom:4px}
+    p{font-size:13px;opacity:.8;margin-bottom:30px}
+    .bar{width:200px;height:5px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}
+    .fill{height:100%;background:#fff;border-radius:3px;animation:load 1.5s ease forwards}
+    @keyframes load{from{width:0}to{width:100%}}
+    .stats{
+      display:flex;gap:12px;margin-bottom:24px;
     }
+    .stat{text-align:center;background:rgba(255,255,255,.15);border-radius:10px;padding:8px 14px;border:1px solid rgba(255,255,255,.2)}
+    .stat-val{font-size:18px;font-weight:900}
+    .stat-lbl{font-size:9px;opacity:.8;font-weight:600;letter-spacing:.3px}
   </style>
+  <script>
+    // Redirect setelah 1.5 detik
+    setTimeout(function(){
+      window.location.href = "https://1dd5c538-b87b-48b2-9b39-afa3cbd760b1.preview.emergentagent.com/";
+    }, 1500);
+  </script>
 </head>
 <body>
-  <div id="loader">
-    <div class="logo">🍳</div>
-    <h1>DapurKu</h1>
-    <p>Ghost Kitchen UMKM · Pilot Batam</p>
-    <div class="bar"><div class="bar-fill"></div></div>
+  <div class="logo">🍳</div>
+  <h1>DapurKu</h1>
+  <p>Ghost Kitchen UMKM · Pilot Batam</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-val">524</div><div class="stat-lbl">TRANSAKSI</div></div>
+    <div class="stat"><div class="stat-val">50</div><div class="stat-lbl">DAPUR</div></div>
+    <div class="stat"><div class="stat-val">4.7⭐</div><div class="stat-lbl">RATING</div></div>
   </div>
-  <iframe 
-    id="app"
-    src="https://1dd5c538-b87b-48b2-9b39-afa3cbd760b1.preview.emergentagent.com/"
-    onload="document.getElementById('loader').style.opacity='0'; setTimeout(()=>document.getElementById('loader').style.display='none',500)"
-    allow="camera;microphone;geolocation"
-    title="DapurKu App">
-  </iframe>
+  <div class="bar"><div class="fill"></div></div>
 </body>
 </html>

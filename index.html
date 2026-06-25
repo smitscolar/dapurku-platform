@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FFF8F0;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FFF8F0;color:var(--dark);-webkit-font-smoothing:antialiased}
 input,button,select{font-family:inherit;outline:none;border:none}
 button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -403,21 +403,20 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   flex-wrap:wrap;
   gap:8px;
   padding:0 10px 14px;
-  width:100%;
-  box-sizing:border-box;
+  overflow:hidden;
 }
-
 /* Food Card */
 .fc{
-  background:#fff;border-radius:14px;
-  overflow:hidden;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  width:calc(50% - 4px);
+  flex:0 0 calc(50% - 4px);
+  max-width:calc(50% - 4px);
   min-width:0;
   box-sizing:border-box;
-  flex-shrink:0;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
-
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
 .fc-img{
@@ -861,15 +860,20 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .fc-price { font-size: 13px !important; }
 }
 
-/* Mobile food cards - 2 per row exact */
-@media(max-width:600px){
-  .fg{ padding:0 10px 14px !important; gap:8px !important; }
-  .fc{ width:calc(50% - 4px) !important; }
-  .fc-img{ height:115px !important; }
-  .fc-name{ font-size:11px !important; }
-  .fc-price{ font-size:13px !important; }
-  .fc-body{ padding:7px 8px 8px !important; }
-  .atc{ width:28px !important; height:28px !important; font-size:16px !important; }
+/* DapurKu Mobile 2-col fix */
+@media(max-width:900px){
+  .fg{padding:0 10px 14px !important;gap:8px !important;overflow:hidden !important}
+  .fc{
+    flex:0 0 calc(50% - 4px) !important;
+    max-width:calc(50% - 4px) !important;
+    box-sizing:border-box !important;
+  }
+  .fc-img{height:115px !important}
+  .fc-body{padding:7px 9px 8px !important}
+  .fc-name{font-size:11px !important}
+  .fc-price{font-size:13px !important}
+  .fc-shop{font-size:9px !important}
+  .atc{width:28px !important;height:28px !important;font-size:15px !important;border-radius:8px !important}
 }
 </style>
 </head>

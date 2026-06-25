@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FFF8F0;color:var(--dark);-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FFF8F0;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 input,button,select{font-family:inherit;outline:none;border:none}
 button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -399,22 +399,16 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ FOOD GRID — GoFood Style ══ */
 .fg{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:0 10px 14px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;padding:0 10px 14px;
 }
 /* Food Card */
 .fc{
-  width:calc(50% - 4px);
-  min-width:0;
-  box-sizing:border-box;
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  cursor:pointer;
-  box-shadow:0 1px 6px rgba(0,0,0,.09);
-  border:1px solid rgba(0,0,0,.04);
+  background:var(--white);border-radius:18px;
+  overflow:hidden;border:1px solid var(--border);
+  cursor:pointer;transition:transform .2s,box-shadow .2s;
+  box-shadow:var(--sh1);
 }
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
@@ -841,68 +835,30 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 .mm-card:hover{transform:translateY(-3px)}
 
-/* Mobile swipe fix */
-.cat-scrl, .rscrl {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  touch-action: pan-x !important;
-}
-/* Food grid mobile */
-@media(max-width:600px){
-  .fg {
-    grid-template-columns: repeat(2,1fr) !important;
-    gap: 8px !important;
-    padding: 0 10px 14px !important;
-  }
-  .fc-img { height: 120px !important; }
-  .fc-name { font-size: 12px !important; }
-  .fc-price { font-size: 13px !important; }
-}
-
-/* DapurKu Mobile 2-col fix */
+/* ═══ TALARA-Style Mobile Fix ═══ */
 @media(max-width:900px){
-  .fg{padding:0 10px 14px !important;gap:8px !important;overflow:hidden !important}
-  .fc{
-    flex:0 0 calc(50% - 4px) !important;
-    max-width:calc(50% - 4px) !important;
-    box-sizing:border-box !important;
-  }
-  .fc-img{height:115px !important}
-  .fc-body{padding:7px 9px 8px !important}
-  .fc-name{font-size:11px !important}
-  .fc-price{font-size:13px !important}
-  .fc-shop{font-size:9px !important}
-  .atc{width:28px !important;height:28px !important;font-size:15px !important;border-radius:8px !important}
-}
-
-/* ── Mobile Final Fix ── */
-@media(max-width:900px){
+  /* Food grid 2 kolom - TALARA approach */
   .fg{
     display:flex !important;
     flex-wrap:wrap !important;
-    gap:8px !important;
-    padding:0 10px 14px !important;
+    gap:10px !important;
+    padding:0 12px 14px !important;
   }
   .fc{
-    width:calc(50% - 4px) !important;
-    box-sizing:border-box !important;
+    width:calc(50% - 5px) !important;
     min-width:0 !important;
+    box-sizing:border-box !important;
   }
-  .fc-img{
-    height:115px !important;
-    width:100% !important;
-  }
-  .fc-body{padding:8px 9px 10px !important}
-  .fc-name{font-size:11px !important;margin-bottom:2px !important}
-  .fc-shop{font-size:9px !important}
-  .fc-price{font-size:13px !important}
-  .fc-orig{font-size:9px !important}
-  .atc{
-    width:28px !important;
-    height:28px !important;
-    font-size:15px !important;
-    border-radius:8px !important;
-    flex-shrink:0 !important;
+  .fc-img{height:120px !important}
+  .fc-name{font-size:12px !important}
+  .fc-price{font-size:14px !important}
+  .fc-body{padding:8px 10px 10px !important}
+  .atc{width:30px !important;height:30px !important;font-size:16px !important}
+  
+  /* Cat scroll touch */
+  .cat-scrl,.rscrl{
+    touch-action:pan-x !important;
+    -webkit-overflow-scrolling:touch !important;
   }
 }
 </style>
@@ -1023,12 +979,9 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
     <div style="font-size:12px;color:rgba(255,255,255,.88);margin-bottom:2px">Selamat datang,</div>
     <div class="hero-name" id="heroN" style="font-size:20px;font-weight:900;color:#fff;margin-bottom:12px">Budi Santoso 👋</div>
-    <div class="hero-search">
-      <span class="hs-ic">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
-    </div>
+    <div class="hero-search"><span class="hs-ic">🔍</span><input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()"></div>
   </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
-  <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+  <div id="promoScroll" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>3)this.scrollLeft=this._sl+dx" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
     <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="flex:0 0 calc(50vw - 18px);min-width:145px;background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;position:relative;overflow:hidden">
       <div style="position:absolute;top:-8px;right:-8px;font-size:38px;opacity:.25">🍗</div>
       <div style="font-size:8px;font-weight:700;opacity:.85;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px">Promo Spesial</div>
@@ -1119,7 +1072,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua</div></div>
   <div class="fg" id="hFoods"></div>
   <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua</div></div>
-  <div class="rscrl" id="hRestos"></div>
+  <div class="rscrl" id="hRestos" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>3)this.scrollLeft=this._sl+dx"></div>
   <div style="height:24px"></div>
 </div>
 
@@ -1894,38 +1847,34 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 <script>
 const R=[
-  {id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam Geprek",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Geprek pedas mantap, level 1-10. Langganan warga Batam.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop"},
-  {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#FFF8E7",cat:"Nasi & Lauk",rt:4.8,rv:189,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"Gratis es teh",op:true,ds:"Nasi uduk pulen dengan lauk pilihan, buka dari jam 06.00 pagi.",loc:"Nagoya",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop"},
-  {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#F0F4FF",cat:"Mie & Nasi Goreng",rt:4.8,rv:248,tm:"12-22",mo:12000,d:"1.4 km",b:"",pr:"",op:true,ds:"Mie goreng dan nasi goreng kampung dengan bumbu rahasia.",loc:"Sei Beduk",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop"},
-  {id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F0FFF4",cat:"Minuman & Jus",rt:4.9,rv:401,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"Beli 2 gratis 1",op:true,ds:"Jus buah segar, boba, dan minuman dingin. Dibuat fresh.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop"},
-  {id:5,n:"Sate Pak Maman",e:"🍢",bg:"#FFF0F0",cat:"Sate & Bakar",rt:4.8,rv:156,tm:"20-35",mo:24500,d:"2.1 km",b:"",pr:"",op:true,ds:"Sate kambing dan sate ayam dengan bumbu kacang khas.",loc:"Batu Aji",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop"},
-  {id:6,n:"BBQ Bu Tini",e:"🐟",bg:"#F0F9FF",cat:"Bakar & BBQ",rt:4.8,rv:133,tm:"25-40",mo:28000,d:"1.8 km",b:"",pr:"",op:true,ds:"Ayam dan ikan bakar dengan bumbu khas.",loc:"Nongsa",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop"},
-  {id:7,n:"Pecel Bu Lastri",e:"🥗",bg:"#F0FDF4",cat:"Sayuran & Sehat",rt:4.9,rv:178,tm:"10-20",mo:13000,d:"1.2 km",b:"Sehat",pr:"",op:true,ds:"Pecel, gado-gado, dan soto ayam lamongan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop"},
-  {id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFBF0",cat:"Snack & Cemilan",rt:4.7,rv:289,tm:"8-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 20%",op:true,ds:"Aneka gorengan crispy dan snack UMKM lokal Batam.",loc:"Lubuk Baja",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop"}
+{id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam Geprek",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Geprek pedas mantap level 1-10. Langganan warga Batam.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop"},
+{id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#FFF8E7",cat:"Nasi & Lauk",rt:4.8,rv:189,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"Gratis es teh",op:true,ds:"Nasi uduk pulen dengan lauk pilihan, buka dari jam 06.00.",loc:"Nagoya",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop"},
+{id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#F0F4FF",cat:"Mie & Nasi Goreng",rt:4.8,rv:248,tm:"12-22",mo:12000,d:"1.4 km",b:"",pr:"",op:true,ds:"Mie goreng dan nasi goreng kampung dengan bumbu rahasia.",loc:"Sei Beduk",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop"},
+{id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F0FFF4",cat:"Minuman & Jus",rt:4.9,rv:401,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"Beli 2 gratis 1",op:true,ds:"Jus buah segar, boba, dan minuman dingin. Fresh setiap pesanan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop"},
+{id:5,n:"Sate Pak Maman",e:"🍢",bg:"#FFF0F0",cat:"Sate & Bakar",rt:4.8,rv:156,tm:"20-35",mo:24500,d:"2.1 km",b:"",pr:"",op:true,ds:"Sate kambing dan sate ayam dengan bumbu kacang khas.",loc:"Batu Aji",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop"},
+{id:6,n:"BBQ Bu Tini",e:"🐟",bg:"#F0F9FF",cat:"Bakar & BBQ",rt:4.8,rv:133,tm:"25-40",mo:28000,d:"1.8 km",b:"",pr:"",op:true,ds:"Ayam dan ikan bakar dengan bumbu khas.",loc:"Nongsa",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop"},
+{id:7,n:"Pecel Bu Lastri",e:"🥗",bg:"#F0FDF4",cat:"Sayuran & Sehat",rt:4.9,rv:178,tm:"10-20",mo:13000,d:"1.2 km",b:"Sehat",pr:"",op:true,ds:"Pecel, gado-gado, dan soto ayam lamongan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop"},
+{id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFBF0",cat:"Snack & Cemilan",rt:4.7,rv:289,tm:"8-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 20%",op:true,ds:"Aneka gorengan crispy dan snack UMKM lokal Batam.",loc:"Lubuk Baja",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop"}
 ];
 
 
 const F=[
-  {id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop"},
-  {id:2,n:"Geprek Level 5 + Nasi",rId:1,p:15000,og:22000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=400&h=280&fit=crop"},
-  {id:3,n:"Ayam Geprek Keju",rId:1,p:26000,og:null,e:"🍗",cat:"Ayam",rt:4.7,s:71,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop"},
-  {id:4,n:"Nasi Uduk Komplit",rId:2,p:18000,og:null,e:"🍚",cat:"Nasi",rt:4.8,s:98,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop"},
-  {id:5,n:"Nasi Uduk Jumbo",rId:2,p:25000,og:28000,e:"🍚",cat:"Nasi",rt:4.7,s:62,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=280&fit=crop"},
-  {id:6,n:"Mie Goreng Jawa",rId:2,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.6,s:45,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop"},
-  {id:7,n:"Mie Goreng Seafood",rId:3,p:22000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:143,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&h=280&fit=crop"},
-  {id:8,n:"Nasi Goreng Kampung",rId:3,p:12000,og:17000,e:"🍛",cat:"Nasi",rt:4.7,s:156,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=280&fit=crop"},
-  {id:9,n:"Jus Alpukat Kental",rId:4,p:15000,og:18000,e:"🥑",cat:"Minuman",rt:4.9,s:201,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop"},
-  {id:10,n:"Es Teh Manis Jumbo",rId:3,p:7000,og:null,e:"🧊",cat:"Minuman",rt:4.6,s:59,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=280&fit=crop"},
-  {id:11,n:"Boba Taro Susu",rId:4,p:18000,og:null,e:"🧋",cat:"Minuman",rt:4.8,s:88,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=280&fit=crop"},
-  {id:12,n:"Ayam Bakar Madu",rId:4,p:28000,og:null,e:"🍖",cat:"Ayam",rt:4.8,s:112,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop"},
-  {id:13,n:"Ikan Bakar Bumbu Bali",rId:6,p:32000,og:null,e:"🐟",cat:"Lauk",rt:4.8,s:76,bg:"#F0F9FF",foto:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=280&fit=crop"},
-  {id:14,n:"Pisang Goreng Crispy",rId:8,p:8000,og:null,e:"🍌",cat:"Snack",rt:4.5,s:177,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=280&fit=crop"},
-  {id:15,n:"Keripik Tempe Balado",rId:8,p:12000,og:15000,e:"🌶️",cat:"Snack",rt:4.7,s:156,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=280&fit=crop"},
-  {id:16,n:"Soto Ayam Lamongan",rId:7,p:16000,og:null,e:"🍵",cat:"Nasi",rt:4.9,s:134,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop"},
-  {id:17,n:"Pecel Sayur Lengkap",rId:7,p:13000,og:null,e:"🥗",cat:"Lauk",rt:4.8,s:91,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop"},
-  {id:18,n:"Bakso Malang Komplit",rId:7,p:18000,og:null,e:"🍲",cat:"Nasi",rt:4.5,s:203,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop"},
-  {id:19,n:"Sate Kambing 10 Tusuk",rId:5,p:24500,og:35000,e:"🍢",cat:"Lauk",rt:4.8,s:89,bg:"#FFF0F0",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop"},
-  {id:20,n:"Es Teler Bu Ani",rId:4,p:8400,og:12000,e:"🍧",cat:"Minuman",rt:4.7,s:143,bg:"#F5F0FF",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop"}
+{id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=300&fit=crop"},
+{id:2,n:"Geprek Level 5+Nasi",rId:1,p:15000,og:22000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=400&h=300&fit=crop"},
+{id:3,n:"Ayam Geprek Keju",rId:1,p:26000,og:null,e:"🍗",cat:"Ayam",rt:4.7,s:71,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=300&fit=crop"},
+{id:4,n:"Nasi Uduk Komplit",rId:2,p:18000,og:null,e:"🍚",cat:"Nasi",rt:4.8,s:98,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=300&fit=crop"},
+{id:5,n:"Nasi Uduk Jumbo",rId:2,p:25000,og:28000,e:"🍚",cat:"Nasi",rt:4.7,s:62,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop"},
+{id:6,n:"Mie Goreng Seafood",rId:3,p:22000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:143,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&h=300&fit=crop"},
+{id:7,n:"Nasi Goreng Kampung",rId:3,p:12000,og:17000,e:"🍛",cat:"Nasi",rt:4.7,s:156,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop"},
+{id:8,n:"Jus Alpukat Kental",rId:4,p:15000,og:18000,e:"🥑",cat:"Minuman",rt:4.9,s:201,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop"},
+{id:9,n:"Boba Taro Susu",rId:4,p:18000,og:null,e:"🧋",cat:"Minuman",rt:4.8,s:88,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop"},
+{id:10,n:"Ayam Bakar Madu",rId:4,p:28000,og:null,e:"🍖",cat:"Ayam",rt:4.8,s:112,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop"},
+{id:11,n:"Ikan Bakar Bumbu Bali",rId:6,p:32000,og:null,e:"🐟",cat:"Lauk",rt:4.8,s:76,bg:"#F0F9FF",foto:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop"},
+{id:12,n:"Soto Ayam Lamongan",rId:7,p:16000,og:null,e:"🍵",cat:"Nasi",rt:4.9,s:134,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop"},
+{id:13,n:"Bakso Malang Komplit",rId:7,p:18000,og:null,e:"🍲",cat:"Nasi",rt:4.5,s:203,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=300&fit=crop"},
+{id:14,n:"Pisang Goreng Crispy",rId:8,p:8000,og:null,e:"🍌",cat:"Snack",rt:4.5,s:177,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop"},
+{id:15,n:"Keripik Tempe Balado",rId:8,p:12000,og:15000,e:"🌶️",cat:"Snack",rt:4.7,s:156,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop"},
+{id:16,n:"Sate Kambing 10 Tusuk",rId:5,p:24500,og:35000,e:"🍢",cat:"Lauk",rt:4.8,s:89,bg:"#FFF0F0",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=300&fit=crop"}
 ];
 
 const CATS=[{l:"Semua",e:"🍽️",bg:"#FEF3E2"},{l:"Ayam",e:"🍗",bg:"#FEF3E2"},{l:"Nasi",e:"🍚",bg:"#E8F5E9"},{l:"Mie",e:"🍜",bg:"#DBEAFE"},{l:"Minuman",e:"🧋",bg:"#D1FAE5"},{l:"Snack",e:"🍟",bg:"#FFFDE7"}];
@@ -2116,10 +2065,10 @@ function rC(r){
 // ── HOME ──
 function rHome(){
   document.getElementById('hCats').innerHTML=CATS.map(c=>`<div onclick="setCat('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}">${c.l}</div>`).join('');
-  const top=[...F].sort((a,b)=>b.s-a.s).slice(0,8);
+  const top=[...F].sort((a,b)=>b.s-a.s).slice(0,12);
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   setTimeout(applyFoodPhotos, 50);
-  document.getElementById('hRestos').innerHTML=R.slice(0,6).map(rC).join('');
+  document.getElementById('hRestos').innerHTML=R.slice(0,8).map(rC).join('');
   document.getElementById('totM').textContent=F.length;
 }
 function setCat(c){mktC=c;gp('market');}
@@ -3189,7 +3138,7 @@ function rLeaderboard(){
 
 // ── CHEF PROFILE ──
 function rChefprofile(){
-  document.getElementById('chefCards').innerHTML=R.slice(0,6).map(r=>{
+  document.getElementById('chefCards').innerHTML=R.slice(0,8).map(r=>{
     const foods=F.filter(f=>f.rId===r.id);
     const topFood=foods.sort((a,b)=>b.s-a.s)[0];
     return `<div class="card" style="overflow:hidden;padding:0">
@@ -4120,33 +4069,5 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   setTimeout(init,500);setTimeout(init,1500);
 })();
 </script>
-
-<script>
-// Simple reliable swipe for horizontal sections
-document.addEventListener('DOMContentLoaded', function(){
-  var els = document.querySelectorAll('.cat-scrl, .rscrl, #promoScroll');
-  els.forEach(function(el){
-    var sx=0, sl=0;
-    el.addEventListener('touchstart', function(e){
-      sx = e.touches[0].clientX;
-      sl = el.scrollLeft;
-    }, {passive:true});
-    el.addEventListener('touchmove', function(e){
-      var dx = sx - e.touches[0].clientX;
-      el.scrollLeft = sl + dx;
-    }, {passive:true});
-  });
-  // Also for dynamically added elements
-  setTimeout(function(){
-    document.querySelectorAll('.cat-scrl, .rscrl, #promoScroll').forEach(function(el){
-      if(el._sw) return; el._sw=1;
-      var sx=0,sl=0;
-      el.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sl=el.scrollLeft;},{passive:true});
-      el.addEventListener('touchmove',function(e){el.scrollLeft=sl+(sx-e.touches[0].clientX);},{passive:true});
-    });
-  }, 1000);
-});
-</script>
-
 </body>
 </html>

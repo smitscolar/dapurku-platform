@@ -1130,16 +1130,15 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
-  <div class="hero" style="padding:14px 16px 18px">
-    <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
-    <div style="font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px">Selamat datang,</div>
-    <div class="hero-name" id="heroN" style="font-size:22px;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-.3px">Budi Santoso 👋</div>
-    <div class="hero-search">
-      <span class="hs-ic">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
+  <div class="hero" style="padding:10px 14px 14px">
+    <div class="hero-pilot" style="font-size:9px;padding:3px 10px;margin-bottom:6px">🏆 PILOT BATAM · 50 Dapur · 524 Transaksi · ⭐ 4.7/5</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.85);margin-bottom:1px">Selamat datang,</div>
+    <div class="hero-name" id="heroN" style="font-size:20px;font-weight:900;color:#fff;margin-bottom:10px;letter-spacing:-.3px">Budi Santoso 👋</div>
+    <div class="hero-search" style="padding:8px 12px">
+      <span class="hs-ic" style="font-size:14px">🔍</span>
+      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()" style="font-size:13px">
     </div>
-  </div></div>
-  <!-- PROMO SCROLL SEMUA BISA GESER -->
+  </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
   <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
     <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="flex:0 0 calc(50vw - 18px);min-width:145px;background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;position:relative;overflow:hidden">
       <div style="position:absolute;top:-8px;right:-8px;font-size:38px;opacity:.25">🍗</div>
@@ -1175,30 +1174,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
   <div class="cat-scrl" id="hCats"></div>
   
-  <!-- Quick Feature Links PILL SCROLL -->
-  <div style="overflow-x:auto;display:flex;gap:8px;padding:4px 14px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap">
-    <div onclick="gp('flashsale')" style="flex:0 0 auto;white-space:nowrap;background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">⚡</span><span style="font-size:12px;font-weight:700;color:#DC2626">Flash Sale</span>
-    </div>
-    <div onclick="gp('groupbuy')" style="flex:0 0 auto;white-space:nowrap;background:#FFF7ED;border:1.5px solid #FBD38D;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🤝</span><span style="font-size:12px;font-weight:700;color:#D97706">Group Buy</span>
-    </div>
-    <div onclick="gp('referral')" style="flex:0 0 auto;white-space:nowrap;background:#F5F3FF;border:1.5px solid #C4B5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🎯</span><span style="font-size:12px;font-weight:700;color:#7C3AED">Referral</span>
-    </div>
-    <div onclick="gp('topdarpu')" style="flex:0 0 auto;white-space:nowrap;background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🏆</span><span style="font-size:12px;font-weight:700;color:#92400E">Top Dapur</span>
-    </div>
-    <div onclick="gp('chat')" style="flex:0 0 auto;white-space:nowrap;background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">💬</span><span style="font-size:12px;font-weight:700;color:#16A34A">Chat</span>
-    </div>
-    <div onclick="gp('favorit')" style="flex:0 0 auto;white-space:nowrap;background:#FFF1F2;border:1.5px solid #FDA4AF;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">❤️</span><span style="font-size:12px;font-weight:700;color:#BE123C">Favorit</span>
-    </div>
-    <div onclick="gp('promo')" style="flex:0 0 auto;white-space:nowrap;background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🎁</span><span style="font-size:12px;font-weight:700;color:#1D4ED8">Voucher</span>
-    </div>
-  </div>
+  
   <!-- AI MENU ADVISOR -->
   <div onclick="toast('🤖 AI Menu Advisor - Segera hadir!','info')" style="margin:4px 12px 10px;background:linear-gradient(135deg,#2D2A26,#1C1917);border-radius:18px;padding:14px 16px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 16px rgba(0,0,0,.2)">
     <div>

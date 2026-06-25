@@ -43,7 +43,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar-track{background:transparent}
 
 /* ══ LAYOUT ══ */
-.shell{display:flex;min-height:100vh}
+.shell{display:flex;min-height:100vh;overflow-x:hidden}
 
 /* ══ SIDEBAR ══ */
 .sb{
@@ -212,7 +212,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 
 /* ══ MAIN ══ */
-.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden}
 
 /* Desktop topbar */
 .dtb{
@@ -937,8 +937,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="dtb-btn" id="cartBtnD" onclick="toggleCart()" style="display:none">🛒</div>
   </div>
 
-  <div id="pgFlex" style="display:flex;flex:1;overflow:hidden">
-    <div style="flex:1;overflow-y:auto" id="pgArea">
+  <div id="pgFlex" style="display:flex;flex:1">
+    <div style="flex:1;overflow-y:auto;overflow-x:visible" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
   <!-- HERO - TALARA style compact -->

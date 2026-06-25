@@ -303,6 +303,25 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   display:flex;gap:12px;padding:16px 22px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
 }
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.sp-tag{
+  display:inline-block;font-size:8px;font-weight:800;
+  background:rgba(255,255,255,0.25);color:#fff;
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:4px;padding:1px 5px;letter-spacing:.5px;
+}
+.live-card{
+  flex-shrink:0;width:160px;border-radius:14px;overflow:hidden;
+  background:#111;position:relative;cursor:pointer;
+}
+.live-card-img{
+  width:100%;height:90px;object-fit:cover;opacity:.8;
+}
+.live-card-overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:8px;
+  background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 60%);
+}
 .pscrl::-webkit-scrollbar{display:none}
 .pcard{
   flex-shrink:0;width:230px;height:102px;
@@ -949,35 +968,19 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="hero-search"><span class="hs-ic">🔍</span><input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()"></div>
   </div>
 
-  <!-- PROMO BANNER - TALARA sliding style -->
-  <div class="pscrl" id="promoScroll" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d">
-    <div class="pcard" onclick="toast('Diskon 25% diaktifkan!','ts')">
-      <div style="position:absolute;top:12px;left:12px">
-        <div class="ptag">PROMO SPESIAL</div>
-        <div class="ptit">Diskon 25% Ayam</div>
-        <div class="psub">Min. Rp 30.000 · Hari ini</div>
-        <div style="margin-top:8px;background:#fff;color:var(--orange);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Ambil Promo</div>
+  <!-- SPONSOR BANNER - dynamic slots -->
+  <div class="pscrl" id="sponsorBanner" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d"></div>
+
+  <!-- LIVE NOW SECTION -->
+  <div id="liveSection" style="display:none;background:#fff;margin-bottom:8px;padding:12px 0 4px">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0 14px;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:10px;height:10px;background:#F44336;border-radius:50%;animation:livePulse 1s infinite"></div>
+        <div style="font-size:14px;font-weight:800;color:#222">🔴 Sedang Live</div>
       </div>
-      <div class="pe" style="right:12px;font-size:44px">🍗</div>
+      <div style="font-size:12px;color:var(--orange);font-weight:700">Lihat Semua ›</div>
     </div>
-    <div class="pcard" style="background:linear-gradient(135deg,#00897B,#00695C)" onclick="toast('Gratis ongkir aktif!','ts')">
-      <div style="position:absolute;top:12px;left:12px">
-        <div class="ptag">FREE DELIVERY</div>
-        <div class="ptit">Gratis Ongkir Seharian</div>
-        <div class="psub">Khusus member DapurKu</div>
-        <div style="margin-top:8px;background:#fff;color:#00695C;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Aktifkan</div>
-      </div>
-      <div class="pe" style="right:12px;font-size:44px">🛵</div>
-    </div>
-    <div class="pcard" style="background:linear-gradient(135deg,#5E35B1,#283593)" onclick="gp('promo')">
-      <div style="position:absolute;top:12px;left:12px">
-        <div class="ptag">VOUCHER</div>
-        <div class="ptit">5 Voucher Menunggumu</div>
-        <div class="psub">Kode BATAMPILOT · 50% off</div>
-        <div style="margin-top:8px;background:#fff;color:#5E35B1;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Lihat Voucher</div>
-      </div>
-      <div class="pe" style="right:12px;font-size:44px">🎁</div>
-    </div>
+    <div id="liveCards" class="hscrl" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d"></div>
   </div>
 
   <!-- QUICK LINKS - TALARA style 5 icons -->
@@ -1384,6 +1387,20 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   </div>
 </div>
 <script>
+// ── LIVE sessions (dapur yang sedang live) ──
+var LIVE_NOW=[
+  {rId:1,title:"Masak Ayam Geprek Spesial",viewers:34,started:"18:00"},
+  {rId:4,title:"Demo Minuman Kekinian",viewers:21,started:"18:15"},
+  {rId:8,title:"Live Masak Snack Bu Dewi",viewers:15,started:"18:30"},
+];
+
+// ── SPONSOR slots ──
+var SPONSORS=[
+  {id:"sp1",tag:"SPONSOR",title:"Geprek Bu Sari",sub:"Promo spesial hari ini!",cta:"Pesan Sekarang",bg:"linear-gradient(135deg,#E65100,#BF360C)",emoji:"🍗",rId:1},
+  {id:"sp2",tag:"IKLAN",title:"Snack Bu Dewi",sub:"Diskon 20% semua snack",cta:"Lihat Menu",bg:"linear-gradient(135deg,#1565C0,#0D47A1)",emoji:"🍟",rId:8},
+  {id:"sp3",tag:"PROMO",title:"Gratis Ongkir Seharian",sub:"Khusus member DapurKu",cta:"Aktifkan",bg:"linear-gradient(135deg,#00897B,#00695C)",emoji:"🛵",rId:null},
+];
+
 const R=[{id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam",rt:4.9,rv:312,tm:"15–25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Spesialis ayam geprek sambal rahasia level 1–5. Best seller pilot Batam dengan 312 ulasan positif."},
 {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#E8F5E9",cat:"Nasi",rt:4.8,rv:198,tm:"10–20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:null,op:true,ds:"Nasi uduk legendaris lauk pilihan. 500+ transaksi pilot Batam."},
 {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#DBEAFE",cat:"Mie",rt:4.7,rv:156,tm:"15–25",mo:13000,d:"1.4 km",b:null,pr:"Gratis es teh",op:true,ds:"Mie goreng bumbu Jawa autentik, bumbu turun-temurun."},
@@ -1571,6 +1588,49 @@ function rC(r){
 }
 
 // ── HOME ──
+function renderSponsorBanner(){
+  var el=document.getElementById('sponsorBanner');
+  if(!el)return;
+  el.innerHTML=SPONSORS.map(function(sp){
+    var clickFn=sp.rId?'openRD('+sp.rId+')':'toast(''+sp.cta+'!','ts')';
+    var img=sp.rId?localStorage.getItem('dk_rimg_'+sp.rId):null;
+    return '<div class="pcard" style="background:'+sp.bg+'" onclick="'+clickFn+'">'
+      +'<div style="position:absolute;top:10px;left:12px">'
+      +'<span class="sp-tag">'+sp.tag+'</span>'
+      +'<div class="ptit" style="margin-top:4px">'+sp.title+'</div>'
+      +'<div class="psub">'+sp.sub+'</div>'
+      +'<div style="margin-top:8px;background:#fff;color:#333;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">'+sp.cta+'</div>'
+      +'</div>'
+      +(img?'<img src="'+img+'" style="position:absolute;right:0;top:0;width:120px;height:100%;object-fit:cover;opacity:.35;border-radius:0 12px 12px 0">'
+           :'<div class="pe" style="right:12px;font-size:44px">'+sp.emoji+'</div>')
+      +'</div>';
+  }).join('');
+}
+
+function renderLiveSection(){
+  var sec=document.getElementById('liveSection');
+  var el=document.getElementById('liveCards');
+  if(!sec||!el)return;
+  if(LIVE_NOW.length===0){sec.style.display='none';return;}
+  sec.style.display='block';
+  el.innerHTML=LIVE_NOW.map(function(lv){
+    var rst=R.find(function(r){return r.id===lv.rId;})||{n:'Dapur',e:'🍳'};
+    var img=localStorage.getItem('dk_rimg_'+lv.rId);
+    return '<div class="live-card" onclick="toast('Bergabung live '+rst.n+'!','ts')">'
+      +(img?'<img class="live-card-img" src="'+img+'">'
+           :'<div style="width:100%;height:90px;background:'+rst.bg+';display:flex;align-items:center;justify-content:center;font-size:36px">'+rst.e+'</div>')
+      +'<div class="live-card-overlay">'
+      +'<div style="display:flex;align-items:center;gap:5px;margin-bottom:3px">'
+      +'<div style="background:#F44336;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:4px">🔴 LIVE</div>'
+      +'<div style="color:#fff;font-size:9px">👁 '+lv.viewers+'</div>'
+      +'</div>'
+      +'<div style="color:#fff;font-size:10px;font-weight:700;line-height:1.3">'+lv.title+'</div>'
+      +'<div style="color:rgba(255,255,255,.7);font-size:9px">'+rst.n+'</div>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+}
+
 function rHome(){
   document.getElementById('hCats').innerHTML=CATS.map(c=>
     `<div class="ci${c.l===mktC?' on':''}" onclick="setCat('${c.l}')">
@@ -1581,6 +1641,8 @@ function rHome(){
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   document.getElementById('hRestos').innerHTML=R.slice(0,6).map(rC).join('');
   document.getElementById('totM').textContent=F.length;
+  renderSponsorBanner();
+  renderLiveSection();
 
   // Flash Sale - render from F[] with discount, show photo from Supabase
   const fs=document.getElementById('hFlashSale');

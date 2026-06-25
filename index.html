@@ -344,7 +344,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 /* ══ CATEGORIES ══ */
 .cat-scrl{
   display:flex;gap:8px;padding:8px 14px 12px;
-  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  overflow-x:scroll;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;flex-wrap:nowrap;
 }
 .cat-scrl::-webkit-scrollbar{display:none}
@@ -860,6 +860,16 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     touch-action:pan-x !important;
     -webkit-overflow-scrolling:touch !important;
   }
+}
+
+/* SWIPE FIX GLOBAL */
+* { -webkit-tap-highlight-color: transparent; }
+.cat-scrl, .swipe-row, .rscrl,
+#promoScroll, #hCats, #mktCats, #hRestos {
+  overflow-x: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-x !important;
+  scroll-snap-type: none !important;
 }
 </style>
 </head>
@@ -4067,6 +4077,41 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
   else{init();}
   setTimeout(init,500);setTimeout(init,1500);
+})();
+</script>
+<script>
+(function(){
+  var _sx,_sy,_sl,_el;
+  document.addEventListener('touchstart',function(e){
+    var t=e.target,el=null;
+    while(t&&t!==document.body){
+      var ox=window.getComputedStyle(t).overflowX;
+      if((ox==='auto'||ox==='scroll')&&t.scrollWidth>t.clientWidth+2){el=t;break;}
+      t=t.parentElement;
+    }
+    if(el){_el=el;_sx=e.touches[0].pageX;_sy=e.touches[0].pageY;_sl=el.scrollLeft;}
+    else{_el=null;}
+  },{passive:true});
+  document.addEventListener('touchmove',function(e){
+    if(!_el)return;
+    var dx=_sx-e.touches[0].pageX, dy=_sy-e.touches[0].pageY;
+    if(Math.abs(dx)>=Math.abs(dy)){
+      _el.scrollLeft=_sl+dx;
+    }
+  },{passive:true});
+  document.addEventListener('touchend',function(){_el=null;},{passive:true});
+  // Init all swipe containers
+  function init(){
+    ['.cat-scrl','.swipe-row','.rscrl','#promoScroll'].forEach(function(s){
+      var els=document.querySelectorAll(s);
+      els.forEach(function(el){
+        el.style.overflowX='scroll';
+        el.style.webkitOverflowScrolling='touch';
+        el.style.touchAction='pan-x';
+      });
+    });
+  }
+  setTimeout(init,300);setTimeout(init,1000);setTimeout(init,2000);
 })();
 </script>
 </body>

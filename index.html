@@ -1158,18 +1158,36 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 <!-- ══ WALLET ══ -->
 <div class="pg" id="pg-wallet">
-  <div class="pc">
-    <div class="wcard">
-      <div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-bottom:4px;position:relative;z-index:1">Saldo Tersedia</div>
-      <div style="font-size:36px;font-weight:700;color:#fff;margin-bottom:4px;position:relative;z-index:1" id="wAmt">Rp 85.000</div>
-      <div style="font-size:11.5px;color:var(--gold);position:relative;z-index:1">✓ Terverifikasi · DapurKu Pay</div>
-      <div style="display:flex;gap:10px;margin-top:18px;position:relative;z-index:1">
-        <button class="btn" style="background:rgba(255,255,255,.15);color:#fff;flex:1;justify-content:center;font-size:12.5px" onclick="topup()">+ Top Up</button>
-        <button class="btn" style="background:rgba(255,255,255,.15);color:#fff;flex:1;justify-content:center;font-size:12.5px" onclick="toast('Transfer segera hadir!','ti')">→ Transfer</button>
-        <button class="btn" style="background:rgba(255,255,255,.15);color:#fff;flex:1;justify-content:center;font-size:12.5px" onclick="toast('Tarik tunai segera hadir!','ti')">↓ Tarik</button>
+  <div class="pc" style="padding:12px 14px">
+    <div class="wcard" style="margin-bottom:10px">
+      <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:2px;position:relative;z-index:1">DAPAY · Saldo</div>
+      <div style="font-size:32px;font-weight:800;color:#fff;margin-bottom:2px;position:relative;z-index:1" id="wAmt">Rp 85.000</div>
+      <div style="font-size:10.5px;color:var(--gold);position:relative;z-index:1">Terverifikasi · Budi Santoso</div>
+      <div style="display:flex;gap:8px;margin-top:14px;position:relative;z-index:1">
+        <button onclick="openTopUp()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer">Top Up</button>
+        <button onclick="openTransfer()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer">Transfer</button>
+        <button onclick="openTarik()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer">Tarik</button>
+        <button onclick="renderWallet()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer">Refresh</button>
       </div>
     </div>
-    <div class="card"><div style="font-weight:700;margin-bottom:15px;color:var(--dark)">Riwayat Transaksi</div><div id="wtx"></div></div>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <div style="flex:1;background:#fff;border-radius:12px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#999">Keluar</div>
+        <div style="font-size:13px;font-weight:800;color:var(--orange)" id="wMonthOut">Rp 0</div>
+      </div>
+      <div style="flex:1;background:#fff;border-radius:12px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#999">Masuk</div>
+        <div style="font-size:13px;font-weight:800;color:#4CAF50" id="wMonthIn">Rp 0</div>
+      </div>
+      <div style="flex:1;background:#fff;border-radius:12px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#999">Transaksi</div>
+        <div style="font-size:13px;font-weight:800;color:var(--blue)" id="wTxCount">0</div>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:14px;padding:12px">
+      <div style="font-size:13px;font-weight:800;color:#222;margin-bottom:10px">Riwayat</div>
+      <div id="wtx"></div>
+    </div>
   </div>
 </div>
 
@@ -1551,7 +1569,7 @@ function closeSB(){
 function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
-  return `<div class="fc" onclick="addC(${f.id})">
+  return `<div class="fc" onclick="showItemModal(${f.id})">
     <div class="fc-img" style="background:${(()=>{const _p=localStorage.getItem('dk_fimg_'+f.id);return _p?'#000':f.bg})()}">${(()=>{const _p=localStorage.getItem('dk_fimg_'+f.id);return _p?'<img src="'+_p+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">':'<span style="font-size:42px">'+f.e+'</span>';})()}
       ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
       <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
@@ -2311,9 +2329,8 @@ setTimeout(forceGrid, 1500);
     <div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:13px">
       <span style="color:#666">Ongkir</span><span style="font-weight:700;color:var(--orange)">Rp 3.000</span>
     </div>
-    <button onclick="mCheckout()" style="width:100%;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;cursor:pointer">
-      Pesan Sekarang 🍳
-    </button>
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:12px"><span style="color:#666">Saldo DAPAY</span><span id="mWalBal" style="font-weight:700;color:#4CAF50">Rp 0</span></div>
+    <button onclick="mCheckout()" style="width:100%;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;cursor:pointer">Bayar DAPAY</button>
   </div>
 </div>
 
@@ -2368,5 +2385,173 @@ function mCheckout(){
 }
 </script>
 
+<script>
+var walTx=[{type:"in",label:"Top Up Awal",amt:85000,date:"25 Jun 2026"}];
+
+function renderWallet(){
+  var el=document.getElementById("wAmt");
+  if(el)el.textContent="Rp "+walBal.toLocaleString("id");
+  var wb=document.getElementById("mWalBal");
+  if(wb)wb.textContent="Rp "+walBal.toLocaleString("id");
+  var tx=document.getElementById("wtx");
+  if(tx){
+    if(!walTx.length){tx.innerHTML="<div style=\"text-align:center;padding:20px;color:#bbb\">Belum ada transaksi</div>";return;}
+    tx.innerHTML=walTx.slice().reverse().map(function(t){
+      var isIn=t.type==="in";
+      var color=isIn?"#4CAF50":"var(--orange)";
+      var sign=isIn?"+":"-";
+      return "<div style=\"display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f5f5f5\">"
+        +"<div style=\"width:36px;height:36px;border-radius:50%;background:"+(isIn?"#E8F5E9":"#FFF3E0")+";display:flex;align-items:center;justify-content:center;font-size:18px\">"+(isIn?"&uarr;":"&darr;")+"</div>"
+        +"<div style=\"flex:1\"><div style=\"font-size:13px;font-weight:700;color:#222\">"+t.label+"</div><div style=\"font-size:11px;color:#bbb\">"+t.date+"</div></div>"
+        +"<div style=\"font-size:13px;font-weight:800;color:"+color+"\">"+sign+"Rp "+t.amt.toLocaleString("id")+"</div>"
+        +"</div>";
+    }).join("");
+  }
+  var out=walTx.filter(function(t){return t.type==="out";}).reduce(function(s,t){return s+t.amt;},0);
+  var inn=walTx.filter(function(t){return t.type==="in";}).reduce(function(s,t){return s+t.amt;},0);
+  var wmo=document.getElementById("wMonthOut");if(wmo)wmo.textContent="Rp "+out.toLocaleString("id");
+  var wmi=document.getElementById("wMonthIn");if(wmi)wmi.textContent="Rp "+inn.toLocaleString("id");
+  var wtc=document.getElementById("wTxCount");if(wtc)wtc.textContent=walTx.length;
+}
+
+function openTopUp(){
+  var amounts=[20000,50000,100000,200000];
+  var el=getOrCreate("walSheet");
+  var btns=amounts.map(function(a){
+    return "<button onclick=\"doTopUp("+a+");closeSheet('walSheet')\" style=\"width:100%;background:#f5f5f5;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;text-align:left\">"
+      +"Rp "+a.toLocaleString("id")+"</button>";
+  }).join("");
+  el.innerHTML="<div onclick=\"closeSheet('walSheet')\" style=\"flex:1;background:rgba(0,0,0,.5)\"></div>"
+    +"<div style=\"background:#fff;border-radius:20px 20px 0 0;padding:20px 16px 40px\">"
+    +"<div style=\"font-size:15px;font-weight:800;margin-bottom:16px\">Top Up DAPAY</div>"
+    +btns+"</div>";
+  el.style.display="flex";
+}
+
+function doTopUp(n){
+  walBal+=n;
+  walTx.push({type:"in",label:"Top Up DAPAY",amt:n,date:new Date().toLocaleDateString("id-ID")});
+  renderWallet();
+  toast("Top up Rp "+n.toLocaleString("id")+" berhasil!","ts");
+}
+
+function openTransfer(){
+  var el=getOrCreate("walSheet");
+  el.innerHTML="<div onclick=\"closeSheet('walSheet')\" style=\"flex:1;background:rgba(0,0,0,.5)\"></div>"
+    +"<div style=\"background:#fff;border-radius:20px 20px 0 0;padding:20px 16px 40px\">"
+    +"<div style=\"font-size:15px;font-weight:800;margin-bottom:16px\">Transfer DAPAY</div>"
+    +"<input id=\"wi1\" placeholder=\"Nomor HP / ID penerima\" style=\"width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 12px;font-size:14px;margin-bottom:10px;box-sizing:border-box\">"
+    +"<input id=\"wi2\" placeholder=\"Jumlah transfer\" type=\"number\" style=\"width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 12px;font-size:14px;margin-bottom:16px;box-sizing:border-box\">"
+    +"<button onclick=\"doTransfer()\" style=\"width:100%;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;cursor:pointer\">Transfer</button>"
+    +"</div>";
+  el.style.display="flex";
+}
+
+function doTransfer(){
+  var no=document.getElementById("wi1").value;
+  var n=parseInt(document.getElementById("wi2").value||"0");
+  if(!no){toast("Masukkan penerima","te");return;}
+  if(n<1000){toast("Minimal Rp 1.000","te");return;}
+  if(n>walBal){toast("Saldo tidak cukup!","te");return;}
+  walBal-=n;
+  walTx.push({type:"out",label:"Transfer ke "+no,amt:n,date:new Date().toLocaleDateString("id-ID")});
+  closeSheet("walSheet");renderWallet();
+  toast("Transfer Rp "+n.toLocaleString("id")+" berhasil!","ts");
+}
+
+function openTarik(){
+  var el=getOrCreate("walSheet");
+  el.innerHTML="<div onclick=\"closeSheet('walSheet')\" style=\"flex:1;background:rgba(0,0,0,.5)\"></div>"
+    +"<div style=\"background:#fff;border-radius:20px 20px 0 0;padding:20px 16px 40px\">"
+    +"<div style=\"font-size:15px;font-weight:800;margin-bottom:16px\">Tarik Tunai</div>"
+    +"<input id=\"wi1\" placeholder=\"Nama Bank / No Rekening\" style=\"width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 12px;font-size:14px;margin-bottom:10px;box-sizing:border-box\">"
+    +"<input id=\"wi2\" placeholder=\"Jumlah (min Rp 50.000)\" type=\"number\" style=\"width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 12px;font-size:14px;margin-bottom:16px;box-sizing:border-box\">"
+    +"<button onclick=\"doTarik()\" style=\"width:100%;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;cursor:pointer\">Tarik</button>"
+    +"</div>";
+  el.style.display="flex";
+}
+
+function doTarik(){
+  var bank=document.getElementById("wi1").value;
+  var n=parseInt(document.getElementById("wi2").value||"0");
+  if(!bank){toast("Masukkan rekening tujuan","te");return;}
+  if(n<50000){toast("Minimal Rp 50.000","te");return;}
+  if(n>walBal){toast("Saldo tidak cukup!","te");return;}
+  walBal-=n;
+  walTx.push({type:"out",label:"Tarik ke "+bank,amt:n,date:new Date().toLocaleDateString("id-ID")});
+  closeSheet("walSheet");renderWallet();
+  toast("Penarikan Rp "+n.toLocaleString("id")+" diproses!","ts");
+}
+
+function getOrCreate(id){
+  var el=document.getElementById(id);
+  if(!el){el=document.createElement("div");el.id=id;el.style.cssText="position:fixed;inset:0;z-index:1200;display:flex;flex-direction:column;justify-content:flex-end";document.body.appendChild(el);}
+  return el;
+}
+function closeSheet(id){var el=document.getElementById(id);if(el)el.style.display="none";}
+
+function showItemModal(id){
+  var f=F.find(function(x){return x.id===id;});
+  if(!f)return;
+  var rst=R.find(function(x){return x.id===f.rId;})||{n:""};
+  var img=localStorage.getItem("dk_fimg_"+f.id);
+  var disc=f.og?Math.round((1-f.p/f.og)*100):0;
+  var el=getOrCreate("itemModal");
+  el.style.cssText="position:fixed;inset:0;z-index:1100;display:flex;flex-direction:column;justify-content:flex-end";
+  var imgHtml=img?"<img src='"+img+"' style='width:100%;height:100%;object-fit:cover'>"
+    :"<div style='display:flex;align-items:center;justify-content:center;height:100%;font-size:72px'>"+f.e+"</div>";
+  var discBadge=disc?"<span style='position:absolute;top:12px;left:12px;background:#F44336;color:#fff;border-radius:8px;padding:3px 10px;font-size:11px;font-weight:800'>-"+disc+"%</span>":"";
+  var origPrice=f.og?"<div style='font-size:13px;color:#bbb;text-decoration:line-through'>Rp "+f.og.toLocaleString("id")+"</div>":"";
+  el.innerHTML="<div onclick=\"closeSheet('itemModal')\" style=\"flex:1;background:rgba(0,0,0,.5)\"></div>"
+    +"<div style=\"background:#fff;border-radius:20px 20px 0 0;max-height:85vh;overflow-y:auto\">"
+    +"<div style=\"height:200px;background:"+(img?"#000":f.bg)+";position:relative;overflow:hidden;border-radius:20px 20px 0 0\">"
+    +imgHtml+discBadge
+    +"<button onclick=\"closeSheet('itemModal')\" style=\"position:absolute;top:12px;right:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer\">x</button>"
+    +"</div>"
+    +"<div style=\"padding:16px\">"
+    +"<div style=\"font-size:17px;font-weight:800;color:#222;margin-bottom:4px\">"+f.n+"</div>"
+    +"<div style=\"font-size:12px;color:#999;margin-bottom:10px\">"+rst.n+" &middot; "+f.rt+" &middot; "+f.s+" terjual</div>"
+    +"<div style=\"display:flex;align-items:center;gap:10px;margin-bottom:16px\">"
+    +"<div style=\"font-size:20px;font-weight:800;color:var(--orange)\">Rp "+f.p.toLocaleString("id")+"</div>"+origPrice
+    +"</div>"
+    +"<div style=\"display:flex;gap:10px\">"
+    +"<button onclick=\"closeSheet('itemModal');openRD("+f.rId+")\" style=\"flex:1;background:#f5f5f5;color:#333;border:none;border-radius:12px;padding:13px;font-size:13px;font-weight:700;cursor:pointer\">Lihat Dapur</button>"
+    +"<button onclick=\"addC("+f.id+");closeSheet('itemModal')\" style=\"flex:2;background:var(--orange);color:#fff;border:none;border-radius:12px;padding:13px;font-size:13px;font-weight:800;cursor:pointer\">+ Tambah Keranjang</button>"
+    +"</div></div></div>";
+  el.style.display="flex";
+}
+
+// Override mCheckout to deduct DAPAY
+window.mCheckout=function(){
+  if(!cart.length){toast("Keranjang kosong!","te");return;}
+  var total=cart.reduce(function(s,c){return s+c.p*c.qty;},0)+3000;
+  if(walBal<total){
+    toast("Saldo DAPAY kurang! Top up dulu","te");
+    setTimeout(function(){closeMobileCart();gp("wallet");renderWallet();},800);
+    return;
+  }
+  walBal-=total;
+  walTx.push({type:"out",label:"Bayar Pesanan",amt:total,date:new Date().toLocaleDateString("id-ID")});
+  closeMobileCart();cart=[];updC();renderWallet();
+  toast("Pesanan berhasil! Dapur segera konfirmasi","ts");
+  setTimeout(function(){toast("Dapur mengkonfirmasi pesananmu","ts");},2200);
+  setTimeout(function(){toast("Pesananmu sedang dimasak...","ti");},4000);
+  try{document.getElementById("bOrd").textContent="3";document.getElementById("mnBdg").textContent="3";}catch(e){}
+};
+
+// Override gp to renderWallet when opening wallet
+var _gp0=window.gp;
+window.gp=function(id){_gp0(id);if(id==="wallet")setTimeout(renderWallet,150);};
+
+// Update mWalBal when opening cart
+var _origOpenCart=window.openMobileCart;
+window.openMobileCart=function(){
+  _origOpenCart();
+  var wb=document.getElementById("mWalBal");
+  if(wb)wb.textContent="Rp "+walBal.toLocaleString("id");
+};
+
+window.addEventListener("load",function(){setTimeout(renderWallet,600);});
+</script>
 </body>
 </html>

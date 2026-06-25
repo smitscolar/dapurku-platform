@@ -1010,12 +1010,29 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 .ci.on .ci-lbl{color:#F97316;font-weight:700}
 .cat-scrl{
-  display:flex;gap:4px;padding:8px 12px 12px;
+  display:flex;gap:6px;padding:6px 12px 10px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
   scrollbar-width:none;flex-wrap:nowrap;
-  touch-action:pan-x;
+  touch-action:pan-x !important;
+  -webkit-overflow-scrolling:touch;
+  will-change:scroll-position;
 }
 .cat-scrl::-webkit-scrollbar{display:none}
+.ci{
+  display:flex;flex-direction:column;align-items:center;
+  cursor:pointer;flex-shrink:0;min-width:64px;
+  -webkit-tap-highlight-color:transparent;
+}
+.ci-box{
+  width:54px;height:54px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:4px;
+  border:2px solid transparent;
+  transition:all .15s;
+}
+.ci.on .ci-box{border-color:#F97316;box-shadow:0 2px 8px rgba(249,115,22,.2)}
+.ci-lbl{font-size:10px;font-weight:600;color:#374151}
+.ci.on .ci-lbl{color:#F97316;font-weight:700}
 </style>
 </head>
 <body>
@@ -1174,28 +1191,43 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
   <div class="cat-scrl" id="hCats"></div>
   
-  <!-- Quick Feature Links PILL SCROLL -->
-  <div style="overflow-x:auto;display:flex;gap:8px;padding:4px 14px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap">
-    <div onclick="gp('flashsale')" style="flex:0 0 auto;white-space:nowrap;background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">⚡</span><span style="font-size:12px;font-weight:700;color:#DC2626">Flash Sale</span>
-    </div>
-    <div onclick="gp('groupbuy')" style="flex:0 0 auto;white-space:nowrap;background:#FFF7ED;border:1.5px solid #FBD38D;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🤝</span><span style="font-size:12px;font-weight:700;color:#D97706">Group Buy</span>
-    </div>
-    <div onclick="gp('referral')" style="flex:0 0 auto;white-space:nowrap;background:#F5F3FF;border:1.5px solid #C4B5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🎯</span><span style="font-size:12px;font-weight:700;color:#7C3AED">Referral</span>
-    </div>
-    <div onclick="gp('topdarpu')" style="flex:0 0 auto;white-space:nowrap;background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🏆</span><span style="font-size:12px;font-weight:700;color:#92400E">Top Dapur</span>
-    </div>
-    <div onclick="gp('chat')" style="flex:0 0 auto;white-space:nowrap;background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">💬</span><span style="font-size:12px;font-weight:700;color:#16A34A">Chat</span>
-    </div>
-    <div onclick="gp('favorit')" style="flex:0 0 auto;white-space:nowrap;background:#FFF1F2;border:1.5px solid #FDA4AF;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">❤️</span><span style="font-size:12px;font-weight:700;color:#BE123C">Favorit</span>
-    </div>
-    <div onclick="gp('promo')" style="flex:0 0 auto;white-space:nowrap;background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
-      <span style="font-size:16px">🎁</span><span style="font-size:12px;font-weight:700;color:#1D4ED8">Voucher</span>
+  <!-- Quick Links Grid -->
+  <div style="padding:4px 12px 10px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+      <div onclick="gp('market')" style="background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #F97316">
+        <div style="font-size:20px">🍽️</div>
+        <div style="font-size:13px;font-weight:800;color:#F97316" id="totM">24</div>
+        <div style="font-size:8px;color:#9A3412;font-weight:600;margin-top:1px">Menu</div>
+      </div>
+      <div onclick="gp('restos')" style="background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #3B82F6">
+        <div style="font-size:20px">🏪</div>
+        <div style="font-size:13px;font-weight:800;color:#3B82F6">12</div>
+        <div style="font-size:8px;color:#1E3A8A;font-weight:600;margin-top:1px">Dapur</div>
+      </div>
+      <div onclick="gp('flashsale')" style="background:#FEF2F2;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #EF4444">
+        <div style="font-size:20px">⚡</div>
+        <div style="font-size:8px;font-weight:700;color:#DC2626;margin-top:5px">Flash Sale</div>
+      </div>
+      <div onclick="gp('groupbuy')" style="background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #F59E0B">
+        <div style="font-size:20px">🤝</div>
+        <div style="font-size:8px;font-weight:700;color:#D97706;margin-top:5px">Group Buy</div>
+      </div>
+      <div onclick="gp('referral')" style="background:#F5F3FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #8B5CF6">
+        <div style="font-size:20px">🎯</div>
+        <div style="font-size:8px;font-weight:700;color:#7C3AED;margin-top:5px">Referral</div>
+      </div>
+      <div onclick="gp('topdarpu')" style="background:#FFFBEB;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #F59E0B">
+        <div style="font-size:20px">🏆</div>
+        <div style="font-size:8px;font-weight:700;color:#92400E;margin-top:5px">Top Dapur</div>
+      </div>
+      <div onclick="gp('chat')" style="background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #22C55E">
+        <div style="font-size:20px">💬</div>
+        <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:5px">Chat</div>
+      </div>
+      <div onclick="gp('promo')" style="background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2.5px solid #3B82F6">
+        <div style="font-size:20px">🎁</div>
+        <div style="font-size:8px;font-weight:700;color:#1D4ED8;margin-top:5px">Voucher</div>
+      </div>
     </div>
   </div>
 
@@ -4234,5 +4266,32 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   function init(){document.querySelectorAll('.swipe-row,.cat-scrl,.rscrl,[style*="overflow-x:auto"]').forEach(en);}
   document.addEventListener('DOMContentLoaded',init);setTimeout(init,600);setTimeout(init,1600);
 })();</script>
+<script>
+// Universal Touch Scroll Helper
+(function(){
+  var activeEl=null, startX=0, startY=0, startSL=0;
+  document.addEventListener('touchstart',function(e){
+    var el=e.target;
+    while(el && el!==document.body){
+      var ov=window.getComputedStyle(el).overflowX;
+      if((ov==='auto'||ov==='scroll') && el.scrollWidth>el.clientWidth){
+        activeEl=el; startX=e.touches[0].clientX;
+        startY=e.touches[0].clientY; startSL=el.scrollLeft;
+        return;
+      }
+      el=el.parentElement;
+    }
+    activeEl=null;
+  },{passive:true});
+  document.addEventListener('touchmove',function(e){
+    if(!activeEl) return;
+    var dx=startX-e.touches[0].clientX;
+    var dy=startY-e.touches[0].clientY;
+    if(Math.abs(dx)>Math.abs(dy)){
+      activeEl.scrollLeft=startSL+dx;
+    }
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

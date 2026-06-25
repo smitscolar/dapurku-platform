@@ -1322,7 +1322,7 @@ let MYMENU=[{id:1,n:"Ayam Geprek Spesial",cat:"Ayam & Bebek",p:22000,e:"🍗",st
 {id:5,n:"Jus Alpukat",cat:"Minuman",p:15000,e:"🥑",st:"Nonaktif",s:55}];
 INC.forEach(o=>inSt[o.id]=o.st);
 
-const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰"};
+const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰",photomgr:"Photo Manager 📸"};
 
 // ── NAV ──
 function gp(id){
@@ -1334,7 +1334,7 @@ function gp(id){
     if(n.getAttribute('onclick')?.includes("'"+id+"'"))n.classList.add('on');
   });
   cp=id;
-  if(id==='photomgr')setTimeout(()=>pmRender('menu'),80);
+  if(id==='photomgr')setTimeout(()=>{if(typeof pmRender==='function')pmRender('menu');},100);
   const tt=PGTT[id]||id;
   document.getElementById('dtbT').textContent=tt;
   // Mobile bottom nav highlight

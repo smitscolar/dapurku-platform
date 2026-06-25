@@ -215,7 +215,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 
 /* ══ MAIN ══ */
-.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh;overflow-x:clip}
 
 /* Desktop topbar */
 .dtb{
@@ -1139,7 +1139,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()" style="font-size:12px">
     </div>
   </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
-  <div id="promoScroll" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+  <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
     <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="flex:0 0 calc(50vw - 18px);min-width:145px;background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;position:relative;overflow:hidden">
       <div style="position:absolute;top:-8px;right:-8px;font-size:38px;opacity:.25">🍗</div>
       <div style="font-size:8px;font-weight:700;opacity:.85;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px">Promo Spesial</div>
@@ -1175,44 +1175,47 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div class="cat-scrl" id="hCats" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}"></div>
   
   <!-- Quick Links Horizontal Scroll -->
-  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:8px;padding:4px 12px 10px;flex-wrap:nowrap" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}">
-    <div onclick="gp('market')" style="flex:0 0 62px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F97316">
-      <div style="font-size:22px">🍽️</div>
-      <div style="font-size:13px;font-weight:900;color:#F97316" id="totM">24</div>
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:8px;padding:4px 12px 12px;touch-action:pan-x;flex-wrap:nowrap" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}">
+    <div onclick="gp('market')" style="flex:0 0 60px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F97316">
+      <div style="font-size:18px">🍽️</div>
+      <div style="font-size:12px;font-weight:800;color:#F97316" id="totM">24</div>
       <div style="font-size:8px;color:#9A3412;font-weight:600">Menu</div>
     </div>
-    <div onclick="gp('restos')" style="flex:0 0 62px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
-      <div style="font-size:22px">🏪</div>
-      <div style="font-size:13px;font-weight:900;color:#3B82F6">12</div>
+    <div onclick="gp('restos')" style="flex:0 0 60px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
+      <div style="font-size:18px">🏪</div>
+      <div style="font-size:12px;font-weight:800;color:#3B82F6">12</div>
       <div style="font-size:8px;color:#1E3A8A;font-weight:600">Dapur</div>
     </div>
-    <div onclick="gp('flashsale')" style="flex:0 0 62px;background:#FEF2F2;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #EF4444">
-      <div style="font-size:22px">⚡</div>
-      <div style="font-size:8px;font-weight:700;color:#DC2626;margin-top:2px;line-height:1.3">Flash Sale</div>
+    <div onclick="gp('flashsale')" style="flex:0 0 60px;background:#FEF2F2;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #EF4444">
+      <div style="font-size:18px">⚡</div>
+      <div style="font-size:8px;font-weight:700;color:#DC2626;margin-top:2px">Flash</div>
+      <div style="font-size:8px;font-weight:700;color:#DC2626">Sale</div>
     </div>
-    <div onclick="gp('groupbuy')" style="flex:0 0 62px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
-      <div style="font-size:22px">🤝</div>
-      <div style="font-size:8px;font-weight:700;color:#D97706;margin-top:2px;line-height:1.3">Group Buy</div>
+    <div onclick="gp('groupbuy')" style="flex:0 0 60px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
+      <div style="font-size:18px">🤝</div>
+      <div style="font-size:8px;font-weight:700;color:#D97706;margin-top:2px">Group</div>
+      <div style="font-size:8px;font-weight:700;color:#D97706">Buy</div>
     </div>
-    <div onclick="gp('referral')" style="flex:0 0 62px;background:#F5F3FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #8B5CF6">
-      <div style="font-size:22px">🎯</div>
-      <div style="font-size:8px;font-weight:700;color:#7C3AED;margin-top:2px;line-height:1.3">Referral</div>
+    <div onclick="gp('referral')" style="flex:0 0 60px;background:#F5F3FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #8B5CF6">
+      <div style="font-size:18px">🎯</div>
+      <div style="font-size:8px;font-weight:700;color:#7C3AED;margin-top:2px">Referral</div>
     </div>
-    <div onclick="gp('topdarpu')" style="flex:0 0 62px;background:#FFFBEB;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
-      <div style="font-size:22px">🏆</div>
-      <div style="font-size:8px;font-weight:700;color:#92400E;margin-top:2px;line-height:1.3">Top Dapur</div>
+    <div onclick="gp('topdarpu')" style="flex:0 0 60px;background:#FFFBEB;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
+      <div style="font-size:18px">🏆</div>
+      <div style="font-size:8px;font-weight:700;color:#92400E;margin-top:2px">Top</div>
+      <div style="font-size:8px;font-weight:700;color:#92400E">Dapur</div>
     </div>
-    <div onclick="gp('chat')" style="flex:0 0 62px;background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #22C55E">
-      <div style="font-size:22px">💬</div>
-      <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:2px;line-height:1.3">Chat</div>
+    <div onclick="gp('chat')" style="flex:0 0 60px;background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #22C55E">
+      <div style="font-size:18px">💬</div>
+      <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:2px">Chat</div>
     </div>
-    <div onclick="gp('promo')" style="flex:0 0 62px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
-      <div style="font-size:22px">🎁</div>
-      <div style="font-size:8px;font-weight:700;color:#1D4ED8;margin-top:2px;line-height:1.3">Voucher</div>
+    <div onclick="gp('promo')" style="flex:0 0 60px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
+      <div style="font-size:18px">🎁</div>
+      <div style="font-size:8px;font-weight:700;color:#1D4ED8;margin-top:2px">Voucher</div>
     </div>
-    <div onclick="gp('orders')" style="flex:0 0 62px;background:#FEF3E2;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F97316">
-      <div style="font-size:22px">📋</div>
-      <div style="font-size:8px;font-weight:700;color:#C2410C;margin-top:2px;line-height:1.3">Pesanan</div>
+    <div onclick="gp('orders')" style="flex:0 0 60px;background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #22C55E">
+      <div style="font-size:18px">📋</div>
+      <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:2px">Pesanan</div>
     </div>
   </div>
 

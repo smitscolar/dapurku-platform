@@ -836,7 +836,6 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="ni on" onclick="gp('home')"><span class="ni-ic">🏠</span>Beranda</div>
     <div class="ni" onclick="gp('market')"><span class="ni-ic">🍽️</span>Semua Menu</div>
     <div class="ni" onclick="gp('restos')"><span class="ni-ic">🏪</span>Daftar Dapur</div>
-    <div class="ni" onclick="gp('photomgr')"><span class="ni-ic">📸</span>Photo Manager</div>
     <div class="ns">Aktivitas</div>
     <div class="ni" onclick="gp('myorders')"><span class="ni-ic">📦</span>Pesanan Saya<span class="nb" id="bOrd">2</span></div>
     <div class="ni" onclick="gp('track')"><span class="ni-ic">🛵</span>Lacak Delivery</div>
@@ -1323,7 +1322,7 @@ let MYMENU=[{id:1,n:"Ayam Geprek Spesial",cat:"Ayam & Bebek",p:22000,e:"🍗",st
 {id:5,n:"Jus Alpukat",cat:"Minuman",p:15000,e:"🥑",st:"Nonaktif",s:55}];
 INC.forEach(o=>inSt[o.id]=o.st);
 
-const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰",photomgr:"Photo Manager 📸"};
+const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰"};
 
 // ── NAV ──
 function gp(id){
@@ -1335,6 +1334,7 @@ function gp(id){
     if(n.getAttribute('onclick')?.includes("'"+id+"'"))n.classList.add('on');
   });
   cp=id;
+  if(id==='photomgr')setTimeout(()=>pmRender('menu'),80);
   const tt=PGTT[id]||id;
   document.getElementById('dtbT').textContent=tt;
   // Mobile bottom nav highlight
@@ -1383,11 +1383,9 @@ function closeSB(){
 function fC(f){
   const rst=R.find(x=>x.id===f.rId);
   const disc=f.og?Math.round((1-f.p/f.og)*100):0;
-  const fImg=localStorage.getItem('dk_fimg_'+f.id);
   return `<div class="fc" onclick="openRD(${f.rId})">
-    <div class="fc-img" style="background:${fImg?'#f5f5f5':f.bg}">
-      ${fImg?`<img src="${fImg}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" onerror="this.remove()">`:''}
-      ${fImg?'':f.e}
+    <div class="fc-img" style="background:${f.bg}">
+      ${f.e}
       ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
       <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
     </div>
@@ -1408,11 +1406,9 @@ function fC(f){
 
 // ── RESTO CARD ──
 function rC(r){
-  const rImg=localStorage.getItem('dk_rimg_'+r.id);
   return `<div class="rc" onclick="openRD(${r.id})">
-    <div class="rc-img" style="background:${rImg?'#f5f5f5':r.bg};position:relative;overflow:hidden">
-      ${rImg?`<img src="${rImg}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" onerror="this.remove()">`:''}
-      ${rImg?'':r.e}
+    <div class="rc-img" style="background:${r.bg}">
+      ${r.e}
       ${r.b?`<span class="rc-badge ${r.b==='Terlaris'||r.b==='Favorit'?'rc-b-gn':'rc-b-or'}">${r.b}</span>`:''}
       ${r.pr?`<span class="rc-promo">🎁 ${r.pr}</span>`:''}
       ${!r.op?`<div class="rc-closed"><div class="rc-closed-pill">Tutup</div></div>`:''}
@@ -1863,113 +1859,6 @@ setTimeout(()=>toast('🔔 Pesanan baru: Ayam Geprek ×2 dari Budi S.','ti'),600
 setTimeout(()=>toast('💰 Omzet hari ini sudah Rp 1,2 juta! 🎉','ts'),14000);
 setTimeout(()=>toast('⚠️ Stok cabe merah menipis — 2 kg tersisa','ti'),22000);
 setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
-
-// ══ PHOTO MANAGER ══
-let pmCurrent={type:'menu',id:null};
-function pmSwitch(t){
-  pmCurrent.type=t;
-  document.getElementById('pmMenu').style.display=t==='menu'?'':'none';
-  document.getElementById('pmDapur').style.display=t==='dapur'?'':'none';
-  document.getElementById('pmTab1').className='btn btn-sm '+(t==='menu'?'btn-p':'btn-o');
-  document.getElementById('pmTab2').className='btn btn-sm '+(t==='dapur'?'btn-p':'btn-o');
-  pmRender(t);
-}
-function pmRender(t){
-  if(t==='menu'){
-    const grid=document.getElementById('pmMenuGrid');if(!grid)return;
-    grid.innerHTML=F.map(f=>{
-      const img=localStorage.getItem('dk_fimg_'+f.id);
-      const rst=R.find(r=>r.id===f.rId);
-      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
-        +'<div style="height:110px;background:'+(img?'#f5f5f5':f.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
-        +(img?'<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
-            +'<button onclick="pmDelete(\'menu\','+f.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center">×</button>'
-          :f.e)
-        +'</div>'
-        +'<div style="padding:9px 10px">'
-        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+f.n+'</div>'
-        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+(rst?rst.n:'')+'</div>'
-        +'<button onclick="pmPick(\'menu\','+f.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'🔄 Ganti':'📷 Upload')+'</button>'
-        +'</div></div>';
-    }).join('');
-  } else {
-    const grid=document.getElementById('pmDapurGrid');if(!grid)return;
-    grid.innerHTML=R.map(r=>{
-      const img=localStorage.getItem('dk_rimg_'+r.id);
-      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
-        +'<div style="height:110px;background:'+(img?'#f5f5f5':r.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
-        +(img?'<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
-            +'<button onclick="pmDelete(\'dapur\','+r.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center">×</button>'
-          :r.e)
-        +'</div>'
-        +'<div style="padding:9px 10px">'
-        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+r.n+'</div>'
-        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+r.cat+' · '+r.tm+' menit</div>'
-        +'<button onclick="pmPick(\'dapur\','+r.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'🔄 Ganti':'📷 Upload')+'</button>'
-        +'</div></div>';
-    }).join('');
-  }
-}
-function pmPick(type,id){pmCurrent={type,id};document.getElementById('pmFileInput').click();}
-function pmHandleFile(e){
-  const file=e.target.files[0];if(!file)return;
-  if(file.size>5*1024*1024){toast('Foto max 5MB!','te');return;}
-  const reader=new FileReader();
-  reader.onload=function(ev){
-    const key=pmCurrent.type==='menu'?'dk_fimg_':'dk_rimg_';
-    localStorage.setItem(key+pmCurrent.id,ev.target.result);
-    pmRender(pmCurrent.type);
-    toast('✅ Foto berhasil diupload!','ts');
-    if(typeof rHome==='function'&&cp==='home')rHome();
-    if(typeof rm==='function'&&cp==='market')rm();
-  };
-  reader.readAsDataURL(file);
-  e.target.value='';
-}
-function pmDelete(type,id){
-  localStorage.removeItem((type==='menu'?'dk_fimg_':'dk_rimg_')+id);
-  pmRender(type);
-  toast('🗑️ Foto dihapus','ti');
-  if(typeof rHome==='function'&&cp==='home')rHome();
-  if(typeof rm==='function'&&cp==='market')rm();
-}
-// Auto-render saat halaman photo manager dibuka
-document.addEventListener('click',function(e){
-  if(e.target.closest('[onclick*="photomgr"]'))setTimeout(()=>pmRender('menu'),50);
-});
-
 </script>
-
-<div class="pg" id="pg-photomgr">
-<div class="pc">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
-    <div style="width:40px;height:40px;border-radius:12px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;font-size:20px">📸</div>
-    <div>
-      <div style="font-size:16px;font-weight:700;color:var(--dark)">Photo Manager</div>
-      <div style="font-size:12px;color:var(--mid)">Upload foto asli untuk menu & dapur</div>
-    </div>
-  </div>
-
-  <!-- Tab switch -->
-  <div style="display:flex;gap:8px;margin-bottom:18px">
-    <button id="pmTab1" class="btn btn-p btn-sm" onclick="pmSwitch('menu')">🍽️ Foto Menu</button>
-    <button id="pmTab2" class="btn btn-o btn-sm" onclick="pmSwitch('dapur')">🏪 Foto Dapur</button>
-  </div>
-
-  <!-- Menu photos -->
-  <div id="pmMenu">
-    <div style="font-size:13px;color:var(--mid);margin-bottom:12px">Klik tombol 📷 untuk upload foto menu. Foto tersimpan otomatis.</div>
-    <div id="pmMenuGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px"></div>
-  </div>
-
-  <!-- Dapur photos -->
-  <div id="pmDapur" style="display:none">
-    <div style="font-size:13px;color:var(--mid);margin-bottom:12px">Klik tombol 📷 untuk upload foto dapur. Foto tersimpan otomatis.</div>
-    <div id="pmDapurGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px"></div>
-  </div>
-</div>
-</div>
-
-<input type="file" id="pmFileInput" accept="image/*" style="display:none" onchange="pmHandleFile(event)">
 </body>
 </html>

@@ -2058,22 +2058,81 @@ function pmRender(t){
   requestAnimationFrame(addNext);
 }
 function pmPick(type,id){pmCurrent={type:type,id:id};document.getElementById('pmFileInput').click();}
-function pmHandleFile(e){
+// ── Supabase Storage config ──
+var DK_SUPA_URL='https://shoyhjcnwitqnkdxkgqx.supabase.co';
+var DK_SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNob3loamNud2l0cW5rZHhrZ3F4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzODM3MTMsImV4cCI6MjA5Nzk1OTcxM30.lADoFYoDe3xOYzajXaY95_qLamMj6wJZB0L0wbtR3WU';
+var DK_BUCKET='dapurku-photos';
+
+function dkStorageUrl(path){
+  return DK_SUPA_URL+'/storage/v1/object/public/'+DK_BUCKET+'/'+path;
+}
+
+function dkGetImg(type,id){
+  // Supabase public URL takes priority, fallback to localStorage
+  var path=(type==='menu'?'menu/':'dapur/')+id+'.jpg';
+  var supaUrl=dkStorageUrl(path);
+  // We store confirmed uploads in localStorage as flag (not base64)
+  var flag=localStorage.getItem((type==='menu'?'dk_fimg_':'dk_rimg_')+id);
+  return flag&&flag.startsWith('http')?flag:null;
+}
+
+async function pmHandleFile(e){
   var file=e.target.files[0];if(!file)return;
   if(file.size>5*1024*1024){toast('Foto max 5MB!','te');return;}
-  var reader=new FileReader();
-  reader.onload=function(ev){
-    var key=pmCurrent.type==='menu'?'dk_fimg_':'dk_rimg_';
-    localStorage.setItem(key+pmCurrent.id,ev.target.result);
-    pmRender(pmCurrent.type);
-    toast('Foto berhasil diupload!','ts');
-    if(cp==='home')rHome();
-    if(cp==='market')rm();
-  };
-  reader.readAsDataURL(file);
+  toast('Mengupload foto...','ti');
+  var type=pmCurrent.type;
+  var id=pmCurrent.id;
+  var path=(type==='menu'?'menu/':'dapur/')+id+'.jpg';
+  // Upload to Supabase Storage
+  try{
+    var res=await fetch(DK_SUPA_URL+'/storage/v1/object/'+DK_BUCKET+'/'+path,{
+      method:'POST',
+      headers:{
+        'Authorization':'Bearer '+DK_SUPA_KEY,
+        'Content-Type':file.type||'image/jpeg',
+        'x-upsert':'true'
+      },
+      body:file
+    });
+    if(!res.ok){
+      // try PUT (upsert)
+      res=await fetch(DK_SUPA_URL+'/storage/v1/object/'+DK_BUCKET+'/'+path,{
+        method:'PUT',
+        headers:{
+          'Authorization':'Bearer '+DK_SUPA_KEY,
+          'Content-Type':file.type||'image/jpeg',
+          'x-upsert':'true'
+        },
+        body:file
+      });
+    }
+    if(res.ok||res.status===200||res.status===201){
+      var publicUrl=dkStorageUrl(path)+'?t='+Date.now();
+      var key=(type==='menu'?'dk_fimg_':'dk_rimg_')+id;
+      localStorage.setItem(key,publicUrl);
+      pmRender(type);
+      toast('Foto berhasil diupload!','ts');
+      if(cp==='home')rHome();
+      if(cp==='market')rm();
+    }else{
+      var err=await res.text();
+      toast('Upload gagal: '+res.status,'te');
+      console.error('Supabase upload error:',res.status,err);
+    }
+  }catch(ex){
+    toast('Upload error: '+ex.message,'te');
+    console.error(ex);
+  }
   e.target.value='';
 }
-function pmDelete(type,id){
+async function pmDelete(type,id){
+  var path=(type==='menu'?'menu/':'dapur/')+id+'.jpg';
+  try{
+    await fetch(DK_SUPA_URL+'/storage/v1/object/'+DK_BUCKET+'/'+path,{
+      method:'DELETE',
+      headers:{'Authorization':'Bearer '+DK_SUPA_KEY}
+    });
+  }catch(ex){console.warn('Delete from storage:',ex);}
   localStorage.removeItem((type==='menu'?'dk_fimg_':'dk_rimg_')+id);
   pmRender(type);
   toast('Foto dihapus','ti');
@@ -2085,6 +2144,41 @@ function pmDelete(type,id){
 
 <script>
 // Force 2-col grid setelah cards di-render
+// Load all Supabase photo URLs into localStorage on startup
+(async function dkLoadPhotos(){
+  try{
+    var types=[{t:'menu',prefix:'menu/'},{t:'dapur',prefix:'dapur/'}];
+    for(var ti=0;ti<types.length;ti++){
+      var t=types[ti].t; var prefix=types[ti].prefix;
+      var res=await fetch(DK_SUPA_URL+'/storage/v1/object/list/'+DK_BUCKET,{
+        method:'POST',
+        headers:{
+          'Authorization':'Bearer '+DK_SUPA_KEY,
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({prefix:prefix,limit:200,offset:0})
+      });
+      if(!res.ok)continue;
+      var files=await res.json();
+      if(!Array.isArray(files))continue;
+      files.forEach(function(f){
+        if(!f.name)return;
+        var idStr=f.name.replace('.jpg','').replace('.png','').replace('.jpeg','');
+        var id=parseInt(idStr);
+        if(isNaN(id))return;
+        var key=(t==='menu'?'dk_fimg_':'dk_rimg_')+id;
+        var url=DK_SUPA_URL+'/storage/v1/object/public/'+DK_BUCKET+'/'+prefix+f.name+'?t='+f.updated_at;
+        localStorage.setItem(key,url);
+      });
+    }
+    // Re-render if on home/market
+    if(typeof cp!=='undefined'){
+      if(cp==='home'&&typeof rHome==='function')rHome();
+      if(cp==='market'&&typeof rm==='function')rm();
+    }
+  }catch(ex){console.warn('dkLoadPhotos:',ex);}
+})();
+
 var _origRHome = window.rHome;
 function forceGrid() {
   document.querySelectorAll('.fg').forEach(function(el) {

@@ -798,9 +798,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .tw{top:auto;bottom:calc(var(--mob-bot) + 8px);right:12px;left:12px}
   .toast{max-width:100%}
   .hero-pilot{font-size:10px;padding:4px 11px;margin-bottom:9px}
-  #pgFlex{overflow-x:clip;width:100%}
-  #pgArea{width:100%;min-width:0;overflow-x:clip}
-  #hCats,#hFlashSale,#hFoods,#hRestos,.rscrl,.pscrl,.cat-scrl{touch-action:pan-x !important;-webkit-overflow-scrolling:touch !important;overflow-x:auto !important}
+  #pgFlex{width:100%}
+  #pgArea{width:100%;min-width:0}
   .pg{width:100%;min-width:0}
   #pmMenuGrid,#pmDapurGrid{grid-template-columns:repeat(2,1fr)!important;gap:10px}
 }
@@ -941,8 +940,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="dtb-btn" id="cartBtnD" onclick="toggleCart()" style="display:none">🛒</div>
   </div>
 
-  <div id="pgFlex" style="display:flex;flex:1;overflow:clip">
-    <div style="flex:1;overflow-y:auto;overflow-x:clip" id="pgArea">
+  <div id="pgFlex" style="display:flex;flex:1">
+    <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
   <!-- HERO - TALARA style compact -->
@@ -1585,6 +1584,18 @@ function rHome(){
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   document.getElementById('hRestos').innerHTML=R.slice(0,6).map(rC).join('');
   document.getElementById('totM').textContent=F.length;
+  // Add drag-scroll to hCats
+  ['hCats','hFlashSale'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el)return;
+    var isDown=false,startX=0,scrollLeft=0;
+    el.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;},{ passive:true });
+    el.addEventListener('mouseleave',function(){isDown=false;});
+    el.addEventListener('mouseup',function(){isDown=false;});
+    el.addEventListener('mousemove',function(e){if(!isDown)return;var x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX);});
+    el.addEventListener('touchstart',function(e){startX=e.touches[0].pageX;scrollLeft=el.scrollLeft;},{passive:true});
+    el.addEventListener('touchmove',function(e){var x=e.touches[0].pageX;var walk=startX-x;el.scrollLeft=scrollLeft+walk;},{passive:true});
+  });
   // Flash Sale - render from F[] with discount, show photo from Supabase
   const fs=document.getElementById('hFlashSale');
   if(fs){

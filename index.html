@@ -1894,41 +1894,40 @@ function pmSwitch(t){
   document.getElementById('pmTab2').className='btn btn-sm '+(t==='dapur'?'btn-p':'btn-o');
   pmRender(t);
 }
+function pmCardHTML(type,item,img){
+  var bg=img?'#f0f0f0':item.bg;
+  var sub=type==='menu'?(R.find(function(r){return r.id===item.rId;})||{}).n||'':(item.cat+' - '+item.tm+' mnt');
+  var delFn="pmDelete('"+type+"',"+item.id+")";
+  var pickFn="pmPick('"+type+"',"+item.id+")";
+  return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
+    +'<div style="height:110px;background:'+bg+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
+    +(img?('<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
+        +'<button onclick="'+delFn+'" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2">x</button>')
+      :item.e)
+    +'</div>'
+    +'<div style="padding:9px 10px">'
+    +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+item.n+'</div>'
+    +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+sub+'</div>'
+    +'<button onclick="'+pickFn+'" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'Ganti Foto':'Upload Foto')+'</button>'
+    +'</div></div>';
+}
 function pmRender(t){
-  if(t==='menu'){
-    const grid=document.getElementById('pmMenuGrid');if(!grid)return;
-    grid.innerHTML=F.map(function(f){
-      var img=localStorage.getItem('dk_fimg_'+f.id);
-      var rst=R.find(function(r){return r.id===f.rId;});
-      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
-        +'<div style="height:110px;background:'+(img?'#f0f0f0':f.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
-        +(img?('<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
-            +'<button onclick="pmDelete(\'menu\','+f.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2">×</button>')
-          :f.e)
-        +'</div>'
-        +'<div style="padding:9px 10px">'
-        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+f.n+'</div>'
-        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+(rst?rst.n:'')+'</div>'
-        +'<button onclick="pmPick(\'menu\','+f.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'&#128257; Ganti':'&#128247; Upload')+'</button>'
-        +'</div></div>';
-    }).join('');
-  } else {
-    var grid2=document.getElementById('pmDapurGrid');if(!grid2)return;
-    grid2.innerHTML=R.map(function(r){
-      var img=localStorage.getItem('dk_rimg_'+r.id);
-      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
-        +'<div style="height:110px;background:'+(img?'#f0f0f0':r.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
-        +(img?('<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
-            +'<button onclick="pmDelete(\'dapur\','+r.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2">×</button>')
-          :r.e)
-        +'</div>'
-        +'<div style="padding:9px 10px">'
-        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+r.n+'</div>'
-        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+r.cat+' &#183; '+r.tm+' menit</div>'
-        +'<button onclick="pmPick(\'dapur\','+r.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'&#128257; Ganti':'&#128247; Upload')+'</button>'
-        +'</div></div>';
-    }).join('');
+  var arr=t==='menu'?F:R;
+  var gridId=t==='menu'?'pmMenuGrid':'pmDapurGrid';
+  var grid=document.getElementById(gridId);if(!grid)return;
+  grid.innerHTML='';
+  var i=0;
+  function addNext(){
+    if(i>=arr.length)return;
+    var item=arr[i++];
+    var imgKey=t==='menu'?'dk_fimg_':'dk_rimg_';
+    var img=localStorage.getItem(imgKey+item.id);
+    var d=document.createElement('div');
+    d.innerHTML=pmCardHTML(t,item,img);
+    grid.appendChild(d.firstChild);
+    if(i<arr.length)requestAnimationFrame(addNext);
   }
+  requestAnimationFrame(addNext);
 }
 function pmPick(type,id){pmCurrent={type:type,id:id};document.getElementById('pmFileInput').click();}
 function pmHandleFile(e){

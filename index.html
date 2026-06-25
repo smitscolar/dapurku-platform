@@ -16,12 +16,12 @@
   /* Orange hangat sebagai warna UTAMA */
   --green:#16A34A;--green2:#15803D;--green3:#22C55E;
   --green-lt:#DCFCE7;--green-mid:#BBF7D0;
-  --orange:#F97316;--orange2:#EA6C0A;--orange3:#C2410C;
+  --orange:#F97316;--orange2:#EA6C0A;--orange3:#FB923C;
   --orange-lt:#FFF7ED;--orange-mid:#FED7AA;
   --gold:#F59E0B;--gold-lt:#FFFBEB;
-  --dark:#2D2A26;--dark2:#292524;--dark3:#44403C;
+  --dark:#1C1917;--dark2:#292524;--dark3:#44403C;
   --mid:#78716C;--mid2:#A8A29E;
-  --light:#FAFAF8;--light2:#FFFAF5;--white:#FFFFFF;
+  --light:#FFF8F0;--light2:#FFFAF5;--white:#FFFFFF;
   --border:#F0E6D3;--border2:#E5D5C0;
   --red:#DC2626;--red-lt:#FEF2F2;
   --blue:#2563EB;--blue-lt:#EFF6FF;
@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FAFAF8;color:var(--dark);-webkit-font-smoothing:antialiased;}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FFF8F0;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 input,button,select{font-family:inherit;outline:none;border:none}
 button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -50,7 +50,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ SIDEBAR ══ */
 .sb{
-  width:var(--sw);background:linear-gradient(160deg,#F97316 0%,#C2410C 100%);
+  width:var(--sw);background:linear-gradient(160deg,#F97316 0%,#FB923C 100%);
   position:fixed;top:0;left:0;height:100vh;z-index:400;
   display:flex;flex-direction:column;overflow-y:auto;
   box-shadow:4px 0 24px rgba(0,0,0,.15);
@@ -141,7 +141,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 /* ══ MOBILE TOPBAR ══ */
 .mtb{
   display:none;position:fixed;top:0;left:0;right:0;
-  z-index:390;background:linear-gradient(135deg,#F97316,#C2410C);
+  z-index:390;background:linear-gradient(135deg,#F97316,#FB923C);
 }
 .mtb-row1{
   display:flex;align-items:center;gap:8px;
@@ -259,7 +259,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ HERO BANNER ══ */
 .hero{
-  background:linear-gradient(135deg,#F97316 0%,#C2410C 55%,#F97316 100%);
+  background:linear-gradient(135deg,#F97316 0%,#FB923C 55%,#F97316 100%);
   padding:24px 22px 20px;position:relative;overflow:hidden;
 }
 .hero::before{
@@ -400,9 +400,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 /* ══ FOOD GRID — GoFood Style ══ */
 .fg{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;padding:0 12px 14px;
-  box-sizing:border-box;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;padding:0 10px 14px;
 }
 /* Food Card */
 .fc{
@@ -414,8 +413,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
 .fc-img{
-  height:130px;display:flex;align-items:center;
-  justify-content:center;font-size:40px;
+  height:105px;display:flex;align-items:center;
+  justify-content:center;font-size:36px;
   position:relative;overflow:hidden;
 }
 .fc-img::after{
@@ -462,7 +461,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 .rscrl::-webkit-scrollbar{display:none}
 .rc{
-  flex-shrink:0;width:calc(50vw - 17px);min-width:145px;max-width:210px;background:var(--white);
+  flex-shrink:0;width:200px;background:var(--white);
   border-radius:18px;overflow:hidden;border:1px solid var(--border);
   cursor:pointer;transition:transform .2s,box-shadow .2s;
   box-shadow:var(--sh1);
@@ -546,7 +545,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 /* ══ STAT GRID ══ */
 .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
 .sc{background:var(--white);border-radius:14px;padding:16px;border:1px solid var(--border);box-shadow:var(--sh1)}
-.sc.hl{background:linear-gradient(135deg,#F97316,#C2410C);box-shadow:var(--sh-orange)}
+.sc.hl{background:linear-gradient(135deg,#F97316,#FB923C);box-shadow:var(--sh-orange)}
 .sc-i{font-size:22px;margin-bottom:8px}
 .sc-l{font-size:10px;color:var(--mid);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
 .sc.hl .sc-l{color:rgba(255,255,255,.6)}
@@ -638,7 +637,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ WALLET ══ */
 .wcard{
-  background:linear-gradient(135deg,#F97316 0%,#C2410C 60%,#F97316 100%);
+  background:linear-gradient(135deg,#F97316 0%,#FB923C 60%,#F97316 100%);
   border-radius:22px;padding:24px;color:#fff;
   position:relative;overflow:hidden;margin-bottom:20px;
 }
@@ -675,7 +674,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ BRAND PREVIEW ══ */
 .bprev{
-  background:linear-gradient(135deg,#F97316,#C2410C);
+  background:linear-gradient(135deg,#F97316,#FB923C);
   border-radius:18px;padding:26px;text-align:center;
   color:#fff;margin-bottom:14px;
   box-shadow:var(--sh-orange);
@@ -836,186 +835,23 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 .mm-card:hover{transform:translateY(-3px)}
 
-/* ══ RESPONSIVE SYSTEM ══ */
-
-/* ── DESKTOP (>900px) ── */
-@media(min-width:901px){
-  .hero{padding:28px 32px 32px;max-width:900px}
-  .hero-tagline{font-size:26px}
-  .hero-stats{gap:10px;margin-bottom:18px}
-  .hero-stat{padding:10px 8px}
-  .hero-stat-val{font-size:20px}
-  .hero-stat-lbl{font-size:8px}
-  .hero-search{padding:12px 16px}
-  .hero-search input{font-size:14px}
-  
-  /* Desktop food grid - 4 cols */
-  .fg{
-    grid-template-columns:repeat(4,1fr) !important;
-    gap:14px !important;
-    padding:0 24px 20px !important;
-  }
-  .fc-img{height:140px !important}
-  .fc-name{font-size:13px !important}
-  .fc-price{font-size:14px !important}
-  .fc-body{padding:10px 12px 12px !important}
-  
-  /* Desktop restaurant cards */
-  .rscrl{padding:0 24px 16px;gap:16px}
-  .rc{width:200px}
-  
-  /* Desktop promo cards */
-  .pcard{width:280px !important;height:120px !important}
-  
-  /* Desktop section spacing */
-  .shr{padding:18px 24px 10px}
-  .cat-scrl{padding:8px 24px 12px}
-  
-  /* Desktop flash sale */
-  .fs-card{flex:0 0 180px !important}
-  .fs-img{height:110px !important}
-  
-  /* Desktop Group Buy */
-  .gb-card{margin:0 24px 10px !important}
-  
-  /* Desktop CTA */
-  .cta-section{padding:32px 32px !important}
-  
-  /* Desktop DAPAY */
-  .dapay-card,.dapay-card+*{
-    max-width:560px;margin-left:auto;margin-right:auto;
-  }
-  
-  /* Desktop stats */
-  .qs-row{padding:0 24px 14px}
-  .qs-v{font-size:20px !important}
+/* Mobile swipe fix */
+.cat-scrl, .rscrl {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  touch-action: pan-x !important;
 }
-
-/* ── TABLET (600-900px) ── */
-@media(min-width:601px) and (max-width:900px){
-  .fg{
-    grid-template-columns:repeat(3,1fr) !important;
-    gap:10px !important;
-    padding:0 14px 16px !important;
-  }
-  .fc-img{height:110px !important}
-}
-
-/* ── MOBILE (<600px) ── */
+/* Food grid mobile */
 @media(max-width:600px){
-  /* Hero stats - 2x2 grid bukan 4-col */
-  .hero-stats{
-    display:grid !important;
-    grid-template-columns:1fr 1fr !important;
-    gap:6px !important;
+  .fg {
+    grid-template-columns: repeat(2,1fr) !important;
+    gap: 8px !important;
+    padding: 0 10px 14px !important;
   }
-  .hero-stat{padding:8px 6px !important}
-  .hero-stat-val{font-size:15px !important}
-  .hero-stat-lbl{font-size:7px !important}
-  .hero-tagline{font-size:18px !important}
-  .hero-sub{font-size:10px !important}
-  
-  /* Mobile food grid - 3 cols */
-  .fg{
-    grid-template-columns:repeat(2,1fr) !important;
-    gap:6px !important;
-    padding:0 8px 14px !important;
-  }
-  .fc-img{height:90px !important;font-size:30px !important}
-  .fc-name{font-size:10px !important}
-  .fc-price{font-size:11px !important}
-  .fc-body{padding:6px 7px 9px !important}
-  .atc{width:24px !important;height:24px !important;font-size:14px !important}
-  
-  /* Mobile section padding */
-  .shr{padding:12px 14px 6px}
-  .cat-scrl,.swipe-row{padding-left:12px;padding-right:12px}
-  
-  /* Flash sale */
-  .fs-card{flex:0 0 130px !important}
-  .fs-img{height:75px !important}
-  
-  /* Quick stats */
-  .qs-v{font-size:14px !important}
-  .qs-l{font-size:8px !important}
+  .fc-img { height: 120px !important; }
+  .fc-name { font-size: 12px !important; }
+  .fc-price { font-size: 13px !important; }
 }
-
-/* ── SMALL MOBILE (<380px) ── */
-@media(max-width:380px){
-  .fg{grid-template-columns:repeat(2,1fr) !important}
-  .hero-tagline{font-size:16px !important}
-  .fc-img{height:80px !important}
-}
-
-/* ══ DESKTOP APP LAYOUT ══ */
-@media(min-width:901px){
-  /* Main content max-width untuk desktop */
-  #pg > div > .hero,
-  #pg > div > div,
-  #pg > div > .shr {
-    max-width:900px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  
-  /* Desktop flash sale - show as scrollable but wider */
-  .swipe-row{
-    padding:0 24px 8px !important;
-  }
-  
-  /* Desktop Group Buy 2-col */
-  .gb-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    padding:0 24px;
-  }
-  
-  /* Desktop Quick Links more visible */
-  .swipe-pill{
-    padding:7px 16px !important;
-    font-size:12px !important;
-  }
-  
-  /* Login screen desktop */
-  #loginScreen{
-    background:linear-gradient(135deg,#F97316 0%,#EA580C 60%,#C2410C 100%);
-  }
-  .ls-logo{width:100px;height:100px;font-size:50px}
-  .ls-title{font-size:46px}
-  .ls-sub{font-size:16px;margin-bottom:48px}
-  .ls-btn-main,.ls-btn-sec{max-width:380px;padding:18px;font-size:17px}
-}
-
-/* Category Icon Style (seperti Image 2) */
-.ci{
-  display:flex;flex-direction:column;align-items:center;
-  cursor:pointer;flex-shrink:0;
-  padding:4px 6px;
-}
-.ci-box{
-  width:56px;height:56px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;margin-bottom:5px;
-  border:2.5px solid transparent;
-  transition:all .2s;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
-}
-.ci.on .ci-box{
-  border-color:#F97316;
-  box-shadow:0 2px 12px rgba(249,115,22,.25);
-}
-.ci-lbl{
-  font-size:11px;font-weight:600;color:#374151;
-}
-.ci.on .ci-lbl{color:#F97316;font-weight:700}
-.cat-scrl{
-  display:flex;gap:4px;padding:8px 12px 12px;
-  overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:none;flex-wrap:nowrap;
-  touch-action:pan-x;
-}
-.cat-scrl::-webkit-scrollbar{display:none}
 </style>
 </head>
 <body>
@@ -1130,13 +966,13 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
-  <div class="hero" style="padding:8px 14px 12px">
-    <div class="hero-pilot" style="font-size:9px;padding:3px 10px;margin-bottom:5px">🏆 PILOT BATAM · 50 Dapur · 524 Transaksi · ⭐ 4.7/5</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.85);margin-bottom:0px">Selamat datang,</div>
-    <div class="hero-name" id="heroN" style="font-size:18px;font-weight:900;color:#fff;margin-bottom:8px">Budi Santoso 👋</div>
-    <div class="hero-search" style="padding:7px 12px">
-      <span class="hs-ic" style="font-size:13px;margin-right:6px">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()" style="font-size:12px">
+  <div class="hero" style="padding:10px 14px 14px">
+    <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.88);margin-bottom:2px">Selamat datang,</div>
+    <div class="hero-name" id="heroN" style="font-size:20px;font-weight:900;color:#fff;margin-bottom:12px">Budi Santoso 👋</div>
+    <div class="hero-search">
+      <span class="hs-ic">🔍</span>
+      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
     </div>
   </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
   <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
@@ -1172,59 +1008,66 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     </div>
   </div>
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
-  <div class="cat-scrl" id="hCats" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}"></div>
-  
-  <!-- Quick Links Horizontal Scroll -->
-  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:8px;padding:4px 12px 12px;touch-action:pan-x;flex-wrap:nowrap" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}">
-    <div onclick="gp('market')" style="flex:0 0 60px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F97316">
-      <div style="font-size:18px">🍽️</div>
-      <div style="font-size:12px;font-weight:800;color:#F97316" id="totM">24</div>
-      <div style="font-size:8px;color:#9A3412;font-weight:600">Menu</div>
+  <div class="cat-scrl swipe-row" id="hCats" style="padding:6px 12px 10px"></div>
+  <!-- DAPAY WALLET CARD FINAL -->
+  <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
+    <p style="margin:0 0 3px;font-size:9px;font-weight:700;opacity:.85">💳 DAPAY · Saldo Aktif</p>
+    <p style="margin:0 0 3px;font-size:26px;font-weight:900;letter-spacing:-.5px">Rp 85.000</p>
+    <p style="margin:0 0 10px;font-size:9px;opacity:.7">Digital payment DapurKu</p>
+    <p style="margin:0;background:#fff;color:#F97316;border-radius:8px;padding:8px;font-size:13px;font-weight:900;text-align:center">⬆ Top Up Saldo DAPAY</p>
+  </div> <!-- STATS 4-COL VW -->
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;flex-wrap:nowrap;gap:5px;padding:0 12px;margin-bottom:12px">
+    <div onclick="gp('market')" style="flex:0 0 calc(22vw);background:#FFF7ED;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #F97316;min-width:72px">
+      <div style="font-size:16px;line-height:1.3">🍽️</div>
+      <div style="font-size:12px;font-weight:800;color:#EA580C;line-height:1.3" id="totM">24</div>
+      <div style="font-size:8px;color:#9A3412;font-weight:700">Menu</div>
     </div>
-    <div onclick="gp('restos')" style="flex:0 0 60px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
-      <div style="font-size:18px">🏪</div>
-      <div style="font-size:12px;font-weight:800;color:#3B82F6">12</div>
-      <div style="font-size:8px;color:#1E3A8A;font-weight:600">Dapur</div>
+    <div onclick="gp('restos')" style="flex:0 0 calc(22vw);background:#EFF6FF;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #2563EB;min-width:72px">
+      <div style="font-size:16px;line-height:1.3">🏪</div>
+      <div style="font-size:12px;font-weight:800;color:#1D4ED8;line-height:1.3">12</div>
+      <div style="font-size:8px;color:#1E3A8A;font-weight:700">Dapur</div>
     </div>
-    <div onclick="gp('flashsale')" style="flex:0 0 60px;background:#FEF2F2;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #EF4444">
-      <div style="font-size:18px">⚡</div>
-      <div style="font-size:8px;font-weight:700;color:#DC2626;margin-top:2px">Flash</div>
-      <div style="font-size:8px;font-weight:700;color:#DC2626">Sale</div>
+    <div onclick="gp('track')" style="flex:0 0 calc(22vw);background:#F0FDF4;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #16A34A;min-width:72px">
+      <div style="font-size:16px;line-height:1.3">🛵</div>
+      <div style="font-size:12px;font-weight:800;color:#15803D;line-height:1.3">1</div>
+      <div style="font-size:8px;color:#14532D;font-weight:700">Aktif</div>
     </div>
-    <div onclick="gp('groupbuy')" style="flex:0 0 60px;background:#FFF7ED;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
-      <div style="font-size:18px">🤝</div>
-      <div style="font-size:8px;font-weight:700;color:#D97706;margin-top:2px">Group</div>
-      <div style="font-size:8px;font-weight:700;color:#D97706">Buy</div>
-    </div>
-    <div onclick="gp('referral')" style="flex:0 0 60px;background:#F5F3FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #8B5CF6">
-      <div style="font-size:18px">🎯</div>
-      <div style="font-size:8px;font-weight:700;color:#7C3AED;margin-top:2px">Referral</div>
-    </div>
-    <div onclick="gp('topdarpu')" style="flex:0 0 60px;background:#FFFBEB;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #F59E0B">
-      <div style="font-size:18px">🏆</div>
-      <div style="font-size:8px;font-weight:700;color:#92400E;margin-top:2px">Top</div>
-      <div style="font-size:8px;font-weight:700;color:#92400E">Dapur</div>
-    </div>
-    <div onclick="gp('chat')" style="flex:0 0 60px;background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #22C55E">
-      <div style="font-size:18px">💬</div>
-      <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:2px">Chat</div>
-    </div>
-    <div onclick="gp('promo')" style="flex:0 0 60px;background:#EFF6FF;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #3B82F6">
-      <div style="font-size:18px">🎁</div>
-      <div style="font-size:8px;font-weight:700;color:#1D4ED8;margin-top:2px">Voucher</div>
-    </div>
-    <div onclick="gp('orders')" style="flex:0 0 60px;background:#F0FDF4;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;border-top:2px solid #22C55E">
-      <div style="font-size:18px">📋</div>
-      <div style="font-size:8px;font-weight:700;color:#16A34A;margin-top:2px">Pesanan</div>
+    <div onclick="gp('wallet')" style="flex:0 0 calc(22vw);background:#FAF5FF;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #7C3AED;min-width:72px">
+      <div style="font-size:16px;line-height:1.3">💳</div>
+      <div style="font-size:12px;font-weight:800;color:#7C3AED;line-height:1.3" id="wBal">85K</div>
+      <div style="font-size:8px;color:#5B21B6;font-weight:700">Saldo</div>
     </div>
   </div>
 
+  <!-- Quick Feature Links PILL SCROLL -->
+  <div style="overflow-x:auto;display:flex;gap:8px;padding:4px 14px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap">
+    <div onclick="gp('flashsale')" style="flex:0 0 auto;white-space:nowrap;background:#FEF2F2;border:1.5px solid #FCA5A5;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">⚡</span><span style="font-size:12px;font-weight:700;color:#DC2626">Flash Sale</span>
+    </div>
+    <div onclick="gp('groupbuy')" style="flex:0 0 auto;white-space:nowrap;background:#FFF7ED;border:1.5px solid #FBD38D;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">🤝</span><span style="font-size:12px;font-weight:700;color:#D97706">Group Buy</span>
+    </div>
+    <div onclick="gp('referral')" style="flex:0 0 auto;white-space:nowrap;background:#F5F3FF;border:1.5px solid #C4B5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">🎯</span><span style="font-size:12px;font-weight:700;color:#7C3AED">Referral</span>
+    </div>
+    <div onclick="gp('topdarpu')" style="flex:0 0 auto;white-space:nowrap;background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">🏆</span><span style="font-size:12px;font-weight:700;color:#92400E">Top Dapur</span>
+    </div>
+    <div onclick="gp('chat')" style="flex:0 0 auto;white-space:nowrap;background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">💬</span><span style="font-size:12px;font-weight:700;color:#16A34A">Chat</span>
+    </div>
+    <div onclick="gp('favorit')" style="flex:0 0 auto;white-space:nowrap;background:#FFF1F2;border:1.5px solid #FDA4AF;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">❤️</span><span style="font-size:12px;font-weight:700;color:#BE123C">Favorit</span>
+    </div>
+    <div onclick="gp('promo')" style="flex:0 0 auto;white-space:nowrap;background:#EFF6FF;border:1.5px solid #93C5FD;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;cursor:pointer">
+      <span style="font-size:16px">🎁</span><span style="font-size:12px;font-weight:700;color:#1D4ED8">Voucher</span>
+    </div>
+  </div>
   <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua</div></div>
   <div class="fg" id="hFoods"></div>
   <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua</div></div>
-  <div class="rscrl" id="hRestos" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}"></div>
-  <!-- GROUP BUY BAHAN -->
-    <div style="height:24px"></div>
+  <div class="rscrl" id="hRestos"></div>
+  <div style="height:24px"></div>
 </div>
 
 <!-- ══ MARKET ══ -->
@@ -1237,7 +1080,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       </div>
       <button class="btn btn-o btn-sm">🔧 Filter</button>
     </div>
-    <div class="cat-scrl" id="mktCats" ontouchstart="this._sx=event.touches[0].clientX;this._sl=this.scrollLeft" ontouchmove="var dx=this._sx-event.touches[0].clientX;if(Math.abs(dx)>5){this.scrollLeft=this._sl+dx}"></div>
+    <div class="swipe-row" id="mktCats" style="padding:6px 12px 10px"></div>
     <div class="fg" id="mktFoods"></div>
   </div>
 </div>
@@ -1594,7 +1437,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 <div class="pg" id="pg-paylater">
   <div class="pc">
     <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">Paylater Bahan Baku</div>
-    <div style="background:linear-gradient(135deg,#F97316,#C2410C);border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;margin-bottom:18px;box-shadow:var(--sh-orange)">
+    <div style="background:linear-gradient(135deg,#F97316,#FB923C);border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;margin-bottom:18px;box-shadow:var(--sh-orange)">
       <div style="position:absolute;right:-25px;top:-25px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.06)"></div>
       <div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-bottom:4px;position:relative;z-index:1">Limit Paylater Aktif</div>
       <div style="font-size:32px;font-weight:700;margin-bottom:4px;position:relative;z-index:1">Rp 2.000.000</div>
@@ -1668,7 +1511,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div class="pc">
     <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">🎯 Referral & Poin</div>
     <!-- Referral Card -->
-    <div style="background:linear-gradient(135deg,#F97316,#C2410C);border-radius:20px;padding:22px;color:#fff;margin-bottom:16px;position:relative;overflow:hidden">
+    <div style="background:linear-gradient(135deg,#F97316,#FB923C);border-radius:20px;padding:22px;color:#fff;margin-bottom:16px;position:relative;overflow:hidden">
       <div style="position:absolute;right:-20px;top:-20px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.1)"></div>
       <div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:4px">Poin Kamu</div>
       <div style="font-size:38px;font-weight:700;margin-bottom:4px">2.450 🪙</div>
@@ -1701,7 +1544,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--dark)">👤 Profil Saya</div>
     <!-- Avatar + Info -->
     <div class="card" style="margin-bottom:14px;text-align:center;padding:24px">
-      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#F97316,#C2410C);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px;box-shadow:0 4px 16px rgba(249,115,22,.35)" id="profAvatar">👤</div>
+      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#F97316,#FB923C);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 12px;box-shadow:0 4px 16px rgba(249,115,22,.35)" id="profAvatar">👤</div>
       <div style="font-size:18px;font-weight:700;margin-bottom:2px" id="profName">Budi Santoso</div>
       <div style="font-size:12px;color:var(--mid)" id="profEmail">budi@dapurku.id · 081234567890</div>
       <div style="display:flex;justify-content:center;gap:16px;margin-top:14px">
@@ -1768,7 +1611,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     </div>
     <div style="display:flex;flex-direction:column;gap:12px" id="payMethodList"></div>
     <!-- DapurKu Pay -->
-    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#F97316,#C2410C);border:none">
+    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#F97316,#FB923C);border:none">
       <div style="display:flex;align-items:center;gap:12px">
         <div style="font-size:28px">💰</div>
         <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">DapurKu Pay</div><div style="font-size:11.5px;color:rgba(255,255,255,.8)">Saldo: Rp 85.000 · Cashback 15%</div></div>
@@ -1793,7 +1636,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
         <div style="font-size:11px;color:#F97316;font-weight:600">⭐ 4.8</div>
         <div style="font-size:10px;color:var(--mid)">198 ulasan</div>
       </div>
-      <div style="background:linear-gradient(135deg,#F97316,#C2410C);border-radius:16px;padding:18px 10px;text-align:center;box-shadow:var(--sh-orange)">
+      <div style="background:linear-gradient(135deg,#F97316,#FB923C);border-radius:16px;padding:18px 10px;text-align:center;box-shadow:var(--sh-orange)">
         <div style="font-size:32px;margin-bottom:4px">👑</div>
         <div style="font-size:26px">🍗</div>
         <div style="font-weight:700;font-size:12px;margin:5px 0;color:#fff">Geprek Bu Sari</div>
@@ -1829,7 +1672,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="font-size:16px;font-weight:700;margin-bottom:4px;color:var(--dark)">🚀 Tutorial Onboarding</div>
     <div style="font-size:12px;color:var(--mid);margin-bottom:20px">Panduan lengkap untuk penjual baru</div>
     <div style="display:flex;flex-direction:column;gap:12px" id="onboardSteps"></div>
-    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#F97316,#C2410C);border:none;text-align:center;padding:24px">
+    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#F97316,#FB923C);border:none;text-align:center;padding:24px">
       <div style="font-size:40px;margin-bottom:8px">🎉</div>
       <div style="font-weight:700;font-size:16px;color:#fff;margin-bottom:4px">Siap Mulai Berjualan?</div>
       <div style="font-size:12px;color:rgba(255,255,255,.8);margin-bottom:14px">Daftarkan dapur kamu dan mulai terima pesanan dalam 30 menit!</div>
@@ -1998,44 +1841,38 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 <script>
 const R=[
-  {id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam Geprek",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Geprek pedas mantap, level 1-10. Sudah 2 tahun jadi langganan warga Batam.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop&q=80"},
-  {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#FFF8E7",cat:"Nasi & Lauk",rt:4.8,rv:189,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"Gratis es teh",op:true,ds:"Nasi uduk pulen dengan lauk pilihan, buka dari jam 06.00 pagi. Sarapan favorit warga.",loc:"Nagoya",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop&q=80"},
-  {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#F0F4FF",cat:"Mie & Nasi Goreng",rt:4.8,rv:248,tm:"12-22",mo:12000,d:"1.4 km",b:"",pr:"",op:true,ds:"Mie goreng dan nasi goreng kampung dengan bumbu rahasia. Porsi besar, harga ramah.",loc:"Sei Beduk",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop&q=80"},
-  {id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F0FFF4",cat:"Minuman & Jus",rt:4.9,rv:401,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"Beli 2 gratis 1",op:true,ds:"Jus buah segar, boba, dan minuman dingin. Dibuat fresh setiap pesanan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop&q=80"},
-  {id:5,n:"Sate Pak Maman",e:"🍢",bg:"#FFF0F0",cat:"Sate & Bakar",rt:4.8,rv:156,tm:"20-35",mo:24500,d:"2.1 km",b:"",pr:"",op:true,ds:"Sate kambing dan sate ayam dengan bumbu kacang khas. Dibakar langsung saat pesan.",loc:"Batu Aji",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop&q=80"},
-  {id:6,n:"BBQ Bu Tini",e:"🐟",bg:"#F0F9FF",cat:"Bakar & BBQ",rt:4.8,rv:133,tm:"25-40",mo:28000,d:"1.8 km",b:"",pr:"",op:true,ds:"Ayam dan ikan bakar dengan bumbu khas. Cocok untuk makan malam keluarga.",loc:"Nongsa",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop&q=80"},
-  {id:7,n:"Pecel Bu Lastri",e:"🥗",bg:"#F0FDF4",cat:"Sayuran & Sehat",rt:4.9,rv:178,tm:"10-20",mo:13000,d:"1.2 km",b:"Sehat",pr:"",op:true,ds:"Pecel, gado-gado, dan soto ayam lamongan. Pilihan sehat untuk makan siang.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&q=80"},
-  {id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFBF0",cat:"Snack & Cemilan",rt:4.7,rv:289,tm:"8-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 20%",op:true,ds:"Aneka gorengan crispy, keripik, dan snack UMKM lokal Batam.",loc:"Lubuk Baja",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop&q=80"},
-  {id:9,n:"Es Teler Bu Ani",e:"🍧",bg:"#F5F0FF",cat:"Minuman & Dessert",rt:4.7,rv:143,tm:"5-12",mo:8400,d:"1.0 km",b:"",pr:"",op:true,ds:"Es teler, es campur, dan aneka dessert segar. Segar dan terjangkau.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop&q=80"},
-  {id:10,n:"Warung Pak Sabar",e:"🍱",bg:"#FFF5F0",cat:"Masakan Rumahan",rt:4.7,rv:97,tm:"15-25",mo:15000,d:"2.3 km",b:"Tutup",pr:"",op:false,ds:"Masakan rumahan komplit dengan nasi dan lauk pauk. Rasa seperti masakan ibu.",loc:"Tiban",foto:"https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=280&fit=crop&q=80"}
+  {id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam Geprek",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Geprek pedas mantap, level 1-10. Langganan warga Batam.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop"},
+  {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#FFF8E7",cat:"Nasi & Lauk",rt:4.8,rv:189,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"Gratis es teh",op:true,ds:"Nasi uduk pulen dengan lauk pilihan, buka dari jam 06.00 pagi.",loc:"Nagoya",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop"},
+  {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#F0F4FF",cat:"Mie & Nasi Goreng",rt:4.8,rv:248,tm:"12-22",mo:12000,d:"1.4 km",b:"",pr:"",op:true,ds:"Mie goreng dan nasi goreng kampung dengan bumbu rahasia.",loc:"Sei Beduk",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop"},
+  {id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F0FFF4",cat:"Minuman & Jus",rt:4.9,rv:401,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"Beli 2 gratis 1",op:true,ds:"Jus buah segar, boba, dan minuman dingin. Dibuat fresh.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop"},
+  {id:5,n:"Sate Pak Maman",e:"🍢",bg:"#FFF0F0",cat:"Sate & Bakar",rt:4.8,rv:156,tm:"20-35",mo:24500,d:"2.1 km",b:"",pr:"",op:true,ds:"Sate kambing dan sate ayam dengan bumbu kacang khas.",loc:"Batu Aji",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop"},
+  {id:6,n:"BBQ Bu Tini",e:"🐟",bg:"#F0F9FF",cat:"Bakar & BBQ",rt:4.8,rv:133,tm:"25-40",mo:28000,d:"1.8 km",b:"",pr:"",op:true,ds:"Ayam dan ikan bakar dengan bumbu khas.",loc:"Nongsa",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop"},
+  {id:7,n:"Pecel Bu Lastri",e:"🥗",bg:"#F0FDF4",cat:"Sayuran & Sehat",rt:4.9,rv:178,tm:"10-20",mo:13000,d:"1.2 km",b:"Sehat",pr:"",op:true,ds:"Pecel, gado-gado, dan soto ayam lamongan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop"},
+  {id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFBF0",cat:"Snack & Cemilan",rt:4.7,rv:289,tm:"8-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 20%",op:true,ds:"Aneka gorengan crispy dan snack UMKM lokal Batam.",loc:"Lubuk Baja",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop"}
 ];
 
 
 const F=[
-  {id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop&q=80"},
-  {id:2,n:"Geprek Level 5 + Nasi",rId:1,p:15000,og:22000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=400&h=280&fit=crop&q=80"},
-  {id:3,n:"Ayam Geprek Keju",rId:1,p:26000,og:null,e:"🍗",cat:"Ayam",rt:4.7,s:71,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop&q=80"},
-  {id:4,n:"Ayam Geprek Double",rId:1,p:35000,og:40000,e:"🍗",cat:"Ayam",rt:4.8,s:63,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1587574293340-e0011c4e8ecf?w=400&h=280&fit=crop&q=80"},
-  {id:5,n:"Nasi Uduk Komplit",rId:2,p:18000,og:null,e:"🍚",cat:"Nasi",rt:4.8,s:98,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop&q=80"},
-  {id:6,n:"Nasi Uduk Jumbo",rId:2,p:25000,og:28000,e:"🍚",cat:"Nasi",rt:4.7,s:62,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=280&fit=crop&q=80"},
-  {id:7,n:"Mie Goreng Jawa",rId:2,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.6,s:45,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop&q=80"},
-  {id:8,n:"Mie Goreng Seafood",rId:3,p:22000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:143,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&h=280&fit=crop&q=80"},
-  {id:9,n:"Mie Ayam Bakso",rId:3,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:89,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=280&fit=crop&q=80"},
-  {id:10,n:"Nasi Goreng Kampung",rId:3,p:12000,og:17000,e:"🍛",cat:"Nasi",rt:4.7,s:156,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=280&fit=crop&q=80"},
-  {id:11,n:"Jus Alpukat Kental",rId:4,p:15000,og:18000,e:"🥑",cat:"Minuman",rt:4.9,s:201,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop&q=80"},
-  {id:12,n:"Es Teh Manis Jumbo",rId:3,p:7000,og:null,e:"🧊",cat:"Minuman",rt:4.6,s:59,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=280&fit=crop&q=80"},
-  {id:13,n:"Boba Taro Susu",rId:4,p:18000,og:null,e:"🧋",cat:"Minuman",rt:4.8,s:88,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=280&fit=crop&q=80"},
-  {id:14,n:"Ayam Bakar Madu",rId:4,p:28000,og:null,e:"🍖",cat:"Ayam",rt:4.8,s:112,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop&q=80"},
-  {id:15,n:"Ikan Bakar Bumbu Bali",rId:6,p:32000,og:null,e:"🐟",cat:"Lauk",rt:4.8,s:76,bg:"#F0F9FF",foto:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=280&fit=crop&q=80"},
-  {id:16,n:"Tahu Crispy Keju",rId:6,p:10000,og:null,e:"🧀",cat:"Snack",rt:4.7,s:48,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop&q=80"},
-  {id:17,n:"Pisang Goreng Crispy",rId:8,p:8000,og:null,e:"🍌",cat:"Snack",rt:4.5,s:177,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=280&fit=crop&q=80"},
-  {id:18,n:"Keripik Tempe Balado",rId:8,p:12000,og:15000,e:"🌶️",cat:"Snack",rt:4.7,s:156,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=280&fit=crop&q=80"},
-  {id:19,n:"Bakso Malang Komplit",rId:7,p:18000,og:null,e:"🍲",cat:"Nasi",rt:4.5,s:203,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop&q=80"},
-  {id:20,n:"Soto Ayam Lamongan",rId:7,p:16000,og:null,e:"🍵",cat:"Nasi",rt:4.9,s:134,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop&q=80"},
-  {id:21,n:"Pecel Sayur Lengkap",rId:7,p:13000,og:null,e:"🥗",cat:"Lauk",rt:4.8,s:91,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&q=80"},
-  {id:22,n:"Gado-Gado Jakarta",rId:7,p:14000,og:null,e:"🥜",cat:"Lauk",rt:4.8,s:67,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=280&fit=crop&q=80"},
-  {id:23,n:"Sate Kambing 10 Tusuk",rId:5,p:24500,og:35000,e:"🍢",cat:"Lauk",rt:4.8,s:89,bg:"#FFF0F0",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop&q=80"},
-  {id:24,n:"Es Teler Spesial",rId:9,p:8400,og:12000,e:"🍧",cat:"Minuman",rt:4.7,s:143,bg:"#F5F0FF",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop&q=80"}
+  {id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop"},
+  {id:2,n:"Geprek Level 5 + Nasi",rId:1,p:15000,og:22000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=400&h=280&fit=crop"},
+  {id:3,n:"Ayam Geprek Keju",rId:1,p:26000,og:null,e:"🍗",cat:"Ayam",rt:4.7,s:71,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop"},
+  {id:4,n:"Nasi Uduk Komplit",rId:2,p:18000,og:null,e:"🍚",cat:"Nasi",rt:4.8,s:98,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop"},
+  {id:5,n:"Nasi Uduk Jumbo",rId:2,p:25000,og:28000,e:"🍚",cat:"Nasi",rt:4.7,s:62,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=280&fit=crop"},
+  {id:6,n:"Mie Goreng Jawa",rId:2,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.6,s:45,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop"},
+  {id:7,n:"Mie Goreng Seafood",rId:3,p:22000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:143,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&h=280&fit=crop"},
+  {id:8,n:"Nasi Goreng Kampung",rId:3,p:12000,og:17000,e:"🍛",cat:"Nasi",rt:4.7,s:156,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=280&fit=crop"},
+  {id:9,n:"Jus Alpukat Kental",rId:4,p:15000,og:18000,e:"🥑",cat:"Minuman",rt:4.9,s:201,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop"},
+  {id:10,n:"Es Teh Manis Jumbo",rId:3,p:7000,og:null,e:"🧊",cat:"Minuman",rt:4.6,s:59,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=280&fit=crop"},
+  {id:11,n:"Boba Taro Susu",rId:4,p:18000,og:null,e:"🧋",cat:"Minuman",rt:4.8,s:88,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=280&fit=crop"},
+  {id:12,n:"Ayam Bakar Madu",rId:4,p:28000,og:null,e:"🍖",cat:"Ayam",rt:4.8,s:112,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop"},
+  {id:13,n:"Ikan Bakar Bumbu Bali",rId:6,p:32000,og:null,e:"🐟",cat:"Lauk",rt:4.8,s:76,bg:"#F0F9FF",foto:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=280&fit=crop"},
+  {id:14,n:"Pisang Goreng Crispy",rId:8,p:8000,og:null,e:"🍌",cat:"Snack",rt:4.5,s:177,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=280&fit=crop"},
+  {id:15,n:"Keripik Tempe Balado",rId:8,p:12000,og:15000,e:"🌶️",cat:"Snack",rt:4.7,s:156,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=280&fit=crop"},
+  {id:16,n:"Soto Ayam Lamongan",rId:7,p:16000,og:null,e:"🍵",cat:"Nasi",rt:4.9,s:134,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop"},
+  {id:17,n:"Pecel Sayur Lengkap",rId:7,p:13000,og:null,e:"🥗",cat:"Lauk",rt:4.8,s:91,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop"},
+  {id:18,n:"Bakso Malang Komplit",rId:7,p:18000,og:null,e:"🍲",cat:"Nasi",rt:4.5,s:203,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop"},
+  {id:19,n:"Sate Kambing 10 Tusuk",rId:5,p:24500,og:35000,e:"🍢",cat:"Lauk",rt:4.8,s:89,bg:"#FFF0F0",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop"},
+  {id:20,n:"Es Teler Bu Ani",rId:4,p:8400,og:12000,e:"🍧",cat:"Minuman",rt:4.7,s:143,bg:"#F5F0FF",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop"}
 ];
 
 const CATS=[{l:"Semua",e:"🍽️",bg:"#FEF3E2"},{l:"Ayam",e:"🍗",bg:"#FEF3E2"},{l:"Nasi",e:"🍚",bg:"#E8F5E9"},{l:"Mie",e:"🍜",bg:"#DBEAFE"},{l:"Minuman",e:"🧋",bg:"#D1FAE5"},{l:"Snack",e:"🍟",bg:"#FFFDE7"}];
@@ -2225,10 +2062,7 @@ function rC(r){
 
 // ── HOME ──
 function rHome(){
-  document.getElementById('hCats').innerHTML=CATS.map(c=>`<div class="ci${c.l===mktC?' on':''}" onclick="setCat('${c.l}')">
-      <div class="ci-box" style="background:${c.bg}">${c.e}</div>
-      <div class="ci-lbl">${c.l}</div>
-    </div>`).join('');
+  document.getElementById('hCats').innerHTML=CATS.map(c=>`<div onclick="setCat('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}">${c.l}</div>`).join('');
   const top=[...F].sort((a,b)=>b.s-a.s).slice(0,12);
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   setTimeout(applyFoodPhotos, 50);
@@ -2240,10 +2074,7 @@ function setCat(c){mktC=c;gp('market');}
 // ── MARKET ──
 function rm(){
   const mc=document.getElementById('mktCats');
-  mc.innerHTML=CATS.map(c=>`<div class="ci${c.l===mktC?' on':''}" onclick="setMC('${c.l}')">
-      <div class="ci-box" style="background:${c.bg}">${c.e}</div>
-      <div class="ci-lbl">${c.l}</div>
-    </div>`).join('');
+  mc.innerHTML=CATS.map(c=>`<div onclick="setMC('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}"> ${c.l}</div>`).join('');
   const q=(document.getElementById('mktS')?.value||'').toLowerCase();
   const fl=F.filter(f=>{
     const cm=mktC==='Semua'||f.cat===mktC;
@@ -2511,11 +2342,11 @@ function rPromo(){
 // ── DASHBOARD ──
 function rDash(){
   const d=['Sen','Sel','Rab','Kam','Jum','Sab','Min'],v=[680,540,790,650,1200,1450,950],mx=Math.max(...v);
-  document.getElementById('revChart').innerHTML=d.map((x,i)=>`<div class="cc"><div class="cval">${v[i]>=1000?(v[i]/1000).toFixed(1)+'K':v[i]}</div><div class="cbw"><div class="cbar" style="height:${v[i]/mx*100}%;background:${i===5?'#F97316':'#C2410C'}"></div></div><div class="clbl">${x}</div></div>`).join('');
+  document.getElementById('revChart').innerHTML=d.map((x,i)=>`<div class="cc"><div class="cval">${v[i]>=1000?(v[i]/1000).toFixed(1)+'K':v[i]}</div><div class="cbw"><div class="cbar" style="height:${v[i]/mx*100}%;background:${i===5?'#F97316':'#FB923C'}"></div></div><div class="clbl">${x}</div></div>`).join('');
   const m=[{n:"Es Teh Manis",p:82,s:201},{n:"Ayam Geprek Spesial",p:70,s:127},{n:"Nasi Uduk Komplit",p:54,s:98},{n:"Ayam Bakar Madu",p:42,s:76},{n:"Pisang Goreng Crispy",p:36,s:59}];
-  document.getElementById('topMenus').innerHTML=m.map((x,i)=>`<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px"><span style="font-weight:600">${['🥇','🥈','🥉','4️⃣','5️⃣'][i]} ${x.n}</span><span style="color:#6B7280">${x.s} porsi</span></div><div class="pt"><div class="pf" style="width:${x.p}%;background:${i===0?'#F97316':i===1?'#C2410C':'#FED7AA'}"></div></div></div>`).join('');
+  document.getElementById('topMenus').innerHTML=m.map((x,i)=>`<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px"><span style="font-weight:600">${['🥇','🥈','🥉','4️⃣','5️⃣'][i]} ${x.n}</span><span style="color:#6B7280">${x.s} porsi</span></div><div class="pt"><div class="pf" style="width:${x.p}%;background:${i===0?'#F97316':i===1?'#FB923C':'#FED7AA'}"></div></div></div>`).join('');
   const hr=['07','08','09','10','11','12','13','14','15','16','17','18','19','20'],hv=[4,6,5,3,15,38,32,18,10,12,26,40,30,16],hm=Math.max(...hv);
-  document.getElementById('hourChart').innerHTML=hr.map((h,i)=>`<div class="cc"><div class="cbw" style="height:95px"><div class="cbar" style="height:${hv[i]/hm*100}%;background:${hv[i]===hm?'#F97316':hv[i]>20?'#C2410C':'#F0E6D3'}"></div></div><div class="clbl">${h}</div></div>`).join('');
+  document.getElementById('hourChart').innerHTML=hr.map((h,i)=>`<div class="cc"><div class="cbw" style="height:95px"><div class="cbar" style="height:${hv[i]/hm*100}%;background:${hv[i]===hm?'#F97316':hv[i]>20?'#FB923C':'#F0E6D3'}"></div></div><div class="clbl">${h}</div></div>`).join('');
   let cnt=34;const iv=setInterval(()=>{if(cp!=='dashboard'){clearInterval(iv);return;}if(Math.random()>.65){cnt++;const el=document.getElementById('liveOC');if(el)el.textContent=cnt;}},3500);
 }
 
@@ -3309,7 +3140,7 @@ function rChefprofile(){
     const foods=F.filter(f=>f.rId===r.id);
     const topFood=foods.sort((a,b)=>b.s-a.s)[0];
     return `<div class="card" style="overflow:hidden;padding:0">
-      <div style="height:80px;background:linear-gradient(135deg,#F97316,#C2410C);display:flex;align-items:center;padding:0 20px;gap:14px">
+      <div style="height:80px;background:linear-gradient(135deg,#F97316,#FB923C);display:flex;align-items:center;padding:0 20px;gap:14px">
         <div style="font-size:48px">${r.e}</div>
         <div>
           <div style="font-size:16px;font-weight:700;color:#fff">${r.n}</div>
@@ -4236,69 +4067,33 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   setTimeout(init,500);setTimeout(init,1500);
 })();
 </script>
+
 <script>
-// Flash Sale countdown
-(function(){
-  var end=new Date(); end.setHours(end.getHours()+5,30,0,0);
-  function tick(){
-    var d=end-new Date(); if(d<0)d=0;
-    var h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);
-    var el=document.getElementById('flashTimer');
-    if(el)el.textContent=(h<10?'0'+h:h)+':'+(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
-  }
-  setInterval(tick,1000);tick();
-})();
-// Touch swipe
-(function(){
-  function en(el){if(!el||el._sw)return;el._sw=true;var sx,sy,sl;el.addEventListener('touchstart',function(e){sx=e.touches[0].pageX;sy=e.touches[0].pageY;sl=el.scrollLeft;},{passive:true});el.addEventListener('touchmove',function(e){var dx=e.touches[0].pageX-sx,dy=e.touches[0].pageY-sy;if(Math.abs(dx)>Math.abs(dy))el.scrollLeft=sl-dx;},{passive:true});}
-  function init(){document.querySelectorAll('.swipe-row,.cat-scrl,.rscrl,[style*="overflow-x:auto"]').forEach(en);}
-  document.addEventListener('DOMContentLoaded',init);setTimeout(init,600);setTimeout(init,1600);
-})();</script>
-<script>
-// Reliable horizontal scroll for all swipe sections
-(function(){
-  var isScrolling=false, startX=0, startY=0, scrollEl=null, startSL=0;
-  
-  function getScrollParent(el){
-    while(el && el!==document.body){
-      var style=window.getComputedStyle(el);
-      var overflow=style.overflowX;
-      if((overflow==='auto'||overflow==='scroll') && el.scrollWidth>el.clientWidth+5){
-        return el;
-      }
-      el=el.parentElement;
-    }
-    return null;
-  }
-  
-  document.addEventListener('touchstart',function(e){
-    scrollEl=getScrollParent(e.target);
-    if(scrollEl){
-      startX=e.touches[0].clientX;
-      startY=e.touches[0].clientY;
-      startSL=scrollEl.scrollLeft;
-      isScrolling=true;
-    } else {
-      isScrolling=false;
-    }
-  },{passive:true});
-  
-  document.addEventListener('touchmove',function(e){
-    if(!isScrolling||!scrollEl) return;
-    var dx=startX-e.touches[0].clientX;
-    var dy=startY-e.touches[0].clientY;
-    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>3){
-      scrollEl.scrollLeft=startSL+dx;
-      if(Math.abs(dx)>8){e.stopPropagation();}
-    }
-  },{passive:true});
-  
-  document.addEventListener('touchend',function(){
-    isScrolling=false;scrollEl=null;
-  },{passive:true});
-  
-  console.log('DapurKu scroll initialized');
-})();
+// Simple reliable swipe for horizontal sections
+document.addEventListener('DOMContentLoaded', function(){
+  var els = document.querySelectorAll('.cat-scrl, .rscrl, #promoScroll');
+  els.forEach(function(el){
+    var sx=0, sl=0;
+    el.addEventListener('touchstart', function(e){
+      sx = e.touches[0].clientX;
+      sl = el.scrollLeft;
+    }, {passive:true});
+    el.addEventListener('touchmove', function(e){
+      var dx = sx - e.touches[0].clientX;
+      el.scrollLeft = sl + dx;
+    }, {passive:true});
+  });
+  // Also for dynamically added elements
+  setTimeout(function(){
+    document.querySelectorAll('.cat-scrl, .rscrl, #promoScroll').forEach(function(el){
+      if(el._sw) return; el._sw=1;
+      var sx=0,sl=0;
+      el.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sl=el.scrollLeft;},{passive:true});
+      el.addEventListener('touchmove',function(e){el.scrollLeft=sl+(sx-e.touches[0].clientX);},{passive:true});
+    });
+  }, 1000);
+});
 </script>
+
 </body>
 </html>

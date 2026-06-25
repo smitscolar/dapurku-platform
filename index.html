@@ -1559,8 +1559,8 @@ function fC(f){
 // ── RESTO CARD ──
 function rC(r){
   return `<div class="rc" onclick="openRD(${r.id})">
-    <div class="rc-img" style="background:${r.bg}">
-      ${r.e}
+    <div class="rc-img" style="background:${(()=>{const _rp=localStorage.getItem('dk_rimg_'+r.id);return _rp?'#000':r.bg;})()}">
+      ${(()=>{const _rp=localStorage.getItem('dk_rimg_'+r.id);return _rp?'<img src="'+_rp+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">':r.e;})()}
       ${r.b?`<span class="rc-badge ${r.b==='Terlaris'||r.b==='Favorit'?'rc-b-gn':'rc-b-or'}">${r.b}</span>`:''}
       ${r.pr?`<span class="rc-promo">🎁 ${r.pr}</span>`:''}
       ${!r.op?`<div class="rc-closed"><div class="rc-closed-pill">Tutup</div></div>`:''}
@@ -1612,7 +1612,7 @@ function rRestos(){
       onmouseleave="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,.08)'"
       onclick="openRD(${r.id})">
       <div style="height:108px;display:flex;align-items:center;justify-content:center;font-size:52px;background:${r.bg};position:relative">
-        ${r.e}
+        ${(()=>{const _rp=localStorage.getItem('dk_rimg_'+r.id);return _rp?'<img src="'+_rp+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">':r.e;})()}
         ${r.b?`<span style="position:absolute;top:8px;left:8px;background:${r.b==='Terlaris'||r.b==='Favorit'?'#1B5E20':'#E65100'};color:#fff;font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:99px">${r.b}</span>`:''}
         ${r.pr?`<span style="position:absolute;bottom:8px;left:8px;background:#E8F5E9;color:#1B5E20;font-size:9.5px;font-weight:700;padding:2px 9px;border-radius:99px">🎁 ${r.pr}</span>`:''}
         ${!r.op?`<div style="position:absolute;inset:0;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center"><span style="background:#fff;color:#DC2626;font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:99px">Tutup</span></div>`:''}
@@ -1633,7 +1633,7 @@ function openRD(rid){
   document.getElementById('rdC').innerHTML=`
     <button class="backbtn" onclick="gp('restos')">← Kembali ke Daftar Dapur</button>
     <div style="background:#fff;border-bottom:1px solid #E5E7EB;margin-bottom:18px">
-      <div style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:${r.bg}">${r.e}</div>
+      <div style="height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:${(()=>{const _rp=localStorage.getItem('dk_rimg_'+r.id);return _rp?'#000':r.bg;})()}">${(()=>{const _rp=localStorage.getItem('dk_rimg_'+r.id);return _rp?'<img src="'+_rp+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">':r.e;})()}</div>
       <div style="padding:16px 22px">
         <div style="font-size:22px;font-weight:700;margin-bottom:5px;color:#111827">${r.n}</div>
         <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px">

@@ -399,17 +399,25 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ FOOD GRID — GoFood Style ══ */
 .fg{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;padding:0 10px 14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 10px 14px;
+  width:100%;
+  box-sizing:border-box;
 }
+
 /* Food Card */
 .fc{
-  background:var(--white);border-radius:18px;
-  overflow:hidden;border:1px solid var(--border);
-  cursor:pointer;transition:transform .2s,box-shadow .2s;
-  box-shadow:var(--sh1);
+  background:#fff;border-radius:14px;
+  overflow:hidden;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  width:calc(50% - 4px);
+  min-width:0;
+  box-sizing:border-box;
+  flex-shrink:0;
 }
+
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
 .fc-img{
@@ -851,6 +859,17 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .fc-img { height: 120px !important; }
   .fc-name { font-size: 12px !important; }
   .fc-price { font-size: 13px !important; }
+}
+
+/* Mobile food cards - 2 per row exact */
+@media(max-width:600px){
+  .fg{ padding:0 10px 14px !important; gap:8px !important; }
+  .fc{ width:calc(50% - 4px) !important; }
+  .fc-img{ height:115px !important; }
+  .fc-name{ font-size:11px !important; }
+  .fc-price{ font-size:13px !important; }
+  .fc-body{ padding:7px 8px 8px !important; }
+  .atc{ width:28px !important; height:28px !important; font-size:16px !important; }
 }
 </style>
 </head>

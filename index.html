@@ -1592,7 +1592,7 @@ function renderSponsorBanner(){
   var el=document.getElementById('sponsorBanner');
   if(!el)return;
   el.innerHTML=SPONSORS.map(function(sp){
-    var clickFn=sp.rId?'openRD('+sp.rId+')':'toast(''+sp.cta+'!','ts')';
+    var clickFn=sp.rId?'openRD('+sp.rId+')':"toast('Promo!','ts')";
     var img=sp.rId?localStorage.getItem('dk_rimg_'+sp.rId):null;
     return '<div class="pcard" style="background:'+sp.bg+'" onclick="'+clickFn+'">'
       +'<div style="position:absolute;top:10px;left:12px">'
@@ -1616,7 +1616,7 @@ function renderLiveSection(){
   el.innerHTML=LIVE_NOW.map(function(lv){
     var rst=R.find(function(r){return r.id===lv.rId;})||{n:'Dapur',e:'🍳'};
     var img=localStorage.getItem('dk_rimg_'+lv.rId);
-    return '<div class="live-card" onclick="toast('Bergabung live '+rst.n+'!','ts')">'
+    return '<div class="live-card" onclick="toast(\"Live "+rst.n+"!\",\'ts\')">'  
       +(img?'<img class="live-card-img" src="'+img+'">'
            :'<div style="width:100%;height:90px;background:'+rst.bg+';display:flex;align-items:center;justify-content:center;font-size:36px">'+rst.e+'</div>')
       +'<div class="live-card-overlay">'

@@ -378,24 +378,39 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ FOOD GRID — GoFood Style ══ */
 .fg{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
-  gap:15px;padding:0 22px 20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 10px 14px;
 }
+
 /* Food Card */
 .fc{
-  background:var(--white);border-radius:18px;
-  overflow:hidden;border:1px solid var(--border);
-  cursor:pointer;transition:transform .2s,box-shadow .2s;
-  box-shadow:var(--sh1);
+  width:calc(50% - 4px);
+  flex:0 0 calc(50% - 4px);
+  min-width:0;
+  box-sizing:border-box;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.09);
 }
+
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
 .fc-img{
-  height:136px;display:flex;align-items:center;
-  justify-content:center;font-size:60px;
-  position:relative;overflow:hidden;
+  width:100%;
+  height:110px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  position:relative;
+  overflow:hidden;
+  background:#FEF9F0;
 }
+
 .fc-img::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to top,rgba(0,0,0,.1) 0%,transparent 65%);
@@ -415,21 +430,10 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   box-shadow:var(--sh1);transition:transform .2s;border:none;
 }
 .fc-fav:hover{transform:scale(1.18)}
-.fc-body{padding:12px 13px 14px}
-.fc-name{font-weight:700;font-size:13.5px;margin-bottom:3px;line-height:1.3;color:var(--dark)}
-.fc-shop{font-size:11px;color:var(--mid);margin-bottom:8px;display:flex;align-items:center;gap:4px}
-.fc-bot{display:flex;align-items:flex-end;justify-content:space-between}
-.fc-price{font-weight:700;color:var(--orange);font-size:14px;line-height:1}
-.fc-orig{font-size:10.5px;color:var(--mid2);text-decoration:line-through;margin-top:2px}
-.fc-rat{font-size:10.5px;color:var(--mid);margin-top:6px}
-/* Add to cart button */
-.atc{
-  width:34px;height:34px;border-radius:10px;
-  background:var(--orange);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;line-height:1;flex-shrink:0;border:none;
-  box-shadow:var(--sh-orange);transition:all .2s;
+.fc-body{
+  padding:8px 10px 10px;
 }
+
 .atc:hover{background:var(--orange2);transform:scale(1.08);box-shadow:0 6px 18px rgba(230,81,0,.45)}
 .atc:active{transform:scale(.9)}
 
@@ -771,9 +775,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .qs-l{font-size:9px}
   .hero{padding:18px 16px}
   .hero-name{font-size:19px}
-  .sg{grid-template-columns:repeat(2,1fr);gap:8px}
-  .sc{padding:12px 10px}
-  .sc-v{font-size:20px}
+  .sg{grid-template-columns:repeat(2,1fr)}
   .g2{grid-template-columns:1fr}
   .g3{grid-template-columns:repeat(2,1fr)}
   .g4{grid-template-columns:repeat(2,1fr)}
@@ -790,18 +792,38 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .fg{grid-template-columns:repeat(2,1fr);gap:8px}
   .qsg{grid-template-columns:repeat(2,1fr);gap:8px}
   .pcard{width:185px}
-  .fc-name{font-size:12px}
-  .fc-price{font-size:13px}
-  .fc-body{padding:9px 10px 11px}
-  .sg{grid-template-columns:repeat(2,1fr);gap:8px}
-  .sc{padding:11px 9px}
-  .sc-v{font-size:18px}
-  .sc-l{font-size:9px}
 }
 @media(min-width:1200px){
   :root{--sw:260px}
   .fg{grid-template-columns:repeat(auto-fill,minmax(185px,1fr))}
   .cpnl.open{width:310px}
+}
+
+/* ═══ 2-Col Food Grid Fix ═══ */
+@media(max-width:1200px){
+  .fg{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    padding:0 10px 14px !important;
+  }
+  .fc{
+    width:calc(50% - 4px) !important;
+    flex:0 0 calc(50% - 4px) !important;
+    box-sizing:border-box !important;
+    min-width:0 !important;
+  }
+  .fc-img{height:110px !important}
+  .fc-name{font-size:12px !important}
+  .fc-price{font-size:13px !important}
+  .fc-body{padding:8px 10px 10px !important}
+  .atc{
+    width:28px !important;
+    height:28px !important;
+    font-size:15px !important;
+    border-radius:8px !important;
+    flex-shrink:0 !important;
+  }
 }
 </style>
 </head>

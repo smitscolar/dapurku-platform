@@ -35,7 +35,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#F0F2F5;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#F0F2F5;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:clip}
 input,button,select{font-family:inherit;outline:none;border:none}
 button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -779,6 +779,10 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .tw{top:auto;bottom:calc(var(--mob-bot) + 8px);right:12px;left:12px}
   .toast{max-width:100%}
   .hero-pilot{font-size:10px;padding:4px 11px;margin-bottom:9px}
+  #pgFlex{overflow-x:hidden;width:100%}
+  #pgArea{width:100%;min-width:0;overflow-x:hidden}
+  .pg{width:100%;min-width:0}
+  #pmMenuGrid,#pmDapurGrid{grid-template-columns:repeat(2,1fr)!important;gap:10px}
 }
 @media(max-width:480px){
   .fg{grid-template-columns:repeat(2,1fr);gap:8px}
@@ -895,7 +899,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="dtb-btn" id="cartBtnD" onclick="toggleCart()" style="display:none">🛒</div>
   </div>
 
-  <div style="display:flex;flex:1;overflow:hidden">
+  <div id="pgFlex" style="display:flex;flex:1;overflow:hidden">
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">

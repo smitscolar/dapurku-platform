@@ -16,7 +16,7 @@
   /* Orange hangat sebagai warna UTAMA */
   --green:#16A34A;--green2:#15803D;--green3:#22C55E;
   --green-lt:#DCFCE7;--green-mid:#BBF7D0;
-  --orange:#D94833;--orange2:#EA6C0A;--orange3:#C2410C;
+  --orange:#F97316;--orange2:#EA6C0A;--orange3:#C2410C;
   --orange-lt:#FFF7ED;--orange-mid:#FED7AA;
   --gold:#F59E0B;--gold-lt:#FFFBEB;
   --dark:#2D2A26;--dark2:#292524;--dark3:#44403C;
@@ -834,6 +834,68 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 
 .mm-card:hover{transform:translateY(-3px)}
+
+/* ══ LOGIN / SPLASH SCREEN ══ */
+#loginScreen{
+  position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(160deg,#F97316 0%,#EA580C 60%,#C2410C 100%);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 28px;
+  transition:opacity .4s ease;
+}
+#loginScreen.hide{opacity:0;pointer-events:none}
+.ls-logo{
+  width:90px;height:90px;
+  background:rgba(255,255,255,.2);
+  border-radius:24px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:44px;margin-bottom:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,.15);
+  border:2px solid rgba(255,255,255,.3);
+}
+.ls-title{
+  font-size:38px;font-weight:900;color:#fff;
+  letter-spacing:-1px;margin-bottom:6px;
+  font-family:Georgia,serif;
+  text-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.ls-sub{
+  font-size:14px;color:rgba(255,255,255,.85);
+  font-weight:500;margin-bottom:44px;
+  text-align:center;line-height:1.4;
+}
+.ls-btn-main{
+  width:100%;max-width:320px;
+  background:#fff;color:#F97316;
+  border:none;border-radius:16px;
+  padding:16px;font-size:16px;font-weight:800;
+  cursor:pointer;margin-bottom:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.15);
+  letter-spacing:.2px;
+}
+.ls-btn-main:active{transform:scale(.98)}
+.ls-btn-sec{
+  width:100%;max-width:320px;
+  background:rgba(255,255,255,.2);
+  border:2px solid rgba(255,255,255,.4);
+  color:#fff;border-radius:16px;
+  padding:16px;font-size:16px;font-weight:700;
+  cursor:pointer;margin-bottom:24px;
+  letter-spacing:.2px;
+}
+.ls-btn-sec:active{background:rgba(255,255,255,.3)}
+.ls-guest{
+  font-size:14px;color:rgba(255,255,255,.8);
+  cursor:pointer;font-weight:600;
+  padding:8px 16px;
+  border-bottom:1px solid rgba(255,255,255,.4);
+  margin-bottom:28px;
+}
+.ls-demo{
+  font-size:11px;color:rgba(255,255,255,.6);
+  text-align:center;line-height:1.6;max-width:280px;
+}
 </style>
 </head>
 <body>
@@ -1012,14 +1074,14 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div style="padding:8px 14px 2px;font-size:15px;font-weight:800;color:#111827">Kategori</div>
   <div class="cat-scrl swipe-row" id="hCats" style="padding:6px 12px 10px"></div>
   <!-- DAPAY WALLET CARD FINAL -->
-  <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#D94833,#B83022);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
+  <div onclick="gp('wallet')" style="margin:6px 12px 10px;background:linear-gradient(135deg,#F97316,#EA580C);border-radius:18px;padding:14px;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(234,88,12,.3)">
     <p style="margin:0 0 3px;font-size:9px;font-weight:700;opacity:.85">💳 DAPAY · Saldo Aktif</p>
     <p style="margin:0 0 3px;font-size:26px;font-weight:900;letter-spacing:-.5px">Rp 85.000</p>
     <p style="margin:0 0 10px;font-size:9px;opacity:.7">Digital payment DapurKu</p>
     <p style="margin:0;background:#B83022;color:#FFFFFF;border-radius:8px;padding:8px;font-size:13px;font-weight:900;text-align:center">⬆ Top Up Saldo DAPAY</p>
   </div> <!-- STATS 4-COL VW -->
   <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;flex-wrap:nowrap;gap:5px;padding:0 12px;margin-bottom:12px">
-    <div onclick="gp('market')" style="flex:0 0 calc(22vw);background:#FFF7ED;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #D94833;min-width:72px">
+    <div onclick="gp('market')" style="flex:0 0 calc(22vw);background:#FFF7ED;border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;border-top:3px solid #F97316;min-width:72px">
       <div style="font-size:16px;line-height:1.3">🍽️</div>
       <div style="font-size:12px;font-weight:800;color:#B83022;line-height:1.3" id="totM">24</div>
       <div style="font-size:8px;color:#9A3412;font-weight:700">Menu</div>
@@ -4146,5 +4208,25 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   function init(){document.querySelectorAll('.swipe-row,.cat-scrl,.rscrl,[style*="overflow-x:auto"]').forEach(en);}
   document.addEventListener('DOMContentLoaded',init);setTimeout(init,600);setTimeout(init,1600);
 })();</script>
+<script>
+// Login Screen Logic
+function doLogin(mode){
+  var ls=document.getElementById('loginScreen');
+  ls.classList.add('hide');
+  setTimeout(function(){ls.style.display='none';},420);
+  sessionStorage.setItem('dk_logged','1');
+  if(mode==='dapur'){
+    var b=document.querySelector('.mtbbtn:last-child');
+    if(b)b.click();
+  }
+}
+// Check if already logged in
+(function(){
+  if(sessionStorage.getItem('dk_logged')){
+    var ls=document.getElementById('loginScreen');
+    if(ls)ls.style.display='none';
+  }
+})();
+</script>
 </body>
 </html>

@@ -1322,7 +1322,7 @@ let MYMENU=[{id:1,n:"Ayam Geprek Spesial",cat:"Ayam & Bebek",p:22000,e:"🍗",st
 {id:5,n:"Jus Alpukat",cat:"Minuman",p:15000,e:"🥑",st:"Nonaktif",s:55}];
 INC.forEach(o=>inSt[o.id]=o.st);
 
-const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰",photomgr:"Photo Manager 📸"};
+const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰"};
 
 // ── NAV ──
 function gp(id){
@@ -1334,7 +1334,7 @@ function gp(id){
     if(n.getAttribute('onclick')?.includes("'"+id+"'"))n.classList.add('on');
   });
   cp=id;
-  if(id==='photomgr')setTimeout(()=>{if(typeof pmRender==='function')pmRender('menu');},100);
+  if(id==='photomgr')setTimeout(()=>pmRender('menu'),80);
   const tt=PGTT[id]||id;
   document.getElementById('dtbT').textContent=tt;
   // Mobile bottom nav highlight
@@ -1859,6 +1859,77 @@ setTimeout(()=>toast('🔔 Pesanan baru: Ayam Geprek ×2 dari Budi S.','ti'),600
 setTimeout(()=>toast('💰 Omzet hari ini sudah Rp 1,2 juta! 🎉','ts'),14000);
 setTimeout(()=>toast('⚠️ Stok cabe merah menipis — 2 kg tersisa','ti'),22000);
 setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
+
+// ══ PHOTO MANAGER ══
+let pmCurrent={type:'menu',id:null};
+function pmSwitch(t){
+  pmCurrent.type=t;
+  document.getElementById('pmMenu').style.display=t==='menu'?'':'none';
+  document.getElementById('pmDapur').style.display=t==='dapur'?'':'none';
+  document.getElementById('pmTab1').className='btn btn-sm '+(t==='menu'?'btn-p':'btn-o');
+  document.getElementById('pmTab2').className='btn btn-sm '+(t==='dapur'?'btn-p':'btn-o');
+  pmRender(t);
+}
+function pmRender(t){
+  if(t==='menu'){
+    const grid=document.getElementById('pmMenuGrid');if(!grid)return;
+    grid.innerHTML=F.map(function(f){
+      var img=localStorage.getItem('dk_fimg_'+f.id);
+      var rst=R.find(function(r){return r.id===f.rId;});
+      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
+        +'<div style="height:110px;background:'+(img?'#f0f0f0':f.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
+        +(img?('<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
+            +'<button onclick="pmDelete(\'menu\','+f.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2">×</button>')
+          :f.e)
+        +'</div>'
+        +'<div style="padding:9px 10px">'
+        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+f.n+'</div>'
+        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+(rst?rst.n:'')+'</div>'
+        +'<button onclick="pmPick(\'menu\','+f.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'&#128257; Ganti':'&#128247; Upload')+'</button>'
+        +'</div></div>';
+    }).join('');
+  } else {
+    var grid2=document.getElementById('pmDapurGrid');if(!grid2)return;
+    grid2.innerHTML=R.map(function(r){
+      var img=localStorage.getItem('dk_rimg_'+r.id);
+      return '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--sh1)">'
+        +'<div style="height:110px;background:'+(img?'#f0f0f0':r.bg)+';display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;overflow:hidden">'
+        +(img?('<img src="'+img+'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">'
+            +'<button onclick="pmDelete(\'dapur\','+r.id+')" style="position:absolute;top:5px;right:5px;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:50%;width:26px;height:26px;font-size:14px;cursor:pointer;z-index:2">×</button>')
+          :r.e)
+        +'</div>'
+        +'<div style="padding:9px 10px">'
+        +'<div style="font-size:12px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:2px">'+r.n+'</div>'
+        +'<div style="font-size:10.5px;color:var(--mid);margin-bottom:8px">'+r.cat+' &#183; '+r.tm+' menit</div>'
+        +'<button onclick="pmPick(\'dapur\','+r.id+')" class="btn btn-g btn-sm btn-full" style="font-size:11.5px">'+(img?'&#128257; Ganti':'&#128247; Upload')+'</button>'
+        +'</div></div>';
+    }).join('');
+  }
+}
+function pmPick(type,id){pmCurrent={type:type,id:id};document.getElementById('pmFileInput').click();}
+function pmHandleFile(e){
+  var file=e.target.files[0];if(!file)return;
+  if(file.size>5*1024*1024){toast('Foto max 5MB!','te');return;}
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    var key=pmCurrent.type==='menu'?'dk_fimg_':'dk_rimg_';
+    localStorage.setItem(key+pmCurrent.id,ev.target.result);
+    pmRender(pmCurrent.type);
+    toast('Foto berhasil diupload!','ts');
+    if(cp==='home')rHome();
+    if(cp==='market')rm();
+  };
+  reader.readAsDataURL(file);
+  e.target.value='';
+}
+function pmDelete(type,id){
+  localStorage.removeItem((type==='menu'?'dk_fimg_':'dk_rimg_')+id);
+  pmRender(type);
+  toast('Foto dihapus','ti');
+  if(cp==='home')rHome();
+  if(cp==='market')rm();
+}
+
 </script>
 </body>
 </html>

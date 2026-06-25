@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { margin: 0; font-family: sans-serif; }
+
+/* Test 1: Pure CSS only */
+.test1 {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  background: #fee;
+}
+
+/* Test 2: With touch-action */
+.test2 {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  padding: 10px;
+  background: #efe;
+}
+
+/* Test 3: Inside overflow-y:scroll parent (same as DapurKu) */
+.parent {
+  height: 200px;
+  overflow-y: scroll;
+  touch-action: pan-y;
+  background: #eef;
+  padding: 10px;
+}
+.test3 {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  padding: 10px;
+  background: #ff9;
+}
+
+.box {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  background: #4CAF50;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h3>Test 1: Pure CSS scroll</h3>
+<div class="test1">
+  <div class="box">Card 1</div>
+  <div class="box">Card 2</div>
+  <div class="box">Card 3</div>
+  <div class="box">Card 4</div>
+  <div class="box">Card 5</div>
+  <div class="box">Card 6</div>
+</div>
+
+<h3>Test 2: CSS + touch-action:pan-x</h3>
+<div class="test2">
+  <div class="box">Card 1</div>
+  <div class="box">Card 2</div>
+  <div class="box">Card 3</div>
+  <div class="box">Card 4</div>
+  <div class="box">Card 5</div>
+  <div class="box">Card 6</div>
+</div>
+
+<h3>Test 3: Inside overflow-y:scroll parent</h3>
+<div class="parent">
+  <p>Parent scrolls vertical</p>
+  <div class="test3">
+    <div class="box">Card 1</div>
+    <div class="box">Card 2</div>
+    <div class="box">Card 3</div>
+    <div class="box">Card 4</div>
+    <div class="box">Card 5</div>
+    <div class="box">Card 6</div>
+  </div>
+</div>
+
+</body>
+</html>

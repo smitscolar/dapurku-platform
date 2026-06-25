@@ -378,16 +378,14 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
 /* ══ FOOD GRID — GoFood Style ══ */
 .fg{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
   gap:8px;
   padding:0 10px 14px;
 }
 
 /* Food Card */
 .fc{
-  width:calc(50% - 4px);
-  flex:0 0 calc(50% - 4px);
   min-width:0;
   box-sizing:border-box;
   background:#fff;
@@ -395,7 +393,9 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   overflow:hidden;
   cursor:pointer;
   box-shadow:0 1px 4px rgba(0,0,0,.09);
+  border:1px solid rgba(0,0,0,.04);
 }
+
 
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
@@ -760,7 +760,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .main{margin-left:0;padding-top:var(--mob-top)}
   .cpnl{display:none}
   .cfab{display:flex}
-  .fg{grid-template-columns:repeat(2,1fr);gap:10px;padding:0 14px 16px}
+  .fg{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px;padding:0 10px 14px}
   .fc-img{height:112px;font-size:48px}
   .pscrl{padding:12px 14px}
   .pcard{width:200px;height:92px}
@@ -789,42 +789,37 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   #pmMenuGrid,#pmDapurGrid{grid-template-columns:repeat(2,1fr)!important;gap:10px}
 }
 @media(max-width:480px){
-  .fg{grid-template-columns:repeat(2,1fr);gap:8px}
+  .fg{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px}
   .qsg{grid-template-columns:repeat(2,1fr);gap:8px}
   .pcard{width:185px}
 }
 @media(min-width:1200px){
   :root{--sw:260px}
-  .fg{grid-template-columns:repeat(auto-fill,minmax(185px,1fr))}
+  .fg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
   .cpnl.open{width:310px}
 }
 
 /* ═══ 2-Col Food Grid Fix ═══ */
 @media(max-width:1200px){
   .fg{
-    display:flex !important;
-    flex-wrap:wrap !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
     gap:8px !important;
     padding:0 10px 14px !important;
   }
   .fc{
-    width:calc(50% - 4px) !important;
-    flex:0 0 calc(50% - 4px) !important;
-    box-sizing:border-box !important;
     min-width:0 !important;
+    box-sizing:border-box !important;
+    width:100% !important;
+    overflow:hidden !important;
   }
-  .fc-img{height:110px !important}
+  .fc-img{height:110px !important;width:100% !important}
+  .fc-body{padding:8px 10px 10px !important}
   .fc-name{font-size:12px !important}
   .fc-price{font-size:13px !important}
-  .fc-body{padding:8px 10px 10px !important}
-  .atc{
-    width:28px !important;
-    height:28px !important;
-    font-size:15px !important;
-    border-radius:8px !important;
-    flex-shrink:0 !important;
-  }
+  .atc{width:28px !important;height:28px !important;font-size:14px !important}
 }
+
 </style>
 </head>
 <body>

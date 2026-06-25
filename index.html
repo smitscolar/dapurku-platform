@@ -38,7 +38,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FAFAF8;color:var(--dark);-webkit-font-smoothing:antialiased;;overflow-x:clip}
+body{font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;background:#FAFAF8;color:var(--dark);-webkit-font-smoothing:antialiased;}
 input,button,select{font-family:inherit;outline:none;border:none}
 button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -918,8 +918,8 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   /* Mobile food grid - 3 cols */
   .fg{
     grid-template-columns:repeat(2,1fr) !important;
-    gap:10px !important;
-    padding:0 12px 14px !important;
+    gap:6px !important;
+    padding:0 8px 14px !important;
   }
   .fc-img{height:90px !important;font-size:30px !important}
   .fc-name{font-size:10px !important}
@@ -4254,5 +4254,51 @@ setTimeout(()=>toast('🤝 Group Buy Ayam Potong 8/10 bergabung','ti'),32000);
   function init(){document.querySelectorAll('.swipe-row,.cat-scrl,.rscrl,[style*="overflow-x:auto"]').forEach(en);}
   document.addEventListener('DOMContentLoaded',init);setTimeout(init,600);setTimeout(init,1600);
 })();</script>
+<script>
+// Reliable horizontal scroll for all swipe sections
+(function(){
+  var isScrolling=false, startX=0, startY=0, scrollEl=null, startSL=0;
+  
+  function getScrollParent(el){
+    while(el && el!==document.body){
+      var style=window.getComputedStyle(el);
+      var overflow=style.overflowX;
+      if((overflow==='auto'||overflow==='scroll') && el.scrollWidth>el.clientWidth+5){
+        return el;
+      }
+      el=el.parentElement;
+    }
+    return null;
+  }
+  
+  document.addEventListener('touchstart',function(e){
+    scrollEl=getScrollParent(e.target);
+    if(scrollEl){
+      startX=e.touches[0].clientX;
+      startY=e.touches[0].clientY;
+      startSL=scrollEl.scrollLeft;
+      isScrolling=true;
+    } else {
+      isScrolling=false;
+    }
+  },{passive:true});
+  
+  document.addEventListener('touchmove',function(e){
+    if(!isScrolling||!scrollEl) return;
+    var dx=startX-e.touches[0].clientX;
+    var dy=startY-e.touches[0].clientY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>3){
+      scrollEl.scrollLeft=startSL+dx;
+      if(Math.abs(dx)>8){e.stopPropagation();}
+    }
+  },{passive:true});
+  
+  document.addEventListener('touchend',function(){
+    isScrolling=false;scrollEl=null;
+  },{passive:true});
+  
+  console.log('DapurKu scroll initialized');
+})();
+</script>
 </body>
 </html>

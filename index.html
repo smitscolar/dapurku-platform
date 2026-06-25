@@ -342,6 +342,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 .cat-scrl{
   display:flex;gap:9px;padding:0 22px 14px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;
+  touch-action:pan-x;
 }
 .cat-scrl::-webkit-scrollbar{display:none}
 .ci{
@@ -786,6 +787,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .hero-pilot{font-size:10px;padding:4px 11px;margin-bottom:9px}
   #pgFlex{overflow-x:clip;width:100%}
   #pgArea{width:100%;min-width:0;overflow-x:clip}
+  #hCats,#hFlashSale,#hFoods,#hRestos,.rscrl,.pscrl,.cat-scrl{touch-action:pan-x !important;-webkit-overflow-scrolling:touch !important;overflow-x:auto !important}
   .pg{width:100%;min-width:0}
   #pmMenuGrid,#pmDapurGrid{grid-template-columns:repeat(2,1fr)!important;gap:10px}
 }
@@ -993,10 +995,10 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     </div>
   </div>
 
-  <!-- KATEGORI - TALARA style grid 5+5 atau 3+3 -->
-  <div style="background:#fff;padding:12px 14px 10px;margin-bottom:8px">
-    <div style="font-size:14px;font-weight:800;color:#222;margin-bottom:10px">📌 Kategori</div>
-    <div id="hCats" style="display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d"></div>
+  <!-- KATEGORI -->
+  <div style="background:#fff;padding-top:12px;margin-bottom:8px;overflow:visible">
+    <div style="font-size:14px;font-weight:800;color:#222;margin-bottom:10px;padding:0 14px">📌 Kategori</div>
+    <div id="hCats" style="display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 14px 12px;box-sizing:content-box"></div>
   </div>
 
   <!-- STATS - TALARA style compact horizontal -->
@@ -1033,7 +1035,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <span onclick="gp('flashsale')" style="font-size:12px;color:var(--orange);font-weight:700">Lihat Semua ›</span>
     </div>
   </div>
-  <div id="hFlashSale" style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:10px;padding:0 14px 12px" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d"></div>
+  <div id="hFlashSale" style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:10px;padding:0 14px 12px;box-sizing:content-box"></div>
 
   <!-- POPULER - TALARA style dengan 2-col grid -->
   <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua ›</div></div>

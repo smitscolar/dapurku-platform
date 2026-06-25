@@ -403,19 +403,18 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   flex-wrap:wrap;
   gap:8px;
   padding:0 10px 14px;
-  overflow:hidden;
 }
 /* Food Card */
 .fc{
-  flex:0 0 calc(50% - 4px);
-  max-width:calc(50% - 4px);
+  width:calc(50% - 4px);
   min-width:0;
   box-sizing:border-box;
   background:#fff;
   border-radius:14px;
   overflow:hidden;
   cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  box-shadow:0 1px 6px rgba(0,0,0,.09);
+  border:1px solid rgba(0,0,0,.04);
 }
 .fc:hover{transform:translateY(-5px);box-shadow:var(--sh3)}
 .fc:active{transform:scale(.97)}
@@ -874,6 +873,37 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .fc-price{font-size:13px !important}
   .fc-shop{font-size:9px !important}
   .atc{width:28px !important;height:28px !important;font-size:15px !important;border-radius:8px !important}
+}
+
+/* ── Mobile Final Fix ── */
+@media(max-width:900px){
+  .fg{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    padding:0 10px 14px !important;
+  }
+  .fc{
+    width:calc(50% - 4px) !important;
+    box-sizing:border-box !important;
+    min-width:0 !important;
+  }
+  .fc-img{
+    height:115px !important;
+    width:100% !important;
+  }
+  .fc-body{padding:8px 9px 10px !important}
+  .fc-name{font-size:11px !important;margin-bottom:2px !important}
+  .fc-shop{font-size:9px !important}
+  .fc-price{font-size:13px !important}
+  .fc-orig{font-size:9px !important}
+  .atc{
+    width:28px !important;
+    height:28px !important;
+    font-size:15px !important;
+    border-radius:8px !important;
+    flex-shrink:0 !important;
+  }
 }
 </style>
 </head>
@@ -2086,7 +2116,7 @@ function rC(r){
 // ── HOME ──
 function rHome(){
   document.getElementById('hCats').innerHTML=CATS.map(c=>`<div onclick="setCat('${c.l}')" class="swipe-pill${c.l===mktC?' active':''}">${c.l}</div>`).join('');
-  const top=[...F].sort((a,b)=>b.s-a.s).slice(0,12);
+  const top=[...F].sort((a,b)=>b.s-a.s).slice(0,8);
   document.getElementById('hFoods').innerHTML=top.map(fC).join('');
   setTimeout(applyFoodPhotos, 50);
   document.getElementById('hRestos').innerHTML=R.slice(0,6).map(rC).join('');

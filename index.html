@@ -1130,16 +1130,15 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
-  <div class="hero" style="padding:14px 16px 18px">
-    <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
-    <div style="font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px">Selamat datang,</div>
-    <div class="hero-name" id="heroN" style="font-size:22px;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-.3px">Budi Santoso 👋</div>
-    <div class="hero-search">
-      <span class="hs-ic">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
+  <div class="hero" style="padding:8px 14px 12px">
+    <div class="hero-pilot" style="font-size:9px;padding:3px 10px;margin-bottom:5px">🏆 PILOT BATAM · 50 Dapur · 524 Transaksi · ⭐ 4.7/5</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.85);margin-bottom:0px">Selamat datang,</div>
+    <div class="hero-name" id="heroN" style="font-size:18px;font-weight:900;color:#fff;margin-bottom:8px">Budi Santoso 👋</div>
+    <div class="hero-search" style="padding:7px 12px">
+      <span class="hs-ic" style="font-size:13px;margin-right:6px">🔍</span>
+      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()" style="font-size:12px">
     </div>
-  </div></div>
-  <!-- PROMO SCROLL SEMUA BISA GESER -->
+  </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
   <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
     <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="flex:0 0 calc(50vw - 18px);min-width:145px;background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;position:relative;overflow:hidden">
       <div style="position:absolute;top:-8px;right:-8px;font-size:38px;opacity:.25">🍗</div>
@@ -1205,42 +1204,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua</div></div>
   <div class="rscrl" id="hRestos"></div>
   <!-- GROUP BUY BAHAN -->
-  <div class="shr"><div class="st">🤝 Group Buy Bahan</div><div class="sa" onclick="gp('groupbuy')">Lihat semua</div></div>
-  <div style="padding:0 12px 8px">
-    <div onclick="gp('groupbuy')" style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:8px;cursor:pointer;border:1px solid rgba(45,42,38,.06)">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div>
-    <div onclick="gp('groupbuy')" style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:8px;cursor:pointer;border:1px solid rgba(45,42,38,.06)">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div><div style="font-size:13px;font-weight:800;color:#2D2A26">Ayam Potong 10kg</div><div style="font-size:10px;color:#9CA3AF;margin-top:1px">19/25 peserta bergabung</div></div>
-        <span style="background:#FEF2F2;color:#F97316;border-radius:6px;padding:3px 8px;font-size:10px;font-weight:700">76%</span>
-      </div>
-      <div style="background:#F3F1ED;border-radius:10px;height:6px;overflow:hidden;margin-bottom:5px"><div style="width:76%;height:100%;background:linear-gradient(90deg,#F97316,#FF6B4A);border-radius:10px"></div></div>
-      <div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:16px;font-weight:900;color:#F97316">Rp 266.000</span><span style="font-size:11px;color:#9CA3AF;text-decoration:line-through">Rp 380.000</span></div>
-    </div>
-    <div onclick="gp('groupbuy')" style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);cursor:pointer;border:1px solid rgba(45,42,38,.06)">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div><div style="font-size:13px;font-weight:800;color:#2D2A26">Minyak Goreng 20L</div><div style="font-size:10px;color:#9CA3AF;margin-top:1px">11/15 peserta bergabung</div></div>
-        <span style="background:#FEF2F2;color:#F97316;border-radius:6px;padding:3px 8px;font-size:10px;font-weight:700">73%</span>
-      </div>
-      <div style="background:#F3F1ED;border-radius:10px;height:6px;overflow:hidden;margin-bottom:5px"><div style="width:73%;height:100%;background:linear-gradient(90deg,#F97316,#FF6B4A);border-radius:10px"></div></div>
-      <div style="display:flex;align-items:baseline;gap:6px"><span style="font-size:16px;font-weight:900;color:#F97316">Rp 294.000</span><span style="font-size:11px;color:#9CA3AF;text-decoration:line-through">Rp 420.000</span></div>
-    </div>
-  </div>
-  <!-- CTA DAPUR UMKM -->
-  <div style="background:linear-gradient(135deg,#2D2A26,#1C1917);color:#fff;padding:22px 16px;margin-top:10px">
-    <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.6px;margin-bottom:6px">UNTUK PEMILIK DAPUR</div>
-    <div style="font-size:17px;font-weight:900;line-height:1.3;margin-bottom:5px">Buka Mode Dapur.<br>Lihat angkamu hari ini.</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.65);margin-bottom:14px;line-height:1.5">Dashboard real-time, AI Advisor, dan leaderboard pilot Batam — semua dalam satu tempat.</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-      <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:9px;text-align:center;border:1px solid rgba(255,255,255,.12)"><div style="font-size:17px;font-weight:900">5–8%</div><div style="font-size:8px;color:rgba(255,255,255,.6);font-weight:700;margin-top:1px">KOMISI</div></div>
-      <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:9px;text-align:center;border:1px solid rgba(255,255,255,.12)"><div style="font-size:17px;font-weight:900">30 mnt</div><div style="font-size:8px;color:rgba(255,255,255,.6);font-weight:700;margin-top:1px">ONBOARDING</div></div>
-      <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:9px;text-align:center;border:1px solid rgba(255,255,255,.12)"><div style="font-size:17px;font-weight:900">-40%</div><div style="font-size:8px;color:rgba(255,255,255,.6);font-weight:700;margin-top:1px">GROUP BUY</div></div>
-      <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:9px;text-align:center;border:1px solid rgba(255,255,255,.12)"><div style="font-size:17px;font-weight:900">Paylater</div><div style="font-size:8px;color:rgba(255,255,255,.6);font-weight:700;margin-top:1px">TANPA AGUNAN</div></div>
-    </div>
-    <button onclick="gp('dapur')" style="width:100%;background:#fff;color:#F97316;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;cursor:pointer">Buka Dashboard Dapur →</button>
-  </div>
-  <div style="height:24px"></div>
+    <div style="height:24px"></div>
 </div>
 
 <!-- ══ MARKET ══ -->
@@ -2005,7 +1969,217 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div class="mni" onclick="gp('restos')" id="mnRst"><div class="mni-ic">🏪</div><div class="mni-lbl">Dapur</div></div>
     <div class="mni" onclick="gp('myorders')" id="mnOrd"><div class="mni-ic">📦</div><div class="mni-lbl">Pesanan</div><span class="mni-badge" id="mnBdg">2</span></div>
     <div class="mni" onclick="gp('wallet')" id="mnWlt"><div class="mni-ic">💳</div><div class="mni-lbl">Dompet</div></div>
-    <div class="mni" onclick="gp('profile')" id="mnProf"><div class="mni-ic">👤</div>
+    <div class="mni" onclick="gp('profile')" id="mnProf"><div class="mni-ic">👤</div><div class="mni-lbl">Profil</div></div>
+  </div>
+</div>
+
+<!-- ══ MOBILE CART FAB ══ -->
+<button class="cfab" id="cFab" onclick="toggleCart()">🛒 Keranjang <span class="cfab-c" id="cFabC">0</span></button>
+
+<script>
+const R=[
+  {id:1,n:"Geprek Bu Sari",e:"🍗",bg:"#FEF3E2",cat:"Ayam Geprek",rt:4.9,rv:312,tm:"15-25",mo:15000,d:"0.8 km",b:"Terlaris",pr:"Diskon 25%",op:true,ds:"Geprek pedas mantap, level 1-10. Sudah 2 tahun jadi langganan warga Batam.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop&q=80"},
+  {id:2,n:"Nasi Uduk Mbak Ani",e:"🍚",bg:"#FFF8E7",cat:"Nasi & Lauk",rt:4.8,rv:189,tm:"10-20",mo:12000,d:"1.1 km",b:"Buka Pagi",pr:"Gratis es teh",op:true,ds:"Nasi uduk pulen dengan lauk pilihan, buka dari jam 06.00 pagi. Sarapan favorit warga.",loc:"Nagoya",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop&q=80"},
+  {id:3,n:"Dapur Pak Budi",e:"🍜",bg:"#F0F4FF",cat:"Mie & Nasi Goreng",rt:4.8,rv:248,tm:"12-22",mo:12000,d:"1.4 km",b:"",pr:"",op:true,ds:"Mie goreng dan nasi goreng kampung dengan bumbu rahasia. Porsi besar, harga ramah.",loc:"Sei Beduk",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop&q=80"},
+  {id:4,n:"Minuman Pak Eko",e:"🧋",bg:"#F0FFF4",cat:"Minuman & Jus",rt:4.9,rv:401,tm:"5-15",mo:7000,d:"0.6 km",b:"Tercepat",pr:"Beli 2 gratis 1",op:true,ds:"Jus buah segar, boba, dan minuman dingin. Dibuat fresh setiap pesanan.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop&q=80"},
+  {id:5,n:"Sate Pak Maman",e:"🍢",bg:"#FFF0F0",cat:"Sate & Bakar",rt:4.8,rv:156,tm:"20-35",mo:24500,d:"2.1 km",b:"",pr:"",op:true,ds:"Sate kambing dan sate ayam dengan bumbu kacang khas. Dibakar langsung saat pesan.",loc:"Batu Aji",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop&q=80"},
+  {id:6,n:"BBQ Bu Tini",e:"🐟",bg:"#F0F9FF",cat:"Bakar & BBQ",rt:4.8,rv:133,tm:"25-40",mo:28000,d:"1.8 km",b:"",pr:"",op:true,ds:"Ayam dan ikan bakar dengan bumbu khas. Cocok untuk makan malam keluarga.",loc:"Nongsa",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop&q=80"},
+  {id:7,n:"Pecel Bu Lastri",e:"🥗",bg:"#F0FDF4",cat:"Sayuran & Sehat",rt:4.9,rv:178,tm:"10-20",mo:13000,d:"1.2 km",b:"Sehat",pr:"",op:true,ds:"Pecel, gado-gado, dan soto ayam lamongan. Pilihan sehat untuk makan siang.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&q=80"},
+  {id:8,n:"Snack Bu Dewi",e:"🍟",bg:"#FFFBF0",cat:"Snack & Cemilan",rt:4.7,rv:289,tm:"8-15",mo:8000,d:"0.9 km",b:"",pr:"Diskon 20%",op:true,ds:"Aneka gorengan crispy, keripik, dan snack UMKM lokal Batam.",loc:"Lubuk Baja",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop&q=80"},
+  {id:9,n:"Es Teler Bu Ani",e:"🍧",bg:"#F5F0FF",cat:"Minuman & Dessert",rt:4.7,rv:143,tm:"5-12",mo:8400,d:"1.0 km",b:"",pr:"",op:true,ds:"Es teler, es campur, dan aneka dessert segar. Segar dan terjangkau.",loc:"Batam Centre",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop&q=80"},
+  {id:10,n:"Warung Pak Sabar",e:"🍱",bg:"#FFF5F0",cat:"Masakan Rumahan",rt:4.7,rv:97,tm:"15-25",mo:15000,d:"2.3 km",b:"Tutup",pr:"",op:false,ds:"Masakan rumahan komplit dengan nasi dan lauk pauk. Rasa seperti masakan ibu.",loc:"Tiban",foto:"https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=280&fit=crop&q=80"}
+];
+
+
+const F=[
+  {id:1,n:"Ayam Geprek Spesial",rId:1,p:22000,og:null,e:"🍗",cat:"Ayam",rt:4.9,s:127,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop&q=80"},
+  {id:2,n:"Geprek Level 5 + Nasi",rId:1,p:15000,og:22000,e:"🍗",cat:"Ayam",rt:4.8,s:84,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=400&h=280&fit=crop&q=80"},
+  {id:3,n:"Ayam Geprek Keju",rId:1,p:26000,og:null,e:"🍗",cat:"Ayam",rt:4.7,s:71,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop&q=80"},
+  {id:4,n:"Ayam Geprek Double",rId:1,p:35000,og:40000,e:"🍗",cat:"Ayam",rt:4.8,s:63,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1587574293340-e0011c4e8ecf?w=400&h=280&fit=crop&q=80"},
+  {id:5,n:"Nasi Uduk Komplit",rId:2,p:18000,og:null,e:"🍚",cat:"Nasi",rt:4.8,s:98,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop&q=80"},
+  {id:6,n:"Nasi Uduk Jumbo",rId:2,p:25000,og:28000,e:"🍚",cat:"Nasi",rt:4.7,s:62,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=280&fit=crop&q=80"},
+  {id:7,n:"Mie Goreng Jawa",rId:2,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.6,s:45,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop&q=80"},
+  {id:8,n:"Mie Goreng Seafood",rId:3,p:22000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:143,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400&h=280&fit=crop&q=80"},
+  {id:9,n:"Mie Ayam Bakso",rId:3,p:15000,og:null,e:"🍜",cat:"Mie",rt:4.7,s:89,bg:"#F0F4FF",foto:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=280&fit=crop&q=80"},
+  {id:10,n:"Nasi Goreng Kampung",rId:3,p:12000,og:17000,e:"🍛",cat:"Nasi",rt:4.7,s:156,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=280&fit=crop&q=80"},
+  {id:11,n:"Jus Alpukat Kental",rId:4,p:15000,og:18000,e:"🥑",cat:"Minuman",rt:4.9,s:201,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=280&fit=crop&q=80"},
+  {id:12,n:"Es Teh Manis Jumbo",rId:3,p:7000,og:null,e:"🧊",cat:"Minuman",rt:4.6,s:59,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=280&fit=crop&q=80"},
+  {id:13,n:"Boba Taro Susu",rId:4,p:18000,og:null,e:"🧋",cat:"Minuman",rt:4.8,s:88,bg:"#F0FFF4",foto:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=280&fit=crop&q=80"},
+  {id:14,n:"Ayam Bakar Madu",rId:4,p:28000,og:null,e:"🍖",cat:"Ayam",rt:4.8,s:112,bg:"#FEF3E2",foto:"https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=280&fit=crop&q=80"},
+  {id:15,n:"Ikan Bakar Bumbu Bali",rId:6,p:32000,og:null,e:"🐟",cat:"Lauk",rt:4.8,s:76,bg:"#F0F9FF",foto:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=280&fit=crop&q=80"},
+  {id:16,n:"Tahu Crispy Keju",rId:6,p:10000,og:null,e:"🧀",cat:"Snack",rt:4.7,s:48,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400&h=280&fit=crop&q=80"},
+  {id:17,n:"Pisang Goreng Crispy",rId:8,p:8000,og:null,e:"🍌",cat:"Snack",rt:4.5,s:177,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=280&fit=crop&q=80"},
+  {id:18,n:"Keripik Tempe Balado",rId:8,p:12000,og:15000,e:"🌶️",cat:"Snack",rt:4.7,s:156,bg:"#FFFBF0",foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=280&fit=crop&q=80"},
+  {id:19,n:"Bakso Malang Komplit",rId:7,p:18000,og:null,e:"🍲",cat:"Nasi",rt:4.5,s:203,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=280&fit=crop&q=80"},
+  {id:20,n:"Soto Ayam Lamongan",rId:7,p:16000,og:null,e:"🍵",cat:"Nasi",rt:4.9,s:134,bg:"#FFF8E7",foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop&q=80"},
+  {id:21,n:"Pecel Sayur Lengkap",rId:7,p:13000,og:null,e:"🥗",cat:"Lauk",rt:4.8,s:91,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&q=80"},
+  {id:22,n:"Gado-Gado Jakarta",rId:7,p:14000,og:null,e:"🥜",cat:"Lauk",rt:4.8,s:67,bg:"#F0FDF4",foto:"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=280&fit=crop&q=80"},
+  {id:23,n:"Sate Kambing 10 Tusuk",rId:5,p:24500,og:35000,e:"🍢",cat:"Lauk",rt:4.8,s:89,bg:"#FFF0F0",foto:"https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400&h=280&fit=crop&q=80"},
+  {id:24,n:"Es Teler Spesial",rId:9,p:8400,og:12000,e:"🍧",cat:"Minuman",rt:4.7,s:143,bg:"#F5F0FF",foto:"https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=280&fit=crop&q=80"}
+];
+
+const CATS=[{l:"Semua",e:"🍽️",bg:"#FEF3E2"},{l:"Ayam",e:"🍗",bg:"#FEF3E2"},{l:"Nasi",e:"🍚",bg:"#E8F5E9"},{l:"Mie",e:"🍜",bg:"#DBEAFE"},{l:"Minuman",e:"🧋",bg:"#D1FAE5"},{l:"Snack",e:"🍟",bg:"#FFFDE7"}];
+const GBS=[{n:"Ayam Potong Segar",sup:"CV Ternak Jaya Batam",j:8,t:10,ec:42000,gr:28000,u:"kg",dl:"2 hari",e:"🐔"},
+{n:"Beras Premium",sup:"UD Tani Makmur",j:12,t:15,ec:14000,gr:9500,u:"kg",dl:"1 hari",e:"🌾"},
+{n:"Minyak Goreng 5L",sup:"Distributor Sari Mas",j:5,t:8,ec:22000,gr:15000,u:"botol",dl:"3 hari",e:"🫙"},
+{n:"Cabe Merah Keriting",sup:"Petani Langsung",j:7,t:10,ec:52000,gr:35000,u:"kg",dl:"1 hari",e:"🌶️"},
+{n:"Gas LPG 3kg",sup:"SPBE Resmi",j:14,t:20,ec:23000,gr:16000,u:"tabung",dl:"4 hari",e:"⛽"},
+{n:"Tepung Terigu 25kg",sup:"Distribusindo",j:9,t:12,ec:10500,gr:7200,u:"kg",dl:"2 hari",e:"🌾"}];
+const STOCK=[{b:"Ayam Potong",u:"kg",s:8,m:5,h:38000},{b:"Beras",u:"kg",s:25,m:10,h:13000},{b:"Minyak Goreng",u:"liter",s:4,m:5,h:18000},{b:"Tepung Terigu",u:"kg",s:12,m:4,h:9000},{b:"Cabe Merah",u:"kg",s:2,m:3,h:45000},{b:"Bawang Putih",u:"kg",s:3,m:2,h:28000},{b:"Telur",u:"butir",s:48,m:24,h:2500},{b:"Garam & Bumbu",u:"paket",s:8,m:3,h:15000}];
+const INC=[{id:"#089",it:"Ayam Geprek × 2, Es Teh × 1",cu:"Budi S.",tm:"14:22",tot:51000,st:"Baru"},
+{id:"#090",it:"Nasi Uduk × 3",cu:"Rina A.",tm:"14:28",tot:54000,st:"Baru"},
+{id:"#091",it:"Ayam Bakar × 1, Jus × 2",cu:"Ahmad F.",tm:"14:31",tot:58000,st:"Baru"},
+{id:"#085",it:"Ayam Geprek × 4",cu:"Dewi M.",tm:"13:55",tot:88000,st:"Dimasak"},
+{id:"#086",it:"Mie Goreng × 2, Es Teh × 2",cu:"Hendra P.",tm:"14:01",tot:44000,st:"Dimasak"},
+{id:"#087",it:"Nasi Goreng Kambing × 1",cu:"Siti L.",tm:"14:10",tot:30000,st:"Dimasak"},
+{id:"#083",it:"Bakso × 3",cu:"Yono K.",tm:"13:40",tot:54000,st:"Siap"},
+{id:"#084",it:"Ayam Geprek × 2",cu:"Maria R.",tm:"13:45",tot:44000,st:"Siap"}];
+const WTX=[{t:"in",d:"Pesanan #083 – Bakso × 3",dt:"Hari ini 13:40",a:54000},{t:"in",d:"Pesanan #082 – Ayam × 2",dt:"Hari ini 12:15",a:44000},{t:"out",d:"Top Up Saldo",dt:"Kemarin 09:00",a:-50000},{t:"in",d:"Cashback Group Buy",dt:"2 hari lalu",a:12500},{t:"out",d:"Pesanan #DK-088",dt:"2 hari lalu",a:-35000},{t:"in",d:"Pesanan #081 – Nasi × 5",dt:"3 hari lalu",a:90000}];
+const PROMOS=[{c:"GEPREK25",n:"Diskon 25% Ayam Geprek",d:"Min. Rp 30.000 · Geprek Bu Sari",v:"25%",e:"Hari ini",clr:"#F97316"},
+{c:"FREEONGKIR",n:"Gratis Ongkir Seharian",d:"Semua pesanan member",v:"Free",e:"Hari ini",clr:"#2E7D32"},
+{c:"CASHBACK15",n:"Cashback 15% DapurKu Pay",d:"Min. Rp 50.000",v:"15%",e:"3 hari lagi",clr:"#6A1B9A"},
+{c:"GROUPBUY35",n:"Hemat 35% Group Buy",d:"Beli bahan kolektif",v:"35%",e:"2 hari lagi",clr:"#004D40"},
+{c:"BATAMPILOT",n:"Promo Pilot Batam",d:"50 dapur pilot · komisi 50% off",v:"50%",e:"7 hari lagi",clr:"#1D4ED8"}];
+const MYORD=[{id:"#DK-089",dt:"Hari ini 14:22",r:"Geprek Bu Sari",it:"Ayam Geprek × 2, Es Teh × 1",tot:51000,st:"Dimasak",e:"🍳"},
+{id:"#DK-088",dt:"Kemarin 18:45",r:"Dapur Pak Budi",it:"Mie Goreng × 2, Jus × 1",tot:45000,st:"Selesai",e:"✅"},
+{id:"#DK-087",dt:"2 hari lalu",r:"Bakso Pak Herman",it:"Bakso Malang × 3",tot:66000,st:"Selesai",e:"✅"},
+{id:"#DK-086",dt:"3 hari lalu",r:"Geprek Bu Sari",it:"Ayam Geprek Double × 1",tot:35000,st:"Dibatalkan",e:"❌"},
+{id:"#DK-085",dt:"4 hari lalu",r:"Minuman Pak Eko",it:"Boba × 2, Es Teh × 3",tot:57000,st:"Selesai",e:"✅"}];
+const AIR={
+  menu:"📊 Data pilot Batam 30 hari:\n\n🥇 Es Teh Manis — 201 gelas (margin 65%!)\n🥈 Ayam Geprek Spesial — 127 porsi\n🥉 Nasi Uduk Komplit — 98 porsi\n\n💡 Coba bundling Ayam + Es Teh diskon Rp 3.000 → naikkan avg order ke Rp 29.000.",
+  promo:"⏰ Waktu terbaik promosi:\n\n• Sen–Rab 11:00–12:30 → order turun 30% → ideal promo lunch\n• Jum–Ming 17:00–19:00 → peak hour, tidak perlu promo\n• Selasa malam → paling sepi → cocok Flash Deal!\n\n🎯 Rekomendasi: 'Makan Siang Hemat' Selasa–Rabu, diskon 15% min. 2 porsi.",
+  restock:"📦 Prediksi AI 3 hari ke depan:\n\n⚠️ SEGERA RESTOCK:\n• Cabe Merah 2 kg → habis 1.5 hari\n• Minyak Goreng 4L → habis 2 hari\n\n✅ Stok aman:\n• Ayam Potong 8 kg → cukup 3 hari\n• Beras 25 kg → cukup 5 hari\n\n💡 Group Buy Cabe Merah aktif — hemat Rp 17.000/kg!",
+  target:"💰 Proyeksi berdasarkan tren pilot:\n\nOmzet sekarang: Rp 1,2 Jt/hari\nTarget bulan depan: Rp 1,5 Jt/hari\n\n✅ Aktifkan 2 menu baru → +8%\n✅ Group Buy bahan → hemat 25%\n✅ Buka jam 06:00 → +Rp 300K/hari\n\n📈 Target Rp 45 Jt/bulan realistis dalam 3 bulan!",
+  def:"🤖 Ringkasan data pilot Batam:\n\n📊 Omzet naik 18% vs minggu lalu\n⭐ Rating 4.7/5 (rata-rata platform 4.3)\n💰 Margin bersih 28% (UMKM avg 22%)\n📦 524 transaksi terverifikasi\n\n💡 Tambahkan opsi 'level kepedasan' di Ayam Geprek — pelanggan yang pilih level order 1.3× lebih sering!"
+};
+const BT={ayam:{e:"🍗",p:["Geprek","Bakar","Crispy","Goreng"]},nasi:{e:"🍚",p:["Nasi","Warung","Dapur","Sajian"]},mie:{e:"🍜",p:["Mie","Bakmi","Kwetiau","Bihun"]},bakar:{e:"🔥",p:["Bakar","Panggang","Sate","Bumbu"]},sehat:{e:"🥗",p:["Salad","Bowl","Fresh","Sehat"]},camilan:{e:"🍟",p:["Snack","Camilan","Gorengan","Kriuk"]}};
+const TG={pedas:["Pedas Nikmat, Harga Sahabat","Berani Pedas? Buktikan!","Level Pedas Tanpa Batas"],homemade:["Rasa Rumah, Harga Terjangkau","Dimasak dengan Cinta","Seperti Masakan Ibu"],premium:["Kualitas Premium, Harga Fair","Luxury Taste, Local Price","Bintang Lima di Rumahmu"],tradisional:["Resep Turun-Temurun","Otentik Sejak Dulu","Rasa Tak Lekang Waktu"]};
+const TGT={pedas:"Pecinta kuliner pedas usia 18–30",homemade:"Keluarga & profesional 25–45",premium:"Eksekutif & kalangan menengah atas",tradisional:"Semua kalangan pecinta cita rasa asli"};
+
+// ── STATE ──
+let cart=[],cv='P',cp='home',mktC='Semua',walBal=85000;
+let inSt={},ds=3,aiH=[],aiOk=false;
+let MYMENU=[
+  {id:1,n:"Ayam Geprek Spesial",e:"🍗",cat:"Ayam",p:22000,modal:10000,og:null,s:127,rt:4.9,stk:50,st:"Aktif",time:"10–15 menit",desc:"Ayam geprek renyah dengan sambal level 1-10",home:1,foto:"https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&h=280&fit=crop&q=80"},
+  {id:2,n:"Ayam Geprek Double",e:"🍗",cat:"Ayam",p:35000,modal:16000,og:40000,s:84,rt:4.8,stk:50,st:"Aktif",time:"10–15 menit",desc:"Double portion ayam geprek dengan nasi ekstra",home:1,foto:"https://images.unsplash.com/photo-1598515214146-9e5a92558f3f?w=400&h=280&fit=crop&q=80"},
+  {id:3,n:"Ayam Geprek Keju",e:"🍗",cat:"Ayam",p:26000,modal:13000,og:null,s:71,rt:4.7,stk:30,st:"Aktif",time:"15–20 menit",desc:"Geprek spesial dengan lelehan keju mozarella",home:0,foto:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=280&fit=crop&q=80"},
+  {id:4,n:"Nasi Uduk Komplit",e:"🍚",cat:"Nasi",p:18000,modal:8000,og:null,s:98,rt:4.8,stk:40,st:"Aktif",time:"5–10 menit",desc:"Nasi uduk gurih lengkap dengan lauk pilihan",home:1,foto:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=280&fit=crop&q=80"},
+  {id:5,n:"Nasi Uduk Jumbo",e:"🍚",cat:"Nasi",p:25000,modal:11000,og:28000,s:54,rt:4.7,stk:30,st:"Aktif",time:"5–10 menit",desc:"Porsi jumbo nasi uduk untuk yang lapar besar",home:0,foto:"https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=280&fit=crop&q=80"},
+  {id:6,n:"Mie Goreng Jawa",e:"🍜",cat:"Mie",p:15000,modal:6000,og:null,s:143,rt:4.7,stk:60,st:"Aktif",time:"10–15 menit",desc:"Mie goreng bumbu Jawa tradisional autentik",home:1,foto:"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=280&fit=crop&q=80"},
+  {id:7,n:"Mie Goreng Seafood",e:"🍜",cat:"Mie",p:22000,modal:10000,og:null,s:89,rt:4.6,stk:40,st:"Aktif",time:"15–20 menit",desc:"Mie goreng dengan udang cumi dan sayuran",home:0,foto:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=280&fit=crop&q=80"},
+  {id:8,n:"Es Teh Manis Jumbo",e:"🧋",cat:"Minuman",p:7000,modal:2500,og:null,s:201,rt:4.9,stk:100,st:"Aktif",time:"3–5 menit",desc:"Es teh segar ukuran jumbo 600ml",home:1,foto:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=280&fit=crop&q=80"},
+  {id:9,n:"Jus Alpukat Kental",e:"🥑",cat:"Minuman",p:15000,modal:7000,og:18000,s:76,rt:4.8,stk:30,st:"Aktif",time:"5–10 menit",desc:"Jus alpukat super kental dengan susu full cream",home:0,foto:"https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=280&fit=crop&q=80"},
+  {id:10,n:"Boba Taro Susu",e:"🧋",cat:"Minuman",p:18000,modal:8000,og:null,s:67,rt:4.7,stk:40,st:"Aktif",time:"5–10 menit",desc:"Minuman boba taro dengan pearl kenyal",home:0,foto:"https://images.unsplash.com/photo-1558857562-79d2bf5e4e27?w=400&h=280&fit=crop&q=80"},
+  {id:11,n:"Ayam Bakar Madu",e:"🍖",cat:"Ayam",p:28000,modal:14000,og:null,s:76,rt:4.8,stk:25,st:"Aktif",time:"20–30 menit",desc:"Ayam bakar marinasi madu dan rempah pilihan",home:1,foto:"https://images.unsplash.com/photo-1544025162-d76538977f55?w=400&h=280&fit=crop&q=80"},
+  {id:12,n:"Ikan Bakar Bumbu Bali",e:"🐟",cat:"Nasi",p:32000,modal:18000,og:null,s:45,rt:4.9,stk:20,st:"Aktif",time:"20–30 menit",desc:"Ikan bakar segar bumbu Bali autentik",home:0,foto:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=280&fit=crop&q=80"},
+  {id:13,n:"Tahu Crispy Keju",e:"🧀",cat:"Snack",p:10000,modal:4000,og:null,s:177,rt:4.5,stk:80,st:"Aktif",time:"10–15 menit",desc:"Tahu crispy golden brown dengan topping keju",home:1,foto:"https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&h=280&fit=crop&q=80"},
+  {id:14,n:"Pisang Goreng Crispy",e:"🍌",cat:"Snack",p:8000,modal:3000,og:null,s:156,rt:4.7,stk:60,st:"Aktif",time:"10–15 menit",desc:"Pisang goreng renyah crispy dengan aneka topping",home:1,foto:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=280&fit=crop&q=80"},
+  {id:15,n:"Keripik Tempe Balado",e:"🌶️",cat:"Snack",p:12000,modal:5000,og:15000,s:203,rt:4.6,stk:100,st:"Aktif",time:"5–10 menit",desc:"Keripik tempe renyah dengan bumbu balado pedas",home:1,foto:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=280&fit=crop&q=80"},
+  {id:16,n:"Bakso Malang Komplit",e:"🍢",cat:"Nasi",p:18000,modal:8000,og:null,s:112,rt:4.7,stk:50,st:"Aktif",time:"10–15 menit",desc:"Bakso sapi kenyal komplit dengan mie dan bihun",home:0,foto:"https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=280&fit=crop&q=80"},
+  {id:17,n:"Pecel Sayur Komplit",e:"🥗",cat:"Nasi",p:12000,modal:5000,og:null,s:88,rt:4.6,stk:40,st:"Aktif",time:"5–10 menit",desc:"Pecel sayur segar dengan sambal kacang khas",home:0,foto:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=280&fit=crop&q=80"},
+  {id:18,n:"Soto Ayam Lamongan",e:"🍲",cat:"Nasi",p:16000,modal:7000,og:null,s:67,rt:4.8,stk:30,st:"Aktif",time:"10–15 menit",desc:"Soto ayam bening khas Lamongan lauk lengkap",home:0,foto:"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop&q=80"},
+  {id:19,n:"Nasi Goreng Kambing",e:"🍳",cat:"Nasi",p:25000,modal:12000,og:null,s:54,rt:4.6,stk:20,st:"Nonaktif",time:"15–20 menit",desc:"Nasi goreng daging kambing rempah istimewa",home:0,foto:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=280&fit=crop&q=80"},
+  {id:20,n:"Sate Ayam 10 Tusuk",e:"🍢",cat:"Ayam",p:20000,modal:9000,og:null,s:43,rt:4.7,stk:30,st:"Aktif",time:"15–20 menit",desc:"Sate ayam bumbu kacang 10 tusuk dengan lontong",home:0,foto:"https://images.unsplash.com/photo-1555126634-323283e090fa?w=400&h=280&fit=crop&q=80"},
+  {id:21,n:"Es Krim Alpukat",e:"🍦",cat:"Snack",p:12000,modal:5000,og:null,s:38,rt:4.8,stk:25,st:"Aktif",time:"3–5 menit",desc:"Es krim creamy rasa alpukat segar",home:0,foto:"https://images.unsplash.com/photo-1560008585-fdbfd222a3cd?w=400&h=280&fit=crop&q=80"},
+  {id:22,n:"Es Krim Coklat Premium",e:"🍫",cat:"Snack",p:15000,modal:7000,og:18000,s:29,rt:4.7,stk:20,st:"Nonaktif",time:"3–5 menit",desc:"Es krim coklat premium Belgian chocolate",home:0,foto:"https://images.unsplash.com/photo-1563805042-7f466d0c895b?w=400&h=280&fit=crop&q=80"},
+  {id:23,n:"Indomie Goreng Spesial",e:"🍜",cat:"Mie",p:12000,modal:4500,og:null,s:134,rt:4.8,stk:80,st:"Aktif",time:"10–15 menit",desc:"Indomie goreng dengan topping telur keju sosis",home:0,foto:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=280&fit=crop&q=80"},
+  {id:24,n:"Siomay Ayam",e:"🥟",cat:"Snack",p:15000,modal:6000,og:null,s:56,rt:4.6,stk:40,st:"Nonaktif",time:"15–20 menit",desc:"Siomay ayam kukus dengan saus kacang pedas manis",home:0,foto:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=280&fit=crop&q=80"}
+];
+var mmEditId=null,mmFotoData="",mmFilter="Semua";
+INC.forEach(o=>inSt[o.id]=o.st);
+
+const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur 🏪",restoDetail:"Detail Dapur",myorders:"Pesanan Saya 📦",track:"Lacak Delivery 🛵",groupbuy:"Group Buy 🤝",wallet:"Dompet 💳",promo:"Promo & Voucher 🎁",flashsale:"Flash Sale ⚡",dashboard:"Dashboard 📊",incoming:"Pesanan Masuk 🔔",menumgr:"Kelola Menu 📋",stock:"Stok Bahan 📦",ai:"AI Advisor 🤖",vbrand:"Virtual Brand ✨",laporan:"Laporan 📈",paylater:"Paylater 💰",favorite:"Favorit ❤️",notif:"Notifikasi 🔔",chat:"Chat Penjual 💬",referral:"Referral 🎯",profile:"Profil 👤",address:"Alamat 📍",payment:"Pembayaran 💳",leaderboard:"Leaderboard 🏆",chefprofile:"Chef Profile 👨‍🍳",onboarding:"Tutorial 🚀",rating:"Rating ⭐",photomgr:"Upload Foto 📸"};
+
+// ── NAV ──
+function gp(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
+  const pg=document.getElementById('pg-'+id);
+  if(pg)pg.classList.add('on');
+  document.querySelectorAll('.ni').forEach(n=>{
+    if(n.getAttribute('onclick')?.includes("'"+id+"'"))n.classList.add('on');
+  });
+  cp=id;
+  const tt=PGTT[id]||id;
+  document.getElementById('dtbT').textContent=tt;
+  // Mobile bottom nav highlight
+  const mmap={home:'mnHome',market:'mnMkt',restos:'mnRst',myorders:'mnOrd',wallet:'mnWlt',profile:'mnProf'};
+  document.querySelectorAll('.mni').forEach(m=>m.classList.remove('on'));
+  if(mmap[id]){const el=document.getElementById(mmap[id]);if(el)el.classList.add('on');}
+  // Cart button
+  const showC=['home','market','restos','restoDetail'].includes(id)&&cv==='P';
+  ['cartBtnD','cartBtnM'].forEach(b=>{const el=document.getElementById(b);if(el)el.style.display=showC?'flex':'none';});
+  // Scroll top
+  const pa=document.getElementById('pgArea');if(pa)pa.scrollTop=0;
+  closeSB();
+  // Render page
+  const RD={
+    home:rHome,market:rm,restos:rRestos,restoDetail:function(){},
+    myorders:function(){rOrd('Semua');},track:function(){},
+    groupbuy:rGB,wallet:rWallet,promo:rPromo,flashsale:rFlashsale,
+    dashboard:rDash,incoming:function(){rIn('Semua');},
+    menumgr:rMM,stock:rSt,ai:rAI,vbrand:pb,laporan:rLap,paylater:rPL,
+    favorite:rFavorite,notif:rNotif,chat:rChat,referral:rReferral,
+    profile:rProfile,address:rAddress,payment:rPayment,
+    leaderboard:rLeaderboard,chefprofile:rChefprofile,
+    onboarding:rOnboarding,rating:rRating,photomgr:rPhotomgr
+  };
+  if(RD[id]&&typeof RD[id]==='function')RD[id]();
+}
+
+function sv(v){
+  cv=v;
+  document.getElementById('navP').style.display=v==='P'?'block':'none';
+  document.getElementById('navD').style.display=v==='D'?'block':'none';
+  ['vbP','vbD','mvbP','mvbD'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.classList.toggle('on',(id==='vbP'||id==='mvbP')?v==='P':v==='D');
+  });
+  document.getElementById('sfAv').textContent=v==='P'?'BU':'DS';
+  document.getElementById('sfAv').style.background=v==='P'?'#F97316':'#16A34A';
+  document.getElementById('sfN').textContent=v==='P'?'Budi Santoso':'Bu Sari (Pemilik)';
+  document.getElementById('sfR').textContent=v==='P'?'Pelanggan · Batam':'Geprek Bu Sari · Batam';
+  document.getElementById('heroN').textContent=v==='P'?'Budi Santoso 👋':'Bu Sari 🍳';
+  document.querySelector('.mbn').style.display=v==='P'?'block':'none';
+  gp(v==='P'?'home':'dashboard');
+}
+
+// ── SIDEBAR ──
+function toggleSB(){
+  document.getElementById('sb').classList.toggle('open');
+  document.getElementById('sbov').style.display=document.getElementById('sb').classList.contains('open')?'block':'none';
+}
+function closeSB(){
+  document.getElementById('sb').classList.remove('open');
+  document.getElementById('sbov').style.display='none';
+}
+
+// ── FOOD CARD ──
+function fC(f){
+  const rst=R.find(x=>x.id===f.rId);
+  const disc=f.og?Math.round((1-f.p/f.og)*100):0;
+  var bgStyle=f.foto
+    ?'background:'+f.bg+';background-image:url('+f.foto+');background-size:cover;background-position:center'
+    :'background:'+f.bg;
+  var emojiHtml=f.foto?'':'<div style="font-size:60px;line-height:1">'+f.e+'</div>';
+  return `<div class="fc" onclick="openRD(${f.rId})">
+    <div class="fc-img" style="${bgStyle}">
+      ${emojiHtml}
+      ${disc?`<span class="fc-disc">-${disc}%</span>`:''}
+      <button class="fc-fav" onclick="event.stopPropagation();this.textContent=this.textContent==='❤️'?'🤍':'❤️'">🤍</button>
+    </div>
+    <div class="fc-body">
+      <div class="fc-name">${f.n}</div>
+      <div class="fc-shop">🏪 ${rst?.n||''}</div>
+      <div class="fc-bot">
+        <div>
+          <div class="fc-price">Rp ${f.p.toLocaleString('id')}</div>
+          ${f.og?`<div class="fc-orig">Rp ${f.og.toLocaleString('id')}</div>`:''}
+        </div>
+        <button class="atc" onclick="event.stopPropagation();addC(${f.id})">+</button>
+      </div>
+      <div class="fc-rat">⭐ ${f.rt} · ${f.s} terjual</div>
+    </div>
   </div>`;
 }
 
@@ -2778,7 +2952,195 @@ function rLap(){
   const mx=Math.max(...src.map(s=>s.v));
   document.getElementById('lapChart').innerHTML=src.map(s=>`<div style="margin-bottom:13px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="font-weight:600">${s.l}</span><span style="color:#6B7280">Rp ${s.v}Jt</span></div><div class="pt"><div class="pf" style="width:${s.v/mx*100}%;background:${s.c}"></div></div></div>`).join('');
   const pen=[{l:"Bahan Baku",pct:38,v:13.8},{l:"Tenaga Kerja",pct:22,v:8.0},{l:"Komisi Platform",pct:6,v:2.2},{l:"Kemasan & Lain",pct:2,v:0.8}];
-  document.getElementById('penList').innerHTML=pen.map(e=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F9FAFB"><div><div style="font-weight:600;font-size:13px">${e.l}</div><div style="font-size:11.5px;color:#9CA3AF">${e.pct}% dari omzet</div></div>`;
+  document.getElementById('penList').innerHTML=pen.map(e=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F9FAFB"><div><div style="font-weight:600;font-size:13px">${e.l}</div><div style="font-size:11.5px;color:#9CA3AF">${e.pct}% dari omzet</div></div><div style="font-weight:700;color:#DC2626;font-size:13px">Rp ${e.v}Jt</div></div>`).join('');
+  const txs=[{d:"14 Jun",dc:"Total Pesanan Masuk",j:34,v:748000,t:"in"},{d:"14 Jun",dc:"Komisi Platform (6%)",j:"-",v:-44880,t:"out"},{d:"13 Jun",dc:"Total Pesanan Masuk",j:31,v:682000,t:"in"},{d:"13 Jun",dc:"Bahan Baku (Group Buy)",j:"-",v:-180000,t:"out"},{d:"12 Jun",dc:"Total Pesanan Masuk",j:29,v:638000,t:"in"},{d:"12 Jun",dc:"Kitchen OS Langganan",j:"-",v:-99000,t:"out"}];
+  document.getElementById('lapTbl').innerHTML=`<thead><tr><th>Tgl</th><th>Keterangan</th><th>Trx</th><th>Jumlah</th></tr></thead><tbody>`+txs.map(t=>`<tr><td style="color:#9CA3AF">${t.d}</td><td>${t.dc}</td><td style="color:#9CA3AF">${t.j}</td><td style="font-weight:700;color:${t.t==='in'?'#16A34A':'#DC2626'}">${t.t==='in'?'+':''}Rp ${Math.abs(t.v).toLocaleString('id')}</td></tr>`).join('')+'</tbody>';
+}
+
+// ── PAYLATER ──
+function rPL(){
+  const its=[{n:"Ayam Potong Segar",e:"🐔",h:38000,u:"kg"},{n:"Beras Premium",e:"🌾",h:13000,u:"kg"},{n:"Minyak Goreng 5L",e:"🫙",h:85000,u:"botol"},{n:"Cabe Merah",e:"🌶️",h:45000,u:"kg"}];
+  document.getElementById('plItems').innerHTML=its.map(it=>`<div style="background:#F9FAFB;border-radius:14px;padding:15px;text-align:center;border:1px solid #E5E7EB"><div style="font-size:28px;margin-bottom:7px">${it.e}</div><div style="font-weight:700;font-size:13px;margin-bottom:3px">${it.n}</div><div style="font-weight:700;color:#F97316;font-size:13.5px;margin-bottom:10px">Rp ${it.h.toLocaleString('id')}/${it.u}</div><button class="btn btn-p btn-sm btn-full" onclick="toast('${it.n} dibeli via Paylater!','ts')">Beli Paylater</button></div>`).join('');
+  const bills=[{d:"Ayam Potong 10 kg",tgl:"10 Jun",jt:"21 Jun",jml:380000,ok:false},{d:"Beras 25 kg",tgl:"5 Jun",jt:"16 Jun",jml:325000,ok:false},{d:"Minyak Goreng 5 botol",tgl:"1 Jun",jt:"12 Jun",jml:425000,ok:true}];
+  document.getElementById('plBills').innerHTML=bills.map(b=>`<div style="display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px solid #F9FAFB"><div style="flex:1"><div style="font-weight:600;font-size:13.5px">${b.d}</div><div style="font-size:11.5px;color:#9CA3AF">Dibeli ${b.tgl} · Jatuh tempo ${b.jt}</div></div><div style="text-align:right;flex-shrink:0"><div style="font-weight:700;font-size:13.5px;color:${b.ok?'#16A34A':'#DC2626'}">Rp ${b.jml.toLocaleString('id')}</div><span class="bdg ${b.ok?'bdg-gn':'bdg-rd'}">${b.ok?'Lunas':'Belum'}</span></div></div>`).join('');
+}
+
+// ── SEARCH ──
+function hs(){const q=document.getElementById('gs').value.trim();if(q.length>1){mktC='Semua';gp('market');const ms=document.getElementById('mktS');if(ms)ms.value=q;rm();}}
+
+// ── TOAST ──
+function toast(msg,type='ti'){
+  const w=document.getElementById('tw');
+  const ic={ts:'✅',te:'❌',ti:'💬'};
+  const t=document.createElement('div');
+  t.className='toast '+type;
+  t.innerHTML=`<span style="flex-shrink:0">${ic[type]||'💬'}</span><span>${msg}</span>`;
+  w.appendChild(t);
+  setTimeout(()=>{t.style.animation='tout .3s ease forwards';setTimeout(()=>t.remove(),300);},3200);
+}
+
+// ── MODAL ──
+function openModal(id){const m=document.getElementById(id);if(m)m.classList.add('open');}
+function closeModal(id){const m=document.getElementById(id);if(m)m.classList.remove('open');}
+document.querySelectorAll('.mover').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
+
+
+// ════════════════════════════════════════
+// DATA TAMBAHAN
+// ════════════════════════════════════════
+const NOTIFS = [
+  {id:1,ic:"🔔",title:"Pesanan #DK-089 dikonfirmasi",sub:"Geprek Bu Sari menerima pesananmu",time:"2 mnt lalu",read:false,type:"order"},
+  {id:2,ic:"💰",title:"Cashback Rp 7.500 masuk!",sub:"Dari pesanan #DK-088 · DapurKu Pay",time:"1 jam lalu",read:false,type:"wallet"},
+  {id:3,ic:"🎁",title:"Promo baru: Diskon 25% Ayam",sub:"Berlaku hari ini sampai jam 21.00",time:"3 jam lalu",read:false,type:"promo"},
+  {id:4,ic:"🤝",title:"Group Buy Cabe Merah hampir penuh!",sub:"7/10 dapur sudah bergabung — bergabung sekarang",time:"5 jam lalu",read:false,type:"groupbuy"},
+  {id:5,ic:"⭐",title:"Beri rating pesanan #DK-087",sub:"Bagaimana Bakso Pak Herman hari ini?",time:"Kemarin",read:true,type:"rating"},
+  {id:6,ic:"🚀",title:"Fitur baru: Virtual Brand Generator",sub:"Buat merek profesional dalam 30 menit!",time:"2 hari lalu",read:true,type:"info"},
+];
+let notifications = [...NOTIFS];
+
+const FAV_FOODS = [1,9,18,12,4,15]; // food IDs
+const FAV_RESTOS = [1,4,11]; // resto IDs
+
+const ADDRESSES = [
+  {id:1,label:"🏠 Rumah",name:"Budi Santoso",phone:"081234567890",detail:"Jl. Bukit Indah No. 12, RT 03/RW 05",city:"Batam Centre",zip:"29444",default:true},
+  {id:2,label:"💼 Kantor",name:"Budi Santoso",phone:"081234567890",detail:"Jl. Nagoya Business Park Blok A5",city:"Nagoya, Batam",zip:"29421",default:false},
+];
+
+const PAY_METHODS = [
+  {id:1,type:"dapurku",name:"DapurKu Pay",info:"Saldo Rp 85.000",icon:"💰",default:true},
+  {id:2,type:"transfer",name:"Transfer Bank BCA",info:"••••••7890",icon:"🏦",default:false},
+  {id:3,type:"ovo",name:"OVO",info:"081234567890",icon:"💜",default:false},
+];
+
+const LEADERS = [
+  {rank:1,e:"🍗",name:"Geprek Bu Sari",rating:4.9,trx:234,omzet:"Rp 8,4 Jt",badge:"👑"},
+  {rank:2,e:"🍚",name:"Nasi Uduk Mbak Ani",rating:4.8,trx:198,omzet:"Rp 6,2 Jt",badge:"🥈"},
+  {rank:3,e:"🍥",name:"Bakso Pak Herman",rating:4.8,trx:187,omzet:"Rp 5,9 Jt",badge:"🥉"},
+  {rank:4,e:"🧋",name:"Minuman Pak Eko",rating:4.9,trx:176,omzet:"Rp 3,1 Jt",badge:"4️⃣"},
+  {rank:5,e:"🥗",name:"Pecel Bu Lastri",rating:4.9,trx:165,omzet:"Rp 5,0 Jt",badge:"5️⃣"},
+  {rank:6,e:"🍖",name:"BBQ Bu Tini",rating:4.8,trx:134,omzet:"Rp 6,7 Jt",badge:"6️⃣"},
+  {rank:7,e:"🍢",name:"Sate Mas Oji",rating:4.6,trx:113,omzet:"Rp 4,5 Jt",badge:"7️⃣"},
+  {rank:8,e:"🍟",name:"Snack Bu Dewi",rating:4.5,trx:201,omzet:"Rp 2,4 Jt",badge:"8️⃣"},
+  {rank:9,e:"🍳",name:"Dapur Kak Rina",rating:4.6,trx:67,omzet:"Rp 1,2 Jt",badge:"9️⃣"},
+  {rank:10,e:"🍲",name:"Warung Pak Sabar",rating:4.7,trx:89,omzet:"Rp 2,7 Jt",badge:"🔟"},
+];
+
+const ONBOARD_STEPS = [
+  {no:1,ic:"📝",title:"Daftarkan Dapur",desc:"Isi data dapur: nama, alamat, jam operasional, dan foto dapur. Proses verifikasi 1×24 jam.",done:true},
+  {no:2,ic:"📋",title:"Tambah Menu Pertama",desc:"Upload minimal 3 menu dengan foto, harga, dan deskripsi. AI akan bantu optimasi nama menu.",done:true},
+  {no:3,ic:"💳",title:"Atur Rekening Pencairan",desc:"Daftarkan rekening bank atau e-wallet untuk menerima pembayaran.",done:true},
+  {no:4,ic:"🤝",title:"Ikut Group Buy Bahan",desc:"Gabung Group Buy untuk hemat biaya bahan baku 20–40% vs beli eceran.",done:false},
+  {no:5,ic:"✨",title:"Buat Virtual Brand",desc:"Generate nama merek profesional dengan AI dalam 30 menit.",done:false},
+  {no:6,ic:"🤖",title:"Aktifkan AI Advisor",desc:"Tanya AI tentang menu apa yang laku, kapan promo, dan target omzet.",done:false},
+  {no:7,ic:"📈",title:"Monitor Dashboard",desc:"Pantau omzet, rating, dan stok bahan secara real-time setiap hari.",done:false},
+];
+
+const POINT_HISTORY = [
+  {type:"in",desc:"Referral: Rina A. bergabung",date:"Kemarin",pts:500},
+  {type:"in",desc:"Pesanan #DK-088 selesai",date:"2 hari lalu",pts:45},
+  {type:"out",desc:"Tukar poin → Voucher Rp 20.000",date:"3 hari lalu",pts:-200},
+  {type:"in",desc:"Pesanan #DK-087 selesai",date:"4 hari lalu",pts:66},
+  {type:"in",desc:"Referral: Ahmad F. bergabung",date:"1 minggu lalu",pts:500},
+];
+
+const REVIEWS = [
+  {user:"Rina A.",rating:5,text:"Ayam gepreknya enak banget! Level 3 pas di lidah saya. Pengiriman cepat, kemasan rapi.",time:"2 jam lalu",emoji:"😍"},
+  {user:"Ahmad F.",rating:4,text:"Nasi uduknya enak, lauk lengkap. Cuma kurang pedas dikit. Overall recommended!",time:"Kemarin",emoji:"😊"},
+  {user:"Dewi M.",rating:5,text:"Baksonya gede-gede dan kuahnya segar. Sudah langganan 2 bulan!",time:"2 hari lalu",emoji:"🤩"},
+];
+
+const FLASH_SALE_FOODS = [2,5,10,13,16,19].map(id=>F.find(f=>f.id===id)).filter(Boolean);
+const CHAT_ROOMS = [
+  {restoId:1,lastMsg:"Pesanan kamu sedang dimasak ya!",time:"2 mnt lalu",unread:2},
+  {restoId:4,lastMsg:"Halo, mau pesan apa?",time:"1 jam lalu",unread:0},
+  {restoId:11,lastMsg:"Terima kasih sudah order! 😊",time:"Kemarin",unread:0},
+];
+let chatHistory = {};
+let currentChatResto = null;
+let selectedRating = 0;
+let flashSeconds = 9258; // 2:34:18
+let flashInterval = null;
+
+// ════════════════════════════════════════
+// RENDER FUNGSI BARU
+// ════════════════════════════════════════
+
+// ── FAVORITE ──
+function rFavorite(){
+  switchFavTab('menu');
+}
+function switchFavTab(tab){
+  document.getElementById('favTabMenu').className='btn btn-sm '+(tab==='menu'?'btn-p':'btn-o');
+  document.getElementById('favTabDapur').className='btn btn-sm '+(tab==='dapur'?'btn-p':'btn-o');
+  if(tab==='menu'){
+    document.getElementById('favMenuList').style.display='';
+    document.getElementById('favDapurList').style.display='none';
+    const favFoods=FAV_FOODS.map(id=>F.find(f=>f.id===id)).filter(Boolean);
+    document.getElementById('favMenuList').innerHTML=favFoods.map(fC).join('');
+  } else {
+    document.getElementById('favMenuList').style.display='none';
+    document.getElementById('favDapurList').style.display='grid';
+    const favRestos=FAV_RESTOS.map(id=>R.find(r=>r.id===id)).filter(Boolean);
+    document.getElementById('favDapurList').innerHTML=favRestos.map(r=>`
+      <div style="background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);cursor:pointer;box-shadow:var(--sh1)" onclick="openRD(${r.id})">
+        <div style="height:90px;display:flex;align-items:center;justify-content:center;font-size:48px;background:${r.bg};position:relative">${r.e}</div>
+        <div style="padding:10px 13px">
+          <div style="font-weight:700;font-size:13px">${r.n}</div>
+          <div style="font-size:11px;color:var(--mid);margin-top:2px">⭐ ${r.rt} · ${r.d}</div>
+          <button class="btn btn-p btn-sm" style="margin-top:8px;width:100%;justify-content:center" onclick="event.stopPropagation();openRD(${r.id})">Pesan Sekarang</button>
+        </div>
+      </div>`).join('');
+  }
+}
+
+// ── NOTIFIKASI ──
+function rNotif(){
+  document.getElementById('notifList').innerHTML=notifications.map(n=>`
+    <div style="background:#fff;border-radius:13px;padding:14px 16px;border:1px solid ${n.read?'var(--border)':'#FED7AA'};border-left:4px solid ${n.read?'var(--border)':'#F97316'};display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .2s;box-shadow:var(--sh1)" onclick="markRead(${n.id})">
+      <div style="font-size:24px;flex-shrink:0;width:36px;height:36px;border-radius:50%;background:${n.read?'var(--light)':'var(--orange-lt)'};display:flex;align-items:center;justify-content:center;font-size:17px">${n.ic}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:${n.read?'500':'700'};font-size:13px;color:var(--dark)">${n.title}</div>
+        <div style="font-size:11.5px;color:var(--mid);margin-top:2px">${n.sub}</div>
+        <div style="font-size:10.5px;color:var(--mid2);margin-top:4px">${n.time}</div>
+      </div>
+      ${!n.read?'<div style="width:8px;height:8px;border-radius:50%;background:#F97316;flex-shrink:0;margin-top:4px"></div>':''}
+    </div>`).join('');
+}
+function markRead(id){
+  const n=notifications.find(x=>x.id===id);
+  if(n&&!n.read){n.read=true;updNotifBadge();}
+  rNotif();
+  if(id===5)gp('rating');
+}
+function markAllRead(){
+  notifications.forEach(n=>n.read=true);
+  updNotifBadge();rNotif();
+  toast('Semua notifikasi ditandai dibaca','ts');
+}
+function updNotifBadge(){
+  const cnt=notifications.filter(n=>!n.read).length;
+  const b=document.getElementById('bNotif');
+  if(b)b.textContent=cnt||'';
+  if(b)b.style.display=cnt?'':'none';
+}
+
+// ── CHAT ──
+function rChat(){
+  document.getElementById('chatRoomList').style.display='';
+  document.getElementById('chatRoom').style.display='none';
+  document.getElementById('chatRoomList').innerHTML=CHAT_ROOMS.map(cr=>{
+    const r=R.find(x=>x.id===cr.restoId);
+    return `<div style="background:#fff;border-radius:13px;padding:14px 16px;border:1px solid var(--border);display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:var(--sh1);transition:all .2s" onmouseenter="this.style.background='var(--light)'" onmouseleave="this.style.background='#fff'" onclick="openChatRoom(${cr.restoId})">
+      <div style="font-size:28px;flex-shrink:0">${r?.e||'🍽️'}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:13.5px">${r?.n||''}</div>
+        <div style="font-size:12px;color:var(--mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px">${cr.lastMsg}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-size:10.5px;color:var(--mid2)">${cr.time}</div>
+        ${cr.unread?`<div style="background:#F97316;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;margin-top:4px;text-align:center">${cr.unread}</div>`:''}
+      </div>
+    </div>`;
   }).join('');
 }
 function openChatRoom(rid){

@@ -929,38 +929,137 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
-  <div class="hero">
+  <!-- HERO - TALARA style compact -->
+  <div class="hero" style="padding:10px 14px 14px">
     <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
-    <div class="hero-greet">Selamat datang,</div>
-    <div class="hero-name" id="heroN">Budi Santoso 👋</div>
-    <div class="hero-search">
-      <span class="hs-ic">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
+    <div style="font-size:12px;color:rgba(255,255,255,.85);margin-bottom:2px">Selamat datang,</div>
+    <div class="hero-name" id="heroN" style="font-size:19px;font-weight:900;margin-bottom:10px">Budi Santoso 👋</div>
+    <div class="hero-search"><span class="hs-ic">🔍</span><input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()"></div>
+  </div>
+
+  <!-- PROMO BANNER - TALARA sliding style -->
+  <div class="pscrl" id="promoScroll" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d">
+    <div class="pcard" onclick="toast('Diskon 25% diaktifkan!','ts')">
+      <div style="position:absolute;top:12px;left:12px">
+        <div class="ptag">PROMO SPESIAL</div>
+        <div class="ptit">Diskon 25% Ayam</div>
+        <div class="psub">Min. Rp 30.000 · Hari ini</div>
+        <div style="margin-top:8px;background:#fff;color:var(--orange);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Ambil Promo</div>
+      </div>
+      <div class="pe" style="right:12px;font-size:44px">🍗</div>
+    </div>
+    <div class="pcard" style="background:linear-gradient(135deg,#00897B,#00695C)" onclick="toast('Gratis ongkir aktif!','ts')">
+      <div style="position:absolute;top:12px;left:12px">
+        <div class="ptag">FREE DELIVERY</div>
+        <div class="ptit">Gratis Ongkir Seharian</div>
+        <div class="psub">Khusus member DapurKu</div>
+        <div style="margin-top:8px;background:#fff;color:#00695C;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Aktifkan</div>
+      </div>
+      <div class="pe" style="right:12px;font-size:44px">🛵</div>
+    </div>
+    <div class="pcard" style="background:linear-gradient(135deg,#5E35B1,#283593)" onclick="gp('promo')">
+      <div style="position:absolute;top:12px;left:12px">
+        <div class="ptag">VOUCHER</div>
+        <div class="ptit">5 Voucher Menunggumu</div>
+        <div class="psub">Kode BATAMPILOT · 50% off</div>
+        <div style="margin-top:8px;background:#fff;color:#5E35B1;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:800;display:inline-block">Lihat Voucher</div>
+      </div>
+      <div class="pe" style="right:12px;font-size:44px">🎁</div>
     </div>
   </div>
-  <div class="pscrl">
-    <div class="pcard" style="background:linear-gradient(135deg,#1B5E20,#2E7D32)" onclick="toast('Diskon 25% diaktifkan!','ts')"><div class="pe">🍗</div><div class="ptag">Promo Spesial</div><div class="ptit">Diskon 25% Ayam</div><div class="psub">Min. Rp 30.000 · Hari ini</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#004D40,#00695C)" onclick="toast('Gratis ongkir aktif!','ts')"><div class="pe">🛵</div><div class="ptag">Free Delivery</div><div class="ptit">Gratis Ongkir Seharian</div><div class="psub">Khusus member DapurKu</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#4A148C,#1A237E)" onclick="toast('Cashback 15% berlaku!','ts')"><div class="pe">💳</div><div class="ptag">Cashback</div><div class="ptit">Cashback 15% Dompet</div><div class="psub">Bayar pakai DapurKu Pay</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#BF360C,#E65100)" onclick="gp('groupbuy')"><div class="pe">🤝</div><div class="ptag">Group Buy</div><div class="ptit">Hemat 35% Bahan Baku</div><div class="psub">Beli bareng, harga grosir</div></div>
-    <div class="pcard" style="background:linear-gradient(135deg,#1B3A6B,#283593)" onclick="gp('promo')"><div class="pe">🎁</div><div class="ptag">Voucher</div><div class="ptit">5 Voucher Menunggumu</div><div class="psub">Kode BATAMPILOT · 50% off</div></div>
-  </div>
-  <div class="shr"><div class="st">Kategori</div></div>
-  <div class="cat-scrl" id="hCats"></div>
-  <div class="qsg">
-    <div class="qsc" onclick="gp('market')"><div class="qs-e">🍽️</div><div class="qs-v" style="color:var(--orange)" id="totM">24</div><div class="qs-l">Menu Aktif</div></div>
-    <div class="qsc" onclick="gp('restos')"><div class="qs-e">🏪</div><div class="qs-v" style="color:var(--blue)">12</div><div class="qs-l">Dapur Aktif</div></div>
-    <div class="qsc" onclick="gp('track')"><div class="qs-e">🛵</div><div class="qs-v" style="color:var(--green2)">1</div><div class="qs-l">Aktif</div></div>
-    <div class="qsc" onclick="gp('wallet')"><div class="qs-e">💳</div><div class="qs-v" style="color:var(--purple)" id="wBal">85K</div><div class="qs-l">Saldo</div></div>
-  </div>
-  <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua</div></div>
-  <div class="fg" id="hFoods" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 10px 14px"></div>
-  <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua</div></div>
-  <div class="rscrl" id="hRestos"></div>
-  <div style="height:24px"></div>
-</div>
 
-<!-- ══ MARKET ══ -->
+  <!-- QUICK LINKS - TALARA style 5 icons -->
+  <div style="display:flex;gap:0;padding:10px 0 4px;background:#fff;border-bottom:1px solid #f0f0f0">
+    <div onclick="gp('market')" style="flex:1;text-align:center;cursor:pointer;padding:4px 0">
+      <div style="width:46px;height:46px;background:#FFF3E0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 4px">🍽️</div>
+      <div style="font-size:10px;font-weight:600;color:#333">Pesan</div>
+    </div>
+    <div onclick="gp('flashsale')" style="flex:1;text-align:center;cursor:pointer;padding:4px 0">
+      <div style="width:46px;height:46px;background:#FFF3E0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 4px">⚡</div>
+      <div style="font-size:10px;font-weight:600;color:#333">Flash Sale</div>
+    </div>
+    <div onclick="gp('groupbuy')" style="flex:1;text-align:center;cursor:pointer;padding:4px 0">
+      <div style="width:46px;height:46px;background:#FFF3E0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 4px">🤝</div>
+      <div style="font-size:10px;font-weight:600;color:#333">Group Buy</div>
+    </div>
+    <div onclick="gp('wallet')" style="flex:1;text-align:center;cursor:pointer;padding:4px 0">
+      <div style="width:46px;height:46px;background:#FFF3E0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 4px">💳</div>
+      <div style="font-size:10px;font-weight:600;color:#333">DAPAY</div>
+    </div>
+    <div onclick="gp('promo')" style="flex:1;text-align:center;cursor:pointer;padding:4px 0">
+      <div style="width:46px;height:46px;background:#FFF3E0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 4px">🎁</div>
+      <div style="font-size:10px;font-weight:600;color:#333">Voucher</div>
+    </div>
+  </div>
+
+  <!-- KATEGORI - TALARA style grid 5+5 atau 3+3 -->
+  <div style="background:#fff;padding:12px 14px 10px;margin-bottom:8px">
+    <div style="font-size:14px;font-weight:800;color:#222;margin-bottom:10px">📌 Kategori</div>
+    <div id="hCats" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px"></div>
+  </div>
+
+  <!-- STATS - TALARA style compact horizontal -->
+  <div style="display:flex;gap:8px;padding:0 12px 10px;background:#fff;margin-bottom:8px">
+    <div onclick="gp('market')" style="flex:1;background:#FFF8F0;border-radius:12px;padding:10px 8px;text-align:center;border:1px solid #FFE0B2">
+      <div style="font-size:8px;color:#E65100;font-weight:700;letter-spacing:.3px">MENU</div>
+      <div style="font-size:20px;font-weight:900;color:#E65100" id="totM">24</div>
+      <div style="font-size:8px;color:#999">Aktif</div>
+    </div>
+    <div onclick="gp('restos')" style="flex:1;background:#F3F8FF;border-radius:12px;padding:10px 8px;text-align:center;border:1px solid #BBDEFB">
+      <div style="font-size:8px;color:#1565C0;font-weight:700;letter-spacing:.3px">DAPUR</div>
+      <div style="font-size:20px;font-weight:900;color:#1565C0">12</div>
+      <div style="font-size:8px;color:#999">UMKM</div>
+    </div>
+    <div onclick="gp('track')" style="flex:1;background:#F3FFF6;border-radius:12px;padding:10px 8px;text-align:center;border:1px solid #C8E6C9">
+      <div style="font-size:8px;color:#2E7D32;font-weight:700;letter-spacing:.3px">PESANAN</div>
+      <div style="font-size:20px;font-weight:900;color:#2E7D32">1</div>
+      <div style="font-size:8px;color:#999">Aktif</div>
+    </div>
+    <div onclick="gp('wallet')" style="flex:1;background:#FFFDE7;border-radius:12px;padding:10px 8px;text-align:center;border:1px solid #FFF176">
+      <div style="font-size:8px;color:#F57F17;font-weight:700;letter-spacing:.3px">DAPAY</div>
+      <div style="font-size:15px;font-weight:900;color:#F57F17">85K</div>
+      <div style="font-size:8px;color:#999">Saldo</div>
+    </div>
+  </div>
+
+  <!-- FLASH SALE - TALARA style -->
+  <div style="padding:0 14px;margin-bottom:4px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:15px;font-weight:900;color:#222">⚡ Flash Sale</span>
+        <span style="background:var(--orange);color:#fff;border-radius:20px;padding:2px 8px;font-size:9px;font-weight:800">Hari Ini</span>
+      </div>
+      <span onclick="gp('flashsale')" style="font-size:12px;color:var(--orange);font-weight:700">Lihat Semua ›</span>
+    </div>
+  </div>
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;gap:10px;padding:0 14px 12px" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d">
+    <div onclick="gp('market')" style="flex:0 0 140px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)">
+      <div style="height:90px;background:#FEF3E2;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative">🍗<span style="position:absolute;top:6px;left:6px;background:#F44336;color:#fff;border-radius:6px;padding:1px 6px;font-size:9px;font-weight:800">-32%</span></div>
+      <div style="padding:7px 8px"><div style="font-size:9px;color:#999">Geprek Bu Sari</div><div style="font-size:11px;font-weight:700;color:#222;margin:1px 0">Geprek Level 5+Nasi</div><div style="font-size:13px;font-weight:900;color:var(--orange)">Rp 15.000</div><div style="font-size:9px;color:#bbb;text-decoration:line-through">Rp 22.000</div></div>
+    </div>
+    <div onclick="gp('market')" style="flex:0 0 140px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)">
+      <div style="height:90px;background:#FFF8E7;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative">🍛<span style="position:absolute;top:6px;left:6px;background:#F44336;color:#fff;border-radius:6px;padding:1px 6px;font-size:9px;font-weight:800">-29%</span></div>
+      <div style="padding:7px 8px"><div style="font-size:9px;color:#999">Dapur Pak Budi</div><div style="font-size:11px;font-weight:700;color:#222;margin:1px 0">Nasi Goreng Kampung</div><div style="font-size:13px;font-weight:900;color:var(--orange)">Rp 12.000</div><div style="font-size:9px;color:#bbb;text-decoration:line-through">Rp 17.000</div></div>
+    </div>
+    <div onclick="gp('market')" style="flex:0 0 140px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)">
+      <div style="height:90px;background:#F5F0FF;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative">🍧<span style="position:absolute;top:6px;left:6px;background:#F44336;color:#fff;border-radius:6px;padding:1px 6px;font-size:9px;font-weight:800">-30%</span></div>
+      <div style="padding:7px 8px"><div style="font-size:9px;color:#999">Es Teler Bu Ani</div><div style="font-size:11px;font-weight:700;color:#222;margin:1px 0">Es Teler Spesial</div><div style="font-size:13px;font-weight:900;color:var(--orange)">Rp 8.400</div><div style="font-size:9px;color:#bbb;text-decoration:line-through">Rp 12.000</div></div>
+    </div>
+    <div onclick="gp('market')" style="flex:0 0 140px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.08)">
+      <div style="height:90px;background:#FFF0F0;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative">🍢<span style="position:absolute;top:6px;left:6px;background:#F44336;color:#fff;border-radius:6px;padding:1px 6px;font-size:9px;font-weight:800">-30%</span></div>
+      <div style="padding:7px 8px"><div style="font-size:9px;color:#999">Sate Pak Maman</div><div style="font-size:11px;font-weight:700;color:#222;margin:1px 0">Sate Kambing 10 Tusuk</div><div style="font-size:13px;font-weight:900;color:var(--orange)">Rp 24.500</div><div style="font-size:9px;color:#bbb;text-decoration:line-through">Rp 35.000</div></div>
+    </div>
+  </div>
+
+  <!-- POPULER - TALARA style dengan 2-col grid -->
+  <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua ›</div></div>
+  <div class="fg" id="hFoods" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 14px"></div>
+
+  <!-- DAPUR TERDEKAT -->
+  <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua ›</div></div>
+  <div class="rscrl" id="hRestos" ontouchstart="this._x=event.touches[0].clientX;this._s=this.scrollLeft" ontouchmove="var d=this._x-event.touches[0].clientX;if(Math.abs(d)>3)this.scrollLeft=this._s+d"></div>
+  <div style="height:20px"></div>
+</div>
 <div class="pg" id="pg-market">
   <div class="pc">
     <div style="display:flex;gap:9px;margin-bottom:14px">

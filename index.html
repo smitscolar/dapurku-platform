@@ -348,6 +348,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 .hscrl{
   display:flex;gap:8px;
   overflow-x:scroll;
+  overflow-y:hidden;
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   touch-action:pan-x;
@@ -355,6 +356,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   padding:4px 14px 12px;
   box-sizing:border-box;
   width:100%;
+  will-change:scroll-position;
 }
 .hscrl::-webkit-scrollbar{display:none}
 .cat-scrl::-webkit-scrollbar{display:none}
@@ -1010,7 +1012,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   <!-- KATEGORI -->
   <div style="background:#fff;padding-top:12px;margin-bottom:8px">
     <div style="font-size:14px;font-weight:800;color:#222;margin-bottom:10px;padding:0 14px">📌 Kategori</div>
-    <div id="hCats" class="hscrl"></div>
+    <div id="hCats" class="hscrl" ontouchstart="var t=this;t._sx=event.touches[0].pageX;t._sl=t.scrollLeft;event.stopPropagation()" ontouchmove="var dx=this._sx-event.touches[0].pageX;this.scrollLeft=this._sl+dx;event.preventDefault();event.stopPropagation()" style="touch-action:pan-x"></div>
   </div>
 
   <!-- STATS - TALARA style compact horizontal -->
@@ -1047,7 +1049,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
       <span onclick="gp('flashsale')" style="font-size:12px;color:var(--orange);font-weight:700">Lihat Semua ›</span>
     </div>
   </div>
-  <div id="hFlashSale" class="hscrl" style="padding:0 14px 12px"></div>
+  <div id="hFlashSale" class="hscrl" style="padding:0 14px 12px;touch-action:pan-x" ontouchstart="var t=this;t._sx=event.touches[0].pageX;t._sl=t.scrollLeft;event.stopPropagation()" ontouchmove="var dx=this._sx-event.touches[0].pageX;this.scrollLeft=this._sl+dx;event.preventDefault();event.stopPropagation()"></div>
 
   <!-- POPULER - TALARA style dengan 2-col grid -->
   <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua ›</div></div>
@@ -1594,7 +1596,13 @@ function rHome(){
     el.addEventListener('mouseup',function(){isDown=false;});
     el.addEventListener('mousemove',function(e){if(!isDown)return;var x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX);});
     el.addEventListener('touchstart',function(e){startX=e.touches[0].pageX;scrollLeft=el.scrollLeft;},{passive:true});
-    el.addEventListener('touchmove',function(e){var x=e.touches[0].pageX;var walk=startX-x;el.scrollLeft=scrollLeft+walk;},{passive:true});
+    el.addEventListener('touchmove',function(e){
+      var x=e.touches[0].pageX;
+      var walk=startX-x;
+      var dy=Math.abs(e.touches[0].pageY-(startX*0+e.touches[0].pageY));
+      var dx=Math.abs(walk);
+      if(dx>5){e.preventDefault();el.scrollLeft=scrollLeft+walk;}
+    },{passive:false});
   });
   // Flash Sale - render from F[] with discount, show photo from Supabase
   const fs=document.getElementById('hFlashSale');

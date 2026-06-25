@@ -1130,15 +1130,16 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
     <div style="flex:1;overflow-y:auto" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
-  <div class="hero" style="padding:8px 14px 12px">
-    <div class="hero-pilot" style="font-size:9px;padding:3px 10px;margin-bottom:5px">🏆 PILOT BATAM · 50 Dapur · 524 Transaksi · ⭐ 4.7/5</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.85);margin-bottom:0px">Selamat datang,</div>
-    <div class="hero-name" id="heroN" style="font-size:18px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-.3px">Budi Santoso 👋</div>
-    <div class="hero-search" style="padding:7px 12px">
-      <span class="hs-ic" style="font-size:13px;margin-right:6px">🔍</span>
-      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()" style="font-size:12px">
+  <div class="hero" style="padding:14px 16px 18px">
+    <div class="hero-pilot">🏆 PILOT BATAM &nbsp;·&nbsp; 50 Dapur &nbsp;·&nbsp; 524 Transaksi &nbsp;·&nbsp; ⭐ 4.7/5</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.88);margin-bottom:2px">Selamat datang,</div>
+    <div class="hero-name" id="heroN" style="font-size:22px;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-.3px">Budi Santoso 👋</div>
+    <div class="hero-search">
+      <span class="hs-ic">🔍</span>
+      <input placeholder="Cari makanan, dapur, atau menu..." id="gs" oninput="hs()">
     </div>
-  </div>  <!-- PROMO SCROLL SEMUA BISA GESER -->
+  </div></div>
+  <!-- PROMO SCROLL SEMUA BISA GESER -->
   <div id="promoScroll" style="touch-action:pan-x;overflow-x:auto;display:flex;gap:10px;padding:0 14px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none">
     <div onclick="toast('Diskon 25% diaktifkan!','ts')" style="flex:0 0 calc(50vw - 18px);min-width:145px;background:linear-gradient(135deg,#EA580C,#F97316);border-radius:16px;padding:14px 12px;color:#fff;cursor:pointer;position:relative;overflow:hidden">
       <div style="position:absolute;top:-8px;right:-8px;font-size:38px;opacity:.25">🍗</div>
@@ -1201,6 +1202,9 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 
   <div class="shr"><div class="st">🔥 Populer Hari Ini</div><div class="sa" onclick="gp('market')">Lihat Semua</div></div>
   <div class="fg" id="hFoods"></div>
+  <div class="shr"><div class="st">🏪 Dapur Terdekat</div><div class="sa" onclick="gp('restos')">Lihat Semua</div></div>
+  <div class="rscrl" id="hRestos"></div>
+  <!-- GROUP BUY BAHAN -->
   <div style="height:24px"></div>
 </div>
 

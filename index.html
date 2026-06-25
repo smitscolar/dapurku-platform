@@ -1479,6 +1479,9 @@ const PGTT={home:"Beranda 👋",market:"Semua Menu 🍽️",restos:"Daftar Dapur
 
 // ── NAV ──
 function gp(id){
+  if(id==='photomgr'&&typeof dkLoadPhotos==='function'){
+    dkLoadPhotos().then(()=>{ setTimeout(()=>{pmRender('menu');pmRender('dapur');},100); });
+  }
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
   const pg=document.getElementById('pg-'+id);
@@ -2175,7 +2178,13 @@ async function pmDelete(type,id){
     if(typeof cp!=='undefined'){
       if(cp==='home'&&typeof rHome==='function')rHome();
       if(cp==='market'&&typeof rm==='function')rm();
+      if(cp==='photomgr'&&typeof pmRender==='function'){
+        pmRender('menu');
+        pmRender('dapur');
+      }
     }
+    // Also always re-render market cards
+    if(typeof rm==='function'&&typeof cp!=='undefined'&&cp!=='market'){}
   }catch(ex){console.warn('dkLoadPhotos:',ex);}
 })();
 

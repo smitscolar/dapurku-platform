@@ -351,6 +351,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   padding:4px 14px 12px;
+  touch-action:pan-x;
 }
 .hscrl::-webkit-scrollbar{display:none}
 .cat-scrl::-webkit-scrollbar{display:none}
@@ -937,7 +938,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   </div>
 
   <div id="pgFlex" style="display:flex;flex:1">
-    <div style="flex:1;overflow-y:auto" id="pgArea">
+    <div style="flex:1;overflow-y:scroll;overscroll-behavior-y:contain;touch-action:pan-y" id="pgArea">
 <!-- ══ HOME ══ -->
 <div class="pg on" id="pg-home">
   <!-- HERO - TALARA style compact -->

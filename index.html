@@ -462,7 +462,7 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
 }
 .rscrl::-webkit-scrollbar{display:none}
 .rc{
-  flex-shrink:0;width:200px;background:var(--white);
+  flex-shrink:0;width:calc(50vw - 17px);min-width:145px;max-width:210px;background:var(--white);
   border-radius:18px;overflow:hidden;border:1px solid var(--border);
   cursor:pointer;transition:transform .2s,box-shadow .2s;
   box-shadow:var(--sh1);
@@ -985,38 +985,6 @@ button{cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1)}
   .ls-title{font-size:46px}
   .ls-sub{font-size:16px;margin-bottom:48px}
   .ls-btn-main,.ls-btn-sec{max-width:380px;padding:18px;font-size:17px}
-}
-
-/* ── Extra mobile fixes ── */
-@media(max-width:480px){
-  /* Dapur cards: 2 per row full fit */
-  .rc{
-    width:calc(50vw - 17px) !important;
-    min-width:0 !important;
-    max-width:none !important;
-  }
-  .rc-img img,.rc-img{
-    width:100% !important;
-  }
-  /* Food cards: 3 per row */
-  .fg{
-    grid-template-columns:repeat(3,1fr) !important;
-    gap:6px !important;
-    padding:0 9px 12px !important;
-  }
-  /* Promo cards */
-  .pcard{
-    width:calc(50vw - 16px) !important;
-    min-width:140px !important;
-    flex:0 0 calc(50vw - 16px) !important;
-  }
-  /* Flash sale cards */
-  .fs-card{
-    flex:0 0 calc(44vw) !important;
-    min-width:130px !important;
-  }
-  /* Section headings */
-  .st{font-size:14px !important}
 }
 </style>
 </head>

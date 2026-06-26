@@ -1096,11 +1096,13 @@ function goBack(){
   if(S.history.length>0){
     var prev=S.history.pop();
     goTo(prev,false);
-    // sync nav
     var navMap={"sc-home":"home","sc-market":"market","sc-chat-list":"chat","sc-profil":"profil","sc-jual":"jual"};
     if(navMap[prev]) setNav(navMap[prev]);
+    // Force re-render home jika kembali ke beranda
+    if(prev==="sc-home") setTimeout(function(){renderHome();},50);
   } else {
     goTo("sc-home",false);setNav("home");
+    setTimeout(function(){renderHome();},50);
   }
 }
 

@@ -180,7 +180,7 @@ img{display:block}
 .pd-name{font-size:20px;font-weight:900;color:var(--dark);margin:8px 0 4px;line-height:1.3}
 .pd-price{font-size:26px;font-weight:900;color:var(--green)}
 .pd-orig{font-size:14px;color:#bbb;text-decoration:line-through;margin-left:8px}
-.pd-actions{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:#fff;padding:10px 16px 24px;box-shadow:0 -2px 12px rgba(0,0,0,.1);display:flex;gap:10px;z-index:50}
+.pd-actions{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;background:#fff;padding:10px 16px 28px;box-shadow:0 -2px 12px rgba(0,0,0,.1);display:flex;gap:10px;z-index:150}
 
 /* ── CART ── */
 .cart-item{background:#fff;border-radius:var(--radius);padding:12px;display:flex;gap:12px;align-items:center;margin-bottom:10px;box-shadow:var(--sh)}
@@ -434,7 +434,7 @@ img{display:block}
 </div>
 
 <!-- ════ PRODUCT DETAIL ════ -->
-<div class="screen" id="sc-product">
+<div class="screen" id="sc-product" style="padding-bottom:0">
   <div style="position:relative">
     <div id="pdImgWrap" class="pd-img"></div>
     <button class="pd-back" onclick="goBack()">←</button>
@@ -952,7 +952,7 @@ function goTo(id,addHist){
   if(el){el.classList.add("on");el.scrollTop=0;}
   S.screen=id;
   // Bottom nav visibility (TALARA: hide for live_room + chat_room)
-  var hideNav=["sc-live-room","sc-chat-room"].indexOf(id)>=0;
+  var hideNav=["sc-live-room","sc-chat-room","sc-product","sc-cart","sc-checkout","sc-dapur-detail"].indexOf(id)>=0;
   document.getElementById("bottomNav").style.display=hideNav?"none":"flex";
   // Render
   renderScreen(id);

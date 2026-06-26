@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#1B5E20">
+<meta name="google" content="notranslate">
 <link rel="icon" type="image/png" href="https://dapurku-platform.vercel.app/logo.png">
 <link rel="apple-touch-icon" href="https://dapurku-platform.vercel.app/logo.png">
 <title>DapurKu — Ghost Kitchen Batam</title>
@@ -316,7 +317,7 @@ img{display:block}
   <div class="home-header">
     <div class="home-logo-row">
       <div class="home-logo">
-        <div class="home-logo-icon"><img src="https://dapurku-platform.vercel.app/logo.png" style="width:34px;height:34px;object-fit:contain" onerror="this.src=''"></div>
+        <div class="home-logo-icon" id="logoWrap"><img src="https://dapurku-platform.vercel.app/logo.png" style="width:34px;height:34px;object-fit:contain" onerror="this.style.display='none';document.getElementById('logoWrap').innerHTML='<span style=\'font-size:24px\'>🍳</span>'"></div>
         <div>
           <div class="home-logo-name">DapurKu</div>
           <div class="home-logo-sub">Ghost Kitchen · Batam</div>
@@ -370,22 +371,22 @@ img{display:block}
   <div class="stats-grid">
     <div class="stat-card" onclick="goTo('sc-market')">
       <div style="font-size:11px;color:var(--mid);margin-bottom:4px">🍽️ Menu</div>
-      <div style="font-size:20px;font-weight:900;color:var(--orange)" id="statMenu">0</div>
+      <div style="font-size:20px;font-weight:900;color:var(--orange)" id="statMenu" translate="no" class="notranslate">0</div>
       <div style="font-size:10px;color:var(--mid)">Aktif tersedia</div>
     </div>
     <div class="stat-card" onclick="goTo('sc-dapur-list')">
       <div style="font-size:11px;color:var(--mid);margin-bottom:4px">🏪 Dapur</div>
-      <div style="font-size:20px;font-weight:900;color:var(--green)" id="statDapur">0</div>
+      <div style="font-size:20px;font-weight:900;color:var(--green)" id="statDapur" translate="no" class="notranslate">0</div>
       <div style="font-size:10px;color:var(--mid)">UMKM Batam</div>
     </div>
     <div class="stat-card" onclick="goTo('sc-orders')">
       <div style="font-size:11px;color:var(--mid);margin-bottom:4px">📦 Pesanan</div>
-      <div style="font-size:20px;font-weight:900;color:var(--blue)" id="statOrders">0</div>
+      <div style="font-size:20px;font-weight:900;color:var(--blue)" id="statOrders" translate="no" class="notranslate">0</div>
       <div style="font-size:10px;color:var(--mid)">Aktif</div>
     </div>
     <div class="stat-card" onclick="goTo('sc-dapay')">
       <div style="font-size:11px;color:var(--mid);margin-bottom:4px">💳 DAPAY</div>
-      <div style="font-size:20px;font-weight:900;color:var(--gold-dark)" id="statDapay">85K</div>
+      <div style="font-size:20px;font-weight:900;color:var(--gold-dark)" id="statDapay" translate="no" class="notranslate">85K</div>
       <div style="font-size:10px;color:var(--mid)">Saldo</div>
     </div>
   </div>
@@ -2166,6 +2167,12 @@ async function loadPhotos(){
 // ════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════
+// Render immediately on DOM ready (faster than window load)
+document.addEventListener("DOMContentLoaded",function(){
+  renderHome();
+  updateBadges();
+});
+
 window.addEventListener("load",function(){
   loadPhotos().then(function(){renderHome();});
   renderHome();

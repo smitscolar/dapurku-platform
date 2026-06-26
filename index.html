@@ -595,23 +595,28 @@ img{display:block}
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row" style="margin-bottom:10px">
       <button class="topbar-back" onclick="goBack()">←</button>
-      <span class="topbar-title">🤝 Group Buy</span>
+      <span class="topbar-title">🤝 Group Buy Grosir</span>
     </div>
-    <div style="font-size:12px;color:rgba(255,255,255,.8);margin-bottom:8px">Beli bareng, hemat bareng! Min. 3 orang</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.8);margin-bottom:8px">Patungan bahan baku bareng UMKM lain · Harga pabrik langsung!</div>
     <div style="display:flex;gap:8px">
       <div style="flex:1;background:rgba(255,255,255,.15);border-radius:10px;padding:8px;text-align:center">
-        <div style="font-size:18px;font-weight:900;color:#FFD700" id="gbActive">4</div>
+        <div style="font-size:18px;font-weight:900;color:#FFD700" id="gbActive">5</div>
         <div style="font-size:10px;color:rgba(255,255,255,.8)">Grup Aktif</div>
       </div>
       <div style="flex:1;background:rgba(255,255,255,.15);border-radius:10px;padding:8px;text-align:center">
-        <div style="font-size:18px;font-weight:900;color:#FFD700">Rp 5rb</div>
-        <div style="font-size:10px;color:rgba(255,255,255,.8)">Hemat Per Orang</div>
+        <div style="font-size:18px;font-weight:900;color:#FFD700">40%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.8)">Hemat vs Pasar</div>
       </div>
       <div style="flex:1;background:rgba(255,255,255,.15);border-radius:10px;padding:8px;text-align:center">
-        <div style="font-size:18px;font-weight:900;color:#FFD700">30%</div>
-        <div style="font-size:10px;color:rgba(255,255,255,.8)">Diskon Max</div>
+        <div style="font-size:18px;font-weight:900;color:#FFD700">120+</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.8)">UMKM Bergabung</div>
       </div>
     </div>
+  </div>
+  <!-- Tab: Aktif / Riwayat -->
+  <div style="display:flex;gap:0;background:#fff;border-bottom:2px solid var(--gray);padding:0 14px">
+    <button id="gbTab0" onclick="switchGbTab(0)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:700;color:var(--green);border-bottom:2px solid var(--green);margin-bottom:-2px">Aktif</button>
+    <button id="gbTab1" onclick="switchGbTab(1)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:600;color:var(--mid)">Riwayatku</button>
   </div>
   <div style="padding:10px 14px" id="gbBody"></div>
 </div>
@@ -863,54 +868,90 @@ const SHORTCUTS=[
 ];
 
 const GB_ITEMS=[
-  {id:"gb1",fId:1,title:"Ayam Geprek Spesial",dapur:"Geprek Bu Sari",e:"🍗",oriP:22000,gbP:17000,minPerson:3,joined:2,max:10,end:3600,bg:"#FEF3E2"},
-  {id:"gb2",fId:7,title:"Mie Goreng Jawa",dapur:"Dapur Pak Budi",e:"🍜",oriP:15000,gbP:11000,minPerson:3,joined:1,max:8,end:7200,bg:"#DBEAFE"},
-  {id:"gb3",fId:4,title:"Nasi Uduk Komplit",dapur:"Nasi Uduk Mbak Ani",e:"🍚",oriP:18000,gbP:13000,minPerson:5,joined:4,max:15,end:1800,bg:"#E8F5E9"},
-  {id:"gb4",fId:11,title:"Boba Taro Susu",dapur:"Minuman Pak Eko",e:"🧋",oriP:18000,gbP:13500,minPerson:3,joined:3,max:10,end:5400,bg:"#F3E8FF"},
+  {id:"gb1",e:"🛢️",name:"Minyak Goreng Curah",unit:"kg",pasar:22000,grosir:14000,minQty:5,minUMKM:3,joined:7,max:20,end:7200,bg:"#FFF8E1",supplier:"CV Mitra Pangan Batam",badge:"Terlaris"},
+  {id:"gb2",e:"🍚",name:"Beras Premium 5kg",unit:"karung",pasar:75000,grosir:52000,minQty:2,minUMKM:5,joined:4,max:15,end:3600,bg:"#E8F5E9",supplier:"UD Sumber Beras Riau",badge:"Hampir penuh"},
+  {id:"gb3",e:"🧅",name:"Bawang Merah",unit:"kg",pasar:45000,grosir:28000,minQty:3,minUMKM:4,joined:11,max:20,end:10800,bg:"#FFEBEE",supplier:"Petani Langsung Brebes",badge:"Segar"},
+  {id:"gb4",e:"🫙",name:"Tepung Terigu 25kg",unit:"sak",pasar:210000,grosir:148000,minQty:1,minUMKM:6,joined:5,max:12,end:14400,bg:"#F3E8FF",supplier:"Bogasari Distributor",badge:""},
+  {id:"gb5",e:"🥚",name:"Telur Ayam Ras",unit:"kg",pasar:32000,grosir:22000,minQty:5,minUMKM:3,joined:2,max:10,end:5400,bg:"#FEF3E2",supplier:"Peternak Lokal Batam",badge:"Baru"},
 ];
 var gbJoined={};
+var gbTab=0;
+var gbRiwayat=[
+  {name:"Garam Halus 50kg",e:"🧂",tgl:"12 Jun",hemat:"Rp 45.000",status:"Terkirim"},
+  {name:"Cabai Merah Kering",e:"🌶️",tgl:"5 Jun",hemat:"Rp 38.000",status:"Terkirim"},
+];
+
+function switchGbTab(i){
+  gbTab=i;
+  [0,1].forEach(function(j){
+    var b=document.getElementById("gbTab"+j);
+    if(!b)return;
+    b.style.color=j===i?"var(--green)":"var(--mid)";
+    b.style.borderBottom=j===i?"2px solid var(--green)":"none";
+    b.style.fontWeight=j===i?"700":"600";
+  });
+  renderGroupBuy();
+}
 
 function renderGroupBuy(){
   var el=document.getElementById("gbBody");
   if(!el)return;
+  if(gbTab===1){
+    if(!gbRiwayat.length){el.innerHTML="<div class='empty-state'><div class='empty-icon'>📦</div><div class='empty-title'>Belum ada riwayat</div></div>";return;}
+    el.innerHTML=gbRiwayat.map(function(r){
+      return "<div class='card' style='display:flex;align-items:center;gap:12px;margin-bottom:10px'>"
+        +"<div style='font-size:32px'>"+r.e+"</div>"
+        +"<div style='flex:1'>"
+        +"<div style='font-size:13px;font-weight:700;color:var(--dark)'>"+r.name+"</div>"
+        +"<div style='font-size:11px;color:var(--mid)'>"+r.tgl+" · Hemat "+r.hemat+"</div>"
+        +"</div>"
+        +"<span style='background:var(--green-pale);color:var(--green);font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px'>"+r.status+"</span>"
+        +"</div>";
+    }).join("");
+    return;
+  }
   el.innerHTML=GB_ITEMS.map(function(g){
+    var disc=Math.round((g.pasar-g.grosir)/g.pasar*100);
     var pct=Math.round(g.joined/g.max*100);
-    var disc=Math.round((g.oriP-g.gbP)/g.oriP*100);
     var isJoined=gbJoined[g.id];
     var hrs=Math.floor(g.end/3600);
     var mins=Math.floor((g.end%3600)/60);
     var timeStr=hrs>0?hrs+"j "+mins+"m":mins+"m";
-    var ready=g.joined>=g.minPerson;
+    var ready=g.joined>=g.minUMKM;
     return "<div class='card' style='margin-bottom:12px'>"
-      // Header
-      +"<div style='display:flex;align-items:center;gap:10px;margin-bottom:10px'>"
-      +"<div style='width:48px;height:48px;border-radius:12px;background:"+g.bg+";display:flex;align-items:center;justify-content:center;font-size:28px'>"+g.e+"</div>"
+      +(g.badge?"<div style='display:inline-block;background:var(--green-pale);color:var(--green);font-size:9px;font-weight:700;padding:2px 8px;border-radius:6px;margin-bottom:8px'>"+g.badge+"</div>":"")
+      +"<div style='display:flex;align-items:flex-start;gap:10px;margin-bottom:10px'>"
+      +"<div style='width:52px;height:52px;border-radius:12px;background:"+g.bg+";display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0'>"+g.e+"</div>"
       +"<div style='flex:1'>"
-      +"<div style='font-size:13px;font-weight:800;color:var(--dark)'>"+g.title+"</div>"
-      +"<div style='font-size:11px;color:var(--mid)'>"+g.dapur+"</div>"
-      +"<div style='display:flex;align-items:center;gap:6px;margin-top:2px'>"
-      +"<span style='font-size:12px;font-weight:900;color:var(--green)'>Rp "+fmt(g.gbP)+"</span>"
-      +"<span style='font-size:10px;color:var(--mid);text-decoration:line-through'>Rp "+fmt(g.oriP)+"</span>"
+      +"<div style='font-size:14px;font-weight:800;color:var(--dark)'>"+g.name+"</div>"
+      +"<div style='font-size:10px;color:var(--mid);margin-bottom:4px'>🏭 "+g.supplier+"</div>"
+      +"<div style='display:flex;align-items:center;gap:6px'>"
+      +"<span style='font-size:15px;font-weight:900;color:var(--green)'>Rp "+fmt(g.grosir)+"<span style='font-size:10px;font-weight:500'>/"+g.unit+"</span></span>"
+      +"<span style='font-size:10px;color:var(--mid);text-decoration:line-through'>Rp "+fmt(g.pasar)+"</span>"
       +"<span style='background:#FFEBEE;color:var(--danger);font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px'>-"+disc+"%</span>"
-      +"</div></div>"
-      +"<div style='text-align:center'>"
-      +"<div style='font-size:9px;color:var(--mid)'>⏱ Sisa</div>"
-      +"<div style='font-size:12px;font-weight:800;color:"+(g.end<3600?"var(--danger)":"var(--orange)")+">"+timeStr+"</div>"
+      +"</div>"
+      +"<div style='font-size:10px;color:var(--mid);margin-top:2px'>Min. order: "+g.minQty+" "+g.unit+" per UMKM</div>"
+      +"</div>"
+      +"<div style='text-align:right;flex-shrink:0'>"
+      +"<div style='font-size:9px;color:var(--mid)'>⏱ Tutup</div>"
+      +"<div style='font-size:12px;font-weight:800;color:"+(g.end<3600?"var(--danger)":"var(--orange)")+";white-space:nowrap'>"+timeStr+"</div>"
       +"</div>"
       +"</div>"
-      // Progress bar
-      +"<div style='margin-bottom:8px'>"
+      +"<div style='margin-bottom:10px'>"
       +"<div style='display:flex;justify-content:space-between;margin-bottom:4px'>"
-      +"<span style='font-size:11px;color:var(--mid)'>👥 "+g.joined+"/"+g.max+" bergabung</span>"
-      +"<span style='font-size:11px;font-weight:700;color:"+(ready?"var(--green)":"var(--orange)")+">"+( ready?"✅ Siap order!":"Butuh "+(g.minPerson-g.joined)+" lagi")+"</span>"
+      +"<span style='font-size:11px;color:var(--mid)'>🏪 "+g.joined+"/"+g.max+" UMKM bergabung</span>"
+      +"<span style='font-size:11px;font-weight:700;color:"+(ready?"var(--green)":"var(--orange)")+">"+( ready?"✅ Kuota terpenuhi!":"Butuh "+(g.minUMKM-g.joined)+" UMKM lagi")+"</span>"
       +"</div>"
       +"<div style='background:var(--gray-light);border-radius:99px;height:8px;overflow:hidden'>"
       +"<div style='background:"+(ready?"var(--green)":"var(--orange)")+";height:100%;width:"+pct+"%;border-radius:99px;transition:.3s'></div>"
       +"</div>"
       +"</div>"
-      // Button
-      +"<button onclick='joinGB(\""+g.id+"\")' class='btn "+(isJoined?"btn-o":"btn-p")+"' style='width:100%;font-size:13px'>"
-      +(isJoined?"✅ Sudah Bergabung · Bagikan ke teman":"🤝 Gabung Sekarang · Rp "+fmt(g.gbP))
+      +"<div style='background:var(--green-pale);border-radius:8px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px'>"
+      +"<span style='font-size:11px;color:var(--mid)'>💰 Hemat per "+g.unit+"</span>"
+      +"<span style='font-size:14px;font-weight:900;color:var(--green)'>Rp "+fmt(g.pasar-g.grosir)+"</span>"
+      +"</div>"
+      +"<button onclick='joinGB(""+g.id+"")' class='btn "+(isJoined?"btn-o":"btn-p")+"' style='width:100%;font-size:13px'>"
+      +(isJoined?"✅ Sudah Daftar · Bagikan ke sesama UMKM":"🤝 Daftar Grup · Min. "+g.minQty+" "+g.unit)
       +"</button>"
       +"</div>";
   }).join("");
@@ -918,14 +959,13 @@ function renderGroupBuy(){
 
 function joinGB(gid){
   if(gbJoined[gid]){
-    toast("🔗 Link grup disalin! Ajak teman bergabung");
+    toast("🔗 Link grup disalin! Ajak UMKM lain bergabung");
     return;
   }
   gbJoined[gid]=true;
   var g=GB_ITEMS.find(function(x){return x.id===gid;});
   if(g&&g.joined<g.max) g.joined++;
-  addCart(g.fId,1);
-  toast("🎉 Berhasil bergabung! Ajak "+(g.minPerson-g.joined>0?(g.minPerson-g.joined)+" teman lagi":"teman")+" untuk aktifkan diskon");
+  toast("🎉 Berhasil daftar! "+(g.joined<g.minUMKM?"Butuh "+(g.minUMKM-g.joined)+" UMKM lagi untuk aktifkan harga grosir":"Harga grosir aktif!"));
   renderGroupBuy();
 }
 

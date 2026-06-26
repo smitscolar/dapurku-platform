@@ -1610,12 +1610,36 @@ function switchOrdTab(i){
 
 function openTrackSheet(id){
   openSheet("📍 Lacak Pesanan #"+id,
-    "<div style='text-align:center;padding:20px'>"
-    +"<div style='font-size:48px;margin-bottom:12px;animation:bounce 1s infinite'>🛵</div>"
-    +"<div style='font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px'>Pesananmu sedang dalam perjalanan</div>"
-    +"<div style='font-size:12px;color:var(--mid);margin-bottom:16px'>Pak Joko · Honda Beat Putih · BP 4521 KJK</div>"
-    +"<div style='background:var(--green-pale);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--green)'>🕐 Estimasi tiba: 8–12 menit</div>"
-    +"<button onclick='toast(\"📞 Menghubungi kurir...\")' class='btn btn-o' style='margin-top:12px;width:100%'>📞 Hubungi Kurir</button>"
+    "<div style='padding:0 0 8px'>"
+    // Google Maps embed - Batam area (Nagoya/pusat kota)
+    +"<div style='border-radius:12px;overflow:hidden;margin-bottom:12px'>"
+    +"<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.263!2d104.0305!3d1.1301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98f80b8e5e32f%3A0x1e0c3c0c0c0c0c0c!2sBatam%2C+Kepulauan+Riau!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid' width='100%' height='200' style='border:0;display:block' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>"
+    +"</div>"
+    // Kurir info
+    +"<div style='background:var(--gray);border-radius:12px;padding:12px;display:flex;align-items:center;gap:12px;margin-bottom:10px'>"
+    +"<div style='font-size:32px'>🛵</div>"
+    +"<div>"
+    +"<div style='font-size:13px;font-weight:800;color:var(--dark)'>Pak Joko</div>"
+    +"<div style='font-size:11px;color:var(--mid)'>Honda Beat Putih · BP 4521 KJK</div>"
+    +"<div style='font-size:11px;color:var(--green);font-weight:700;margin-top:2px'>🕐 Estimasi tiba: 8–12 menit</div>"
+    +"</div>"
+    +"</div>"
+    // Step tracker
+    +"<div style='display:flex;justify-content:space-between;align-items:center;padding:8px 4px;margin-bottom:10px'>"
+    +["Dipesan","Dikonfirmasi","Dimasak","Dikirim","Tiba"].map(function(s,i){
+      var done=i<4;
+      return "<div style='display:flex;flex-direction:column;align-items:center;gap:4px;flex:1'>"
+        +"<div style='width:24px;height:24px;border-radius:50%;background:"+(done?"var(--green)":"var(--gray-light)")+";display:flex;align-items:center;justify-content:center;font-size:12px'>"+(done?"✓":"○")+"</div>"
+        +"<div style='font-size:9px;color:"+(done?"var(--green)":"var(--mid)")+";font-weight:"+(done?"700":"400")+"'>"+s+"</div>"
+        +"</div>"
+        +(i<4?"<div style='height:2px;background:"+(i<3?"var(--green)":"var(--gray-light)")+";flex:1;margin-bottom:14px'></div>":"");
+    }).join("")
+    +"</div>"
+    // Buttons
+    +"<div style='display:flex;gap:8px'>"
+    +"<button onclick='toast(\"📞 Menghubungi kurir...\")' class='btn btn-o' style='flex:1;font-size:13px'>📞 Hubungi Kurir</button>"
+    +"<button onclick='window.open(\"https://maps.google.com/?q=1.1301,104.0305\",\"_blank\")' class='btn btn-p' style='flex:1;font-size:13px'>🗺️ Buka Maps</button>"
+    +"</div>"
     +"</div>"
   );
 }

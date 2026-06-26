@@ -324,7 +324,7 @@ img{display:block}
         <button class="home-header-btn" onclick="goTo('sc-notif')">
           🔔<span id="notifBadge" class="nav-badge" style="display:none">0</span>
         </button>
-        <button class="home-header-btn" onclick="goTo('sc-cart')">
+        <button class="home-header-btn" onclick="navMarketOrCart()">
           🛒<span id="cartBadge" class="nav-badge" style="display:none">0</span>
         </button>
       </div>
@@ -731,7 +731,7 @@ img{display:block}
     <span class="nav-label">Beranda</span>
     <div class="nav-active-dot" id="dot-home"></div>
   </button>
-  <button class="nav-btn" id="nav-market" onclick="goTo('sc-market');setNav('market')">
+  <button class="nav-btn" id="nav-market" onclick="navMarketOrCart()">
     <span class="nav-icon">🛒<span id="navCartBadge" class="nav-badge" style="display:none">0</span></span>
     <span class="nav-label">Market</span>
     <div class="nav-active-dot" id="dot-market" style="display:none"></div>
@@ -1950,6 +1950,14 @@ function submitMenu(){
 // ════════════════════════════════════════════
 // BADGES UPDATE
 // ════════════════════════════════════════════
+function navMarketOrCart(){
+  if(S.cart.length>0){
+    goTo('sc-cart');
+  } else {
+    goTo('sc-market');setNav('market');
+  }
+}
+
 function updateBadges(){
   var cartTot=S.cart.reduce(function(s,i){return s+i.qty;},0);
   var cb=document.getElementById("navCartBadge");

@@ -32,7 +32,7 @@ input{font-family:inherit}
   font-size:10px;color:var(--mid);font-weight:600;position:relative;
 }
 .nav-tab.active{color:var(--orange)}
-.nav-tab .nav-em{font-size:22px;line-height:1}
+.nav-tab .nav-em{font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;width:24px;height:24px}
 .nav-badge{
   position:absolute;top:4px;right:calc(50% - 18px);
   background:#F44336;color:#fff;font-size:9px;font-weight:800;
@@ -433,7 +433,7 @@ input{font-family:inherit}
 <div class="screen" id="screen-product">
   <div style="position:relative">
     <div id="pdImg" style="width:100%;height:240px;background:var(--orangePale);display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden"></div>
-    <button onclick="goBack()" style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:20px;z-index:10;display:flex;align-items:center;justify-content:center">←</button>
+    <button onclick="goBack()" style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:20px;z-index:10;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <button id="pdFavBtn" onclick="toggleFav()" style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:18px;z-index:10;display:flex;align-items:center;justify-content:center">🤍</button>
   </div>
   <div style="background:#fff;border-radius:20px 20px 0 0;margin-top:-20px;padding:16px 16px 120px;position:relative">
@@ -469,7 +469,7 @@ input{font-family:inherit}
 <!-- CART -->
 <div class="screen" id="screen-cart">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">🛒 Keranjang</span>
     <button class="topbar-btn" onclick="clearCart()">Kosongkan</button>
   </div>
@@ -508,7 +508,7 @@ input{font-family:inherit}
 <!-- DAPUR LIST -->
 <div class="screen" id="screen-dapur-list">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">🏪 Semua Dapur</span>
   </div>
   <div style="padding:10px 14px">
@@ -521,7 +521,7 @@ input{font-family:inherit}
 <div class="screen" id="screen-dapur-detail">
   <div style="position:relative">
     <div id="ddImg" style="width:100%;height:180px;background:var(--greenPale);display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;overflow:hidden"></div>
-    <button onclick="goBack()" style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:20px;z-index:10;display:flex;align-items:center;justify-content:center">←</button>
+    <button onclick="goBack()" style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:20px;z-index:10;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
   </div>
   <div style="background:#fff;border-radius:20px 20px 0 0;margin-top:-20px;padding:14px;position:relative">
     <div id="ddName" style="font-size:18px;font-weight:800;color:var(--dark);margin-bottom:4px"></div>
@@ -535,7 +535,7 @@ input{font-family:inherit}
 <!-- LIVE LIST -->
 <div class="screen" id="screen-live-list">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">🔴 Live Dapur</span>
   </div>
   <div style="padding:10px 14px">
@@ -568,7 +568,7 @@ input{font-family:inherit}
 <!-- ORDERS / PESANAN -->
 <div class="screen" id="screen-orders">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">📦 Pesanan Saya</span>
   </div>
   <div style="padding:10px 14px">
@@ -584,7 +584,7 @@ input{font-family:inherit}
 <!-- DAPAY WALLET -->
 <div class="screen" id="screen-dapay">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">💳 DAPAY</span>
   </div>
   <div style="padding:14px">
@@ -632,7 +632,7 @@ input{font-family:inherit}
 <!-- CHAT LIST -->
 <div class="screen" id="screen-chat-list">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">💬 Chat</span>
   </div>
   <div id="chatListItems"></div>
@@ -641,7 +641,7 @@ input{font-family:inherit}
 <!-- CHAT ROOM -->
 <div class="screen" id="screen-chat-room">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title" id="chatRoomTitle">Chat</span>
   </div>
   <div id="chatMessages" style="padding:12px 14px 80px;min-height:calc(100vh - 140px);display:flex;flex-direction:column;gap:4px"></div>
@@ -654,7 +654,7 @@ input{font-family:inherit}
 <!-- NOTIFIKASI -->
 <div class="screen" id="screen-notif">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">🔔 Notifikasi</span>
     <button class="topbar-btn" onclick="readAllNotif()">Baca Semua</button>
   </div>
@@ -731,7 +731,7 @@ input{font-family:inherit}
 <!-- PHOTO MANAGER -->
 <div class="screen" id="screen-photo">
   <div class="topbar">
-    <button class="topbar-back" onclick="goBack()">←</button>
+    <button class="topbar-back" onclick="goBack()"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
     <span class="topbar-title">📸 Photo Manager</span>
   </div>
   <div style="padding:12px 14px">
@@ -747,27 +747,27 @@ input{font-family:inherit}
 <!-- BOTTOM NAV -->
 <div id="bottomNav">
   <button class="nav-tab active" id="nav-home" onclick="goScreen('home')">
-    <span class="nav-em">🏠</span>Beranda
+    <span class="nav-em"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Beranda
   </button>
   <button class="nav-tab" id="nav-market" onclick="goScreen('market')">
-    <span class="nav-em">🍽️</span>Menu
+    <span class="nav-em"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8.42-15.03-8.42-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg></span>Menu
     <span class="nav-badge" id="navMenuBadge" style="display:none">0</span>
   </button>
   <button class="nav-tab" id="nav-photo" onclick="goScreen('photo')">
-    <span class="nav-em">📸</span>Foto
+    <span class="nav-em"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z"/></svg></span>Foto
   </button>
   <button class="nav-tab" id="nav-orders" onclick="goScreen('orders')">
-    <span class="nav-em">📦</span>Pesanan
+    <span class="nav-em"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H4.99c-1.11 0-1.98.89-1.98 2L3 19c0 1.11.88 2 1.99 2H19c1.1 0 2-.89 2-2V5c0-1.11-.9-2-2-2zm0 12h-4c0 1.66-1.35 3-3 3s-3-1.34-3-3H4.99V5H19v10z"/></svg></span>Pesanan
     <span class="nav-badge" id="navOrdBadge" style="display:none">0</span>
   </button>
   <button class="nav-tab" id="nav-dapay" onclick="goScreen('dapay')">
-    <span class="nav-em">💳</span>Dompet
+    <span class="nav-em"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></span>Dompet
   </button>
 </div>
 
 <!-- FLOATING CART -->
-<div id="cartFab" style="display:none;position:fixed;bottom:80px;right:16px;z-index:90;background:var(--orange);color:#fff;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.25);cursor:pointer" onclick="goScreen('cart')">
-  🛒 <span id="cartFabCount">0</span> item
+<div id="cartFab" style="display:none;position:fixed;bottom:80px;right:16px;z-index:90;background:var(--orange);color:#fff;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.25);cursor:pointer;align-items:center;gap:6px" onclick="goScreen('cart')">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 23.42 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"/></svg> <span id="cartFabCount" style="font-size:14px;font-weight:800">0</span> item
 </div>
 
 <!-- SHEET OVERLAY -->

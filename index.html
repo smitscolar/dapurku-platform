@@ -670,7 +670,7 @@ img{display:block}
     <div class="wallet-card">
       <div style="font-size:11px;color:rgba(255,255,255,.7);margin-bottom:2px">Saldo DAPAY</div>
       <div style="font-size:30px;font-weight:900;margin-bottom:2px" id="walAmt">Rp 85.000</div>
-      <div style="font-size:11px;color:var(--gold)">= <span id="walTP">170 TP</span> · Terverifikasi</div>
+      <div style="font-size:11px;color:var(--gold)" id="walTPWrap" style="display:none"><span id="walTP"></span></div>
       <div style="display:flex;gap:8px;margin-top:14px;position:relative;z-index:1">
         <button onclick="openTopUp()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-size:18px">⬆️</span>Top Up</button>
         <button onclick="openTransfer()" style="flex:1;background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:10px;padding:8px 4px;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-size:18px">↔️</span>Transfer</button>
@@ -1088,7 +1088,7 @@ var SUPA_BUCKET="dapurku-photos";
 // HELPERS
 // ════════════════════════════════════════════
 var fmt=function(n){return new Intl.NumberFormat("id-ID").format(n);};
-var fmtDP=function(n){return Math.round(n/500)+" DP";};
+var fmtDP=function(n){return "";};
 var getImg=function(type,id){return localStorage.getItem((type==="menu"?"dk_fimg_":"dk_rimg_")+id)||null;};
 var stars=function(r){
   var s="";
@@ -1512,7 +1512,7 @@ function chQty(d){
 function updatePdTotal(){
   if(!S.curProduct)return;
   document.getElementById("pdTotalStr").textContent="Rp "+fmt(S.curProduct.p*S.pdQty);
-  document.getElementById("pdDapayStr").textContent="= "+fmtDP(S.curProduct.p*S.pdQty);
+  document.getElementById("pdDapayStr").textContent="";
 }
 
 function toggleFav(){
@@ -1602,7 +1602,7 @@ function renderCartBody(){
       +"<div style='flex:1'>"
       +"<div style='font-size:13px;font-weight:700;color:var(--dark);margin-bottom:2px'>"+item.n+"</div>"
       +"<div style='font-size:14px;font-weight:900;color:var(--green)'>Rp "+fmt(item.p*item.qty)+"</div>"
-      +"<div style='font-size:10px;color:var(--gold-dark)'>"+fmtDP(item.p*item.qty)+"</div>"
+      
       +"<div style='display:flex;align-items:center;gap:8px;margin-top:6px'>"
       +"<button onclick='cartQty("+i+",-1)' style='width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gray-light);background:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center'>−</button>"
       +"<span style='font-size:15px;font-weight:800;min-width:20px;text-align:center'>"+item.qty+"</span>"
@@ -1623,7 +1623,7 @@ function renderCartBody(){
   +"</div>"
   // Summary
   +"<div class='card' style='background:var(--green-pale)'>"
-  +[["Subtotal","Rp "+fmt(total)],["Ongkos Kirim","Rp 3.000"],["Diskon Ongkir","– Rp 3.000"],["Total DAPAY",fmtDP(totalTP)]].map(function(p){
+  +[["Subtotal","Rp "+fmt(total)],["Ongkos Kirim","Rp 3.000"],["Diskon Ongkir","– Rp 3.000"],["Total DAPAY (hidden)",fmtDP(totalTP)]].map(function(p){
     return "<div style='display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px'><span style='color:var(--mid)'>"+p[0]+"</span><span style='font-weight:600;color:"+(p[0].includes("Diskon")?"var(--danger)":"var(--dark)")+"'>"+p[1]+"</span></div>";
   }).join("")
   +"<div style='height:1px;background:var(--gray-light);margin:8px 0'></div>"
@@ -1878,7 +1878,7 @@ function renderWallet(){
 
 function updateWalletAmtEl(){
   var el=document.getElementById("walAmt");if(el) el.textContent="Rp "+fmt(S.walBal);
-  var tp=document.getElementById("walTP");if(tp) tp.textContent=fmtDP(S.walBal);
+
   var sd=document.getElementById("statDapay");if(sd) sd.textContent=Math.round(S.walBal/1000)+"K";
   var ms2=document.getElementById("miniSaldo");if(ms2) ms2.textContent="Rp "+S.walBal.toLocaleString("id-ID");
 }
@@ -1916,7 +1916,7 @@ function openTopUp(){
     "<div style='display:flex;flex-direction:column;gap:8px'>"
     +[20000,50000,100000,200000,500000].map(function(a){
       return "<button onclick='doTopUp("+a+")' style='background:var(--gray);border:1.5px solid var(--gray-light);border-radius:12px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center'>"
-        +"<div><div>Rp "+fmt(a)+"</div><div style='font-size:11px;color:var(--gold-dark);font-weight:600'>= "+fmtDP(a)+"</div></div>"
+        +"<div>Rp "+fmt(a)+"</div>"
         +"<span style='color:var(--green);font-size:12px'>Pilih ›</span></button>";
     }).join("")+"</div>"
   );

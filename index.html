@@ -611,8 +611,8 @@ img{display:block}
 </div>
 
 <!-- ════ ORDERS ════ -->
-<div class="screen" id="sc-orders">
-  <div style="background:var(--green-grad);padding:14px">
+<div class="screen" id="sc-orders" style="background:#111827">
+  <div style="background:linear-gradient(160deg,#111827 0%,#1F2937 70%,#92400e 100%);padding:14px">
     <div class="topbar-row" style="margin-bottom:10px">
       <button class="topbar-back" onclick="goBack()">←</button>
       <span class="topbar-title">📦 Pesanan Saya</span>
@@ -623,7 +623,7 @@ img{display:block}
       <button id="ordTab2" class="wallet-tab" onclick="switchOrdTab(2)">Selesai</button>
     </div>
   </div>
-  <div style="padding:10px 14px" id="ordersBody"></div>
+  <div style="padding:10px 14px;background:#111827;min-height:60vh" id="ordersBody"></div>
 </div>
 
 <!-- ════ GROUP BUY ════ -->
@@ -650,7 +650,7 @@ img{display:block}
     </div>
   </div>
   <!-- Tab: Aktif / Riwayat -->
-  <div style="display:flex;gap:0;background:#fff;border-bottom:2px solid var(--gray);padding:0 14px">
+  <div style="display:flex;gap:0;background:#1F2937;border-bottom:2px solid #374151;padding:0 14px">
     <button id="gbTab0" onclick="switchGbTab(0)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:700;color:var(--green);border-bottom:2px solid var(--green);margin-bottom:-2px">Aktif</button>
     <button id="gbTab1" onclick="switchGbTab(1)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:600;color:var(--mid)">Riwayatku</button>
   </div>
@@ -1804,18 +1804,18 @@ function renderOrders(){
     var stepHtml="<div style='display:flex;align-items:center;margin:10px 0'>";
     o.steps.forEach(function(step,i){
       stepHtml+="<div style='display:flex;flex-direction:column;align-items:center;flex:1'>"
-        +"<div style='width:22px;height:22px;border-radius:50%;background:"+(step.done?"var(--green)":"var(--gray-light)")+";color:"+(step.done?"#fff":"var(--gray-mid)")+";font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid "+(step.done?"var(--green)":"var(--gray-light)")+"'>"+(step.done?"✓":"○")+"</div>"
-        +"<div style='font-size:8px;color:var(--gray-mid);margin-top:2px;text-align:center'>"+step.s+"</div></div>";
-      if(i<o.steps.length-1) stepHtml+="<div style='flex:1;height:2px;background:"+(step.done?"var(--green)":"var(--gray-light)")+";margin-bottom:12px'></div>";
+        +"<div style='width:22px;height:22px;border-radius:50%;background:"+(step.done?"#F5A623":"#374151")+";color:"+(step.done?"#111":"#6B7280")+";font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid "+(step.done?"#F5A623":"#4B5563")+"'>"+(step.done?"✓":"○")+"</div>"
+        +"<div style='font-size:8px;color:#9CA3AF;margin-top:2px;text-align:center'>"+step.s+"</div></div>";
+      if(i<o.steps.length-1) stepHtml+="<div style='flex:1;height:2px;background:"+(step.done?"#F5A623":"#374151")+";margin-bottom:12px'></div>";
     });
     stepHtml+="</div>";
     return "<div class='order-card'>"
       +"<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:8px'>"
-      +"<div style='font-size:13px;font-weight:800;color:var(--dark)'>#"+o.id+"</div>"
-      +"<span style='font-size:10px;font-weight:700;padding:3px 9px;border-radius:6px;background:var("+(o.status==="masak"?"--orange-pale":o.status==="kirim"?"--blue-pale":"--green-pale")+");color:var("+(o.status==="masak"?"--orange":o.status==="kirim"?"--blue":"--green")+")'>"+sTxt+"</span>"
+      +"<div style='font-size:13px;font-weight:800;color:#F9FAFB'>#"+o.id+"</div>"
+      +"<span style='font-size:10px;font-weight:700;padding:3px 9px;border-radius:6px;background:var("+(o.status==="masak"?"--orange-pale":o.status==="kirim"?"--blue-pale":"--green-pale")+");color:"+(o.status==="masak"?"#F59E0B":o.status==="kirim"?"#60A5FA":"#34D399")+"'>"+sTxt+"</span>"
       +"</div>"
-      +"<div style='font-size:12px;color:var(--mid);margin-bottom:4px'>🏪 "+r.n+"</div>"
-      +"<div style='font-size:12px;color:var(--mid);margin-bottom:8px'>"+o.items+"</div>"
+      +"<div style='font-size:12px;color:#9CA3AF;margin-bottom:4px'>🏪 "+r.n+"</div>"
+      +"<div style='font-size:12px;color:#D1D5DB;margin-bottom:8px'>"+o.items+"</div>"
       +stepHtml
       +"<div style='display:flex;justify-content:space-between;align-items:center;margin-top:4px'>"
       +"<div style='font-size:14px;font-weight:900;color:var(--orange)'>Rp "+fmt(o.total)+"</div>"

@@ -391,28 +391,9 @@ img{display:block}
     <div class="cat-grid" id="catGrid"></div>
   </div>
 
-  <!-- STATS -->
-  <div class="stats-grid">
-    <div class="stat-card" onclick="goTo('sc-market')">
-      <div style="font-size:11px;color:#9CA3AF;margin-bottom:4px">🍽️ Menu</div>
-      <div style="font-size:20px;font-weight:900;color:var(--orange)" id="statMenu">0</div>
-      <div style="font-size:10px;color:#9CA3AF">Aktif tersedia</div>
-    </div>
-    <div class="stat-card" onclick="goTo('sc-dapur-list')">
-      <div style="font-size:11px;color:#9CA3AF;margin-bottom:4px">🏪 Dapur</div>
-      <div style="font-size:20px;font-weight:900;color:var(--green)" id="statDapur">0</div>
-      <div style="font-size:10px;color:#9CA3AF">UMKM Batam</div>
-    </div>
-    <div class="stat-card" onclick="goTo('sc-orders')">
-      <div style="font-size:11px;color:#9CA3AF;margin-bottom:4px">📦 Pesanan</div>
-      <div style="font-size:20px;font-weight:900;color:var(--blue)" id="statOrders">0</div>
-      <div style="font-size:10px;color:#9CA3AF">Aktif</div>
-    </div>
-    <div class="stat-card" onclick="goTo('sc-dapay')">
-      <div style="font-size:11px;color:var(--mid);margin-bottom:4px">💳 DAPAY</div>
-      <div style="font-size:20px;font-weight:900;color:var(--gold-dark)" id="statDapay">85K</div>
-      <div style="font-size:10px;color:var(--mid)">Saldo</div>
-    </div>
+  <!-- STATS HIDDEN -->
+  <div style="display:none">
+    <span id="statMenu"></span><span id="statDapur"></span><span id="statOrders"></span><span id="statDapay"></span>
   </div>
 
   <!-- FLASH SALE -->

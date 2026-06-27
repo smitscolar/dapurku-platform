@@ -104,7 +104,7 @@ img{display:block}
 .banner-wrap{position:relative;height:110px;overflow:hidden;border-radius:var(--radius);margin:12px 14px 0}
 .banner-slide{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:0 18px;opacity:0;transition:opacity .5s}
 .banner-slide.on{opacity:1}
-.banner-dots{display:flex;justify-content:center;gap:5px;margin-top:8px}
+.banner-dots{display:flex;justify-content:center;gap:5px;margin-top:4px;margin-bottom:0}
 .banner-dot{width:6px;height:6px;border-radius:3px;background:rgba(0,0,0,.2);transition:all .3s}
 .banner-dot.on{width:16px;background:var(--green)}
 
@@ -376,8 +376,25 @@ img{display:block}
     <div class="banner-dots" id="bannerDots"></div>
   </div>
 
-  <!-- SHORTCUTS -->
-  <div class="shortcuts" id="homeShortcuts"></div>
+  <!-- DAPAY MINI CARD + SHORTCUTS -->
+  <div style="padding:8px 14px 0;background:#1F2937;display:flex;align-items:center;gap:10px">
+    <div onclick="goTo('sc-dapay')" style="flex:1;background:linear-gradient(135deg,#1e3a5f,#1a4a7a);border-radius:12px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:1px solid rgba(245,166,35,.2)">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,#F5A623,#F5C842);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">💳</div>
+        <div>
+          <div style="font-size:9px;color:#9CA3AF;font-weight:600">DAPAY Saldo</div>
+          <div style="font-size:15px;font-weight:900;color:#F5A623" id="miniSaldo">Rp 85.000</div>
+        </div>
+      </div>
+      <div style="font-size:9px;color:#F5A623;font-weight:700;background:rgba(245,166,35,.15);padding:3px 8px;border-radius:6px">Top Up ›</div>
+    </div>
+    <div onclick="goTo('sc-orders')" style="background:#1F2937;border-radius:12px;padding:8px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;border:1px solid #374151;min-width:64px">
+      <div style="font-size:18px">📦</div>
+      <div style="font-size:9px;color:#9CA3AF;font-weight:600">Pesanan</div>
+      <div style="font-size:12px;font-weight:800;color:#F9FAFB" id="miniOrders">0</div>
+    </div>
+  </div>
+  <div class="shortcuts" id="homeShortcuts" style="padding-top:10px"></div>
 
   <!-- LIVE NOW -->
   <div id="liveSec" style="display:none;background:#1F2937;margin-bottom:8px;padding:14px 0 4px">
@@ -1225,6 +1242,8 @@ function renderHome(){
   document.getElementById("statDapur").textContent=R.length;
   document.getElementById("statOrders").textContent=ORDERS_D.filter(function(o){return o.status!=="selesai";}).length;
   document.getElementById("statDapay").textContent=Math.round(S.walBal/1000)+"K";
+  var ms=document.getElementById("miniSaldo");if(ms) ms.textContent="Rp "+S.walBal.toLocaleString("id-ID");
+  var mo=document.getElementById("miniOrders");if(mo) mo.textContent=ORDERS_D.filter(function(o){return o.status!=="selesai";}).length;
 
   // Flash sale
   var hf=document.getElementById("homeFlash");
@@ -1864,6 +1883,7 @@ function updateWalletAmtEl(){
   var el=document.getElementById("walAmt");if(el) el.textContent="Rp "+fmt(S.walBal);
   var tp=document.getElementById("walTP");if(tp) tp.textContent=fmtDP(S.walBal);
   var sd=document.getElementById("statDapay");if(sd) sd.textContent=Math.round(S.walBal/1000)+"K";
+  var ms2=document.getElementById("miniSaldo");if(ms2) ms2.textContent="Rp "+S.walBal.toLocaleString("id-ID");
 }
 
 function switchWalTab(i){

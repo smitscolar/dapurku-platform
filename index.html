@@ -163,11 +163,11 @@ img{display:block}
 .rc-meta{font-size:9px;color:var(--mid);margin-top:2px}
 
 /* ── LIVE CARD ── */
-.lc{flex-shrink:0;width:150px;border-radius:var(--radius);overflow:hidden;background:#111;position:relative;cursor:pointer}
-.lc-img{width:100%;height:90px;object-fit:cover;opacity:.8;display:block}
-.lc-em{width:100%;height:90px;display:flex;align-items:center;justify-content:center;font-size:36px}
-.lc-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:7px;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 60%)}
-.lc-badge{background:var(--danger);color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:4px;display:inline-block;margin-bottom:2px}
+.lc{flex-shrink:0;width:160px;border-radius:12px;overflow:hidden;background:#111;position:relative;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.lc-img{width:100%;height:105px;object-fit:cover;opacity:.85;display:block}
+.lc-em{width:100%;height:105px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.lc-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.3) 50%,transparent 100%)}
+.lc-badge{background:#E8000D;color:#fff;font-size:9px;font-weight:900;padding:2px 7px 2px 5px;border-radius:4px;display:inline-flex;align-items:center;gap:3px;margin-bottom:4px;letter-spacing:.5px;width:fit-content}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 .live-dot{display:inline-block;width:7px;height:7px;background:var(--danger);border-radius:50%;animation:pulse 1s infinite;margin-right:3px;vertical-align:middle}
 
@@ -314,35 +314,45 @@ img{display:block}
   <div class="home-header">
     <div class="home-logo-row">
       <div class="home-logo">
-        <div class="home-logo-icon" style="background:#fff;border-radius:10px;width:46px;height:46px;padding:3px;box-shadow:0 2px 10px rgba(0,0,0,.25)">
-          <svg viewBox="0 0 80 80" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-            <!-- Topi Chef kiri -->
-            <ellipse cx="20" cy="28" rx="9" ry="11" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
-            <rect x="13" y="34" width="14" height="6" rx="2" fill="#fff" stroke="#1a1f3a" stroke-width="1.5"/>
-            <!-- Topi Chef tengah (lebih besar) -->
-            <ellipse cx="40" cy="22" rx="12" ry="14" fill="#fff" stroke="#1a1f3a" stroke-width="2.5"/>
-            <rect x="29" y="32" width="22" height="7" rx="3" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
-            <!-- Topi Chef kanan -->
-            <ellipse cx="60" cy="28" rx="9" ry="11" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
-            <rect x="53" y="34" width="14" height="6" rx="2" fill="#fff" stroke="#1a1f3a" stroke-width="1.5"/>
-            <!-- Rumah / atap -->
-            <polygon points="40,36 18,54 62,54" fill="#E65C00"/>
-            <rect x="25" y="54" width="30" height="20" rx="2" fill="#FF8C33"/>
-            <!-- Jendela rumah -->
-            <rect x="30" y="58" width="8" height="8" rx="1" fill="#fff" opacity=".8"/>
-            <rect x="42" y="58" width="8" height="8" rx="1" fill="#fff" opacity=".8"/>
-            <!-- Garpu kiri -->
-            <rect x="12" y="42" width="4" height="22" rx="2" fill="#E65C00"/>
-            <rect x="10" y="40" width="2" height="10" rx="1" fill="#E65C00"/>
-            <rect x="13" y="40" width="2" height="10" rx="1" fill="#E65C00"/>
-            <rect x="16" y="40" width="2" height="10" rx="1" fill="#E65C00"/>
-            <!-- Sendok kanan -->
-            <ellipse cx="66" cy="43" rx="5" ry="7" fill="#E65C00"/>
-            <rect x="64" y="49" width="4" height="15" rx="2" fill="#E65C00"/>
+        <div class="home-logo-icon" style="background:#fff;border-radius:12px;width:50px;height:50px;padding:0;box-shadow:0 3px 12px rgba(0,0,0,.3);overflow:hidden;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 100 100" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+            <!-- === GARPU KIRI === -->
+            <rect x="16" y="38" width="5" height="30" rx="2.5" fill="#E65C00"/>
+            <rect x="13" y="28" width="3" height="16" rx="1.5" fill="#E65C00"/>
+            <rect x="17" y="28" width="3" height="16" rx="1.5" fill="#E65C00"/>
+            <rect x="21" y="28" width="3" height="16" rx="1.5" fill="#E65C00"/>
+            <!-- === SENDOK KANAN === -->
+            <ellipse cx="82" cy="36" rx="7" ry="10" fill="#E65C00"/>
+            <rect x="79" y="45" width="6" height="22" rx="3" fill="#E65C00"/>
+            <!-- === TOPI CHEF KIRI kecil === -->
+            <ellipse cx="28" cy="38" rx="10" ry="12" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
+            <rect x="20" y="46" width="16" height="7" rx="2" fill="#fff" stroke="#1a1f3a" stroke-width="1.5"/>
+            <!-- === TOPI CHEF TENGAH besar === -->
+            <ellipse cx="50" cy="30" rx="14" ry="17" fill="#fff" stroke="#1a1f3a" stroke-width="2.5"/>
+            <rect x="37" y="43" width="26" height="8" rx="3" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
+            <!-- === TOPI CHEF KANAN kecil === -->
+            <ellipse cx="72" cy="38" rx="10" ry="12" fill="#fff" stroke="#1a1f3a" stroke-width="2"/>
+            <rect x="64" y="46" width="16" height="7" rx="2" fill="#fff" stroke="#1a1f3a" stroke-width="1.5"/>
+            <!-- === RUMAH — atap orange === -->
+            <polygon points="50,48 24,68 76,68" fill="#E65C00"/>
+            <!-- kilap atap -->
+            <polygon points="50,50 38,62 62,62" fill="#FF8C33" opacity=".5"/>
+            <!-- jendela kecil di atap -->
+            <rect x="44" y="54" width="12" height="9" rx="2" fill="#fff" opacity=".9"/>
+            <line x1="50" y1="54" x2="50" y2="63" stroke="#E65C00" stroke-width="1"/>
+            <line x1="44" y1="58.5" x2="56" y2="58.5" stroke="#E65C00" stroke-width="1"/>
+            <!-- === BADAN RUMAH === -->
+            <rect x="28" y="68" width="44" height="24" rx="2" fill="#FF8C33"/>
+            <!-- pintu -->
+            <rect x="44" y="76" width="12" height="16" rx="2" fill="#1a1f3a" opacity=".7"/>
+            <!-- jendela kiri -->
+            <rect x="31" y="72" width="9" height="9" rx="1.5" fill="#fff" opacity=".85"/>
+            <!-- jendela kanan -->
+            <rect x="60" y="72" width="9" height="9" rx="1.5" fill="#fff" opacity=".85"/>
           </svg>
         </div>
         <div>
-          <div class="home-logo-name">DapurKu</div>
+          <div class="home-logo-name" style="font-size:18px;font-weight:900;letter-spacing:1px"><span style="color:#fff">DAPUR</span><span style="color:#FF8C33">KU</span></div>
           <div class="home-logo-sub" style="font-size:9px">Ghost Kitchen & UMKM Kuliner</div>
         </div>
       </div>
@@ -1192,7 +1202,7 @@ function renderHome(){
       return "<div class='lc' onclick='openLiveRoom("+lv.rId+")'>"
         +(img?"<img class='lc-img' src='"+img+"'>":"<div class='lc-em' style='background:"+r.bg+"'>"+r.e+"</div>")
         +"<div class='lc-overlay'>"
-        +"<span class='lc-badge'>🔴 LIVE</span>"
+        +"<span class='lc-badge'><span class='live-dot'></span>LIVE</span>"
         +"<div style='display:flex;align-items:center;gap:5px'>"
         +"<div style='color:#fff;font-size:10px;font-weight:700;flex:1'>"+lv.title+"</div>"
         +"<span style='color:rgba(255,255,255,.7);font-size:9px'>👁 "+lv.viewers+"</span></div>"

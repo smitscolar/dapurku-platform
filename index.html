@@ -317,7 +317,12 @@ img{display:block}
   <div class="home-header">
     <div class="home-logo-row">
       <div class="home-logo">
-        <div class="home-logo-icon" id="logoWrap"><img src="https://dapurku-platform.vercel.app/logo.png" style="width:34px;height:34px;object-fit:contain" onerror="this.style.display='none';document.getElementById('logoWrap').innerHTML='<span style=\'font-size:24px\'>🍳</span>'"></div>
+        <div class="home-logo-icon" id="logoWrap">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="8" fill="#1B6B2F"/>
+            <text x="17" y="23" text-anchor="middle" font-size="20" fill="white">🍳</text>
+          </svg>
+        </div>
         <div>
           <div class="home-logo-name">DapurKu</div>
           <div class="home-logo-sub">Ghost Kitchen · Batam</div>
@@ -765,10 +770,10 @@ img{display:block}
     <span class="nav-label">Beranda</span>
     <div class="nav-active-dot" id="dot-home"></div>
   </button>
-  <button class="nav-btn" id="nav-market" onclick="navMarketOrCart()">
-    <span class="nav-icon">🛒<span id="navCartBadge" class="nav-badge" style="display:none">0</span></span>
-    <span class="nav-label">Market</span>
-    <div class="nav-active-dot" id="dot-market" style="display:none"></div>
+  <button class="nav-btn" id="nav-groupbuy" onclick="goTo('sc-groupbuy');setNav('groupbuy')">
+    <span class="nav-icon">🤝</span>
+    <span class="nav-label">Group Buy</span>
+    <div class="nav-active-dot" id="dot-groupbuy" style="display:none"></div>
   </button>
   <button class="nav-btn nav-fab" onclick="goTo('sc-jual');setNav('jual')">
     <div class="nav-fab-btn" id="nav-jual">📤</div>
@@ -864,7 +869,6 @@ const SHORTCUTS=[
   {em:"🍽️",l:"Pesan",nav:"sc-market",bg:"#FEF3E2"},
   {em:"📦",l:"Pesanan",nav:"sc-orders",bg:"#E8F5E9"},
   {em:"⚡",l:"Flash Sale",nav:"sc-market",bg:"#FFF8E1"},
-  {em:"🤝",l:"Group Buy",nav:"sc-groupbuy",bg:"#E8F5E9"},
   {em:"💳",l:"DAPAY",nav:"sc-dapay",bg:"#E3F2FD"},
   {em:"🎁",l:"Voucher",nav:"sc-notif",bg:"#F3E5F5"},
   {em:"📸",l:"Foto",nav:"sc-photo",bg:"#FCE4EC"},
@@ -1099,7 +1103,7 @@ function goBack(){
   if(S.history.length>0){
     var prev=S.history.pop();
     goTo(prev,false);
-    var navMap={"sc-home":"home","sc-market":"market","sc-chat-list":"chat","sc-profil":"profil","sc-jual":"jual"};
+    var navMap={"sc-home":"home","sc-market":"market","sc-chat-list":"chat","sc-profil":"profil","sc-jual":"jual","sc-groupbuy":"groupbuy"};
     if(navMap[prev]) setNav(navMap[prev]);
     // Force re-render home jika kembali ke beranda
     if(prev==="sc-home") setTimeout(function(){renderHome();},50);
@@ -1111,7 +1115,7 @@ function goBack(){
 
 function setNav(tab){
   S.nav=tab;
-  ["home","market","chat","profil","jual"].forEach(function(t){
+  ["home","market","groupbuy","chat","profil","jual"].forEach(function(t){
     var btn=document.getElementById("nav-"+t);
     var dot=document.getElementById("dot-"+t);
     if(btn) btn.classList.toggle("active",t===tab);

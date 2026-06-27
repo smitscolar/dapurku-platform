@@ -262,7 +262,7 @@ img{display:block}
 
 /* ── NOTIF ── */
 .notif-item{background:#1F2937;padding:12px 14px;display:flex;gap:10px;border-bottom:1px solid #374151;cursor:pointer}
-.notif-item.unread{background:#1e1a10}
+.notif-item.unread{background:#1a1f10}
 
 /* ── TOAST (TALARA exact) ── */
 #toast{
@@ -303,9 +303,9 @@ img{display:block}
 
 /* ── JUAL FORM ── */
 .form-row{margin-bottom:12px}
-.form-label{font-size:12px;font-weight:700;color:var(--mid);margin-bottom:5px}
+.form-label{font-size:12px;font-weight:700;color:#9CA3AF;margin-bottom:5px}
 .form-input{width:100%;background:#374151;border:1.5px solid #4B5563;border-radius:10px;padding:10px 12px;font-size:14px;color:#F9FAFB}
-.form-input:focus{border-color:var(--green)}
+.form-input:focus{border-color:#F5A623} select.form-input{color:#F9FAFB}
 
 /* ── STATS ── */
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}
@@ -470,7 +470,7 @@ img{display:block}
 </div>
 
 <!-- ════ PRODUCT DETAIL ════ -->
-<div class="screen" id="sc-product" style="padding-bottom:0">
+<div class="screen" id="sc-product" style="padding-bottom:0;background:#111827">
   <div style="position:relative">
     <div id="pdImgWrap" class="pd-img"></div>
     <button class="pd-back" onclick="goBack()">←</button>
@@ -526,7 +526,7 @@ img{display:block}
 </div>
 
 <!-- ════ CART ════ -->
-<div class="screen" id="sc-cart">
+<div class="screen" id="sc-cart" style="background:#111827">
   <div style="padding:16px 16px 0;display:flex;align-items:center;gap:12px;margin-bottom:16px">
     <button onclick="goBack()" style="background:none;border:none;font-size:22px;cursor:pointer">←</button>
     <div style="font-size:17px;font-weight:800;color:var(--dark)">🛒 Keranjang (<span id="cartCount">0</span>)</div>
@@ -539,7 +539,7 @@ img{display:block}
 </div>
 
 <!-- ════ CHECKOUT OK ════ -->
-<div class="screen" id="sc-checkout">
+<div class="screen" id="sc-checkout" style="background:#111827">
   <div class="checkout-ok">
     <div class="bounce" style="font-size:72px;margin-bottom:16px">🎉</div>
     <div style="font-size:22px;font-weight:900;color:var(--dark);margin-bottom:8px">Pesanan Berhasil!</div>
@@ -551,7 +551,7 @@ img{display:block}
 </div>
 
 <!-- ════ DAPUR LIST ════ -->
-<div class="screen" id="sc-dapur-list">
+<div class="screen" id="sc-dapur-list" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px;position:sticky;top:0;z-index:50">
     <div class="topbar-row" style="margin-bottom:10px">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -563,7 +563,7 @@ img{display:block}
 </div>
 
 <!-- ════ DAPUR DETAIL ════ -->
-<div class="screen" id="sc-dapur-detail">
+<div class="screen" id="sc-dapur-detail" style="background:#111827">
   <div style="position:relative">
     <div id="ddImgWrap" style="height:180px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;overflow:hidden"></div>
     <button class="pd-back" onclick="goBack()">←</button>
@@ -578,7 +578,7 @@ img{display:block}
 </div>
 
 <!-- ════ LIVE LIST ════ -->
-<div class="screen" id="sc-live-list">
+<div class="screen" id="sc-live-list" style="background:#111827">
   <div style="background:var(--blue-grad);padding:14px 14px 18px">
     <div class="topbar-row">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -589,7 +589,7 @@ img{display:block}
 </div>
 
 <!-- ════ LIVE ROOM ════ -->
-<div class="screen" id="sc-live-room" style="padding-bottom:0">
+<div class="screen" id="sc-live-room" style="background:#000" style="padding-bottom:0">
   <div class="live-room-wrap">
     <div class="live-room-header">
       <button onclick="goBack()" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer">←</button>
@@ -627,7 +627,7 @@ img{display:block}
 </div>
 
 <!-- ════ GROUP BUY ════ -->
-<div class="screen" id="sc-groupbuy">
+<div class="screen" id="sc-groupbuy" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row" style="margin-bottom:10px">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -651,14 +651,14 @@ img{display:block}
   </div>
   <!-- Tab: Aktif / Riwayat -->
   <div style="display:flex;gap:0;background:#1F2937;border-bottom:2px solid #374151;padding:0 14px">
-    <button id="gbTab0" onclick="switchGbTab(0)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:700;color:var(--green);border-bottom:2px solid var(--green);margin-bottom:-2px">Aktif</button>
-    <button id="gbTab1" onclick="switchGbTab(1)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:600;color:var(--mid)">Riwayatku</button>
+    <button id="gbTab0" onclick="switchGbTab(0)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:700;color:#F5A623;border-bottom:2px solid #F5A623;margin-bottom:-2px">Aktif</button>
+    <button id="gbTab1" onclick="switchGbTab(1)" style="flex:1;padding:10px 0;border:none;background:none;font-size:13px;font-weight:600;color:#9CA3AF">Riwayatku</button>
   </div>
-  <div style="padding:10px 14px" id="gbBody"></div>
+  <div style="padding:10px 14px;background:#111827;min-height:50vh" id="gbBody"></div>
 </div>
 
 <!-- ════ DAPAY WALLET ════ -->
-<div class="screen" id="sc-dapay">
+<div class="screen" id="sc-dapay" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px 14px 0">
     <div class="topbar-row" style="margin-bottom:14px">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -688,7 +688,7 @@ img{display:block}
 </div>
 
 <!-- ════ CHAT LIST ════ -->
-<div class="screen" id="sc-chat-list">
+<div class="screen" id="sc-chat-list" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -700,7 +700,7 @@ img{display:block}
 </div>
 
 <!-- ════ CHAT ROOM ════ -->
-<div class="screen" id="sc-chat-room" style="padding-bottom:0">
+<div class="screen" id="sc-chat-room" style="background:#111827" style="padding-bottom:0">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -719,7 +719,7 @@ img{display:block}
 </div>
 
 <!-- ════ NOTIFIKASI ════ -->
-<div class="screen" id="sc-notif">
+<div class="screen" id="sc-notif" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -731,7 +731,7 @@ img{display:block}
 </div>
 
 <!-- ════ JUAL / TAMBAH MENU (for Dapur mode) ════ -->
-<div class="screen" id="sc-jual">
+<div class="screen" id="sc-jual" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -757,7 +757,7 @@ img{display:block}
 </div>
 
 <!-- ════ PROFIL ════ -->
-<div class="screen" id="sc-profil">
+<div class="screen" id="sc-profil" style="background:#111827">
   <div class="profil-header">
     <div class="profil-avatar">👤</div>
     <div style="font-size:18px;font-weight:900;color:#fff" id="profilName">Budi Santoso</div>
@@ -774,7 +774,7 @@ img{display:block}
 </div>
 
 <!-- ════ PHOTO MANAGER ════ -->
-<div class="screen" id="sc-photo">
+<div class="screen" id="sc-photo" style="background:#111827">
   <div style="background:var(--green-grad);padding:14px">
     <div class="topbar-row" style="margin-bottom:10px">
       <button class="topbar-back" onclick="goBack()">←</button>
@@ -1279,10 +1279,10 @@ function renderHome(){
         +"</div>"
         +"<div class='pop-body'>"
         +"<div class='pop-name'>"+f.n+"</div>"
-        +"<div style='font-size:9px;color:#9CA3AF;margin-bottom:4px'>🏪 "+(R.find(function(r){return r.id===f.rId;})||{n:""}).n+"</div>"
+        +"<div style='font-size:9px;color:#9CA3AF;margin-bottom:4px'>🏪 "+(R.find(function(r){return r.id===f.rId;})||{n:"Dapur"}).n+"</div>"
         +"<div style='font-size:13px;font-weight:900;color:#F5A623'>Rp "+f.p.toLocaleString("id-ID")+"</div>"
-        +(f.o?"<div style='font-size:9px;color:#6B7280;text-decoration:line-through'>Rp "+f.o.toLocaleString("id-ID")+"</div>":"")
-        +"<div style='font-size:9px;color:#9CA3AF;margin-top:2px'>⭐ "+f.r+" · "+f.s+" terjual</div>"
+        +(f.og?"<div style='font-size:9px;color:#6B7280;text-decoration:line-through'>Rp "+f.og.toLocaleString("id-ID")+"</div>":"")
+        +"<div style='font-size:9px;color:#9CA3AF;margin-top:2px'>⭐ "+f.rt+" · "+f.s+" terjual</div>"
         +"</div></div>";
     }).join("");
   }

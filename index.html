@@ -143,6 +143,14 @@ img{display:block}
 .flash-price{font-size:12px;font-weight:900;color:var(--orange)}
 .flash-orig{font-size:9px;color:#bbb;text-decoration:line-through}
 
+/* ── POPULER CARD (horizontal) ── */
+.pop-card{flex-shrink:0;width:150px;background:#1F2937;border-radius:var(--radius);overflow:hidden;box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
+.pop-card:active{transform:scale(.97)}
+.pop-img{width:100%;height:110px;position:relative;overflow:hidden;background:#374151;display:flex;align-items:center;justify-content:center}
+.pop-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pop-body{padding:8px 10px 10px}
+.pop-name{font-size:11px;font-weight:700;color:#F9FAFB;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+
 /* ── FOOD CARD ── */
 .food-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 14px}
 .fc{background:#1F2937;border-radius:var(--radius);overflow:hidden;box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
@@ -409,7 +417,7 @@ img{display:block}
       <span class="section-title" style="color:#F9FAFB">🔥 Menu Terlaris</span>
       <span class="section-more" onclick="goTo('sc-market')">Lihat Semua ›</span>
     </div>
-    <div id="homePopuler" class="food-grid" style="margin-top:8px"></div>
+    <div id="homePopuler" class="hscrl" style="margin-top:8px"></div>
   </div>
 
   <!-- DAPUR TERDEKAT -->
@@ -1241,8 +1249,24 @@ function renderHome(){
   // Populer (sort by sold)
   var hp=document.getElementById("homePopuler");
   if(hp){
-    var pop=F.slice().sort(function(a,b){return b.s-a.s;}).slice(0,4);
-    hp.innerHTML=pop.map(foodCard).join("");
+    var pop=F.slice().sort(function(a,b){return b.s-a.s;}).slice(0,6);
+    hp.innerHTML=pop.map(function(f){
+      var img=getImg("menu",f.id);
+      var disc=f.o?Math.round((1-f.p/f.o)*100):0;
+      return "<div class='pop-card' onclick='openProduct("+f.id+")'>"
+        +"<div class='pop-img' style='background:"+(img?"#000":f.bg)+"'>"
+        +(img?"<img src='"+img+"' style='position:absolute;inset:0;width:100%;height:100%;object-fit:cover'>":"<span style='font-size:40px'>"+f.e+"</span>")
+        +(disc?"<div class='flash-disc'>-"+disc+"%</div>":"")
+        +"<button class='fc-fav' onclick='event.stopPropagation();toggleFav()'>🤍</button>"
+        +"</div>"
+        +"<div class='pop-body'>"
+        +"<div class='pop-name'>"+f.n+"</div>"
+        +"<div style='font-size:9px;color:#9CA3AF;margin-bottom:4px'>🏪 "+(R.find(function(r){return r.id===f.rId;})||{n:""}).n+"</div>"
+        +"<div style='font-size:13px;font-weight:900;color:#F5A623'>Rp "+f.p.toLocaleString("id-ID")+"</div>"
+        +(f.o?"<div style='font-size:9px;color:#6B7280;text-decoration:line-through'>Rp "+f.o.toLocaleString("id-ID")+"</div>":"")
+        +"<div style='font-size:9px;color:#9CA3AF;margin-top:2px'>⭐ "+f.r+" · "+f.s+" terjual</div>"
+        +"</div></div>";
+    }).join("");
   }
 
   // Dapur
